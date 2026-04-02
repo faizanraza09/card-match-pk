@@ -1,25 +1,22 @@
-# Card Match App
+# Card Match PK
 
-This folder is the self-contained web app.
+Static web app for comparing dining card offers in Pakistan.
 
-## What is inside
+## Refresh data
 
-- `index.html`
-- `assets/`
-- `data/offers.json`
-- `refresh_data.py`
+Create a `.env` file in the project root with:
 
-## Refresh the app data
+```text
+PEEKABOO_TOKEN=PASTE_TOKEN_HERE
+```
 
-This app no longer needs the Excel pipeline.
-
-Run:
+Then run:
 
 ```powershell
 python refresh_data.py
 ```
 
-That script scrapes Peekaboo directly and rewrites:
+That rewrites:
 
 ```text
 data/offers.json
@@ -39,46 +36,27 @@ Then open:
 http://localhost:8000
 ```
 
-## Deploy for free
+## Local test flow
 
-Recommended:
+Use this sequence before deploying:
+
+```powershell
+python refresh_data.py
+python -m http.server 8000 --bind 0.0.0.0
+```
+
+Then open `http://localhost:8000` and test:
+
+- city filters
+- restaurant filters
+- bank filters
+- card type filters
+- result ranking
+
+## Deploy
+
+Recommended host:
 
 - Cloudflare Pages
-- Netlify
-- GitHub Pages
 
-For all three, publish this folder as a static site.
-
-## Recommended deployment path
-
-The app is a static site, so deployment is straightforward:
-
-1. Put this folder in a GitHub repository.
-2. Make sure `data/offers.json` is committed.
-3. Connect the repo to a static host.
-4. Set the publish directory to the repo root or this folder, depending on how you store it.
-
-### Netlify
-
-- New site from Git
-- Build command: leave blank
-- Publish directory: `.`
-
-### Cloudflare Pages
-
-- Create application from Git
-- Framework preset: `None`
-- Build command: leave blank
-- Build output directory: `.`
-
-### GitHub Pages
-
-- If this folder is the repo root, enable Pages and deploy from the main branch.
-- If this folder lives inside a larger repo, use a GitHub Actions workflow to publish just this directory.
-
-## Before going live
-
-- Run `python refresh_data.py` to refresh the latest offers.
-- Test locally with `python -m http.server 8000 --bind 0.0.0.0`.
-- Check the filters and results in desktop and mobile layout.
-- If you want automatic data refresh, the next step is to move `refresh_data.py` into a scheduled job that rewrites `data/offers.json` and pushes the update to your repo on a daily or weekly cadence.
+Use the repo root as the static site directory.

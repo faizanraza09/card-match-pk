@@ -179,10 +179,9 @@ function renderBankSearch() {
     button.className = "search-item";
     button.innerHTML = `
       <div>
-        <strong>${escapeHtml(bank)}</strong>
-        <span>Add bank filter</span>
+        <strong class="search-title">${escapeHtml(bank)}</strong>
       </div>
-      <span>Add</span>
+      <span class="search-action">Add</span>
     `;
     button.addEventListener("click", () => {
       state.selectedBanks.add(bank);
@@ -337,10 +336,10 @@ function renderRestaurantSearch() {
     button.className = "search-item";
     button.innerHTML = `
       <div>
-        <strong>${escapeHtml(restaurant)}</strong>
-        <span>${escapeHtml(cities.join(", "))}</span>
+        <strong class="search-title">${escapeHtml(restaurant)}</strong>
+        <span class="search-meta">${escapeHtml(cities.join(", "))}</span>
       </div>
-      <span>Add</span>
+      <span class="search-action">Add</span>
     `;
     button.addEventListener("click", () => {
       state.selectedRestaurants.add(restaurant);
@@ -423,6 +422,11 @@ function computeRecommendations() {
   const cardMap = new Map();
 
   desiredOffers.forEach((offer) => {
+    const discountPct = getOfferDiscountPct(offer);
+    if (!Number.isFinite(discountPct) || discountPct <= 0) {
+      return;
+    }
+
     const overlapCount = offer.days.reduce(
       (count, day) => count + (selectedDays.has(day) ? 1 : 0),
       0,
@@ -432,7 +436,7 @@ function computeRecommendations() {
     }
 
     const rawSaving = Math.min(
-      (state.orderValue * offer.discountPct) / 100,
+      (state.orderValue * discountPct) / 100,
       offer.capPkr ?? Number.POSITIVE_INFINITY,
     );
     const dayFit = overlapCount / totalSelectedDays;
@@ -456,7 +460,7 @@ function computeRecommendations() {
       rawSaving,
       expectedSaving,
       dayFit,
-      discountPct: offer.discountPct,
+      discountPct,
       discountLabel: offer.discountLabel,
       offerTitle: offer.offerTitle,
       daysLabel: offer.daysLabel,
@@ -671,6 +675,18 @@ function syncFiltersShellForViewport() {
 
 function cityMatches(city) {
   return state.selectedCities.size === 0 || state.selectedCities.has(city);
+}
+
+function getOfferDiscountPct(offer) {
+  if (Number.isFinite(offer.discountPct)) {
+    return Number(offer.discountPct);
+  }
+  const text = `${offer.discountLabel || ""} ${offer.offerTitle || ""}`;
+  const matches = text.match(/(\d+(?:\.\d+)?)\s*%/g) || [];
+  if (!matches.length) {
+    return null;
+  }
+  return Math.max(...matches.map((match) => Number.parseFloat(match)));
 }
 
 function cardTypeMatches(cardType) {

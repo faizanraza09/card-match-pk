@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import socket
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -14,9 +15,31 @@ from requests.adapters import HTTPAdapter
 
 BASE_DIR = Path(__file__).resolve().parent
 OUTPUT_PATH = BASE_DIR / "data" / "offers.json"
+ENV_PATH = BASE_DIR / ".env"
 
-TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NzIsInJvbGUiOiJndWVzdCIsImlhdCI6MTU1MzcwMDgwNiwianRpIjoiUEpJMXFTb2ktQzRBZFJWcm9nb3RNV2UzV3VXcFdXTm0ifQ.2mb26xL4Qt7FfBQZ-XQvp-fhecMpaVUVXWp_GEST_6U"
+
+def load_dotenv(path: Path) -> None:
+    if not path.exists():
+        return
+
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+load_dotenv(ENV_PATH)
+
+TOKEN = os.environ.get("PEEKABOO_TOKEN")
 BASE = "https://peekaboo.guru"
+
+if not TOKEN:
+    raise RuntimeError("Missing PEEKABOO_TOKEN in .env or environment.")
 
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
@@ -94,6 +117,14 @@ def extract_discount(entity: dict) -> str | None:
     if max_discount not in (None, ""):
         return f"{max_discount}%"
     return entity.get("discount")
+
+
+def parse_discount_pct(*parts: str | None) -> float | None:
+    text = " ".join(str(part or "") for part in parts)
+    matches = re.findall(r"(\d+(?:\.\d+)?)\s*%", text)
+    if not matches:
+        return None
+    return max(float(value) for value in matches)
 
 
 def parse_discount_cap(text: str | None) -> int | None:
@@ -349,6 +380,7 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
 
             if not matched_deals:
                 discount_label = extract_discount(entity)
+                discount_pct = parse_discount_pct(discount_label)
                 if discount_label:
                     offers.append(
                         {
@@ -358,6 +390,7 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                             "card": card["typeName"],
                             "cardCategory": infer_card_category(card["typeName"]),
                             "cardKey": f"{bank['name']} || {card['typeName']}",
+                            "discountPct": discount_pct,
                             "discountLabel": discount_label,
                             "offerTitle": None,
                             "days": list(range(7)),
@@ -374,6 +407,7 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
 
             for deal in matched_deals:
                 discount_label = extract_discount(entity)
+                discount_pct = parse_discount_pct(discount_label, deal.get("title"))
                 if not discount_label:
                     continue
                 days = extract_weekdays(deal.get("title"), deal.get("description"))
@@ -385,6 +419,7 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                         "card": card["typeName"],
                         "cardCategory": infer_card_category(card["typeName"]),
                         "cardKey": f"{bank['name']} || {card['typeName']}",
+                        "discountPct": discount_pct,
                         "discountLabel": discount_label,
                         "offerTitle": deal.get("title"),
                         "days": [DAY_ORDER.index(day) for day in days],
