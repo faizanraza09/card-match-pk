@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Card Match | Dining Card Recommender</title>
+    <meta
+      name="description"
+      content="Find the best bank card for your dining habits across Karachi, Lahore, and Islamabad."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script defer src="./assets/app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="app-bar">
+        <div class="app-bar-copy">
+          <p class="eyebrow">Dining Card Finder</p>
+          <h1>Find your best dining card</h1>
+        </div>
+        <div class="app-bar-stats">
+          <div class="mini-metric">
+            <strong id="stat-offers">0</strong>
+            <span>Offers</span>
+          </div>
+          <div class="mini-metric">
+            <strong id="stat-cards">0</strong>
+            <span>Cards</span>
+          </div>
+          <div class="mini-metric">
+            <strong id="stat-restaurants">0</strong>
+            <span>Restaurants</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-layout">
+        <aside class="controls">
+          <details id="filters-shell" class="filters-shell" open>
+            <summary class="filters-toggle">Filters</summary>
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Your Filters</h2>
+                <button id="reset-filters" class="ghost-button" type="button">Reset</button>
+              </div>
+
+              <div class="field">
+                <div class="field-head">
+                  <label>Cities</label>
+                  <button id="clear-cities" class="text-button" type="button">Use all</button>
+                </div>
+                <div id="city-pills" class="pill-grid"></div>
+              </div>
+
+              <div class="field">
+                <div class="field-head">
+                  <label for="restaurant-search">Restaurants</label>
+                  <button id="clear-restaurants" class="text-button" type="button">Use all</button>
+                </div>
+                <input
+                  id="restaurant-search"
+                  class="search-input"
+                  type="search"
+                  placeholder="Search for BBQ Tonight, Cafe Aylanto, PF Chang's..."
+                  autocomplete="off"
+                />
+                <div id="restaurant-results" class="search-results"></div>
+                <div id="selected-restaurants" class="selected-chips"></div>
+                <p class="helper">
+                  Leave this empty if you want a broad recommendation across all restaurants
+                  in your selected cities.
+                </p>
+              </div>
+
+              <div class="field">
+                <div class="field-head">
+                  <label>Going-Out Days</label>
+                  <button id="clear-days" class="text-button" type="button">Use all</button>
+                </div>
+                <div id="day-pills" class="pill-grid compact"></div>
+              </div>
+
+              <div class="field field-emphasis">
+                <div class="field-head">
+                  <label for="order-value">Typical Bill</label>
+                  <strong id="order-value-label">PKR 4,000</strong>
+                </div>
+                <input id="order-value" type="range" min="1000" max="50000" step="500" value="4000" />
+                <div class="range-scale">
+                  <span>PKR 1,000</span>
+                  <span>PKR 50,000</span>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="field-head">
+                  <label>Banks</label>
+                  <button id="clear-banks" class="text-button" type="button">Use all</button>
+                </div>
+                <input
+                  id="bank-search"
+                  class="search-input"
+                  type="search"
+                  placeholder="Search banks..."
+                  autocomplete="off"
+                />
+                <div id="bank-results" class="search-results compact-results"></div>
+                <div id="selected-banks" class="selected-chips"></div>
+              </div>
+
+              <div class="field">
+                <div class="field-head">
+                  <label>Card Type</label>
+                  <button id="clear-card-types" class="text-button" type="button">Use all</button>
+                </div>
+                <div id="card-type-pills" class="pill-grid"></div>
+              </div>
+            </section>
+          </details>
+        </aside>
+
+        <section class="results">
+          <section class="summary-strip panel">
+            <div class="summary-item">
+              <span>Selected restaurants</span>
+              <strong id="summary-brands">All available</strong>
+            </div>
+            <div class="summary-item">
+              <span>Selected cities</span>
+              <strong id="summary-cities">3 cities</strong>
+            </div>
+            <div class="summary-item">
+              <span>Selected days</span>
+              <strong id="summary-days">7 days</strong>
+            </div>
+            <div class="summary-item">
+              <span>Best expected saving</span>
+              <strong id="summary-best">-</strong>
+            </div>
+          </section>
+
+          <section id="empty-state" class="panel empty-state hidden">
+            <h2>No matching offers</h2>
+            <p>
+              Try adding another city, loosening the restaurant list, or choosing more days.
+            </p>
+          </section>
+
+          <section id="top-pick" class="top-pick hidden"></section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Recommended Cards</h2>
+              <span id="result-count" class="panel-tag">0 cards</span>
+            </div>
+            <p class="results-note">
+              Ranked by estimated savings on your bill, fit with your selected days, and how many of your chosen restaurants the card actually covers.
+            </p>
+            <div id="results-grid" class="results-grid"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
