@@ -12,6 +12,7 @@ const state = {
 
 const elements = {
   filtersShell: document.getElementById("filters-shell"),
+  filtersToggle: document.querySelector(".filters-toggle"),
   cityPills: document.getElementById("city-pills"),
   dayPills: document.getElementById("day-pills"),
   cardTypePills: document.getElementById("card-type-pills"),
@@ -70,6 +71,7 @@ async function init() {
 
 function bindEvents() {
   window.addEventListener("resize", syncFiltersShellForViewport);
+  bindFiltersToggleTouchGuard();
 
   elements.clearCities.addEventListener("click", () => {
     state.selectedCities = new Set();
@@ -397,6 +399,54 @@ function renderRecommendations() {
   }
   renderTopPick(results[0]);
   renderResultCards(results.slice(0, 10));
+}
+
+function bindFiltersToggleTouchGuard() {
+  if (!elements.filtersToggle) {
+    return;
+  }
+
+  let touchStartY = 0;
+  let touchStartX = 0;
+  let moved = false;
+
+  elements.filtersToggle.addEventListener(
+    "touchstart",
+    (event) => {
+      const touch = event.touches[0];
+      if (!touch) {
+        return;
+      }
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+      moved = false;
+    },
+    { passive: true },
+  );
+
+  elements.filtersToggle.addEventListener(
+    "touchmove",
+    (event) => {
+      const touch = event.touches[0];
+      if (!touch) {
+        return;
+      }
+      if (
+        Math.abs(touch.clientY - touchStartY) > 8 ||
+        Math.abs(touch.clientX - touchStartX) > 8
+      ) {
+        moved = true;
+      }
+    },
+    { passive: true },
+  );
+
+  elements.filtersToggle.addEventListener("click", (event) => {
+    if (moved) {
+      event.preventDefault();
+      moved = false;
+    }
+  });
 }
 
 function computeRecommendations() {
