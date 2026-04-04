@@ -542,21 +542,13 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                             "bank": bank["name"],
                             "card": card["typeName"],
                             "cardCategory": infer_card_category(card["typeName"]),
-                            "cardKey": f"{bank['name']} || {card['typeName']}",
                             "discountPct": discount_fields["discountPct"],
                             "discountLabel": discount_label,
-                            "discountKind": discount_fields["discountKind"],
-                            "maxHeadlinePct": discount_fields["maxHeadlinePct"],
                             "fixedDiscountPkr": discount_fields["fixedDiscountPkr"],
                             "offerTitle": None,
                             "days": list(range(7)),
                             "daysLabel": "All Days",
-                            "startDate": None,
-                            "endDate": None,
                             "capPkr": None,
-                            "dailyLimit": None,
-                            "monthlyLimit": None,
-                            "orderTypes": [],
                         }
                     )
                 continue
@@ -576,21 +568,13 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                         "bank": bank["name"],
                         "card": card["typeName"],
                         "cardCategory": infer_card_category(card["typeName"]),
-                        "cardKey": f"{bank['name']} || {card['typeName']}",
                         "discountPct": discount_fields["discountPct"],
                         "discountLabel": discount_label,
-                        "discountKind": discount_fields["discountKind"],
-                        "maxHeadlinePct": discount_fields["maxHeadlinePct"],
                         "fixedDiscountPkr": discount_fields["fixedDiscountPkr"],
                         "offerTitle": deal.get("title"),
                         "days": [DAY_ORDER.index(day) for day in days],
                         "daysLabel": extract_schedule_label(deal.get("title"), deal.get("description")),
-                        "startDate": str(deal.get("startDate") or "")[:10] or None,
-                        "endDate": str(deal.get("endDate") or "")[:10] or None,
                         "capPkr": parse_discount_cap(deal.get("description")),
-                        "dailyLimit": extract_transaction_limit(deal.get("description"), "day"),
-                        "monthlyLimit": extract_transaction_limit(deal.get("description"), "month"),
-                        "orderTypes": extract_order_types(deal.get("description")),
                     }
                 )
 
@@ -616,7 +600,7 @@ def build_payload(offers: list[dict]) -> dict:
         },
         "stats": {
             "offers": len(offers),
-            "cards": len({offer["cardKey"] for offer in offers}),
+            "cards": len({f"{offer['bank']}||{offer['card']}" for offer in offers}),
             "banks": len({offer["bank"] for offer in offers}),
             "restaurants": len(unique_restaurants),
         },

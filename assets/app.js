@@ -561,16 +561,17 @@ function computeRecommendations() {
     }
 
     const venueKey = `${offer.city} || ${offer.restaurant}`;
+    const cardKey = `${offer.bank} || ${offer.card}`;
 
-    if (!cardMap.has(offer.cardKey)) {
-      cardMap.set(offer.cardKey, {
+    if (!cardMap.has(cardKey)) {
+      cardMap.set(cardKey, {
         bank: offer.bank,
         card: offer.card,
         venueDailyBest: new Map(),
       });
     }
 
-    const cardRecord = cardMap.get(offer.cardKey);
+    const cardRecord = cardMap.get(cardKey);
     if (!cardRecord.venueDailyBest.has(venueKey)) {
       cardRecord.venueDailyBest.set(venueKey, new Map());
     }
@@ -591,8 +592,6 @@ function computeRecommendations() {
         daysLabel: offer.daysLabel,
         capPkr: offer.capPkr,
         fixedDiscountPkr: offer.fixedDiscountPkr ?? null,
-        discountKind: offer.discountKind ?? "unknown",
-        orderTypes: offer.orderTypes,
       };
 
       if (!current || candidate.saving > current.saving) {
@@ -641,8 +640,6 @@ function computeRecommendations() {
             : bestByDay.map(([day]) => DAY_SHORT[day]).join(", "),
           capPkr: caps.length ? Math.max(...caps) : null,
           fixedDiscountPkr: strongestMatch.fixedDiscountPkr,
-          discountKind: strongestMatch.discountKind,
-          orderTypes: strongestMatch.orderTypes,
         };
       })
       .filter(Boolean);
@@ -719,9 +716,11 @@ function getOfferSavingValue(offer, orderValue) {
 function renderTopPick(result) {
   const coveragePct = Math.round(result.coverage * 100);
   const daysFitPct = Math.round(result.avgDayFit * 100);
+  const filterContext = `${getTopPickCitiesLabel()} · ${getTopPickDaysLabel()}`;
   elements.topPick.classList.remove("hidden");
   elements.topPick.innerHTML = `
     <article class="pick-card">
+      <p class="pick-context">${escapeHtml(filterContext)}</p>
       <div class="pick-header">
         <div class="pick-copy">
           <div class="pick-badge-row">
@@ -733,8 +732,8 @@ function renderTopPick(result) {
         <div class="score-wrap">
           <div class="score-badge">
             <strong>${formatScore(result.score)}</strong>
-            <span class="score-label">
-              Fit Score
+            <span class="score-scale-row">
+              <span class="score-scale">/ 100</span>
               <span class="tooltip-wrap">
                 <button class="info-dot" type="button" aria-label="Fit score info">i</button>
                 <span class="tooltip-card" role="tooltip">
@@ -838,7 +837,7 @@ function renderResultCards(results) {
               </div>
               <div class="result-side mobile-inline">
                 <strong>${formatScore(result.score)}</strong>
-                <span>Fit Score</span>
+                <span>Fit Score / 100</span>
               </div>
             </div>
             <div class="result-metrics">
@@ -854,12 +853,26 @@ function renderResultCards(results) {
           </div>
           <div class="result-side desktop-only">
             <strong>${formatScore(result.score)}</strong>
-            <span>Fit Score</span>
+            <span>Fit Score / 100</span>
           </div>
         </article>
       `;
     })
     .join("");
+}
+
+function getTopPickCitiesLabel() {
+  const cityCount = getEffectiveCityCount();
+  return state.selectedCities.size > 0
+    ? `${cityCount} ${cityCount === 1 ? "city" : "cities"}`
+    : "All cities";
+}
+
+function getTopPickDaysLabel() {
+  const dayCount = getEffectiveDayCount();
+  return state.selectedDays.size > 0
+    ? `${dayCount} ${dayCount === 1 ? "day" : "days"}`
+    : "All days";
 }
 
 function formatCurrency(value) {

@@ -496,6 +496,13 @@ input[type="range"] {
   display: grid;
 }
 
+.pick-context {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
 .pick-card {
   border-radius: 30px;
   padding: 12px;
@@ -579,15 +586,17 @@ input[type="range"] {
   font-size: 1.15rem;
 }
 
-.score-badge span {
-  font-size: 0.66rem;
-}
-
-.score-label {
+.score-scale-row {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
+  margin-top: 2px;
+  font-size: 0.62rem;
+}
+
+.score-scale {
+  opacity: 0.82;
 }
 
 .tooltip-wrap {
@@ -882,23 +891,35 @@ input[type="range"] {
 
 .pick-more-details summary {
   min-height: 44px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(245, 236, 223, 0.92);
+  border: 1px solid rgba(22, 33, 25, 0.08);
   color: var(--brand-deep);
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   list-style: none;
   cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
 }
 
 .pick-more-details summary::-webkit-details-marker {
   display: none;
 }
 
+.pick-more-details summary:hover {
+  background: rgba(245, 232, 214, 0.98);
+  border-color: rgba(22, 33, 25, 0.12);
+  transform: translateY(-1px);
+}
+
 .pick-more-details summary::after {
   content: "+";
-  margin-left: auto;
+  margin-left: 4px;
   color: var(--muted);
 }
 
@@ -937,7 +958,7 @@ input[type="range"] {
 .seo-block h2 {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1rem;
+  font-size: 0.96rem;
   letter-spacing: -0.02em;
 }
 
@@ -947,6 +968,31 @@ input[type="range"] {
   max-width: 75ch;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.seo-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.seo-note::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #7aa63e;
+  vertical-align: middle;
+}
+
+.seo-how {
+  display: grid;
+  gap: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(22, 33, 25, 0.08);
 }
 
 .seo-meta-grid {
@@ -959,12 +1005,14 @@ input[type="range"] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  margin-top: 10px;
 }
 
 .how-card {
-  padding: 14px 0 0;
+  height: 100%;
+  padding: 14px;
   border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(22, 33, 25, 0.08);
 }
 
 .how-icon {
@@ -989,6 +1037,14 @@ input[type="range"] {
 
 .how-card p {
   margin-top: 8px;
+}
+
+.seo-panel {
+  height: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(22, 33, 25, 0.08);
 }
 
 .bank-pill-list {
@@ -1082,14 +1138,16 @@ input[type="range"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 52px;
-    padding: 12px 14px;
+    min-height: 56px;
+    padding: 12px 16px;
     cursor: pointer;
     touch-action: pan-y;
     font-family: "Space Grotesk", sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
     list-style: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(189, 91, 61, 0.14), rgba(203, 123, 85, 0.08));
   }
 
   .filters-toggle::-webkit-details-marker {
@@ -1101,15 +1159,18 @@ input[type="range"] {
   }
 
   .filters-toggle::after {
-    content: "Show";
-    color: var(--muted);
+    content: "Open →";
+    color: #fff7ea;
     font-family: "Source Sans 3", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--brand), #cb7b55);
   }
 
   .filters-shell[open] .filters-toggle::after {
-    content: "Hide";
+    content: "Close";
   }
 
   .filters-shell > .panel {
@@ -1243,7 +1304,7 @@ input[type="range"] {
 
   .summary-strip,
   .pick-stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .summary-item strong,

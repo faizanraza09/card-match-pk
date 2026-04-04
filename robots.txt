@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://foodcard.pk/sitemap.xml
+Sitemap: https://konsacard.pk/sitemap.xml
