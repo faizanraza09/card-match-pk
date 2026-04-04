@@ -1,0 +1,24 @@
+{
+  "name": "card-match-pk",
+  "version": "1.0.0",
+  "description": "Static web app for comparing dining card offers in Pakistan.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faizanraza09/card-match-pk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/faizanraza09/card-match-pk/issues"
+  },
+  "homepage": "https://github.com/faizanraza09/card-match-pk#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
+}

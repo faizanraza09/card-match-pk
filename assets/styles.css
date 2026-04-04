@@ -274,11 +274,6 @@ body::before {
   line-height: 1.15;
 }
 
-.field-emphasis {
-  background: rgba(255, 248, 239, 0.78);
-  border-color: rgba(189, 91, 61, 0.14);
-}
-
 .field label {
   display: block;
   margin-bottom: 6px;
@@ -1090,6 +1085,7 @@ input[type="range"] {
     min-height: 52px;
     padding: 12px 14px;
     cursor: pointer;
+    touch-action: pan-y;
     font-family: "Space Grotesk", sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
@@ -1140,21 +1136,18 @@ input[type="range"] {
   }
 
   body.filters-open .filters-shell {
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
+    display: block;
     width: 100%;
     height: calc(100dvh - 20px);
-    min-height: 0;
     border-radius: 22px;
-    overflow: hidden;
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   body.filters-open .filters-shell > .panel {
     display: block;
-    min-height: 0;
-    overflow: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
     padding-bottom: 90px;
   }
 
@@ -1171,6 +1164,7 @@ input[type="range"] {
     min-height: 58px;
     padding: 12px 14px;
     cursor: pointer;
+    touch-action: pan-y;
     list-style: none;
   }
 

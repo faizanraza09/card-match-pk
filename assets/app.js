@@ -80,7 +80,7 @@ async function init() {
 function bindEvents() {
   window.addEventListener("resize", syncFiltersShellForViewport);
   elements.filtersShell?.addEventListener("toggle", syncFiltersShellForViewport);
-  bindFiltersToggleTouchGuard();
+  bindDetailsSummaryTouchGuard(elements.filtersToggle);
   bindMobileFilterActions();
 
   elements.clearCities.addEventListener("click", () => {
@@ -472,8 +472,8 @@ function renderRecommendations() {
   renderResultCards(results.slice(0, 10));
 }
 
-function bindFiltersToggleTouchGuard() {
-  if (!elements.filtersToggle) {
+function bindDetailsSummaryTouchGuard(target) {
+  if (!target) {
     return;
   }
 
@@ -481,7 +481,7 @@ function bindFiltersToggleTouchGuard() {
   let touchStartX = 0;
   let moved = false;
 
-  elements.filtersToggle.addEventListener(
+  target.addEventListener(
     "touchstart",
     (event) => {
       const touch = event.touches[0];
@@ -495,7 +495,7 @@ function bindFiltersToggleTouchGuard() {
     { passive: true },
   );
 
-  elements.filtersToggle.addEventListener(
+  target.addEventListener(
     "touchmove",
     (event) => {
       const touch = event.touches[0];
@@ -512,7 +512,7 @@ function bindFiltersToggleTouchGuard() {
     { passive: true },
   );
 
-  elements.filtersToggle.addEventListener("click", (event) => {
+  target.addEventListener("click", (event) => {
     if (moved) {
       event.preventDefault();
       moved = false;
