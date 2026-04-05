@@ -1272,22 +1272,26 @@ input[type="range"] {
   }
 
   .filters-toggle-copy {
-    max-width: calc(100% - 56px);
+    max-width: calc(100% - 52px);
   }
 
   .filters-toggle::after {
-    content: "Open →";
+    content: "\2192";
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
     color: #fff7ea;
-    font-family: "Source Sans 3", sans-serif;
-    font-size: 0.8rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
     font-weight: 700;
-    padding: 8px 12px;
-    border-radius: 999px;
+    border-radius: 50%;
+    border: 1px solid rgba(189, 91, 61, 0.18);
     background: linear-gradient(135deg, var(--brand), #cb7b55);
   }
 
   .filters-shell[open] .filters-toggle::after {
-    content: "Close";
+    content: "\00D7";
   }
 
   .filters-shell > .panel {
