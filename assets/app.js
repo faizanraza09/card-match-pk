@@ -13,6 +13,7 @@ const state = {
 const elements = {
   filtersShell: document.getElementById("filters-shell"),
   filtersToggle: document.querySelector(".filters-toggle"),
+  mobileFiltersApplied: document.getElementById("mobile-filters-applied"),
   cityPills: document.getElementById("city-pills"),
   dayPills: document.getElementById("day-pills"),
   cardTypePills: document.getElementById("card-type-pills"),
@@ -215,6 +216,37 @@ function renderFilterSummaries() {
           .map((type) => CARD_TYPE_OPTIONS.find((option) => option.value === type)?.label || type)
           .join(", ")
       : "All card types";
+  }
+
+  if (elements.mobileFiltersApplied) {
+    const applied = [];
+    if (state.selectedCities.size > 0) {
+      applied.push(`${state.selectedCities.size} city${state.selectedCities.size === 1 ? "" : "ies"}`);
+    }
+    if (state.selectedRestaurants.size > 0) {
+      applied.push(`${state.selectedRestaurants.size} restaurant${state.selectedRestaurants.size === 1 ? "" : "s"}`);
+    }
+    if (state.selectedDays.size > 0) {
+      applied.push(Array.from(state.selectedDays).sort((a, b) => a - b).map((day) => DAY_SHORT[day]).join(", "));
+    }
+    if (state.selectedBanks.size > 0) {
+      applied.push(`${state.selectedBanks.size} bank${state.selectedBanks.size === 1 ? "" : "s"}`);
+    }
+    if (state.selectedCardTypes.size > 0) {
+      applied.push(
+        Array.from(state.selectedCardTypes)
+          .map((type) => CARD_TYPE_OPTIONS.find((option) => option.value === type)?.label || type)
+          .join(", "),
+      );
+    }
+    if (state.orderValue !== 10000) {
+      applied.push(formatCurrency(state.orderValue));
+    }
+
+    elements.mobileFiltersApplied.innerHTML = applied
+      .slice(0, 3)
+      .map((label) => `<span class="mobile-filter-chip">${escapeHtml(label)}</span>`)
+      .join("");
   }
 }
 
