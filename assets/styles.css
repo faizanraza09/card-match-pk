@@ -532,7 +532,6 @@ input[type="range"] {
 
 .top-pick {
   display: grid;
-  min-height: 286px;
 }
 
 .pick-context {
