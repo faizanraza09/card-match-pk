@@ -508,9 +508,14 @@ function renderSummary() {
       ? `${dayCount} ${dayCount === 1 ? "day" : "days"}`
       : "All days";
   elements.summaryBrands.textContent =
-    state.selectedRestaurants.size > 0
-      ? `${state.selectedRestaurants.size} selected`
-      : "All in selected cities";
+    state.selectedBanks.size > 0
+      ? `${state.selectedBanks.size} ${state.selectedBanks.size === 1 ? "bank" : "banks"}`
+      : "All banks";
+
+  const summaryBanksItem = elements.summaryBrands.closest(".summary-item");
+  const summaryDaysItem = elements.summaryDays.closest(".summary-item");
+  summaryBanksItem?.classList.toggle("is-empty-mobile", state.selectedBanks.size === 0);
+  summaryDaysItem?.classList.toggle("is-empty-mobile", state.selectedDays.size === 0);
 }
 
 function renderRecommendations() {
