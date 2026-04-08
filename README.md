@@ -1,8 +1,37 @@
 # Card Match PK
 
-Static web app for comparing dining card offers in Pakistan.
+Static web app for comparing restaurant discount cards in Pakistan across
+Karachi, Lahore, and Islamabad.
 
-## Refresh data
+The app is driven by `data/offers.json` and now combines:
+
+- the existing Peekaboo-backed offers pipeline
+- a public-source Easypaisa offers pipeline
+
+## Main Data Outputs
+
+Primary app dataset:
+
+```text
+data/offers.json
+```
+
+Easypaisa intermediate dataset:
+
+```text
+data/easypaisa-discountworld-food.json
+```
+
+Card requirements research workspace:
+
+```text
+data/card-requirements/
+  raw/
+  work/
+  normalized/
+```
+
+## Offers Refresh
 
 Create a `.env` file in the project root with:
 
@@ -10,21 +39,53 @@ Create a `.env` file in the project root with:
 PEEKABOO_TOKEN=PASTE_TOKEN_HERE
 ```
 
-Then run:
+Then run the full offers rebuild with:
 
 ```powershell
-python refresh_data.py
+python scripts/refresh_all_offers.py
 ```
 
-That rewrites:
+That orchestrates:
+
+1. `refresh_data.py`
+2. `scripts/extract_easypaisa_discountworld.py`
+3. `scripts/merge_easypaisa_into_offers.py`
+4. `scripts/validate_offers_dataset.py`
+
+For more detail, see:
+
+- `docs/offers_refresh_pipeline.md`
+
+## Card Requirements Pipeline
+
+The repo also contains a separate card eligibility / fee research workflow.
+
+Main outputs:
 
 ```text
-data/offers.json
+data/card-requirements/normalized/cards.json
+data/card-requirements/normalized/card_requirements.json
+data/card-requirements/normalized/sources.json
+data/card-requirements/normalized/deal_requirement_card_map.json
+data/card-requirements/normalized/deal_requirement_coverage_summary.json
 ```
 
-## Run locally
+Main builders:
 
-From this folder:
+```powershell
+python scripts/build_card_requirements_normalized.py
+python scripts/build_deal_requirement_card_map.py
+```
+
+Documentation:
+
+- `data/card-requirements/README.md`
+- `docs/card_requirements_agentic_pipeline.md`
+- `docs/card_requirements_process.md`
+
+## Run Locally
+
+From the repo root:
 
 ```powershell
 python -m http.server 8000 --bind 0.0.0.0
@@ -36,22 +97,23 @@ Then open:
 http://localhost:8000
 ```
 
-## Local test flow
+## Recommended Local Check
 
-Use this sequence before deploying:
+Before deploying:
 
 ```powershell
-python refresh_data.py
+python scripts/refresh_all_offers.py
 python -m http.server 8000 --bind 0.0.0.0
 ```
 
-Then open `http://localhost:8000` and test:
+Then verify:
 
 - city filters
 - restaurant filters
 - bank filters
 - card type filters
-- result ranking
+- top pick and ranking output
+- Easypaisa appears in bank search/filter results
 
 ## Deploy
 
