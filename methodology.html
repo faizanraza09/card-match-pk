@@ -23,7 +23,6 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-8D8HRYPVY6");
     </script>
     <script
@@ -44,76 +43,141 @@
         <p class="eyebrow">Methodology</p>
         <h1>How konsacard.pk ranks cards</h1>
         <p>
-          This site is built to answer a practical question: which card is most useful for the
-          restaurants, cities, days, and bill sizes you actually care about.
+          Rankings on this site are calculated from your inputs — not editorial picks, not
+          sponsored placements, and not city-wide averages that flatten the differences between
+          how individual people actually use their cards.
         </p>
       </header>
 
       <main class="content-layout">
         <section class="content-main">
           <article class="content-card">
-            <h2>Source approach</h2>
+            <h2>Where the data comes from</h2>
             <p>
-              Offers are compiled from public bank offer surfaces, official partner pages, and
-              public merchant-discovery pages where card offers are intentionally exposed.
-              Where multiple public sources describe the same offer, the data is normalized into
-              one comparable format.
+              Offers are compiled from public bank offer pages, official partner merchant
+              listings, and publicly accessible card benefit summaries published by issuers
+              and their dining program partners. No data is scraped behind login walls or
+              taken from private account pages.
+            </p>
+            <p>
+              When multiple public sources describe the same offer with conflicting details,
+              the most specific source takes precedence — a specific discount cap listed on
+              a bank's official offer page overrides a vague description on an aggregator.
+              Where sources genuinely conflict without a clear hierarchy, the more conservative
+              number is used and the uncertainty is noted.
             </p>
             <ul>
-              <li>City names are standardized to Karachi, Lahore, and Islamabad.</li>
-              <li>Card labels are normalized so offer rows from different sources can be compared.</li>
-              <li>Caps are included when the source publishes them and left blank when it does not.</li>
+              <li>City names are standardized to Karachi, Lahore, and Islamabad. Sub-city references like "DHA" or "Gulberg" are mapped to the parent city unless an offer is explicitly restricted to a neighborhood.</li>
+              <li>Card labels are normalized so the same card referenced under slightly different names across sources maps to a single comparable entry.</li>
+              <li>Discount caps are included when published. When they aren't, the cap field is left blank rather than assumed to be unlimited.</li>
+              <li>Day restrictions are included at the offer level. A card with different terms on weekdays versus weekends is represented as separate offer rows so the ranking reflects the day filter correctly.</li>
             </ul>
           </article>
 
           <article class="content-card">
-            <h2>Ranking logic</h2>
+            <h2>How the ranking is calculated</h2>
             <p>
-              The core ranking is based on estimated PKR savings for your bill, how many of your
-              selected restaurants the card covers, and whether the card matches the days you
-              actually go out.
+              Every ranking is calculated fresh from your specific inputs. There is no fixed
+              ordering that gets applied across all users — the same card can rank first for
+              one person's inputs and fifth for another's.
             </p>
             <div class="spotlight-grid">
               <div class="spotlight-card">
-                <h3>Estimated savings</h3>
-                <p>The tool estimates how much each card would save on your selected bill size.</p>
+                <h3>Estimated PKR savings</h3>
+                <p>
+                  For each card, the tool calculates expected savings on your bill size across
+                  your selected restaurants. Discount percentages are applied to the bill and
+                  then capped at the published cap amount. Where no cap is published, the
+                  calculation notes the uncertainty.
+                </p>
               </div>
               <div class="spotlight-card">
-                <h3>Coverage</h3>
-                <p>Cards with broader useful restaurant coverage rank better than narrow one-off winners.</p>
+                <h3>Restaurant coverage</h3>
+                <p>
+                  Cards are scored on how many of your selected restaurants they cover, not
+                  on total city-wide restaurant count. A card that covers all 5 of your
+                  selected places scores higher than one that covers 100 city restaurants
+                  but misses 4 of your 5.
+                </p>
               </div>
               <div class="spotlight-card">
-                <h3>Day fit</h3>
-                <p>If your preferred days are not covered by a deal, that card is penalized.</p>
+                <h3>Day alignment</h3>
+                <p>
+                  If you specify preferred dining days, cards are penalized for offers that
+                  don't apply on those days. A card that looks strong but is invalid on Friday
+                  and Saturday is scored accordingly if you've indicated those are your
+                  primary dining days.
+                </p>
               </div>
               <div class="spotlight-card">
                 <h3>No sponsorship</h3>
-                <p>No bank pays to appear at the top of a ranking on this site.</p>
+                <p>
+                  No bank or card issuer pays for placement in the ranking. A card ranks where
+                  the calculation puts it based on your inputs — no exceptions and no adjustments
+                  for commercial relationships.
+                </p>
               </div>
             </div>
           </article>
 
           <article class="content-card">
-            <h2>Limits of the dataset</h2>
+            <h2>What the ranking does not account for</h2>
+            <p>
+              The ranking is designed to answer one narrow question well: which card saves
+              the most money at the specific restaurants you use, on the days you use them,
+              at your bill size. It does not attempt to be a comprehensive card review.
+            </p>
+            <p>
+              Things the ranking deliberately excludes:
+            </p>
             <ul>
-              <li>Some campaigns publish exact caps and exclusions, while others only publish the headline discount percentage.</li>
-              <li>Offers can change without notice, so the final decision should always be confirmed with the issuer or merchant.</li>
-              <li>Rankings are only as current as the latest public update cycle.</li>
+              <li>Card approval likelihood or income requirements — these are too individual to generalize.</li>
+              <li>Non-dining card benefits like cashback on retail, travel rewards, or lounge access — that's a different comparison.</li>
+              <li>Card quality, customer service, or app experience — these matter but aren't measurable from public offer data.</li>
+              <li>Promotional introductory rates that differ from the published standing offer terms.</li>
             </ul>
+          </article>
+
+          <article class="content-card">
+            <h2>How current is the data</h2>
+            <p>
+              The dataset is updated manually when public offer pages change. Bank offer pages
+              in Pakistan update irregularly — sometimes monthly, sometimes quarterly, sometimes
+              with no advance notice. The data reflects the most recent public update cycle,
+              but offers can change at any time.
+            </p>
+            <p>
+              Before making a card decision based on anything you see here, confirm current
+              terms directly with the bank or via the merchant's posted offer. This site is
+              a comparison tool and a starting point — not a definitive source of record for
+              offer terms.
+            </p>
           </article>
         </section>
 
         <aside class="content-side">
           <section class="content-card">
-            <h2>Practical reading</h2>
+            <h2>Use the tool with real inputs</h2>
             <p>
-              The best card for broad dining coverage is not always the same as the best card
-              for one expensive restaurant habit. Use the tool with your own shortlist rather
-              than relying only on city-wide averages.
+              The methodology is designed to reward specificity. A ranking built on your
+              actual restaurant list and real bill size is meaningfully more accurate than
+              one built on city-wide averages. It takes about 30 seconds to set up properly.
             </p>
             <div class="cta-strip">
               <a class="cta-button" href="./">Use the tool</a>
               <a class="secondary-button" href="./how-discount-caps-work.html">Read cap guide</a>
+            </div>
+          </section>
+
+          <section class="content-card">
+            <h2>Send a correction</h2>
+            <p>
+              If you find an offer that's outdated, a cap that's wrong, or a restaurant that's
+              missing, the contact page is the fastest way to flag it. Data corrections from
+              users are the main way errors get caught between update cycles.
+            </p>
+            <div class="cta-strip">
+              <a class="secondary-button" href="./contact.html">Submit a correction</a>
             </div>
           </section>
         </aside>
