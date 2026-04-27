@@ -1820,204 +1820,343 @@ function restoreQuizFocus(id) {
    CHAT — Gemini 2.5 Flash with streaming (via /api/chat proxy)
    ══════════════════════════════════════════════════════ */
 
-/* ── Query-specific data context ── */
-function buildQueryContext(userQuery) {
-  if (!userQuery || !state.data?.offers) return "";
-  const q = userQuery.toLowerCase();
-  const offers = state.data.offers;
-
-  // Respect current city/card-type filters
-  const filteredOffers = offers.filter(
-    (o) => cityMatches(o.city) && cardTypeMatches(o.cardCategory),
-  );
-
-  const allRestaurantNames = [...new Set(filteredOffers.map((o) => o.restaurant))];
-  const allBankNames      = [...new Set(filteredOffers.map((o) => o.bank))];
-
-  // Restaurant matching — full name or any significant word (>4 chars)
-  const mentionedRestaurants = allRestaurantNames
-    .filter((r) => {
-      const rLow = r.toLowerCase();
-      return q.includes(rLow) ||
-        rLow.split(/\s+/).some((w) => w.length > 4 && q.includes(w));
-    })
-    .slice(0, 3);
-
-  // Bank matching — meaningful word from bank name, excluding generic words
-  const BANK_STOP = new Set(["bank", "limited", "ltd", "pvt", "and", "the", "of"]);
-  const mentionedBanks = allBankNames
-    .filter((b) => {
-      const words = b.toLowerCase().replace(/[()]/g, "").split(/\s+/);
-      return words.some((w) => w.length > 1 && !BANK_STOP.has(w) && q.includes(w));
-    })
-    .slice(0, 2);
-
-  // Card tier mentions
-  const TIERS = ["signature", "world", "platinum", "gold", "silver", "classic", "infinite"];
-  const mentionedTiers = TIERS.filter((t) => q.includes(t));
-
-  if (!mentionedRestaurants.length && !mentionedBanks.length && !mentionedTiers.length) {
-    return "";
-  }
-
-  let ctx = "\n\nSPECIFIC DATA FOR THIS QUERY:";
-
-  // Restaurant-specific offers
-  mentionedRestaurants.forEach((rest) => {
-    const ro = filteredOffers.filter((o) => o.restaurant === rest);
-    if (!ro.length) return;
-    ctx += `\n\n${rest} (${ro[0].city}) — active deals:`;
-    ro.forEach((o) => {
-      ctx +=
-        `\n• ${o.bank} ${o.card} (${o.cardCategory}): ${o.offerTitle}` +
-        `, valid ${o.daysLabel}` +
-        (o.capPkr ? `, cap PKR ${Number(o.capPkr).toLocaleString()}` : "") +
-        (o.fixedDiscountPkr ? `, fixed PKR ${Number(o.fixedDiscountPkr).toLocaleString()} off` : "");
-    });
-  });
-
-  // Bank-specific cards with eligibility
-  mentionedBanks.forEach((bank) => {
-    const bo = filteredOffers.filter((o) => o.bank === bank);
-    if (!bo.length) return;
-
-    const byCard = new Map();
-    bo.forEach((o) => {
-      if (!byCard.has(o.card)) {
-        byCard.set(o.card, {
-          cardCategory: o.cardCategory,
-          restaurants: new Set(),
-          discounts: new Set(),
-          caps: [],
-        });
-      }
-      const entry = byCard.get(o.card);
-      entry.restaurants.add(o.restaurant);
-      entry.discounts.add(o.discountLabel);
-      if (o.capPkr) entry.caps.push(o.capPkr);
-    });
-
-    ctx += `\n\n${bank} — all cards with deals:`;
-    byCard.forEach((data, card) => {
-      const capAvg = data.caps.length
-        ? Math.round(data.caps.reduce((a, b) => a + b, 0) / data.caps.length)
-        : null;
-      const elig = evaluateEligibility(bank, card);
-      const eligStr = elig.criteria.length ? ` | Requires: ${elig.criteria.join(", ")}` : "";
-      const feeStr  = elig.annualFeePkr !== null ? ` | ${formatRequirementCriterion(elig.annualFeePkr, "fee")}` : "";
-      ctx +=
-        `\n• ${card} (${data.cardCategory}): ${data.restaurants.size} restaurants` +
-        `, discounts: ${[...data.discounts].join(", ")}` +
-        (capAvg ? `, avg cap PKR ${capAvg.toLocaleString()}` : "") +
-        eligStr + feeStr;
-    });
-  });
-
-  // Tier-specific cards (when no specific bank mentioned)
-  if (mentionedTiers.length && !mentionedBanks.length) {
-    const tierOffers = filteredOffers.filter((o) =>
-      mentionedTiers.some((t) => o.card.toLowerCase().includes(t)),
-    );
-    if (tierOffers.length) {
-      const byCard = new Map();
-      tierOffers.forEach((o) => {
-        const k = `${o.bank}||${o.card}`;
-        if (!byCard.has(k)) {
-          byCard.set(k, {
-            bank: o.bank,
-            card: o.card,
-            cardCategory: o.cardCategory,
-            restaurants: new Set(),
-            discounts: new Set(),
-          });
-        }
-        byCard.get(k).restaurants.add(o.restaurant);
-        byCard.get(k).discounts.add(o.discountLabel);
-      });
-      ctx += `\n\nCards at "${mentionedTiers.join(", ")}" tier level:`;
-      byCard.forEach((data) => {
-        ctx += `\n• ${data.bank} ${data.card} (${data.cardCategory}): ${data.restaurants.size} restaurants, discounts: ${[...data.discounts].join(", ")}`;
-      });
-    }
-  }
-
-  return ctx;
+/* ── FUZZY NAME MATCH ── */
+function fuzzyMatch(query, target) {
+  if (!query || !target) return false;
+  const norm = (s) => s.toLowerCase().replace(/['‘’`]/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  const q = norm(query), t = norm(target);
+  if (t.includes(q) || q.includes(t)) return true;
+  const qw = q.split(" ").filter((w) => w.length >= 3);
+  const tw = t.split(" ").filter((w) => w.length >= 3);
+  return qw.some((qword) => tw.some((tword) => tword.startsWith(qword) || qword.startsWith(tword)));
 }
 
-/* ── Dynamic system prompt from live state ── */
-function buildSystemPrompt(userQuery = "") {
-  const results = computeRecommendations();
-  const cityLabel =
-    state.selectedCity === "all"
-      ? "all cities (Karachi, Lahore, Islamabad)"
-      : state.selectedCity;
+/* ── TOOL DEFINITIONS ── */
+const CHAT_TOOL_DEFINITIONS = [{
+  functionDeclarations: [
+    {
+      name: "search_offers",
+      description: "Search and filter the full offers database. Use for: all deals at a restaurant, all offers from a bank, day-of-week deals, offers above a discount threshold, or any combination of filters. Returns raw offer rows with full detail.",
+      parameters: {
+        type: "OBJECT",
+        properties: {
+          restaurants: { type: "ARRAY", items: { type: "STRING" }, description: "Restaurant name(s) — partial/fuzzy match ok. Pass multiple to get deals at all of them." },
+          banks:       { type: "ARRAY", items: { type: "STRING" }, description: "Bank name(s) — partial match ok, e.g. 'HBL', 'Meezan', 'Alfalah'." },
+          cards:       { type: "ARRAY", items: { type: "STRING" }, description: "Card name(s) — partial match ok." },
+          card_types:  { type: "ARRAY", items: { type: "STRING" }, description: "Card category: debit, credit, or other (digital wallets)." },
+          city:        { type: "STRING", description: "City filter: karachi, lahore, islamabad, or all." },
+          days:        { type: "ARRAY", items: { type: "NUMBER" }, description: "Valid-on-day filter: 0=Mon 1=Tue 2=Wed 3=Thu 4=Fri 5=Sat 6=Sun." },
+          min_discount_pct: { type: "NUMBER", description: "Minimum discount percentage to include." },
+          sort_by:     { type: "STRING", description: "Sort: discount (default), cap, restaurant, bank." },
+          limit:       { type: "NUMBER", description: "Max results (default 50, max 150)." },
+        },
+      },
+    },
+    {
+      name: "rank_cards",
+      description: "Get cards ranked by estimated savings and restaurant coverage for a given context. Use for: best card overall, best card for specific restaurants (pass multiple for AND logic), best card for specific days, best card within a budget.",
+      parameters: {
+        type: "OBJECT",
+        properties: {
+          city:        { type: "STRING", description: "City: karachi, lahore, islamabad, or all." },
+          bill_size:   { type: "NUMBER", description: "Typical bill size in PKR for savings estimate." },
+          card_types:  { type: "ARRAY", items: { type: "STRING" }, description: "Restrict to these card types: debit, credit, other." },
+          restaurants: { type: "ARRAY", items: { type: "STRING" }, description: "Only rank cards covering ALL of these restaurants (AND logic)." },
+          days:        { type: "ARRAY", items: { type: "NUMBER" }, description: "Only count offers valid on these days (0=Mon...6=Sun)." },
+          limit:       { type: "NUMBER", description: "Max results (default 15)." },
+        },
+      },
+    },
+    {
+      name: "get_bank_cards",
+      description: "Get all cards and deal stats for one bank or every bank. Use for: what cards does bank X have, which bank covers the most restaurants, bank-level comparisons.",
+      parameters: {
+        type: "OBJECT",
+        properties: {
+          bank: { type: "STRING", description: "Bank name (partial match ok). Omit to get a summary of all 18 banks." },
+          city: { type: "STRING", description: "City filter (optional)." },
+        },
+      },
+    },
+    {
+      name: "get_restaurant_rankings",
+      description: "Get restaurants ranked by max discount, total deal count, or number of banks covering them. Use for: highest discount restaurant, most deals in a city, which places are covered by the most banks.",
+      parameters: {
+        type: "OBJECT",
+        properties: {
+          city:        { type: "STRING", description: "City filter (optional)." },
+          card_types:  { type: "ARRAY", items: { type: "STRING" }, description: "Card type filter (optional)." },
+          sort_by:     { type: "STRING", description: "max_discount (default), deal_count, bank_count." },
+          limit:       { type: "NUMBER", description: "Max results (default 20)." },
+        },
+      },
+    },
+    {
+      name: "compare_cards",
+      description: "Head-to-head comparison of 2-4 specific cards: savings estimate, restaurant coverage, day-by-day deal breakdown, caps, and eligibility side by side.",
+      parameters: {
+        type: "OBJECT",
+        properties: {
+          cards: {
+            type: "ARRAY",
+            items: { type: "OBJECT", properties: { bank: { type: "STRING" }, card: { type: "STRING" } } },
+            description: "Array of {bank, card} pairs to compare.",
+          },
+          bill_size: { type: "NUMBER", description: "Bill size in PKR for savings estimates." },
+          city:      { type: "STRING", description: "City filter (optional)." },
+        },
+      },
+    },
+  ],
+}];
 
-  const filterLines = [
+/* ── TOOL IMPLEMENTATIONS ── */
+
+function chatTool_searchOffers({ restaurants, banks, cards, card_types, city, days, min_discount_pct, sort_by = "discount", limit = 50 } = {}) {
+  if (!state.data?.offers) return { error: "Offers data not loaded." };
+  let results = state.data.offers;
+  if (city && city !== "all") {
+    const c = normalizeCityValue(city);
+    results = results.filter((o) => normalizeCityValue(o.city) === c);
+  }
+  if (restaurants?.length) results = results.filter((o) => restaurants.some((r) => fuzzyMatch(r, o.restaurant)));
+  if (banks?.length)       results = results.filter((o) => banks.some((b) => fuzzyMatch(b, o.bank)));
+  if (cards?.length)       results = results.filter((o) => cards.some((c) => fuzzyMatch(c, o.card)));
+  if (card_types?.length)  results = results.filter((o) => card_types.includes(o.cardCategory));
+  if (days?.length)        results = results.filter((o) => days.some((d) => o.days.includes(d)));
+  if (min_discount_pct)    results = results.filter((o) => o.discountPct != null && o.discountPct >= min_discount_pct);
+  const total = results.length;
+  if (sort_by === "discount")        results = results.slice().sort((a, b) => (b.discountPct || 0) - (a.discountPct || 0));
+  else if (sort_by === "cap")        results = results.slice().sort((a, b) => (b.capPkr || 0) - (a.capPkr || 0));
+  else if (sort_by === "restaurant") results = results.slice().sort((a, b) => a.restaurant.localeCompare(b.restaurant));
+  else if (sort_by === "bank")       results = results.slice().sort((a, b) => a.bank.localeCompare(b.bank));
+  const cap = Math.min(limit, 150);
+  return {
+    total_matching: total, returned: Math.min(total, cap),
+    offers: results.slice(0, cap).map((o) => ({
+      restaurant: o.restaurant, city: o.city, bank: o.bank, card: o.card,
+      card_type: o.cardCategory, discount: o.discountLabel, discount_pct: o.discountPct,
+      fixed_discount_pkr: o.fixedDiscountPkr, offer_title: o.offerTitle,
+      valid_days: o.daysLabel, cap_pkr: o.capPkr,
+    })),
+  };
+}
+
+function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, limit = 15 } = {}) {
+  if (!state.data?.offers) return { error: "Offers data not loaded." };
+  const saved = {
+    selectedCity: state.selectedCity, orderValue: state.orderValue,
+    selectedCardTypes: state.selectedCardTypes, selectedRestaurants: state.selectedRestaurants,
+    selectedDays: state.selectedDays,
+  };
+  if (city)               state.selectedCity = normalizeCityValue(city);
+  if (bill_size)          state.orderValue = bill_size;
+  if (card_types?.length) state.selectedCardTypes = new Set(card_types);
+  if (days?.length)       state.selectedDays = new Set(days);
+  if (restaurants?.length) {
+    const allNames = [...new Set(state.data.offers.map((o) => o.restaurant))];
+    state.selectedRestaurants = new Set(allNames.filter((n) => restaurants.some((r) => fuzzyMatch(r, n))));
+  }
+  const results = computeRecommendations().slice(0, Math.min(limit, 30));
+  Object.assign(state, saved);
+  return {
+    ranked_cards: results.map((r, i) => ({
+      rank: i + 1, card: r.card, bank: r.bank, card_type: r.cardCategory,
+      fit_score: Number(r.score).toFixed(1),
+      estimated_saving_pkr_per_outing: Math.round(r.avgExpectedSaving),
+      restaurants_covered: r.coveredVenueCount,
+      total_restaurants_in_filter: r.totalVenueCount,
+      day_fit_pct: Math.round(r.avgDayFit * 100),
+      median_cap_pkr: r.medianCap || null,
+    })),
+  };
+}
+
+function chatTool_getBankCards({ bank, city } = {}) {
+  if (!state.data?.offers) return { error: "Offers data not loaded." };
+  let offers = state.data.offers;
+  if (city && city !== "all") {
+    const c = normalizeCityValue(city);
+    offers = offers.filter((o) => normalizeCityValue(o.city) === c);
+  }
+  const allBanks = [...new Set(offers.map((o) => o.bank))].sort((a, b) => a.localeCompare(b));
+  const targetBanks = bank ? allBanks.filter((b) => fuzzyMatch(bank, b)) : allBanks;
+  if (bank && !targetBanks.length) return { error: `No bank found matching "${bank}". Available: ${allBanks.join(", ")}` };
+  return {
+    banks: targetBanks.map((bankName) => {
+      const bo = offers.filter((o) => o.bank === bankName);
+      const cardMap = new Map();
+      bo.forEach((o) => {
+        if (!cardMap.has(o.card)) cardMap.set(o.card, { card: o.card, card_type: o.cardCategory, restaurants: new Set(), discounts: new Set(), caps: [], cities: new Set() });
+        const e = cardMap.get(o.card);
+        e.restaurants.add(o.restaurant); e.discounts.add(o.discountLabel);
+        if (o.capPkr) e.caps.push(o.capPkr); e.cities.add(o.city);
+      });
+      return {
+        bank: bankName, total_cards: cardMap.size, total_deals: bo.length,
+        unique_restaurants: new Set(bo.map((o) => o.restaurant)).size,
+        cards: Array.from(cardMap.values()).map((c) => ({
+          card: c.card, card_type: c.card_type, restaurants_covered: c.restaurants.size,
+          discount_range: [...c.discounts].join(", "),
+          avg_cap_pkr: c.caps.length ? Math.round(c.caps.reduce((a, b) => a + b, 0) / c.caps.length) : null,
+          cities: [...c.cities].join(", "),
+        })),
+      };
+    }),
+  };
+}
+
+function chatTool_getRestaurantRankings({ city, card_types, sort_by = "max_discount", limit = 20 } = {}) {
+  if (!state.data?.offers) return { error: "Offers data not loaded." };
+  let offers = state.data.offers;
+  if (city && city !== "all") {
+    const c = normalizeCityValue(city);
+    offers = offers.filter((o) => normalizeCityValue(o.city) === c);
+  }
+  if (card_types?.length) offers = offers.filter((o) => card_types.includes(o.cardCategory));
+  const byRest = new Map();
+  offers.forEach((o) => {
+    if (!byRest.has(o.restaurant)) byRest.set(o.restaurant, { restaurant: o.restaurant, city: o.city, max_discount_pct: 0, best_deal: null, best_bank: null, best_card: null, total_deals: 0, banks: new Set() });
+    const r = byRest.get(o.restaurant);
+    r.total_deals++; r.banks.add(o.bank);
+    if (o.discountPct != null && o.discountPct > r.max_discount_pct) {
+      r.max_discount_pct = o.discountPct;
+      r.best_deal = `${o.offerTitle} (${o.daysLabel}${o.capPkr ? ", cap PKR " + Number(o.capPkr).toLocaleString() : ""})`;
+      r.best_bank = o.bank; r.best_card = o.card;
+    }
+  });
+  let results = Array.from(byRest.values());
+  if (sort_by === "max_discount")   results.sort((a, b) => b.max_discount_pct - a.max_discount_pct);
+  else if (sort_by === "deal_count") results.sort((a, b) => b.total_deals - a.total_deals);
+  else if (sort_by === "bank_count") results.sort((a, b) => b.banks.size - a.banks.size);
+  return {
+    restaurants: results.slice(0, Math.min(limit, 50)).map((r) => ({
+      restaurant: r.restaurant, city: r.city, max_discount_pct: r.max_discount_pct,
+      best_deal: r.best_deal, best_bank: r.best_bank, best_card: r.best_card,
+      total_deals: r.total_deals, banks_covering: r.banks.size, banks: [...r.banks].join(", "),
+    })),
+  };
+}
+
+function chatTool_compareCards({ cards, bill_size, city } = {}) {
+  if (!state.data?.offers) return { error: "Offers data not loaded." };
+  if (!cards?.length) return { error: "No cards specified." };
+  const bill = bill_size || state.orderValue;
+  const cityFilter = normalizeCityValue(city || state.selectedCity);
+  return {
+    bill_size_pkr: bill, city_filter: cityFilter,
+    cards: cards.map(({ bank, card }) => {
+      const offers = state.data.offers.filter((o) =>
+        fuzzyMatch(bank, o.bank) && fuzzyMatch(card, o.card) &&
+        (cityFilter === "all" || normalizeCityValue(o.city) === cityFilter)
+      );
+      if (!offers.length) return { bank, card, error: "No offers found. Check bank/card name spelling." };
+      const rests = new Set(offers.map((o) => o.restaurant));
+      const discounts = offers.map((o) => o.discountPct).filter((v) => v != null);
+      const caps = offers.map((o) => o.capPkr).filter((v) => v != null);
+      const avgDiscount = discounts.length ? discounts.reduce((a, b) => a + b, 0) / discounts.length : 0;
+      const avgCap = caps.length ? caps.reduce((a, b) => a + b, 0) / caps.length : null;
+      const saving = avgCap ? Math.min((bill * avgDiscount) / 100, avgCap) : (bill * avgDiscount) / 100;
+      const elig = evaluateEligibility(offers[0].bank, offers[0].card);
+      return {
+        bank: offers[0].bank, card: offers[0].card, card_type: offers[0].cardCategory,
+        restaurants_covered: rests.size,
+        avg_discount_pct: Math.round(avgDiscount * 10) / 10,
+        avg_cap_pkr: avgCap ? Math.round(avgCap) : "no cap",
+        estimated_saving_per_outing_pkr: Math.round(saving),
+        day_breakdown: [0,1,2,3,4,5,6].map((d) => ({ day: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][d], valid_deals: offers.filter((o) => o.days.includes(d)).length })),
+        salary_required_pkr: elig.salaryReq, balance_required_pkr: elig.balanceReq,
+        annual_fee_pkr: elig.annualFeePkr, fee_waiver: elig.annualFeeWaiverRule || null,
+        sample_restaurants: [...rests].slice(0, 8),
+      };
+    }),
+  };
+}
+
+function executeChatTool(name, args) {
+  try {
+    switch (name) {
+      case "search_offers":           return chatTool_searchOffers(args);
+      case "rank_cards":              return chatTool_rankCards(args);
+      case "get_bank_cards":          return chatTool_getBankCards(args);
+      case "get_restaurant_rankings": return chatTool_getRestaurantRankings(args);
+      case "compare_cards":           return chatTool_compareCards(args);
+      default: return { error: `Unknown tool: ${name}` };
+    }
+  } catch (e) {
+    return { error: `Tool error: ${e.message}` };
+  }
+}
+
+/* ── Requirements context (full, always included in system prompt) ── */
+function buildRequirementsContext() {
+  if (!state.requirements?.available) return "Card requirements data unavailable.";
+  const lines = Array.from(state.requirements.byCardId.values()).map((r) => {
+    const req = r.requirements || {};
+    const parts = [];
+    if (req.minimum_monthly_salary_pkr)  parts.push(`salary >= PKR ${Number(req.minimum_monthly_salary_pkr).toLocaleString()}`);
+    if (req.minimum_account_balance_pkr) parts.push(`balance >= PKR ${Number(req.minimum_account_balance_pkr).toLocaleString()}`);
+    if (req.annual_fee_pkr) {
+      const waiver = req.annual_fee_waiver_rule ? ` (waivable: ${req.annual_fee_waiver_rule})` : "";
+      parts.push(`fee PKR ${Number(req.annual_fee_pkr).toLocaleString()}${waiver}`);
+    }
+    if (req.minimum_age_years) parts.push(`age >= ${req.minimum_age_years}`);
+    return `* ${r.bank_name} - ${r.card_name}: ${parts.length ? parts.join(" | ") : "no public requirements found"}`;
+  });
+  return `CARD REQUIREMENTS (verified from official bank sources):\n${lines.join("\n")}`;
+}
+
+/* ── System prompt ── */
+function buildSystemPrompt() {
+  const cityLabel = state.selectedCity === "all" ? "all cities (Karachi, Lahore, Islamabad)" : state.selectedCity;
+  const userCtx = [
     `City: ${cityLabel}`,
     `Bill size: ${formatCurrency(state.orderValue)}`,
-    state.selectedCardTypes.size
-      ? `Card types: ${Array.from(state.selectedCardTypes).join(", ")}`
-      : null,
-    state.selectedBanks.size
-      ? `Banks: ${Array.from(state.selectedBanks).join(", ")}`
-      : null,
-    state.selectedRestaurants.size
-      ? `Restaurants: ${Array.from(state.selectedRestaurants).slice(0, 5).join(", ")}${state.selectedRestaurants.size > 5 ? " …" : ""}`
-      : null,
-  ]
-    .filter(Boolean)
-    .join(" | ");
+    state.selectedCardTypes.size   ? `Card types: ${[...state.selectedCardTypes].join(", ")}` : null,
+    state.selectedBanks.size       ? `Banks: ${[...state.selectedBanks].join(", ")}` : null,
+    state.selectedRestaurants.size ? `Restaurants: ${[...state.selectedRestaurants].slice(0, 5).join(", ")}` : null,
+    state.outingsPerWeek           ? `Outings/week: ${state.outingsPerWeek}` : null,
+    state.monthlySalary            ? `Monthly salary: PKR ${Number(state.monthlySalary).toLocaleString()}` : null,
+    state.accountBalance           ? `Account balance: PKR ${Number(state.accountBalance).toLocaleString()}` : null,
+  ].filter(Boolean).join("\n");
 
-  const userCtxParts = [
-    state.outingsPerWeek ? `Outings per week: ${state.outingsPerWeek}` : null,
-    state.monthlySalary  ? `Monthly salary: ${formatCurrency(state.monthlySalary)}` : null,
-    state.accountBalance ? `Account balance: ${formatCurrency(state.accountBalance)}` : null,
-  ].filter(Boolean);
-  const userCtx = userCtxParts.length ? userCtxParts.join(" | ") : "Not specified";
+  const top5 = computeRecommendations().slice(0, 5);
+  const top5text = top5.length
+    ? `TOP 5 CARDS (current filters - call rank_cards tool for custom queries):\n` +
+      top5.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) | Score ${Number(r.score).toFixed(1)}/100 | Est. PKR ${Math.round(r.avgExpectedSaving)}/outing | ${r.coveredVenueCount} restaurants`).join("\n")
+    : "No cards match the current filters.";
 
-  const topCardsCtx =
-    results.length === 0
-      ? "No cards match the current filters."
-      : `Top ${Math.min(results.length, 15)} cards ranked by Fit Score:\n` +
-        results.slice(0, 15).map((r, i) => {
-          const elig = r.requirementStatus;
-          const eligStr = elig?.criteria?.length ? ` | Requires: ${elig.criteria[0]}` : "";
-          const feeStr  = elig?.annualFeePkr !== null ? ` | ${formatRequirementCriterion(elig.annualFeePkr, "fee")}` : "";
-          return (
-            `${i + 1}. ${r.card} (${r.bank}) — Score ${Number(r.score).toFixed(1)}/100 | ` +
-            `Est. ${formatCurrency(r.avgExpectedSaving)}/outing | ` +
-            `Covers ${r.coveredVenueCount}/${r.totalVenueCount} venues | ` +
-            `Day fit ${Math.round(r.avgDayFit * 100)}%` +
-            (r.medianCap ? ` | Cap ${formatCurrency(r.medianCap)}` : "") +
-            eligStr + feeStr
-          );
-        }).join("\n");
+  return `You are KonsaCard AI, the expert assistant for konsacard.pk - Pakistan's independent restaurant discount card comparison tool.
 
-  const queryCtx = buildQueryContext(userQuery);
+DATASET: 20,170 offers | 18 banks | 169 cards | 831 restaurants | Cities: Karachi, Lahore, Islamabad
+Fit Score (0-100) = savings 70% + coverage 20% + day fit 10%. No bank pays for placement.
+Tiers high to low: Signature > World > Platinum > Gold > Basic.
 
-  return `You are KonsaCard AI — a knowledgeable assistant for konsacard.pk, an independent restaurant discount card comparison tool for Pakistan.
+USER CONTEXT:
+${userCtx}
 
-ABOUT KONSACARD:
-konsacard.pk compares restaurant discount deals from 18 Pakistani banks across Karachi, Lahore, and Islamabad. Cards are ranked by a Fit Score (0–100) blending estimated savings (70 wt), restaurant coverage (20 wt), and day fit (10 wt). Rankings are editorial — no bank pays for placement.
+${top5text}
 
-CARD TIERS (highest to lowest): Signature > World > Platinum > Gold > Basic.
-Higher tiers usually offer higher caps and more partner restaurants, but stricter eligibility.
+${buildRequirementsContext()}
 
-USER CONTEXT: ${userCtx}
-CURRENT FILTERS: ${filterLines}
+TOOLS - always call these for data questions, never answer from memory:
+* search_offers - filter offers by any combo of restaurant/bank/card/type/city/day/discount. Use for: "deals at Nando's", "HBL offers on Fridays", "all 30%+ discounts in Lahore".
+* rank_cards - scored recommendations. Use for: "best card for me", "best card at Xanders AND Kababjees", "top debit card in Lahore for weekends".
+* get_bank_cards - per-bank card+deal summary. Use for: "what cards does Meezan have", "which bank covers the most restaurants".
+* get_restaurant_rankings - restaurants ranked by discount/coverage. Use for: "highest discount restaurant", "where can I save the most in Karachi".
+* compare_cards - head-to-head. Use for: "HBL Signature vs UBL World", "compare these three cards".
 
-${topCardsCtx}${queryCtx}
-
-RESPONSE RULES:
-- Match depth to the question: brief for simple queries, full detail for comparisons or specific data requests.
-- Always name specific card + bank — never be vague.
-- Use PKR for all amounts. Monthly saving estimate = per-outing saving × outings/week × 4.3.
-- When "SPECIFIC DATA FOR THIS QUERY" is present above, use it as the authoritative source.
-- Never invent discount percentages or offer terms — only cite data in this prompt.
-- For eligibility/fees, cite the requirements shown or say data is unavailable for that card.
-- Format comparisons with bullets. Use **bold** for card names.
-- If you genuinely don't know, say so and recommend the user check directly with the bank.`;
+RULES:
+- ALWAYS call a tool when the answer requires data. Never guess or estimate from memory.
+- Fuzzy matching is built in: "Xanders" finds "Xander's", "kababjees" finds "Kababjees Restaurant".
+- For "best card at restaurant X AND Y" pass both to rank_cards restaurants param.
+- Eligibility/fee questions: check CARD REQUIREMENTS above first, only call tools if more detail needed.
+- Monthly saving estimate = per-outing saving x outings/week x 4.3.
+- Always name the specific card and bank, never be vague.
+- Use PKR for all amounts.
+- If no data exists, say so and recommend checking with the bank directly.`;
 }
+
 
 /* ── Gemini streaming generator ── */
 async function* streamGemini(geminiContents, systemPrompt) {
@@ -2065,6 +2204,21 @@ class GeminiError extends Error {
     super(message);
     this.status = status;
   }
+}
+
+/* ── Non-streaming Gemini call (used for tool resolution loop) ── */
+async function callGeminiNonStreaming(contents, systemPrompt, tools) {
+  const resp = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ contents, systemPrompt, tools: tools || undefined, stream: false }),
+  });
+  if (!resp.ok) {
+    let msg = `Chat error ${resp.status}`;
+    try { const b = await resp.json(); msg = b?.error || msg; } catch { /* ignore */ }
+    throw new GeminiError(msg, resp.status);
+  }
+  return resp.json();
 }
 
 /* ── Convert internal message history to Gemini contents format ── */
@@ -2190,7 +2344,7 @@ function formatBubbleText(text) {
   return html;
 }
 
-/* ── Send message with streaming ── */
+/* ── Send message with tool-calling loop + streaming final answer ── */
 async function sendChatMessage(text) {
   const t = (text || "").trim();
   if (!t || state.chatLoading) return;
@@ -2202,25 +2356,67 @@ async function sendChatMessage(text) {
   state.chatLoading = true;
   renderChatBody();
 
-  const systemPrompt = buildSystemPrompt(t);
-  // Build Gemini contents from all non-system messages (excluding any in-progress streaming msg)
-  const history = toGeminiContents(state.chatMessages.filter((m) => !m.streaming));
-
-  // Add streaming placeholder
+  const systemPrompt = buildSystemPrompt();
   const streamingMsg = { role: "bot", text: "", streaming: true };
   state.chatMessages.push(streamingMsg);
   renderChatBody();
 
   try {
-    let fullText = "";
-    for await (const chunk of streamGemini(history, systemPrompt)) {
-      fullText += chunk;
-      streamingMsg.text = fullText;
-      updateStreamingBubble(fullText);
+    // Build conversation from history (exclude the streaming placeholder we just added)
+    let contents = toGeminiContents(state.chatMessages.filter((m) => !m.streaming));
+
+    let directText = "";
+    let toolsUsed = false;
+    const MAX_TOOL_ROUNDS = 4;
+
+    // Tool resolution loop: non-streaming calls until Gemini returns text (no more tool calls)
+    for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
+      const data = await callGeminiNonStreaming(contents, systemPrompt, CHAT_TOOL_DEFINITIONS);
+      const parts = data?.candidates?.[0]?.content?.parts || [];
+      const toolCalls = parts.filter((p) => p.functionCall);
+      const textParts  = parts.filter((p) => p.text);
+
+      if (!toolCalls.length) {
+        if (!toolsUsed) {
+          // Simple question answered straight from system prompt — no tools needed
+          directText = textParts.map((p) => p.text).join("");
+        }
+        // If tools were used, fall through to streaming call below
+        break;
+      }
+
+      toolsUsed = true;
+      const toolResults = toolCalls.map((p) => ({
+        functionResponse: {
+          name: p.functionCall.name,
+          response: executeChatTool(p.functionCall.name, p.functionCall.args || {}),
+        },
+      }));
+
+      // Append model's tool-call turn + our results to the conversation
+      contents = [
+        ...contents,
+        { role: "model", parts },
+        { role: "user",  parts: toolResults },
+      ];
     }
-    // Finalize
-    streamingMsg.text = fullText || "…";
-    streamingMsg.streaming = false;
+
+    if (directText) {
+      // Instant response — no tool round-trips needed
+      streamingMsg.text = directText;
+      streamingMsg.streaming = false;
+    } else {
+      // Stream the final synthesis (Gemini has all tool results in context, no tools passed
+      // so it can only return text — no risk of infinite tool loop)
+      let fullText = "";
+      for await (const chunk of streamGemini(contents, systemPrompt)) {
+        fullText += chunk;
+        streamingMsg.text = fullText;
+        updateStreamingBubble(fullText);
+      }
+      streamingMsg.text = fullText || "…";
+      streamingMsg.streaming = false;
+    }
   } catch (err) {
     streamingMsg.streaming = false;
     if (err instanceof GeminiError && err.status === 503) {
@@ -2228,11 +2424,9 @@ async function sendChatMessage(text) {
     } else if (err instanceof GeminiError && (err.status === 400 || err.status === 403)) {
       streamingMsg.text = "⚠️ Chat service configuration error. Please try again later.";
     } else if (err instanceof GeminiError && err.status === 429) {
-      streamingMsg.text =
-        "⚠️ Rate limit hit. Too many requests. Please wait a moment and try again.";
+      streamingMsg.text = "⚠️ Rate limit hit. Too many requests. Please wait a moment and try again.";
     } else {
-      streamingMsg.text =
-        "⚠️ Connection error. Please check your internet connection and try again.";
+      streamingMsg.text = "⚠️ Connection error. Please check your internet connection and try again.";
     }
   }
 

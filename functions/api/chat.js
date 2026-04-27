@@ -14,18 +14,21 @@ export async function onRequestPost(context) {
     return Response.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { contents, systemPrompt } = body;
+  const { contents, systemPrompt, tools, stream = true } = body;
   if (!Array.isArray(contents) || !contents.length) {
     return Response.json({ error: "Missing contents." }, { status: 400 });
   }
 
-  const url = `${GEMINI_BASE}/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${key}`;
+  const endpoint = stream
+    ? `${GEMINI_BASE}/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${key}`
+    : `${GEMINI_BASE}/${GEMINI_MODEL}:generateContent?key=${key}`;
 
-  const geminiResp = await fetch(url, {
+  const geminiResp = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       ...(systemPrompt && { system_instruction: { parts: [{ text: systemPrompt }] } }),
+      ...(tools?.length && { tools }),
       contents,
       generationConfig: {
         temperature: 0.35,
@@ -44,11 +47,16 @@ export async function onRequestPost(context) {
     return Response.json({ error: errMsg }, { status: geminiResp.status });
   }
 
-  return new Response(geminiResp.body, {
-    headers: {
-      "Content-Type": "text/event-stream",
-      "Cache-Control": "no-cache",
-      "X-Accel-Buffering": "no",
-    },
-  });
+  if (stream) {
+    return new Response(geminiResp.body, {
+      headers: {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        "X-Accel-Buffering": "no",
+      },
+    });
+  }
+
+  const data = await geminiResp.json();
+  return Response.json(data);
 }
