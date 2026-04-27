@@ -2059,12 +2059,14 @@ function computeRecommendations() {
       (item.avgExpectedSaving / bestExpected) * 70 + item.coverage * 20 + item.avgDayFit * 10;
   });
 
-  let visible = state.useEligibility
+  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
+
+  let visible = state.useEligibility && hasEligibilityInput
     ? aggregates.filter((item) => item.requirementStatus.status !== "ineligible")
     : aggregates;
 
   return visible.sort((a, b) => {
-    if (state.useEligibility && b.requirementStatus.sortRank !== a.requirementStatus.sortRank) {
+    if (state.useEligibility && hasEligibilityInput && b.requirementStatus.sortRank !== a.requirementStatus.sortRank) {
       return b.requirementStatus.sortRank - a.requirementStatus.sortRank;
     }
     if (b.score !== a.score) return b.score - a.score;
