@@ -3,169 +3,383 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Card Match | Dining Card Recommender</title>
-    <meta
-      name="description"
-      content="Find the best bank card for your dining habits across Karachi, Lahore, and Islamabad."
-    />
+    <title>Best Card for Restaurant Discounts in Pakistan | KonsaCard</title>
+    <meta name="description" content="Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan. Compare bank offers across Karachi, Lahore, and Islamabad." />
+    <meta name="google-site-verification" content="eNKqxvrlF-ik5zCkIE_55cGNweU-OOvTFwHEXagalkk" />
+    <link rel="canonical" href="https://konsacard.pk/" />
+    <link rel="icon" type="image/svg+xml" href="./assets/logo/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="./assets/logo/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo/mark-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/logo/mark-64.png" />
+    <link rel="apple-touch-icon" href="./assets/logo/apple-touch-icon.png" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://konsacard.pk/" />
+    <meta property="og:title" content="Best Card for Restaurant Discounts in Pakistan | KonsaCard" />
+    <meta property="og:description" content="Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan." />
+    <meta property="og:site_name" content="konsacard.pk" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Best Card for Restaurant Discounts in Pakistan | KonsaCard" />
+    <meta name="twitter:description" content="Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D8HRYPVY6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-8D8HRYPVY6");
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552095742304526" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles.css" />
     <script defer src="./assets/app.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "konsacard.pk",
+        "url": "https://konsacard.pk/",
+        "description": "Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan.",
+        "applicationCategory": "FinanceApplication",
+        "areaServed": ["Karachi", "Lahore", "Islamabad"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PKR" }
+      }
+    </script>
   </head>
   <body>
-    <div class="page-shell">
-      <header class="app-bar">
-        <div class="app-bar-copy">
-          <p class="eyebrow">Dining Card Finder</p>
-          <h1>Find your best dining card</h1>
+
+    <!-- ── SHELL ── -->
+    <div class="shell">
+
+      <!-- ── NAV ── -->
+      <nav class="nav" role="banner">
+        <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
+
+        <div class="city-tab-group" id="nav-city-tabs">
+          <!-- rendered by JS -->
         </div>
-        <div class="app-bar-stats">
-          <div class="mini-metric">
-            <strong id="stat-offers">0</strong>
-            <span>Offers</span>
-          </div>
-          <div class="mini-metric">
-            <strong id="stat-cards">0</strong>
-            <span>Cards</span>
-          </div>
-          <div class="mini-metric">
-            <strong id="stat-restaurants">0</strong>
-            <span>Restaurants</span>
-          </div>
+
+        <div style="flex:1"></div>
+
+        <div class="nav-links-desk">
+          <a class="nav-link" href="./about">About</a>
+          <a class="nav-link" href="./methodology">Methodology</a>
+          <a class="nav-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
+          <a class="nav-link" href="./contact">Contact</a>
         </div>
-      </header>
 
-      <main class="app-layout">
-        <aside class="controls">
-          <details id="filters-shell" class="filters-shell" open>
-            <summary class="filters-toggle">Filters</summary>
-            <section class="panel">
-              <div class="panel-head">
-                <h2>Your Filters</h2>
-                <button id="reset-filters" class="ghost-button" type="button">Reset</button>
-              </div>
+        <button class="btn-find-my-card" id="btn-open-quiz" type="button">
+          <span>🎯</span> Find My Card
+        </button>
 
-              <div class="field">
-                <div class="field-head">
-                  <label>Cities</label>
-                  <button id="clear-cities" class="text-button" type="button">Use all</button>
-                </div>
-                <div id="city-pills" class="pill-grid"></div>
-              </div>
+        <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
 
-              <div class="field">
-                <div class="field-head">
-                  <label for="restaurant-search">Restaurants</label>
-                  <button id="clear-restaurants" class="text-button" type="button">Use all</button>
-                </div>
-                <input
-                  id="restaurant-search"
-                  class="search-input"
-                  type="search"
-                  placeholder="Search for BBQ Tonight, Cafe Aylanto, PF Chang's..."
-                  autocomplete="off"
-                />
-                <div id="restaurant-results" class="search-results"></div>
-                <div id="selected-restaurants" class="selected-chips"></div>
-                <p class="helper">
-                  Leave this empty if you want a broad recommendation across all restaurants
-                  in your selected cities.
-                </p>
-              </div>
+      <!-- ── BODY ── -->
+      <div class="body">
 
-              <div class="field">
-                <div class="field-head">
-                  <label>Going-Out Days</label>
-                  <button id="clear-days" class="text-button" type="button">Use all</button>
-                </div>
-                <div id="day-pills" class="pill-grid compact"></div>
-              </div>
+        <!-- ── SIDEBAR ── -->
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-head">
+            <span class="sidebar-title">Filters</span>
+            <button class="btn-reset-all" id="reset-filters" type="button">Reset all</button>
+          </div>
 
-              <div class="field field-emphasis">
-                <div class="field-head">
-                  <label for="order-value">Typical Bill</label>
-                  <strong id="order-value-label">PKR 4,000</strong>
-                </div>
-                <input id="order-value" type="range" min="1000" max="50000" step="500" value="4000" />
-                <div class="range-scale">
-                  <span>PKR 1,000</span>
-                  <span>PKR 50,000</span>
-                </div>
-              </div>
+          <!-- Typical Bill -->
+          <div class="s-section">
+            <div class="s-label">Typical Bill</div>
+            <div class="s-range-val" id="order-value-label">PKR 10,000</div>
+            <input id="order-value" type="range" min="1000" max="50000" step="500" value="10000" />
+            <div class="range-ends"><span>1K</span><span>50K</span></div>
+            <div class="s-outings-row">
+              <span class="s-outings-label">Times / week</span>
+              <div class="s-pill-group" id="outings-pills"></div>
+            </div>
+          </div>
 
-              <div class="field">
-                <div class="field-head">
-                  <label>Banks</label>
-                  <button id="clear-banks" class="text-button" type="button">Use all</button>
-                </div>
-                <input
-                  id="bank-search"
-                  class="search-input"
-                  type="search"
-                  placeholder="Search banks..."
-                  autocomplete="off"
-                />
-                <div id="bank-results" class="search-results compact-results"></div>
-                <div id="selected-banks" class="selected-chips"></div>
-              </div>
+          <!-- Restaurants -->
+          <div class="s-section">
+            <div class="s-label">
+              Restaurants
+              <span class="s-label-count" id="selected-rest-count" style="display:none"></span>
+            </div>
+            <input id="restaurant-search" class="s-search" type="search" placeholder="Search restaurants…" autocomplete="off" />
+            <div id="restaurant-results" class="s-search-results"></div>
+            <div id="selected-restaurants" class="s-chips"></div>
+          </div>
 
-              <div class="field">
-                <div class="field-head">
-                  <label>Card Type</label>
-                  <button id="clear-card-types" class="text-button" type="button">Use all</button>
-                </div>
-                <div id="card-type-pills" class="pill-grid"></div>
+          <!-- Going-Out Days -->
+          <div class="s-section">
+            <div class="s-label">Going-Out Days</div>
+            <div id="day-pills" class="s-pill-group"></div>
+            <button class="btn-tonight" id="btn-tonight" type="button"></button>
+          </div>
+
+          <!-- Card Type -->
+          <div class="s-section">
+            <div class="s-label">Card Type</div>
+            <div id="card-type-pills" class="s-pill-group"></div>
+          </div>
+
+          <!-- Banks -->
+          <div class="s-section">
+            <div class="s-label">Banks</div>
+            <input id="bank-search" class="s-search" type="search" placeholder="Search banks…" autocomplete="off" />
+            <div id="bank-results" class="s-search-results"></div>
+            <div id="selected-banks" class="s-chips"></div>
+          </div>
+
+          <!-- Eligibility -->
+          <div class="s-section" style="border-bottom:none">
+            <div class="s-label-row">
+              <div class="s-label" style="margin-bottom:0">Eligibility</div>
+              <button class="s-text-btn" id="clear-eligibility" type="button" style="display:none">Clear</button>
+            </div>
+            <label class="s-check-row" style="margin-top:8px">
+              <input id="use-eligibility" type="checkbox" />
+              <span>Use salary &amp; balance to hide clearly ineligible cards</span>
+            </label>
+            <div class="eligibility-inputs" id="eligibility-inputs" style="display:none">
+              <div class="elig-field">
+                <div class="elig-label">Monthly Salary</div>
+                <input id="monthly-salary" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 100000" />
               </div>
-            </section>
-          </details>
+              <div class="elig-field">
+                <div class="elig-label">Account Balance</div>
+                <input id="account-balance" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 250000" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Banks covered footer -->
+          <div class="s-banks-footer">
+            <div class="s-banks-footer-label">18 Banks Covered</div>
+            <div class="s-banks-chips">
+              <span>HBL</span><span>Alfalah</span><span>Askari</span><span>Meezan</span>
+              <span>UBL</span><span>Easypaisa</span><span>SCB</span><span>MCB</span>
+              <span>JS Bank</span><span>AL Habib</span><span>Faysal</span><span>Allied</span>
+              <span>BankIslami</span><span>Habib Metro</span><span>BoP</span><span>Al Baraka</span>
+              <span>HBL Is.</span><span>MCB Is.</span>
+            </div>
+          </div>
         </aside>
 
-        <section class="results">
-          <section class="summary-strip panel">
-            <div class="summary-item">
-              <span>Selected restaurants</span>
-              <strong id="summary-brands">All available</strong>
-            </div>
-            <div class="summary-item">
-              <span>Selected cities</span>
-              <strong id="summary-cities">3 cities</strong>
-            </div>
-            <div class="summary-item">
-              <span>Selected days</span>
-              <strong id="summary-days">7 days</strong>
-            </div>
-            <div class="summary-item">
-              <span>Best expected saving</span>
-              <strong id="summary-best">-</strong>
-            </div>
-          </section>
+        <!-- ── MAIN ── -->
+        <main class="main" id="main-content">
 
-          <section id="empty-state" class="panel empty-state hidden">
-            <h2>No matching offers</h2>
-            <p>
-              Try adding another city, loosening the restaurant list, or choosing more days.
-            </p>
-          </section>
-
-          <section id="top-pick" class="top-pick hidden"></section>
-
-          <section class="panel">
-            <div class="panel-head">
-              <h2>Recommended Cards</h2>
-              <span id="result-count" class="panel-tag">0 cards</span>
+          <!-- Result Header -->
+          <div class="rh" id="result-header">
+            <div>
+              <div class="rh-count-row">
+                <span class="rh-count" id="result-count">0</span>
+                <span class="rh-count-label">cards matched</span>
+              </div>
+              <div class="rh-sub" id="rh-sub">Ranked by estimated savings</div>
             </div>
-            <p class="results-note">
-              Ranked by estimated savings on your bill, fit with your selected days, and how many of your chosen restaurants the card actually covers.
-            </p>
-            <div id="results-grid" class="results-grid"></div>
-          </section>
-        </section>
-      </main>
+            <div style="flex:1"></div>
+            <div class="view-toggle">
+              <button class="view-toggle-btn active" id="btn-view-cards" type="button">💳 Cards</button>
+              <button class="view-toggle-btn" id="btn-view-restaurants" type="button">🍽️ Restaurants</button>
+            </div>
+            <div class="rh-chip" id="rh-chip-saving">
+              <div class="rh-chip-l">Best Saving</div>
+              <div class="rh-chip-v green" id="summary-best">—</div>
+            </div>
+            <div class="rh-chip" id="rh-chip-city">
+              <div class="rh-chip-l">City</div>
+              <div class="rh-chip-v" id="summary-cities">All cities</div>
+            </div>
+          </div>
+
+          <!-- Empty state -->
+          <div class="empty-state hidden" id="empty-state">
+            <div class="empty-icon">🔍</div>
+            <div class="empty-title" id="empty-state-title">No cards match your filters</div>
+            <div class="empty-msg" id="empty-state-message">Try a different city or reset the filters</div>
+          </div>
+
+          <!-- Top pick (featured card) -->
+          <div id="top-pick" class="top-pick-wrap"></div>
+
+          <!-- Results list -->
+          <div id="results-grid" class="results-list"></div>
+
+          <!-- Guide cards -->
+          <div class="guide-section">
+            <div class="guide-section-header">
+              <span class="guide-section-label">Understand the ranking</span>
+              <div class="guide-section-line"></div>
+            </div>
+            <div class="guide-grid">
+              <a class="guide-card" href="./how-card-tiers-affect-discounts">
+                <div class="guide-tag">Guide</div>
+                <div class="guide-title">How card tiers affect your discount</div>
+                <div class="guide-desc">Why world vs. gold matters more than bank name.</div>
+              </a>
+              <a class="guide-card" href="./how-discount-caps-work">
+                <div class="guide-tag">Guide</div>
+                <div class="guide-title">How discount caps change the ranking</div>
+                <div class="guide-desc">A 40% headline discount can still save you less.</div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="site-footer">
+            <div class="footer-grid">
+              <div class="footer-block">
+                <a class="footer-wordmark" href="./">konsa<span>card</span><em>.pk</em></a>
+                <p>Independent restaurant discount card comparison for Pakistan. Not sponsored.</p>
+              </div>
+              <div class="footer-block">
+                <div class="footer-col-label">Pages</div>
+                <a href="./about">About</a>
+                <a href="./methodology">Methodology</a>
+                <a href="./how-card-tiers-affect-discounts">Card Tiers</a>
+                <a href="./privacy-policy">Privacy Policy</a>
+                <a href="./contact">Contact</a>
+              </div>
+              <div class="footer-block">
+                <div class="footer-col-label">Guides</div>
+                <a href="./how-card-tiers-affect-discounts">Card Tiers Explained</a>
+                <a href="./how-discount-caps-work">Discount Caps Explained</a>
+                <a href="./best-debit-cards-pakistan">Best Debit Cards in Pakistan</a>
+              </div>
+            </div>
+            <div class="footer-fine">
+              Offers can change. Always confirm terms directly with your bank.
+            </div>
+          </footer>
+
+        </main>
+      </div><!-- /.body -->
+
+      <!-- Mobile bottom tabs -->
+      <div class="mob-tabs" id="mob-tabs">
+        <button class="mob-tab active" id="mob-tab-filters" type="button">
+          <span>⚙️</span>Filters
+        </button>
+        <button class="mob-tab" id="mob-tab-results" type="button">
+          <span>🃏</span>Results
+        </button>
+        <button class="mob-tab" id="mob-tab-chat" type="button">
+          <span>💬</span>Ask AI
+        </button>
+      </div>
+
+    </div><!-- /.shell -->
+
+    <!-- ── COMPARE TRAY ── -->
+    <div class="cmp-tray" id="cmp-tray" style="display:none">
+      <div class="cmp-tray-inner">
+        <span class="cmp-tray-label">Compare:</span>
+        <div class="cmp-tray-cards" id="cmp-tray-cards"></div>
+        <button class="btn-compare-open" id="btn-compare-open" type="button" style="display:none">Compare →</button>
+        <button class="btn-cmp-clear" id="btn-cmp-clear" type="button">Clear</button>
+      </div>
     </div>
+
+    <!-- ── CHAT FAB ── -->
+    <button class="chat-fab" id="chat-fab" type="button" aria-label="Open AI assistant">💬</button>
+
+    <!-- ── CHAT PANEL ── -->
+    <div class="chat-panel" id="chat-panel" style="display:none">
+      <div class="chat-top">
+        <div class="chat-avatar">🤖</div>
+        <div>
+          <div class="chat-top-name">KonsaCard AI</div>
+          <div class="chat-top-sub">AI assistant</div>
+        </div>
+        <div class="chat-top-actions">
+          <button class="chat-top-btn" id="chat-clear-btn" type="button" title="Clear conversation">🗑</button>
+          <button class="chat-close" id="chat-close" type="button">×</button>
+        </div>
+      </div>
+      <div class="chat-msgs" id="chat-msgs"></div>
+      <div class="chat-input-wrap">
+        <textarea class="chat-in" id="chat-input" rows="1" placeholder="Ask about cards, discounts…"></textarea>
+        <button class="chat-send" id="chat-send" type="button">Send</button>
+      </div>
+    </div>
+
+    <!-- ── QUIZ MODAL ── -->
+    <div class="modal-bg" id="quiz-modal" style="display:none">
+      <div class="modal" id="quiz-modal-inner">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ── COMPARE MODAL ── -->
+    <div class="modal-bg" id="compare-modal" style="display:none">
+      <div class="modal modal-wide" id="compare-modal-inner">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ── CARD DETAIL MODAL ── -->
+    <div class="modal-bg" id="card-detail-modal" style="display:none">
+      <div class="modal modal-detail" id="card-detail-inner">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ── RESTAURANT DETAIL MODAL ── -->
+    <div class="modal-bg" id="restaurant-detail-modal" style="display:none">
+      <div class="modal modal-detail" id="restaurant-detail-inner">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ── LANDING SCREEN ── -->
+    <div id="landing-screen" class="landing-screen" style="display:none">
+      <nav class="landing-s-nav">
+        <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
+        <div style="flex:1"></div>
+        <button id="landing-skip-nav-btn" type="button" style="font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;font-family:inherit">Skip to app →</button>
+      </nav>
+      <div class="landing-s-body">
+        <div class="landing-inner">
+          <h1 class="landing-h1">Stop guessing.<br>Find the card that <span style="color:var(--brand)">actually saves you money</span> at restaurants.</h1>
+          <button id="landing-start-btn" class="landing-cta" type="button">Get Started <span style="font-size:18px">→</span></button>
+          <button id="landing-skip-btn" class="landing-skip" type="button">Already know what you want? Skip to browse all cards</button>
+          <div class="landing-stats">
+            <div style="text-align:center">
+              <div class="landing-stat-v">18</div>
+              <div class="landing-stat-l">Banks Covered</div>
+            </div>
+            <div style="text-align:center">
+              <div class="landing-stat-v">967+</div>
+              <div class="landing-stat-l">Restaurants</div>
+            </div>
+            <div style="text-align:center">
+              <div class="landing-stat-v">3 Cities</div>
+              <div class="landing-stat-l">KHI · LHR · ISB</div>
+            </div>
+          </div>
+          <div class="landing-features">
+            <div class="landing-feat"><span>🏙️</span> Karachi, Lahore &amp; Islamabad</div>
+            <div class="landing-feat"><span>🏦</span> 18 banks &amp; wallets</div>
+            <div class="landing-feat"><span>📊</span> Ranked by real savings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ONBOARDING SCREEN ── -->
+    <div id="onboarding-screen" class="ob-screen" style="display:none">
+      <nav class="ob-s-nav">
+        <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
+        <button id="ob-skip-btn" type="button" style="font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;font-family:inherit">Skip →</button>
+      </nav>
+      <div class="ob-s-body">
+        <div id="ob-inner">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

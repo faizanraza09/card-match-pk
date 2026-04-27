@@ -1,4 +1,6 @@
+assets/config.js
 __pycache__/
+**/__pycache__/
 *.py[cod]
 .env
 
@@ -7,3 +9,9 @@ __pycache__/
 .dev.vars*
 !.dev.vars.example
 !.env.example
+.dev.vars
+node_modules/
+.wrangler/
+.playwright/
+test-results/
+playwright-report/
