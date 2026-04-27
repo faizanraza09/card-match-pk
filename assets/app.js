@@ -1759,7 +1759,7 @@ function openChat() {
   if (state.chatMessages.length === 0) {
     state.chatMessages = [{
       role: "bot",
-      text: "Hi! I'm KonsaCard AI, powered by Gemini. Tell me your city and typical bill and I'll help you find the best restaurant discount card. 💳",
+      text: "Hi! I'm KonsaCard AI. Tell me your city and typical bill and I'll help you find the best restaurant discount card. 💳",
     }];
   }
   renderChatBody();
