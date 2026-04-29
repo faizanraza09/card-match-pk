@@ -2254,7 +2254,7 @@ function executeChatTool(name, args) {
 /* ── System prompt ── */
 function buildSystemPrompt() {
   const cityLabel = state.selectedCity === "all" ? "all cities (Karachi, Lahore, Islamabad)" : state.selectedCity;
-  // Only include essential context, NOT frequency/salary/balance (these are for filtering, not for chat)
+  // Only include essential context, NOT user filters like bill/frequency
   const userCtx = [
     `City: ${cityLabel}`,
     state.selectedCardTypes.size ? `Card types: ${[...state.selectedCardTypes].join(", ")}` : null,
@@ -2264,16 +2264,17 @@ function buildSystemPrompt() {
   const top3 = computeRecommendations().slice(0, 3);
   const top3text = top3.length
     ? `TOP CARDS IN ${cityLabel.toUpperCase()}:\n` +
-      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) | Fit Score ${Number(r.score).toFixed(0)}`).join("\n")
+      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) | Discount: ${Math.round(r.avgDiscount * 10) / 10}% avg`).join("\n")
     : "No cards match the current filters.";
 
   return `You are KonsaCard AI, the expert assistant for konsacard.pk - Pakistan's independent restaurant discount card comparison tool.
 
-IMPORTANT: You are INDEPENDENT of user preferences. Provide objective information about cards:
-- Focus on discount percentages and caps, NOT personalized savings
-- Do NOT mention user's bill size, frequency of dining, salary, or other personal filters
-- When recommending a card, explain the discount % at the relevant restaurant/category
-- Example: "Visa Infinite offers 15% off at Xanders with a PKR 2,000 cap per transaction" (not "saves PKR 4000/month")
+IMPORTANT - Personalization Rules:
+- DO NOT use stored filter values (bill size, frequency, salary, balance) in your responses
+- DO calculate and mention personalized savings ONLY if the user explicitly tells you their info
+  Example: User says "I spend 3,000 per outing" → you can say "that would be 450 savings at 15%"
+  Example: User doesn't mention bill → just say "15% discount with 2,000 cap"
+- Always present objective discount % first, then optional personalization if user data is provided
 
 Fit Score (0-100) = savings 70% + coverage 20% + day fit 10%.
 
