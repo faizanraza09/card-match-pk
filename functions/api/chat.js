@@ -178,10 +178,54 @@ export async function onRequestPost(context) {
   // Convert OpenAI-style messages to Gemini format if needed
   const contents = inputMessages.map((msg) => {
     if (msg.parts) return msg; // Already Gemini format
+    
     // Convert OpenAI format to Gemini format
+    const parts = [];
+    
+    // Handle tool results (from user with tool_call_id)
+    if (msg.tool_call_id) {
+      // This is a tool result response
+      try {
+        const resultData = typeof msg.content === "string" ? JSON.parse(msg.content) : msg.content;
+        parts.push({
+          functionResponse: {
+            name: msg.name || "unknown",
+            response: resultData,
+          },
+        });
+      } catch (e) {
+        // If can't parse as JSON, send as text
+        parts.push({
+          functionResponse: {
+            name: msg.name || "unknown",
+            response: { text: msg.content || "" },
+          },
+        });
+      }
+    }
+    // Handle regular text messages
+    else if (msg.content) {
+      parts.push({ text: msg.content });
+    }
+    
+    // Handle assistant tool calls (convert to function call format)
+    if (msg.tool_calls && msg.tool_calls.length > 0) {
+      for (const tc of msg.tool_calls) {
+        const args = typeof tc.function.arguments === "string" 
+          ? JSON.parse(tc.function.arguments)
+          : tc.function.arguments;
+        parts.push({
+          functionCall: {
+            name: tc.function.name,
+            args,
+          },
+        });
+      }
+    }
+    
     return {
       role: msg.role === "assistant" ? "model" : "user",
-      parts: [{ text: msg.content }],
+      parts: parts.length > 0 ? parts : [{ text: "" }],
     };
   });
 
