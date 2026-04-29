@@ -1,5 +1,5 @@
-const GROQ_MODEL = "llama-3.3-70b-versatile";
-const GROQ_BASE  = "https://api.groq.com/openai/v1";
+const GEMINI_MODEL = "gemini-2.5-flash";
+const GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
 /* ── Token estimation for logging ── */
 function estimateTokens(text) {
@@ -12,11 +12,24 @@ function estimateTokens(text) {
 function estimateMessageTokens(messages) {
   let total = 0;
   for (const msg of messages) {
-    if (msg.content) total += estimateTokens(msg.content);
-    if (msg.tool_calls) {
-      for (const tc of msg.tool_calls) {
-        total += estimateTokens(tc.function.name);
-        total += estimateTokens(tc.function.arguments);
+    // Handle Gemini format (parts)
+    if (msg.parts) {
+      for (const p of msg.parts) {
+        if (p.text) total += estimateTokens(p.text);
+        if (p.functionCall) {
+          total += estimateTokens(p.functionCall.name);
+          total += estimateTokens(JSON.stringify(p.functionCall.args || {}));
+        }
+      }
+    }
+    // Handle OpenAI format (content)
+    else if (msg.content) {
+      total += estimateTokens(msg.content);
+      if (msg.tool_calls) {
+        for (const tc of msg.tool_calls) {
+          total += estimateTokens(tc.function?.name || "");
+          total += estimateTokens(tc.function?.arguments || "");
+        }
       }
     }
   }
@@ -129,7 +142,7 @@ const TOOLS = [
 ];
 
 export async function onRequestPost(context) {
-  const key = (context.env.GROQ_KEY || "").trim();
+  const key = (context.env.GEMINI_KEY || "").trim();
   if (!key) {
     return Response.json({ error: "Chat service is not configured." }, { status: 503 });
   }
@@ -141,58 +154,70 @@ export async function onRequestPost(context) {
     return Response.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { messages, systemPrompt, stream = true, maxTokens } = body;
-  if (!Array.isArray(messages) || !messages.length) {
-    return Response.json({ error: "Missing messages." }, { status: 400 });
+  // Accept both OpenAI-style (messages) and Gemini-style (contents) formats
+  const inputMessages = body.messages || body.contents || [];
+  const { systemPrompt, stream = true, maxTokens } = body;
+  if (!Array.isArray(inputMessages) || !inputMessages.length) {
+    return Response.json({ error: "Missing messages or contents." }, { status: 400 });
   }
+
   const resolvedMaxTokens = Number.isFinite(Number(maxTokens))
-    ? Math.max(256, Math.min(2048, Number(maxTokens)))
-    : 1200;
+    ? Math.max(256, Math.min(8192, Number(maxTokens)))
+    : 2000;
 
   // Token estimation logging
   const systemPromptTokens = estimateTokens(systemPrompt);
-  const messagesTokens = estimateMessageTokens(messages);
+  const messagesTokens = estimateMessageTokens(inputMessages);
   const toolDefinitionsTokens = estimateTokens(JSON.stringify(TOOLS));
-  const inputTokensEstimate = systemPromptTokens + messagesTokens + toolDefinitionsTokens + 50; // 50 for overhead
+  const inputTokensEstimate = systemPromptTokens + messagesTokens + toolDefinitionsTokens + 50;
   
-  console.log(`[CHAT] Query started | User query: "${messages[messages.length - 1]?.content?.slice(0, 60)}..." | Input tokens (est): ${inputTokensEstimate} | Max output: ${resolvedMaxTokens}`);
+  const userQuery = (inputMessages[inputMessages.length - 1]?.content ||
+                     inputMessages[inputMessages.length - 1]?.parts?.[0]?.text || "").slice(0, 60);
+  console.log(`[CHAT] Query started | User query: "${userQuery}..." | Input tokens (est): ${inputTokensEstimate} | Max output: ${resolvedMaxTokens}`);
 
-  const fullMessages = [
-    ...(systemPrompt ? [{ role: "system", content: systemPrompt }] : []),
-    ...messages,
-  ];
+  // Convert OpenAI-style messages to Gemini format if needed
+  const contents = inputMessages.map((msg) => {
+    if (msg.parts) return msg; // Already Gemini format
+    // Convert OpenAI format to Gemini format
+    return {
+      role: msg.role === "assistant" ? "model" : "user",
+      parts: [{ text: msg.content }],
+    };
+  });
+
+  const endpoint = stream
+    ? `${GEMINI_BASE}/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${key}`
+    : `${GEMINI_BASE}/${GEMINI_MODEL}:generateContent?key=${key}`;
 
   const startTime = Date.now();
-  const groqResp = await fetch(`${GROQ_BASE}/chat/completions`, {
+  const geminiResp = await fetch(endpoint, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${key}`,
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: GROQ_MODEL,
-      messages: fullMessages,
-      tools: TOOLS,
-      tool_choice: "auto",
-      temperature: 0.35,
-      max_tokens: resolvedMaxTokens,
-      stream,
+      ...(systemPrompt && { system_instruction: { parts: [{ text: systemPrompt }] } }),
+      ...(TOOLS?.length && { tools: [{ function_declarations: TOOLS.map(t => t.function) }] }),
+      contents,
+      generationConfig: {
+        temperature: 0.35,
+        maxOutputTokens: resolvedMaxTokens,
+        topP: 0.95,
+      },
     }),
   });
 
-  if (!groqResp.ok) {
-    let errMsg = `Groq error ${groqResp.status}`;
+  if (!geminiResp.ok) {
+    let errMsg = `Gemini error ${geminiResp.status}`;
     try {
-      const errBody = await groqResp.json();
+      const errBody = await geminiResp.json();
       errMsg = errBody?.error?.message || errMsg;
     } catch { /* ignore */ }
     console.error(`[CHAT] Error: ${errMsg}`);
-    return Response.json({ error: errMsg }, { status: groqResp.status });
+    return Response.json({ error: errMsg }, { status: geminiResp.status });
   }
 
   if (stream) {
     // For streaming responses, wrap the body to capture and log completion
-    const originalBody = groqResp.body;
+    const originalBody = geminiResp.body;
     const reader = originalBody.getReader();
     const outputTokens = [];
     
@@ -217,17 +242,23 @@ export async function onRequestPost(context) {
             const text = decoder.decode(value, { stream: true });
             buffer += text;
             
-            // Extract content from SSE format
+            // Extract content from Gemini's SSE format
             const lines = buffer.split("\n");
             buffer = lines.pop() || "";
             for (const line of lines) {
               if (line.startsWith("data: ")) {
                 const data = line.slice(6);
-                if (data && data !== "[DONE]") {
+                if (data) {
                   try {
                     const json = JSON.parse(data);
-                    const content = json?.choices?.[0]?.delta?.content;
-                    if (content) outputTokens.push(content);
+                    const candidates = json?.candidates || [];
+                    for (const candidate of candidates) {
+                      if (candidate.content?.parts) {
+                        for (const part of candidate.content.parts) {
+                          if (part.text) outputTokens.push(part.text);
+                        }
+                      }
+                    }
                   } catch { /* ignore */ }
                 }
               }
@@ -252,15 +283,21 @@ export async function onRequestPost(context) {
     });
   }
 
-  const responseBody = await groqResp.json();
-  const outputText = responseBody?.choices?.[0]?.message?.content || "";
+  const responseData = await geminiResp.json();
+  let outputText = "";
+  if (responseData?.candidates?.[0]?.content?.parts) {
+    outputText = responseData.candidates[0].content.parts
+      .map((p) => p.text || "")
+      .join("");
+  }
+  
   const outputTokensEstimate = estimateTokens(outputText);
   const totalTokens = inputTokensEstimate + outputTokensEstimate;
   
   console.log(`[CHAT] Query completed (non-streaming) | Total tokens (est): ${totalTokens} (input: ${inputTokensEstimate}, output: ${outputTokensEstimate}) | Time: ${Date.now() - startTime}ms`);
   
   return Response.json({
-    ...responseBody,
+    ...responseData,
     _tokenEstimate: { input: inputTokensEstimate, output: outputTokensEstimate, total: totalTokens },
   });
 }

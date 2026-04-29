@@ -2323,7 +2323,7 @@ async function withRetry(fn, { maxAttempts = 3, signal } = {}) {
   throw lastErr;
 }
 
-/* ── Groq streaming generator (OpenAI SSE format) ── */
+/* ── Gemini streaming generator (Gemini SSE format) ── */
 async function* streamGroq(messages, systemPrompt, signal, maxTokens = 1000) {
   const resp = await fetch("/api/chat", {
     method: "POST",
@@ -2362,17 +2362,21 @@ async function* streamGroq(messages, systemPrompt, signal, maxTokens = 1000) {
     for (const line of lines) {
       if (!line.startsWith("data: ")) continue;
       const raw = line.slice(6).trim();
-      if (!raw || raw === "[DONE]") continue;
+      if (!raw) continue;
       try {
         const parsed = JSON.parse(raw);
-        const text = parsed?.choices?.[0]?.delta?.content;
-        if (text) yield text;
+        // Extract text from Gemini response format
+        if (parsed?.candidates?.[0]?.content?.parts) {
+          for (const part of parsed.candidates[0].content.parts) {
+            if (part.text) yield part.text;
+          }
+        }
       } catch { /* skip malformed chunk */ }
     }
   }
 }
 
-/* ── Non-streaming Groq call (used for tool resolution loop) ── */
+/* ── Non-streaming Gemini call (used for tool resolution loop) ── */
 async function callGroqNonStreaming(messages, systemPrompt, signal, maxTokens = 700) {
   const resp = await fetch("/api/chat", {
     method: "POST",
@@ -2386,6 +2390,38 @@ async function callGroqNonStreaming(messages, systemPrompt, signal, maxTokens = 
     throw new GeminiError(msg, resp.status);
   }
   const data = await resp.json();
+  
+  // Convert Gemini response to OpenAI-compatible format for rest of code
+  if (data?.candidates?.[0]) {
+    const candidate = data.candidates[0];
+    const content = candidate.content?.parts?.map((p) => p.text || "").join("") || "";
+    const toolCalls = [];
+    
+    if (candidate.content?.parts) {
+      for (const part of candidate.content.parts) {
+        if (part.functionCall) {
+          toolCalls.push({
+            type: "function",
+            function: {
+              name: part.functionCall.name,
+              arguments: JSON.stringify(part.functionCall.args || {}),
+            },
+          });
+        }
+      }
+    }
+    
+    data.choices = [
+      {
+        message: {
+          role: "assistant",
+          content,
+          tool_calls: toolCalls.length ? toolCalls : undefined,
+        },
+      },
+    ];
+  }
+  
   if (data._tokenEstimate) {
     const { input, output, total } = data._tokenEstimate;
     console.log(`[CHAT TOOL] Tokens: input=${input}, output=${output}, total=${total}`);
