@@ -2351,13 +2351,7 @@ async function* streamGroq(messages, systemPrompt, signal, maxTokens = 1000) {
 
   // Get token estimate from response if available
   const tokenEstimate = resp.headers.get("X-Token-Estimate");
-  if (tokenEstimate) {
-    try {
-      const parsed = JSON.parse(tokenEstimate);
-      const { input, output, total } = parsed;
-      console.log(`[CHAT STREAM] Tokens: input=${input}, output=${output}, total=${total} (estimate)`);
-    } catch { /* ignore */ }
-  }
+  // (Token logging kept in backend server logs only)
 
   const reader = resp.body.getReader();
   const dec = new TextDecoder();
@@ -2433,10 +2427,6 @@ async function callGroqNonStreaming(messages, systemPrompt, signal, maxTokens = 
     ];
   }
   
-  if (data._tokenEstimate) {
-    const { input, output, total } = data._tokenEstimate;
-    console.log(`[CHAT TOOL] Tokens: input=${input}, output=${output}, total=${total}`);
-  }
   return data;
 }
 
@@ -2649,7 +2639,6 @@ async function sendChatMessage(text) {
   const timeoutTimer = setTimeout(() => abort.abort(), 50000);
 
   const queryStartTime = Date.now();
-  console.log(`[CHAT START] Query: "${t.slice(0, 60)}..."`);
 
   try {
     let messages = toChatMessages(state.chatMessages.filter((m) => !m.streaming));
@@ -2719,7 +2708,6 @@ async function sendChatMessage(text) {
       streamingMsg.text = "⚠️ Connection error. Check your internet and try again.";
     }
     streamingMsg.retryText = t;
-    console.log(`[CHAT ERROR] ${err.message || err.name} | Time: ${Date.now() - queryStartTime}ms`);
   } finally {
     clearTimeout(slowTimer);
     clearTimeout(timeoutTimer);
@@ -2728,7 +2716,6 @@ async function sendChatMessage(text) {
 
   state.chatLoading = false;
   renderChatBody();
-  console.log(`[CHAT END] Completed in ${Date.now() - queryStartTime}ms`);
 }
 
 /* ── Clear conversation ── */
