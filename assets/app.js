@@ -2410,11 +2410,11 @@ async function* streamGemini(messages, systemPrompt, signal, maxTokens = 1000) {
 }
 
 /* ── Non-streaming Gemini call (used for tool resolution loop) ── */
-async function callGeminiNonStreaming(messages, systemPrompt, signal, maxTokens = 700) {
+async function callGeminiNonStreaming(messages, systemPrompt, signal, maxTokens = 700, firstCall = false) {
   const resp = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages, systemPrompt, stream: false, maxTokens }),
+    body: JSON.stringify({ messages, systemPrompt, stream: false, maxTokens, firstCall }),
     signal,
   });
   if (!resp.ok) {
@@ -2681,7 +2681,7 @@ async function sendChatMessage(text) {
 
     for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
       const data = await withRetry(
-        () => callGeminiNonStreaming(messages, systemPrompt, signal, 1200),
+        () => callGeminiNonStreaming(messages, systemPrompt, signal, 1200, round === 0),
         { maxAttempts: 3, signal }
       );
       const msg   = data?.choices?.[0]?.message;

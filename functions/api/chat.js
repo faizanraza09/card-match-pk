@@ -1,6 +1,48 @@
 const GEMINI_MODEL = "gemini-2.5-flash-lite";
 const GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
+/* ── Rate limiting ── */
+const RATE_LIMIT_HOURLY = 10;
+const RATE_LIMIT_DAILY  = 20;
+
+async function checkRateLimit(kv, ip, shouldCount) {
+  if (!kv || !ip) return null; // no KV binding → skip (local dev without KV)
+
+  const now       = Date.now();
+  const hourKey   = `rl:h:${ip}:${Math.floor(now / 3_600_000)}`;
+  const dayKey    = `rl:d:${ip}:${Math.floor(now / 86_400_000)}`;
+
+  const [hourlyRaw, dailyRaw] = await Promise.all([
+    kv.get(hourKey),
+    kv.get(dayKey),
+  ]);
+
+  const hourly = Number(hourlyRaw) || 0;
+  const daily  = Number(dailyRaw)  || 0;
+
+  if (hourly >= RATE_LIMIT_HOURLY) {
+    const secondsUntilNextHour = 3600 - (Math.floor(now / 1000) % 3600);
+    return { limited: true, retryAfter: secondsUntilNextHour, reason: "hourly" };
+  }
+  if (daily >= RATE_LIMIT_DAILY) {
+    const secondsUntilNextDay = 86400 - (Math.floor(now / 1000) % 86400);
+    return { limited: true, retryAfter: secondsUntilNextDay, reason: "daily" };
+  }
+
+  // Only count against the limit on the first call of each user turn —
+  // tool-continuation calls and the final streaming call are not counted.
+  if (shouldCount) {
+    const hourTtl = 7_200;  // 2h so the key outlives the window boundary
+    const dayTtl  = 90_000; // ~25h
+    Promise.all([
+      kv.put(hourKey, String(hourly + 1), { expirationTtl: hourTtl }),
+      kv.put(dayKey,  String(daily  + 1), { expirationTtl: dayTtl  }),
+    ]).catch(() => {}); // non-fatal if KV write fails
+  }
+
+  return { limited: false };
+}
+
 /* ── Token estimation for logging ── */
 function estimateTokens(text) {
   if (!text) return 0;
@@ -152,6 +194,21 @@ export async function onRequestPost(context) {
     body = await context.request.json();
   } catch {
     return Response.json({ error: "Invalid request body." }, { status: 400 });
+  }
+
+  // Rate limiting — check every call, but only count first call of each user turn
+  // (one user message triggers up to 4 tool rounds + 1 streaming call)
+  const ip = context.request.headers.get("CF-Connecting-IP") || "";
+  const rl = await checkRateLimit(context.env.RATE_LIMITS, ip, !!body.firstCall);
+  if (rl?.limited) {
+    console.log(`[CHAT] Rate limited | IP: ${ip} | reason: ${rl.reason}`);
+    return Response.json(
+      { error: "Too many requests. Please wait before sending more messages." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rl.retryAfter) },
+      }
+    );
   }
 
   // Accept both OpenAI-style (messages) and Gemini-style (contents) formats
