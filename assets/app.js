@@ -2045,6 +2045,20 @@ function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, li
       const avgDiscount = discounts.length ? discounts.reduce((a, b) => a + b, 0) / discounts.length : 0;
       const caps = cardOffers.map((o) => o.capPkr).filter((v) => v != null);
       
+      // When restaurants are specified, show coverage relative to those restaurants only
+      let restaurantsCovered = r.coveredVenueCount;
+      let totalInFilter = r.totalVenueCount;
+      if (restaurants?.length && state.selectedRestaurants.size > 0) {
+        const coveredRestaurants = new Set();
+        cardOffers.forEach((o) => {
+          if (state.selectedRestaurants.has(o.restaurant)) {
+            coveredRestaurants.add(o.restaurant);
+          }
+        });
+        restaurantsCovered = coveredRestaurants.size;
+        totalInFilter = state.selectedRestaurants.size;
+      }
+      
       return {
         rank: i + 1, 
         card: r.card, 
@@ -2053,8 +2067,8 @@ function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, li
         fit_score: Number(r.score).toFixed(1),
         avg_discount_pct: Math.round(avgDiscount * 10) / 10,
         median_cap_pkr: r.medianCap || null,
-        restaurants_covered: r.coveredVenueCount,
-        total_restaurants_in_filter: r.totalVenueCount,
+        restaurants_covered: restaurantsCovered,
+        total_restaurants_in_filter: totalInFilter,
         day_fit_pct: Math.round(r.avgDayFit * 100),
       };
     }),
