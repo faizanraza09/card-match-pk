@@ -65,7 +65,9 @@
       "Bash(Sort-Object Length -Descending)",
       "Bash(curl -s -A \"Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)\" \"https://konsacard.pk/\")",
       "Bash(curl -sI \"https://konsacard.pk/\")",
-      "Bash(curl -s -A \"Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)\" \"https://konsacard.pk/how-card-tiers-affect-discounts\")"
+      "Bash(curl -s -A \"Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)\" \"https://konsacard.pk/how-card-tiers-affect-discounts\")",
+      "WebFetch(domain:propakistani.pk)",
+      "Bash(pip3 install *)"
     ]
   }
 }

@@ -4950,7 +4950,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 700,
+      "annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -5263,11 +5263,12 @@
     "card_name": "HBL Prestige World Elite DebitCard",
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 5000000,
       "annual_fee_pkr": 0,
       "annual_fee_waiver_rule": "Free issuance, renewal, and replacement for HBL Prestige members.",
       "minimum_age_years": null,
-      "maximum_age_years": null
+      "maximum_age_years": null,
+      "existing_account_required": true
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
@@ -5290,13 +5291,15 @@
     "confidence": "high",
     "notes": [
       "Exclusive to HBL Prestige members.",
+      "HBL Prestige membership requires PKR 5,000,000 quarterly average balance in a current account OR PKR 15,000,000 in a savings account. Source: hbl.com/prestige/become-a-member/hbl-prestige-membership.",
+      "minimum_account_balance_pkr set to 5,000,000 (the lower current-account threshold). Users with PKR 15M in savings also qualify.",
       "Issued instantly from Prestige lounges according to the public page.",
       "Limit enhancement PDF shows daily withdrawal PKR 1,000,000 and purchase/e-commerce / funds-transfer limits of PKR 5,000,000."
     ],
     "bank_gaps": [
       "Most HBL debit-card pages still do not expose clean public fee or age tables."
     ],
-    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
+    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Balance threshold confirmed from hbl.com/prestige/become-a-member/hbl-prestige-membership May 2026."
   },
   {
     "card_id": "hbl--hbl-world-business-debitcard",
@@ -5307,9 +5310,10 @@
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 22000,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "First year free; PKR 22,000 from second year onward.",
       "minimum_age_years": null,
-      "maximum_age_years": null
+      "maximum_age_years": null,
+      "existing_account_required": true
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
@@ -5385,8 +5389,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 700,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 3800,
+      "annual_fee_waiver_rule": "50% waiver for HBL Preferred members (Rs 2M+ AUM). First-year waiver for Nisa account holders.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -5422,12 +5426,14 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
-    "requirement_sources": {},
+    "requirement_sources": {
+      "annual_fee_pkr": ["hbl-src-sobc-jan-jun-2026"]
+    },
     "source_ids": [
       "hbl-src-a89d1e12ff"
     ],
