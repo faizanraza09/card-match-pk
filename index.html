@@ -43,8 +43,33 @@
         "url": "https://konsacard.pk/",
         "description": "Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan.",
         "applicationCategory": "FinanceApplication",
-        "areaServed": ["Karachi", "Lahore", "Islamabad"],
+        "areaServed": ["Karachi", "Lahore", "Islamabad", "Pakistan"],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PKR" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://konsacard.pk/#org",
+            "name": "KonsaCard",
+            "url": "https://konsacard.pk/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://konsacard.pk/assets/logo/mark-64.png"
+            },
+            "description": "Independent restaurant discount card comparison for 18 Pakistani banks. Not sponsored."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://konsacard.pk/#website",
+            "url": "https://konsacard.pk/",
+            "name": "KonsaCard",
+            "publisher": { "@id": "https://konsacard.pk/#org" }
+          }
+        ]
       }
     </script>
   </head>
@@ -155,6 +180,8 @@
         <!-- ── MAIN ── -->
         <main class="main" id="main-content">
 
+          <h1 class="sr-only">Best Credit &amp; Debit Cards for Restaurant Discounts in Pakistan</h1>
+
           <!-- Result Header -->
           <div class="rh" id="result-header">
             <div>
@@ -230,7 +257,6 @@
                 <div class="footer-col-label">Guides</div>
                 <a href="./how-card-tiers-affect-discounts">Card Tiers Explained</a>
                 <a href="./how-discount-caps-work">Discount Caps Explained</a>
-                <a href="./best-debit-cards-pakistan">Best Debit Cards in Pakistan</a>
               </div>
             </div>
             <div class="footer-banks">

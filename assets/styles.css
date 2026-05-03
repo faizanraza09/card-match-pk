@@ -1478,8 +1478,21 @@ body.content-page {
   box-shadow: var(--shadow-sm);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .content-hero {
   max-width: 1180px;
+  width: 100%;
   margin: 0 auto;
   padding: 34px 20px 20px;
   display: grid;
