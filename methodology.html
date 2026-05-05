@@ -46,24 +46,42 @@
   </head>
   <body class="content-page">
     <div class="page-shell content-shell">
-      <nav class="app-bar" role="banner">
-        <div class="top-nav">
-          <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
-          <div class="mobile-nav-wrap">
-            <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-              <span></span><span></span><span></span>
-            </button>
-            <nav class="utility-nav" id="main-nav" aria-label="Site links">
-              <a class="utility-link" href="./">Home</a>
-              <a class="utility-link" href="./about">About</a>
-              <a class="utility-link" href="./methodology" aria-current="page">Methodology</a>
-              <a class="utility-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
-              <a class="utility-link" href="./privacy-policy">Privacy</a>
-              <a class="utility-link" href="./contact">Contact</a>
-            </nav>
-          </div>
-          <span class="nav-badge">Karachi · Lahore · Islamabad</span>
+      <nav class="nav" role="banner">
+        <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
+        <div class="city-tab-group" aria-label="Available cities">
+          <span class="city-tab active">All</span>
+          <span class="city-tab">Karachi</span>
+          <span class="city-tab">Lahore</span>
+          <span class="city-tab">Islamabad</span>
         </div>
+        <div style="flex:1"></div>
+        <div class="nav-links-desk">
+          <a class="nav-link" href="./banks/">Banks</a>
+          <a class="nav-link" href="./restaurants/">Restaurants</a>
+          <a class="nav-link" href="./about">About</a>
+          <a class="nav-link" href="./methodology" aria-current="page">Methodology</a>
+          <a class="nav-link" href="./how-discount-caps-work">Discount Caps</a>
+          <a class="nav-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
+          <a class="nav-link" href="./privacy-policy">Privacy</a>
+          <a class="nav-link" href="./contact">Contact</a>
+        </div>
+        <a class="btn-find-my-card" href="./">
+          <span>🎯</span> Find My Card
+        </a>
+        <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="utility-nav" id="main-nav" aria-label="Site links">
+          <a class="utility-link" href="./">Home</a>
+          <a class="utility-link" href="./banks/">Banks</a>
+          <a class="utility-link" href="./restaurants/">Restaurants</a>
+          <a class="utility-link" href="./about">About</a>
+          <a class="utility-link" href="./methodology" aria-current="page">Methodology</a>
+          <a class="utility-link" href="./how-discount-caps-work">Discount Caps</a>
+          <a class="utility-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
+          <a class="utility-link" href="./privacy-policy">Privacy</a>
+          <a class="utility-link" href="./contact">Contact</a>
+        </nav>
       </nav>
 
       <header class="content-hero">
@@ -82,44 +100,82 @@
           <article class="content-card">
             <h2>The Fit Score — how it's calculated</h2>
             <p>
-              Each card receives a Fit Score from 0–100 built from three components,
-              each weighted by how much it actually affects real-world savings.
+              Each card receives a Fit Score from 0–100 built in three stages. The inputs are
+              <strong>S</strong> (avg saving per matched outing), <strong>C</strong> (coverage — fraction
+              of your selected restaurants this card covers), and <strong>D</strong> (day-fit — fraction
+              of your selected dining days this card's offers apply on).
             </p>
-            <div class="score-breakdown">
+
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 1 — Savings-strength index (E)</h3>
+            <p>
+              Raw saving per outing is blended with coverage using a square-root curve, so a card with
+              strong deals and partial coverage still earns meaningful credit — while full-coverage cards
+              are rewarded most:
+            </p>
+            <div class="tip-box" style="margin-top:10px; margin-bottom:16px">
+              <strong>E = S × (0.35 + 0.65 × √C)</strong>
+            </div>
+            <p style="margin-top:0; margin-bottom:0; font-size:13px; color:var(--muted)">
+              At full coverage (C = 1) this equals S. At half coverage (C = 0.5) it equals ~0.81 × S
+              rather than 0.5 × S — preserving more signal from high-saving cards.
+            </p>
+
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 2 — Peer-relative normalization (N<sub>s</sub>)</h3>
+            <p>
+              E is normalized against the 95th-percentile E across all visible cards in your current
+              search. Using P95 instead of the single best card prevents one outlier from compressing
+              everyone else toward zero:
+            </p>
+            <div class="tip-box" style="margin-top:10px; margin-bottom:16px">
+              <strong>N<sub>s</sub> = min(1, E ÷ P95(E))</strong>
+            </div>
+            <p style="margin-top:0; margin-bottom:0; font-size:13px; color:var(--muted)">
+              Cards at or above the 95th percentile get N<sub>s</sub> = 1. Cards below are scored
+              proportionally. This keeps scores spread out even when one card dominates the field.
+            </p>
+
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 3 — Weighted composite (R → Fit Score)</h3>
+            <p>
+              Three components are combined and scaled to the 20–100 range:
+            </p>
+            <div class="score-breakdown" style="margin-top:12px">
               <div class="score-row">
-                <div class="score-weight"><strong>70</strong><span>pts</span></div>
+                <div class="score-weight"><strong>65</strong><span>%</span></div>
                 <div style="flex:1">
-                  <div class="score-desc"><strong>Estimated PKR savings per outing</strong><span>How much you save on your bill size at the restaurants you selected, after applying caps. This is the dominant factor because it directly answers: how much money do I keep?</span></div>
-                  <div class="score-bar-track" style="margin-top:8px"><div class="score-bar-fill" style="width:70%"></div></div>
+                  <div class="score-desc"><strong>Normalized savings strength (N<sub>s</sub>)</strong><span>How this card's savings-adjusted-for-coverage compares to the best cards in your search. The dominant driver of ranking.</span></div>
+                  <div class="score-bar-track" style="margin-top:8px"><div class="score-bar-fill" style="width:65%"></div></div>
                 </div>
               </div>
               <div class="score-row">
-                <div class="score-weight"><strong>20</strong><span>pts</span></div>
+                <div class="score-weight"><strong>25</strong><span>%</span></div>
                 <div style="flex:1">
-                  <div class="score-desc"><strong>Restaurant coverage</strong><span>What fraction of your selected restaurants this card actually covers. A card covering 5 of your 5 restaurants beats one covering 1 of your 5, even if the single deal is strong.</span></div>
-                  <div class="score-bar-track" style="margin-top:8px"><div class="score-bar-fill" style="width:20%"></div></div>
+                  <div class="score-desc"><strong>Restaurant coverage (C)</strong><span>What fraction of your selected restaurants this card covers. A card covering 5 of your 5 restaurants beats one covering 1 of 5, even if that single deal is strong.</span></div>
+                  <div class="score-bar-track" style="margin-top:8px"><div class="score-bar-fill" style="width:25%"></div></div>
                 </div>
               </div>
               <div class="score-row">
-                <div class="score-weight"><strong>10</strong><span>pts</span></div>
+                <div class="score-weight"><strong>10</strong><span>%</span></div>
                 <div style="flex:1">
-                  <div class="score-desc"><strong>Day alignment</strong><span>How well the card's offer days match your selected dining days. An offer valid only Tuesday–Thursday scores poorly if you always dine on weekends.</span></div>
+                  <div class="score-desc"><strong>Day alignment (D)</strong><span>How well the card's offer days match your selected dining days. An offer valid only Tuesday–Thursday scores poorly if you always dine on weekends.</span></div>
                   <div class="score-bar-track" style="margin-top:8px"><div class="score-bar-fill" style="width:10%"></div></div>
                 </div>
               </div>
             </div>
             <div class="tip-box" style="margin-top:18px">
-              <strong>Formula:</strong> Score = (Your card's avg saving ÷ Best saving in results) × 70 + Coverage % × 20 + Day fit % × 10
+              <strong>R = 0.65 × N<sub>s</sub> + 0.25 × C + 0.10 × D</strong><br>
+              <strong>Fit Score = 20 + 80 × R</strong>
             </div>
 
-            <h3 style="margin-top:24px; font-size:16px; font-weight:700">The Qualification Adjustment (+/- 30 pts)</h3>
+            <h3 style="margin-top:24px; font-size:16px; font-weight:700">The Qualification Adjustment (+/- 15 pts)</h3>
             <p>
-              The score above is the "base" fit. If you provide your monthly salary or account balance, the tool applies a <strong>±30 point adjustment</strong> based on how well you meet the card's qualification requirements:
+              The score above is the "base" fit. If you provide your monthly salary or account balance,
+              the tool applies a <strong>±15 point adjustment</strong> based on how well you meet the
+              card's qualification requirements:
             </p>
             <ul>
-              <li><strong>Strong Qualification (+30):</strong> If you comfortably meet the requirements with a high confidence level (typically 75%+), the score increases by up to 30 points, reflecting that this card is a viable "best fit" for your profile.</li>
-              <li><strong>Marginal Qualification (0 to +15):</strong> If you meet the requirements but with moderate confidence, you receive a smaller boost proportional to your qualification match.</li>
-              <li><strong>Below Requirements (-15 to -30):</strong> If you fall below the requirements, the score drops proportionally. If you are significantly below the threshold, the card is penalized heavily (and hidden if you turn on "Eligibility Mode").</li>
+              <li><strong>Strong Qualification (+15):</strong> If you comfortably meet the requirements with a high confidence level (typically 75%+), the score increases by up to 15 points, reflecting that this card is a viable "best fit" for your profile.</li>
+              <li><strong>Marginal Qualification (0 to +7):</strong> If you meet the requirements but with moderate confidence, you receive a smaller boost proportional to your qualification match.</li>
+              <li><strong>Below Requirements (-7 to -15):</strong> If you fall below the requirements, the score drops proportionally. The card is hidden if you turn on "Eligibility Mode".</li>
             </ul>
             <p>
               <strong>Smart Requirements:</strong> Pakistani bank cards often have multiple paths to qualify (e.g., "Salary of Rs 100k OR Balance of Rs 500k"). Our algorithm handles this by taking your <em>best</em> qualification match across all available fields.
@@ -182,6 +238,9 @@
               the 15% card quietly overtook both. Moving the slider is the single most useful
               thing you can do to get an honest comparison.
             </p>
+            <div class="tip-box" style="margin-top:14px">
+              <strong>Important:</strong> <em>Saving / outing</em> is averaged over restaurants a card actually matches (not all restaurants in the city/filter set). Coverage is then handled separately in the Fit Score so narrow cards don't dominate ranking.
+            </div>
           </article>
 
           <article class="content-card">

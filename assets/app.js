@@ -869,8 +869,8 @@ function renderFeaturedCard(result, container) {
           <div class="cs-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Avg Day Coverage")}</div>
-          <div class="cs-v">${Math.round(result.avgDayFit * 100)}%</div>
+          <div class="cs-l">${renderMetricLabel("Annual Fees")}</div>
+          <div class="cs-v">${result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrency(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrency(result.requirementStatus?.annualFeePkr)}</div>
         </div>
         <div class="card-stat">
           <div class="cs-l">${renderMetricLabel("Typical Cap")}</div>
@@ -944,8 +944,8 @@ function renderResultCards(results, container) {
           <div class="cs-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Avg Day Coverage")}</div>
-          <div class="cs-v">${Math.round(result.avgDayFit * 100)}%</div>
+          <div class="cs-l">${renderMetricLabel("Annual Fees")}</div>
+          <div class="cs-v">${result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrency(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrency(result.requirementStatus?.annualFeePkr)}</div>
         </div>
         <div class="card-stat">
           <div class="cs-l">${renderMetricLabel("Typical Cap")}</div>
@@ -1019,8 +1019,8 @@ function renderCardDetail(result) {
 
   const detailItems = [
     { icon: "🏙️", l: "Available In", v: getTopPickCitiesLabel() },
-    { icon: "📅", l: "Avg Day Coverage", v: `${Math.round(result.avgDayFit * 100)}% of days` },
     { icon: "📊", l: "Restaurants Matched", v: `${result.coveredVenueCount} of ${result.totalVenueCount}` },
+    { icon: "💳", l: "Annual Fees", v: result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrency(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrency(result.requirementStatus?.annualFeePkr) },
     { icon: "💰", l: "Typical Cap", v: result.medianCap !== null ? formatCurrency(result.medianCap) : "No cap listed" },
   ];
 
@@ -1146,7 +1146,6 @@ function openCompareModal() {
       : null,
     { l: "Restaurants Matched",       vals: cards.map((c) => c.coveredVenueCount),    fmt: (v)    => `${v} of ${cards[0].totalVenueCount}`,  compare: "high" },
     { l: "Exclusive restaurants",     vals: excl,                                     fmt: (v)    => v > 0 ? `${v} only here` : "—",         compare: "high" },
-    { l: "Avg Day Coverage",          vals: cards.map((c) => c.avgDayFit),            fmt: (v)    => Math.round(v * 100) + "%",              compare: "high" },
     { l: "Avg Discount",              vals: cards.map((c) => c.averageDiscount || 0), fmt: (v)    => v ? v.toFixed(1) + "%" : "—",           compare: "high" },
   ].filter(Boolean);
 
@@ -3013,7 +3012,7 @@ function computeRecommendations() {
     const coverage = coveredVenueCount / scoringVenueCount;
     const totalExpectedSaving = matches.reduce((sum, match) => sum + match.expectedSaving, 0);
     const totalDayFit = matches.reduce((sum, match) => sum + match.dayFit, 0);
-    const avgExpectedSaving = totalExpectedSaving / scoringVenueCount;
+    const avgExpectedSaving = coveredVenueCount > 0 ? totalExpectedSaving / coveredVenueCount : 0;
     
     // Day fit should be relative to COVERED venues (Reliability)
     // not scoringVenueCount (Broadness), otherwise the number is confusingly diluted.
@@ -3047,10 +3046,24 @@ function computeRecommendations() {
   });
 
   const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
-  const bestExpected = Math.max(...aggregates.map((item) => item.avgExpectedSaving), 1);
+
+  // Step 1: compute blended savings-strength index E for each card
   aggregates.forEach((item) => {
-    item.baseScore =
-      (item.avgExpectedSaving / bestExpected) * 70 + item.coverage * 20 + item.avgDayFit * 10;
+    item.coverageAdjustedSaving = item.avgExpectedSaving * item.coverage;
+    item.E = item.avgExpectedSaving * (0.35 + 0.65 * Math.sqrt(item.coverage));
+  });
+
+  // Step 2: P95 of E (robust normalization — one outlier card won't compress all others)
+  const eSorted = aggregates.map((item) => item.E).sort((a, b) => a - b);
+  const p95E = eSorted.length > 0
+    ? eSorted[Math.max(0, Math.ceil(0.95 * eSorted.length) - 1)]
+    : 1;
+  const p95ESafe = Math.max(p95E, 1);
+
+  aggregates.forEach((item) => {
+    const Ns = Math.min(1, item.E / p95ESafe);
+    const R = 0.65 * Ns + 0.25 * item.coverage + 0.10 * item.avgDayFit;
+    item.baseScore = 20 + 80 * R;
     item.qualificationConfidence = computeQualificationConfidence(item.requirementStatus);
     item.qualificationDelta = (state.useEligibility && hasEligibilityInput)
       ? 30 * (item.qualificationConfidence - 0.5)
@@ -3064,7 +3077,7 @@ function computeRecommendations() {
 
   return visible.sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score;
-    if (b.avgExpectedSaving !== a.avgExpectedSaving) return b.avgExpectedSaving - a.avgExpectedSaving;
+    if (b.coverageAdjustedSaving !== a.coverageAdjustedSaving) return b.coverageAdjustedSaving - a.coverageAdjustedSaving;
     return b.coverage - a.coverage;
   });
 }
@@ -3109,18 +3122,19 @@ function buildEstimatesByTier(requirementsPayload) {
 }
 
 function evaluateEligibility(bank, card) {
+  const _emptyNotes = { cardNotes: [], bankGaps: [] };
   if (!state.requirements?.available) {
-    return { status: "unavailable", label: "Requirements unavailable", tone: "unclear", sortRank: 1, detail: "Requirements data could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [] };
+    return { status: "unavailable", label: "Requirements unavailable", tone: "unclear", sortRank: 1, detail: "Requirements data could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
   }
 
   const mapping = state.requirements.mappingByDealKey.get(buildDealCardKey(bank, card));
   if (!mapping?.matched || !mapping.requirement_card_id) {
-    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "This deal-side card is not yet mapped to a verified requirements record.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [] };
+    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "This deal-side card is not yet mapped to a verified requirements record.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
   }
 
   const record = state.requirements.byCardId.get(mapping.requirement_card_id);
   if (!record) {
-    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "A mapped requirements record could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [] };
+    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "A mapped requirements record could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
   }
 
   const requirements = record.requirements || {};
@@ -3139,7 +3153,9 @@ function evaluateEligibility(bank, card) {
 
   const annualFeePkr       = normalizeRequirementNumber(requirements.annual_fee_pkr);
   const annualFeeWaiverRule = requirements.annual_fee_waiver_rule || null;
-  const sourceIds = record.source_ids || [];
+  const sourceIds  = record.source_ids || [];
+  const cardNotes  = (record.notes || []).filter((n) => n && typeof n === "string");
+  const bankGaps   = (record.bank_gaps || []).filter((n) => n && typeof n === "string");
 
   // Fill missing salary/balance from tier-peer medians
   let salaryIsEstimated  = false;
@@ -3193,7 +3209,7 @@ function evaluateEligibility(bank, card) {
 
   if (annualFeePkr !== null) criteria.push(formatRequirementCriterion(annualFeePkr, "fee"));
 
-  const base = { criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, isEstimated, salaryIsEstimated, balanceIsEstimated, estimationNote, hasRequirementRecord: true, sourceIds };
+  const base = { criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, isEstimated, salaryIsEstimated, balanceIsEstimated, estimationNote, hasRequirementRecord: true, sourceIds, cardNotes, bankGaps };
 
   // Treat Salary and Balance as ALTERNATIVE paths (OR logic)
   // A card is only "ineligible" if it has requirements and the user fails BOTH.
@@ -3421,6 +3437,7 @@ function renderRequirementSummary(status, options = {}) {
         `).join("")}
       </div>
       ${estNote}
+      ${renderRequirementNotes(status)}
     </div>
   `;
 }
@@ -3633,6 +3650,40 @@ function closeCardDetail() {
   if (modal) modal.style.display = "none";
 }
 
+function getRequirementNotes(status) {
+  const items = [];
+  if (status.annualFeeWaiverRule) items.push(status.annualFeeWaiverRule);
+  (status.cardNotes || []).forEach((n) => items.push(n));
+  (status.bankGaps || []).forEach((n) => items.push(n));
+
+  return [...new Set(
+    items
+      .filter((n) => typeof n === "string")
+      .map((n) => n.trim())
+      .filter(Boolean)
+  )];
+}
+
+function renderRequirementNotes(status) {
+  const items = getRequirementNotes(status);
+  if (!items.length) return "";
+
+  return `
+    <details class="cd-notes-details">
+      <summary class="cd-notes-summary">
+        <span class="cd-notes-summary-left">
+          <span class="cd-notes-heading">Notes</span>
+          <span class="cd-notes-count">${items.length}</span>
+        </span>
+        <span class="cd-notes-caret" aria-hidden="true"></span>
+      </summary>
+      <ul class="cd-notes-list">
+        ${items.map((text) => `<li class="cd-note-item">${escapeHtml(text)}</li>`).join("")}
+      </ul>
+    </details>
+  `;
+}
+
 function renderCardDetailModal(inner) {
   const key = state.detailCardKey;
   if (!key || !state.data) return;
@@ -3708,9 +3759,9 @@ function renderCardDetailModal(inner) {
           <div class="cd-stat-l">Restaurants Matched</div>
           <div class="cd-stat-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
-        <div class="cd-stat cd-stat--avgday">
-          <div class="cd-stat-l">Avg Day Coverage</div>
-          <div class="cd-stat-v">${Math.round(result.avgDayFit * 100)}%</div>
+        <div class="cd-stat cd-stat--annual-fees">
+          <div class="cd-stat-l">Annual Fees</div>
+          <div class="cd-stat-v">${result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrency(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrency(result.requirementStatus?.annualFeePkr)}</div>
         </div>
       </div>` : ""}
 
