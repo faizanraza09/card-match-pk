@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" class="content-page-root">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Not Found | KonsaCard</title>
+    <meta name="robots" content="noindex,follow" />
+    <link rel="icon" type="image/svg+xml" href="./assets/logo/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo/mark-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/logo/mark-64.png" />
+    <link rel="apple-touch-icon" href="./assets/logo/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D8HRYPVY6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-8D8HRYPVY6");
+    </script>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <style>
+      .not-found-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 24px;
+        gap: 16px;
+      }
+      .not-found-code {
+        font-size: clamp(72px, 15vw, 120px);
+        font-weight: 800;
+        line-height: 1;
+        color: var(--accent, #4f46e5);
+        opacity: 0.15;
+        margin: 0;
+      }
+      .not-found-wrap h1 {
+        font-size: clamp(22px, 4vw, 32px);
+        font-weight: 700;
+        margin: 0;
+      }
+      .not-found-wrap p {
+        color: var(--text-muted, #6b7280);
+        max-width: 400px;
+        margin: 0;
+      }
+      .not-found-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body class="content-page">
+    <div class="page-shell content-shell">
+      <nav class="nav" role="banner">
+        <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
+        <div style="flex:1"></div>
+        <div class="nav-links-desk">
+          <a class="nav-link" href="./banks/">Banks</a>
+          <a class="nav-link" href="./restaurants/">Restaurants</a>
+          <a class="nav-link" href="./about">About</a>
+          <a class="nav-link" href="./methodology">Methodology</a>
+          <a class="nav-link" href="./how-discount-caps-work">Discount Caps</a>
+          <a class="nav-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
+          <a class="nav-link" href="./privacy-policy">Privacy</a>
+          <a class="nav-link" href="./contact">Contact</a>
+        </div>
+        <a class="btn-find-my-card" href="./">
+          <span>🎯</span> Find My Card
+        </a>
+        <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="utility-nav" id="main-nav" aria-label="Site links">
+          <a class="utility-link" href="./">Home</a>
+          <a class="utility-link" href="./banks/">Banks</a>
+          <a class="utility-link" href="./restaurants/">Restaurants</a>
+          <a class="utility-link" href="./about">About</a>
+          <a class="utility-link" href="./methodology">Methodology</a>
+          <a class="utility-link" href="./how-discount-caps-work">Discount Caps</a>
+          <a class="utility-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
+          <a class="utility-link" href="./privacy-policy">Privacy</a>
+          <a class="utility-link" href="./contact">Contact</a>
+        </nav>
+      </nav>
+
+      <main class="content-layout">
+        <div class="not-found-wrap">
+          <p class="not-found-code" aria-hidden="true">404</p>
+          <h1>Page not found</h1>
+          <p>This page doesn't exist or may have moved. Head back home to find the best card for your restaurants.</p>
+          <div class="not-found-actions">
+            <a class="btn-find-my-card" href="./">🎯 Find My Card</a>
+            <a class="nav-link" href="./banks/">Browse Banks</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

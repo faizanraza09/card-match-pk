@@ -4,6 +4,9 @@ __pycache__/
 *.py[cod]
 .env
 
+# service account keys
+konsacard-4e4f810a64e3.json
+
 # wrangler files
 .wrangler
 .dev.vars*
