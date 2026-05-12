@@ -116,6 +116,50 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-link:hover { color: var(--ink); }
 
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+}
+.nav-dropdown-trigger::after {
+  content: "▾";
+  font-size: 11px;
+  margin-left: 2px;
+}
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 4px;
+  z-index: 100;
+}
+.nav-dropdown-menu-inner {
+  min-width: 170px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 5px;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: all .15s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.nav-dropdown-menu a:hover { color: var(--ink); background: var(--bg); }
+
+
 .btn-find-my-card {
   display: flex;
   align-items: center;

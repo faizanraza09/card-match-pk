@@ -281,11 +281,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -316,7 +322,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Sub 97</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -324,9 +330,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -336,29 +344,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/mastercard-signature-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Food Items</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">UBL Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">UBL Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -366,9 +356,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-ameen-paypak-debit-card/" style="color:var(--ink);font-weight:600">UBL Ameen PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -376,9 +368,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-ameen-premium-debit-mastercard/" style="color:var(--ink);font-weight:600">UBL Ameen Premium Debit Mastercard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -386,9 +380,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-ameen-visa-premium-debit-card/" style="color:var(--ink);font-weight:600">UBL Ameen VISA Premium Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -396,9 +392,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-mastercard-premium-debit-card/" style="color:var(--ink);font-weight:600">UBL Mastercard Premium Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -406,9 +404,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-mastercard-wiz-virtual-prepaid-card/" style="color:var(--ink);font-weight:600">UBL Mastercard WIZ Virtual Prepaid Card</a></td>
           <td data-label="Type">Other</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -416,9 +416,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-pay-pak-debit-card/" style="color:var(--ink);font-weight:600">UBL Pay Pak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -426,9 +428,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-union-pay-debit-card/" style="color:var(--ink);font-weight:600">UBL Union Pay Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -436,19 +440,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-urooj-visa-debit-card/" style="color:var(--ink);font-weight:600">UBL Urooj Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-premium-debit-card/" style="color:var(--ink);font-weight:600">UBL VISA Premium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">10%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -456,9 +452,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-classic-credit-card/" style="color:var(--ink);font-weight:600">UBL Visa Classic Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -466,9 +464,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-freelancer-debit-card/" style="color:var(--ink);font-weight:600">UBL Visa Freelancer Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -476,9 +476,47 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-gold-credit-card/" style="color:var(--ink);font-weight:600">UBL Visa Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">UBL Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Food Items</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">UBL Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off on Food Items</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-premium-debit-card/" style="color:var(--ink);font-weight:600">UBL VISA Premium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
+          <td data-label="Discount">10%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -486,9 +524,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-premium-plus-debit-card/" style="color:var(--ink);font-weight:600">UBL Visa Premium Plus Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -496,9 +536,11 @@
           <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
           <td data-label="Card"><a href="/banks/united-bank-limited-ubl/visa-fcy-business-debit-card/" style="color:var(--ink);font-weight:600">Visa FCY Business Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off on Food Items</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Sub+97" class="table-tool-link">Compare →</a></td>
         </tr>
         

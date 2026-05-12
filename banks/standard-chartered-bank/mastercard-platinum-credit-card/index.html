@@ -265,11 +265,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/" aria-current="page">Banks</a>
           <a class="nav-link" href="/restaurants/">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -308,9 +314,11 @@
               <thead>
                 <tr>
                   <th>Restaurant</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th>Cities</th>
                   <th></th>
                 </tr>
@@ -319,54 +327,66 @@
                 
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cafe-flo/" style="color:var(--ink);font-weight:600">Cafe Flo</a></td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Standard+Chartered+Bank&amp;rests=Cafe+Flo" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cocochan/" style="color:var(--ink);font-weight:600">Cocochan</a></td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Standard+Chartered+Bank&amp;rests=Cocochan" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/del-frio/" style="color:var(--ink);font-weight:600">Del Frio</a></td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Standard+Chartered+Bank&amp;rests=Del+Frio" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/ghalib-restaurant/" style="color:var(--ink);font-weight:600">Ghalib Restaurant</a></td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Standard+Chartered+Bank&amp;rests=Ghalib+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/shanghai-social/" style="color:var(--ink);font-weight:600">Shanghai Social</a></td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Standard+Chartered+Bank&amp;rests=Shanghai+Social" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/xander-s/" style="color:var(--ink);font-weight:600">Xander&#x27;s</a></td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Standard+Chartered+Bank&amp;rests=Xander%27s" class="table-tool-link">Compare →</a></td>
         </tr>
@@ -382,7 +402,6 @@
           <p>Key requirements and fees for this card. Always verify current terms directly with the bank.</p>
           <div class="req-grid"><div class="req-item"><span class="req-label">Annual fee</span><span class="req-value">PKR 19,000</span></div><div class="req-item"><span class="req-label">Supplementary card fee</span><span class="req-value">PKR 7,500</span></div><div class="req-item"><span class="req-label">Min. monthly salary</span><span class="req-value">PKR 50,000</span></div><div class="req-item"><span class="req-label">Min. balance / deposit</span><span class="req-value">No minimum balance</span></div><div class="req-item"><span class="req-label">Age</span><span class="req-value">21+</span></div></div>
           <div class="req-waiver"><strong>Fee waiver:</strong> Second year onwards: 1.5x credit limit in 3 months after fee charge, capped at PKR 800,000 and floored at PKR 200,000. First-year fee may be reversed on digital acquisition or spend promotion.</div>
-          <div class="req-confidence">Data confidence: <span class="conf-badge conf-medium">medium</span></div>
           
         <details class="req-notes-details">
           <summary class="req-notes-summary">

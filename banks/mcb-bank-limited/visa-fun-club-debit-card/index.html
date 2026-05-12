@@ -265,11 +265,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/" aria-current="page">Banks</a>
           <a class="nav-link" href="/restaurants/">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -308,9 +314,11 @@
               <thead>
                 <tr>
                   <th>Restaurant</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th>Cities</th>
                   <th></th>
                 </tr>
@@ -319,81 +327,99 @@
                 
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/caprinos-pizza/" style="color:var(--ink);font-weight:600">Caprinos Pizza</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Caprinos+Pizza" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/jashan-lahore/" style="color:var(--ink);font-weight:600">Jashan Lahore</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Jashan+Lahore" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/juicy-chuck/" style="color:var(--ink);font-weight:600">Juicy Chuck</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Juicy+Chuck" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/ben-t-cafe/" style="color:var(--ink);font-weight:600">Ben-T Cafe</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Ben-T+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizzrella/" style="color:var(--ink);font-weight:600">Pizzrella</a></td>
-          <td data-label="Discount">Flat 20%</td>
+          <td data-label="Offer Details">FLAT 20% off Everyday</td>
+          <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Pizzrella" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bistro-201/" style="color:var(--ink);font-weight:600">Bistro 201</a></td>
+          <td data-label="Offer Details">20% off on Every Monday to Thursday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Bistro+201" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/sikomoro/" style="color:var(--ink);font-weight:600">Sikomoro</a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Sikomoro" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/juice-station/" style="color:var(--ink);font-weight:600">Juice Station</a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad, Karachi, Lahore</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Juice+Station" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/mystique/" style="color:var(--ink);font-weight:600">Mystique</a></td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Mystique" class="table-tool-link">Compare →</a></td>
         </tr>
@@ -409,7 +435,6 @@
           <p>Key requirements and fees for this card. Always verify current terms directly with the bank.</p>
           <div class="req-grid"><div class="req-item"><span class="req-label">Annual fee</span><span class="req-value">PKR 1,000</span></div><div class="req-item"><span class="req-label">Min. monthly salary</span><span class="req-value">No minimum salary</span></div><div class="req-item"><span class="req-label">Min. balance / deposit</span><span class="req-value">No minimum balance</span></div></div>
           <div class="req-waiver"><strong>Fee waiver:</strong> Issuance fee is waived if the Fun Club current account maintains PKR 50,000 average balance in the month of issuance; the annual fee is waived if PKR 50,000 average balance is maintained in the month before the annual fee falls due.</div>
-          <div class="req-confidence">Data confidence: <span class="conf-badge conf-high">high</span></div>
           
         <details class="req-notes-details">
           <summary class="req-notes-summary">

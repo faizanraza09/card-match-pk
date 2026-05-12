@@ -317,11 +317,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -352,7 +358,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Tenerife Cafe</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -360,9 +366,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -372,169 +380,23 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off</td>
           <td data-label="Discount">40%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL World Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Gold DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Titanium DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-creditcard/" style="color:var(--ink);font-weight:600">HBL Gold CreditCard</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Gold DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Titanium DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-world-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor World  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-world-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -542,19 +404,59 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-american-express-gold-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah American Express Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
+          <td data-label="Discount">10%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-power-pack-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Power Pack Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Infinite Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -562,119 +464,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-power-pack-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Power Pack Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -682,149 +476,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-power-pack-visa-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Women Power Pack Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-platinum-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Platinum  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-platinum-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-konnect-debit-card/" style="color:var(--ink);font-weight:600">HBL Konnect Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Platinum Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/platinum-visa-debit-card/" style="color:var(--ink);font-weight:600">Platinum Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-american-express-gold-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah American Express Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">10%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -832,19 +488,119 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-mastercard-optimus-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Mastercard Optimus Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Mastercard Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -852,19 +608,359 @@
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-gold-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Gold  Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-platinum-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Platinum  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-world-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor World  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-platinum-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-world-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-creditcard/" style="color:var(--ink);font-weight:600">HBL Gold CreditCard</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Gold DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-konnect-debit-card/" style="color:var(--ink);font-weight:600">HBL Konnect Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Titanium DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL World Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Gold DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Titanium DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
           <td data-label="Card"><a href="/banks/meezan-bank/gold-visa-debit-card/" style="color:var(--ink);font-weight:600">Gold Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Platinum Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/platinum-visa-debit-card/" style="color:var(--ink);font-weight:600">Platinum Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -872,9 +968,23 @@
           <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
           <td data-label="Card"><a href="/banks/meezan-bank/titanium-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Titanium Mastercard Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -882,9 +992,11 @@
           <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
           <td data-label="Card"><a href="/banks/meezan-bank/visa-student-debit-card/" style="color:var(--ink);font-weight:600">Visa Student Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         

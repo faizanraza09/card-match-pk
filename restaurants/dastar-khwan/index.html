@@ -287,11 +287,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -322,7 +328,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Dastar Khwan</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -330,9 +336,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -340,191 +348,13 @@
                 
         <tr>
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/khaas-platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">KHAAS Platinum Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/lahore-qalandar-s-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Lahore Qalandar&#x27;s Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/lahore-qalandars-gold-credit-card/" style="color:var(--ink);font-weight:600">Lahore Qalandars Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-platinum-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-silver-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Silver Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-khaas-platinum-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa KHAAS Platinum Islamic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-platinum-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa Platinum Islamic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-world-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa World Islamic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-women-naaz-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Women Naaz Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-credit-card/" style="color:var(--ink);font-weight:600">Mastercard World Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/cash-shop-classic-visa-debit-card/" style="color:var(--ink);font-weight:600">Cash+Shop Classic Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -532,9 +362,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/classic-plus-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Classic Plus UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -542,9 +374,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/classic-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Classic UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -552,9 +386,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/gold-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Gold UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -562,9 +398,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/khanum-classic-plus-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Khanum Classic Plus UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -572,10 +410,228 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/khaas-platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">KHAAS Platinum Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/lahore-qalandar-s-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Lahore Qalandar&#x27;s Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/lahore-qalandars-gold-credit-card/" style="color:var(--ink);font-weight:600">Lahore Qalandars Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-platinum-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-silver-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Silver Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-khaas-platinum-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa KHAAS Platinum Islamic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-platinum-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa Platinum Islamic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-world-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa World Islamic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-women-naaz-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Women Naaz Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-credit-card/" style="color:var(--ink);font-weight:600">Mastercard World Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Dastar+Khwan" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>

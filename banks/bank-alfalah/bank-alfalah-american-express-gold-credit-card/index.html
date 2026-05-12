@@ -265,11 +265,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/" aria-current="page">Banks</a>
           <a class="nav-link" href="/restaurants/">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -308,9 +314,11 @@
               <thead>
                 <tr>
                   <th>Restaurant</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th>Cities</th>
                   <th></th>
                 </tr>
@@ -319,450 +327,550 @@
                 
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/tapestry-7/" style="color:var(--ink);font-weight:600">Tapestry 7</a></td>
+          <td data-label="Offer Details">40% off Everyday</td>
           <td data-label="Discount">40%</td>
           <td data-label="Cap">PKR 4,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tapestry+7" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/rumba-meat-factory/" style="color:var(--ink);font-weight:600">Rumba Meat Factory</a></td>
-          <td data-label="Discount">Up to 40%</td>
+          <td data-label="Offer Details">40% off on Every Wednesday</td>
+          <td data-label="Discount">40%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Wednesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Rumba+Meat+Factory" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/courtyard-marriott-islamabad/" style="color:var(--ink);font-weight:600">Courtyard - Marriott Islamabad</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Courtyard+-+Marriott+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/eggspectation-restaurant-cafe/" style="color:var(--ink);font-weight:600">Eggspectation Restaurant Cafe</a></td>
+          <td data-label="Offer Details">30% off on Every Wednesday &amp; Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad, Karachi, Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Eggspectation+Restaurant+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/kiku-marriott-islamabad/" style="color:var(--ink);font-weight:600">KIKU - Marriott Islamabad</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=KIKU+-+Marriott+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/loafology-bakery-cafe/" style="color:var(--ink);font-weight:600">Loafology Bakery &amp; Cafe</a></td>
+          <td data-label="Offer Details">30% off on Every Thursday &amp; Friday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Thursday, Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad, Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Loafology+Bakery+%26+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/nadia-coffee-shop/" style="color:var(--ink);font-weight:600">Nadia Coffee Shop</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Nadia+Coffee+Shop" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/street-1-cafe/" style="color:var(--ink);font-weight:600">Street 1 Cafe</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Street+1+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-lilly-marriott-islamabad/" style="color:var(--ink);font-weight:600">The Lilly - Marriott Islamabad</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=The+Lilly+-+Marriott+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-royal-elephant/" style="color:var(--ink);font-weight:600">The Royal Elephant</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=The+Royal+Elephant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/tuscany-courtyard/" style="color:var(--ink);font-weight:600">Tuscany Courtyard</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/zigolini-s/" style="color:var(--ink);font-weight:600">Zigolini&#x27;s</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Zigolini%27s" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bistro-rozana-marriott-karachi/" style="color:var(--ink);font-weight:600">Bistro Rozana - Marriott Karachi</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Bistro+Rozana+-+Marriott+Karachi" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/colette-by-xander-s/" style="color:var(--ink);font-weight:600">Colette By Xander&#x27;s</a></td>
+          <td data-label="Offer Details">30% off on Every Tuesday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Tuesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Colette+By+Xander%27s" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/ghalib-restaurant/" style="color:var(--ink);font-weight:600">Ghalib Restaurant</a></td>
+          <td data-label="Offer Details">30% off on Every Tuesday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Tuesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Ghalib+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/nami-zumi-marriott-karachi/" style="color:var(--ink);font-weight:600">Nami Zumi - Marriott Karachi</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Nami+Zumi+-+Marriott+Karachi" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/premo-by-xanders/" style="color:var(--ink);font-weight:600">Premo By Xanders </a></td>
+          <td data-label="Offer Details">30% off Everyday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Premo+By+Xanders+" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-great-room-marriott-karachi/" style="color:var(--ink);font-weight:600">The Great Room - Marriott Karachi</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=The+Great+Room+-+Marriott+Karachi" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/xander-s/" style="color:var(--ink);font-weight:600">Xander&#x27;s</a></td>
+          <td data-label="Offer Details">30% off on Every Tuesday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Tuesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Xander%27s" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cafe-aylanto/" style="color:var(--ink);font-weight:600">Cafe Aylanto</a></td>
+          <td data-label="Offer Details">30% off on Every Saturday &amp; Sunday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Saturday, Sunday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Cafe+Aylanto" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/fred-the-kitchen/" style="color:var(--ink);font-weight:600">Fred The Kitchen</a></td>
+          <td data-label="Offer Details">30% off on Every Monday, Tuesday &amp; Sunday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Sunday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Fred+The+Kitchen" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/gaijin/" style="color:var(--ink);font-weight:600">Gaijin</a></td>
+          <td data-label="Offer Details">30% off Everyday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Gaijin" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/tuscany-courtyard-lahore/" style="color:var(--ink);font-weight:600">Tuscany Courtyard Lahore</a></td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard+Lahore" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cafe-forex/" style="color:var(--ink);font-weight:600">Cafe Forex</a></td>
+          <td data-label="Offer Details">30% off Everyday</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Cafe+Forex" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/kaspas-desserts/" style="color:var(--ink);font-weight:600">Kaspas Desserts</a></td>
+          <td data-label="Offer Details">25% off</td>
           <td data-label="Discount">25%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Kaspas+Desserts" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/mystique/" style="color:var(--ink);font-weight:600">Mystique</a></td>
+          <td data-label="Offer Details">25% off Everyday</td>
           <td data-label="Discount">25%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Mystique" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/burgers-network/" style="color:var(--ink);font-weight:600">Burgers Network</a></td>
+          <td data-label="Offer Details">25% off Everyday</td>
           <td data-label="Discount">25%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Burgers+Network" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/chaaye-khana/" style="color:var(--ink);font-weight:600">Chaaye Khana</a></td>
-          <td data-label="Discount">Up to 20%</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Chaaye+Khana" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/crema/" style="color:var(--ink);font-weight:600">Crema</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Crema" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/king-coffee-pakistan/" style="color:var(--ink);font-weight:600">King Coffee Pakistan</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bennys-by-benediction/" style="color:var(--ink);font-weight:600">Bennys By Benediction</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Bennys+By+Benediction" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/garden-cafe/" style="color:var(--ink);font-weight:600">Garden Cafe</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Garden+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/florida-steak-house/" style="color:var(--ink);font-weight:600">Florida Steak House</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 4,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Florida+Steak+House" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-common-room/" style="color:var(--ink);font-weight:600">The Common Room</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 4,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=The+Common+Room" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/el-momento/" style="color:var(--ink);font-weight:600">El Momento</a></td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=El+Momento" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/rendezvous-xpress/" style="color:var(--ink);font-weight:600">Rendezvous Xpress</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Rendezvous+Xpress" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bistro-201/" style="color:var(--ink);font-weight:600">Bistro 201</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Bistro+201" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/sikomoro/" style="color:var(--ink);font-weight:600">Sikomoro</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Sikomoro" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/curry-leaves/" style="color:var(--ink);font-weight:600">Curry Leaves</a></td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Curry+Leaves" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/windmills-buffet-restaurant/" style="color:var(--ink);font-weight:600">Windmills Buffet Restaurant</a></td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Windmills+Buffet+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/and-coffee/" style="color:var(--ink);font-weight:600">And Coffee </a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=And+Coffee+" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/kurohana/" style="color:var(--ink);font-weight:600">Kurohana</a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Kurohana" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/robert-s-coffee-islamabad/" style="color:var(--ink);font-weight:600">Robert&#x27;s Coffee Islamabad</a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Robert%27s+Coffee+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-shot/" style="color:var(--ink);font-weight:600">The Shot</a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=The+Shot" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/xpress-boutique-grocers/" style="color:var(--ink);font-weight:600">Xpress Boutique Grocers</a></td>
+          <td data-label="Offer Details">15% off on In-house Items</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Xpress+Boutique+Grocers" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/chop-chop-wok/" style="color:var(--ink);font-weight:600">Chop Chop Wok</a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Chop+Chop+Wok" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/mez-turkish-cuisine/" style="color:var(--ink);font-weight:600">MêZ Turkish Cuisine </a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=M%C3%AAZ+Turkish+Cuisine+" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/menara-lounge-london/" style="color:var(--ink);font-weight:600">Menara Lounge London</a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 2,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Menara+Lounge+London" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/giramondo/" style="color:var(--ink);font-weight:600">Giramondo</a></td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Giramondo" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/tenerife-cafe/" style="color:var(--ink);font-weight:600">Tenerife Cafe</a></td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tenerife+Cafe" class="table-tool-link">Compare →</a></td>
         </tr>
@@ -778,7 +886,6 @@
           <p>Key requirements and fees for this card. Always verify current terms directly with the bank.</p>
           <div class="req-grid"><div class="req-item"><span class="req-label">Annual fee</span><span class="req-value">PKR 13,000</span></div><div class="req-item"><span class="req-label">Supplementary card fee</span><span class="req-value">PKR 6,500</span></div><div class="req-item"><span class="req-label">Min. monthly salary</span><span class="req-value">PKR 50,000</span></div><div class="req-item"><span class="req-label">Min. balance / deposit</span><span class="req-value">No minimum balance</span></div><div class="req-item"><span class="req-label">Age</span><span class="req-value">21–70</span></div></div>
           <div class="req-waiver"><strong>Fee waiver:</strong> First-year annual fee waived for Premier Banking customers only.</div>
-          <div class="req-confidence">Data confidence: <span class="conf-badge conf-high">high</span></div>
           
         <details class="req-notes-details">
           <summary class="req-notes-summary">
@@ -809,7 +916,7 @@
           <h2>Other Bank Alfalah cards</h2>
           <p>Compare this card with other offerings from Bank Alfalah:</p>
           <ul style="list-style: disc; margin-left: 20px; color: var(--ink); line-height: 1.7;">
-            <li><a href="/banks/bank-alfalah/bank-alfalah-islamic-power-pack-signature-debit-card/">Bank Alfalah Islamic Power Pack Signature Debit Card (Debit)</a> – 124 restaurants</li><li><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-infinite-debit-card/">Bank Alfalah Islamic Premier Visa Infinite Debit Card (Debit)</a> – 157 restaurants</li><li><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-signature-debit-card/">Bank Alfalah Islamic Premier Visa Signature Debit Card (Debit)</a> – 158 restaurants</li><li><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-power-pack-visa-debit-card/">Bank Alfalah Islamic Women Power Pack Visa Debit Card (Debit)</a> – 118 restaurants</li><li><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-visa-gold-debit-card/">Bank Alfalah Islamic Women Visa Gold Debit Card (Debit)</a> – 28 restaurants</li>
+            <li><a href="/banks/bank-alfalah/bank-alfalah-islamic-power-pack-signature-debit-card/">Bank Alfalah Islamic Power Pack Signature Debit Card (Debit)</a> – 124 restaurants</li><li><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-infinite-debit-card/">Bank Alfalah Islamic Premier Visa Infinite Debit Card (Debit)</a> – 158 restaurants</li><li><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-signature-debit-card/">Bank Alfalah Islamic Premier Visa Signature Debit Card (Debit)</a> – 159 restaurants</li><li><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-power-pack-visa-debit-card/">Bank Alfalah Islamic Women Power Pack Visa Debit Card (Debit)</a> – 118 restaurants</li><li><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-visa-gold-debit-card/">Bank Alfalah Islamic Women Visa Gold Debit Card (Debit)</a> – 28 restaurants</li>
           </ul>
         </section>
       </div>

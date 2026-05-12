@@ -323,11 +323,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -358,7 +364,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Maxim&#x27;s Restaurant</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -366,71 +372,25 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 
         <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -438,9 +398,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -448,9 +410,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-silver-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -458,9 +422,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-habib-university-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Habib University PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -468,9 +434,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-ivs-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen IVS PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -478,9 +446,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-riphah-university-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Riphah University PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -488,9 +458,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-student-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Student PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -498,9 +470,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -508,9 +482,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/unionpay-gold-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -518,209 +494,23 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/unionpay-silver-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-platinum-credit-card/" style="color:var(--ink);font-weight:600">Askari Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-world-credit-card/" style="color:var(--ink);font-weight:600">Askari World Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
-          <td data-label="Card"><a href="/banks/bankislami/mastercard-classic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Classic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
-          <td data-label="Card"><a href="/banks/bankislami/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/cash-shop-classic-visa-debit-card/" style="color:var(--ink);font-weight:600">Cash+Shop Classic Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -728,9 +518,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/classic-plus-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Classic Plus UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -738,9 +530,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/classic-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Classic UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -748,9 +542,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/gold-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Gold UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -758,9 +554,59 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -768,9 +614,11 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-classic-credit-card/" style="color:var(--ink);font-weight:600">Askari Classic Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -778,9 +626,11 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-gold-credit-card/" style="color:var(--ink);font-weight:600">Askari Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -788,9 +638,11 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-paypak-classic-debit-card/" style="color:var(--ink);font-weight:600">Askari PayPak Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -798,9 +650,11 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-paypak-gold-debit-card/" style="color:var(--ink);font-weight:600">Askari PayPak Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -808,9 +662,23 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-paypak-little-champs-debit-card/" style="color:var(--ink);font-weight:600">Askari PayPak Little Champs Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-platinum-credit-card/" style="color:var(--ink);font-weight:600">Askari Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -818,9 +686,11 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-sahar-visa-debit-card/" style="color:var(--ink);font-weight:600">Askari Sahar Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -828,9 +698,11 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -838,99 +710,95 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-world-credit-card/" style="color:var(--ink);font-weight:600">Askari World Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
+          <td data-label="Card"><a href="/banks/bankislami/mastercard-classic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Classic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
+          <td data-label="Card"><a href="/banks/bankislami/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
           <td data-label="Card"><a href="/banks/bankislami/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-classic-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Classic Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-classic-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Classic DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Gold DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Titanium DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-classic-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Classic Business DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -938,9 +806,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-debitcard/" style="color:var(--ink);font-weight:600">HBL DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -948,9 +818,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-creditcard/" style="color:var(--ink);font-weight:600">HBL Gold CreditCard</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -958,9 +830,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Gold DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -968,9 +842,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-green-creditcard/" style="color:var(--ink);font-weight:600">HBL Green CreditCard</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -978,9 +854,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-nisa-debitcard/" style="color:var(--ink);font-weight:600">HBL Nisa DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -988,9 +866,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -998,9 +878,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Titanium DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -1008,9 +890,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL World Business DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -1018,9 +902,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -1028,20 +914,276 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-classic-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Classic Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-classic-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Classic DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Gold DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Titanium DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
           <td data-label="Card"><a href="/banks/meezan-bank/visa-charge-card/" style="color:var(--ink);font-weight:600">Visa Charge Card</a></td>
           <td data-label="Type">Other</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 30% Off | Buy 1 Get 1 | Buy 1 Get 1<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Entire Bill (Except Deals &amp; Beverages) (Max Discount 3000) | Buy 1 Chicken Steak &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak &amp; Chicken Corn Soup Free in Rs. 3040 | Buy 1 Chicken Steak Burger &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak Burger &amp; Chicken Corn Soup Free in Rs. 2390</div></td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 30% Off | Buy 1 Get 1 | Buy 1 Get 1<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Entire Bill (Except Deals &amp; Beverages) (Max Discount 3000) | Buy 1 Chicken Steak &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak &amp; Chicken Corn Soup Free in Rs. 3040 | Buy 1 Chicken Steak Burger &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak Burger &amp; Chicken Corn Soup Free in Rs. 2390</div></td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 30% Off | Buy 1 Get 1 | Buy 1 Get 1<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Entire Bill (Except Deals &amp; Beverages) (Max Discount 3000) | Buy 1 Chicken Steak &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak &amp; Chicken Corn Soup Free in Rs. 3040 | Buy 1 Chicken Steak Burger &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak Burger &amp; Chicken Corn Soup Free in Rs. 2390</div></td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 30% Off | Buy 1 Get 1 | Buy 1 Get 1<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Entire Bill (Except Deals &amp; Beverages) (Max Discount 3000) | Buy 1 Chicken Steak &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak &amp; Chicken Corn Soup Free in Rs. 3040 | Buy 1 Chicken Steak Burger &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak Burger &amp; Chicken Corn Soup Free in Rs. 2390</div></td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 30% Off | Buy 1 Get 1 | Buy 1 Get 1<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Entire Bill (Except Deals &amp; Beverages) (Max Discount 3000) | Buy 1 Chicken Steak &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak &amp; Chicken Corn Soup Free in Rs. 3040 | Buy 1 Chicken Steak Burger &amp; Chicken Corn Soup &amp; Get 1 Chicken Steak Burger &amp; Chicken Corn Soup Free in Rs. 2390</div></td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Maxim%27s+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>

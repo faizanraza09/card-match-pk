@@ -1016,6 +1016,16 @@ function renderPagedResultCards(results, container) {
   renderRows();
 }
 
+function renderOrderTypeBadges(orderTypes) {
+  const styles = {
+    "Dine-In": "background:#e8f5e9;color:#2e7d32",
+    "Takeaway": "background:#e3f2fd;color:#1565c0",
+    "Delivery": "background:#fff3e0;color:#e65100",
+  };
+  if (!orderTypes || !orderTypes.length) return "";
+  return orderTypes.map((ot) => `<span class="pill" style="${styles[ot] || "background:#f5f5f5;color:#666"}">${escapeHtml(ot)}</span>`).join("");
+}
+
 function renderCardDetail(result) {
   const eligStatus = result.requirementStatus;
   const showEligibility = isEligibilityContextActive();
@@ -1032,7 +1042,9 @@ function renderCardDetail(result) {
     <div class="match-item">
       <div>
         <div class="match-rest">${escapeHtml(match.restaurant)} <span style="color:var(--muted);font-weight:400">(${escapeHtml(match.city)})</span></div>
-        <div class="match-meta">${escapeHtml(match.discountLabel)} · ${escapeHtml(match.daysLabel)}</div>
+        <div class="match-meta">${escapeHtml(match.discountLabel)} · ${escapeHtml(match.daysLabel)}${match.offerTitle ? ` · ${escapeHtml(match.offerTitle)}` : ""}</div>
+        ${match.offerDescription ? `<div class="match-meta" style="margin-top:1px"><span class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:11px;color:var(--brand);font-weight:600">Details ▾</span><div class="offer-detail-text" style="display:none;font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4">${escapeHtml(match.offerDescription)}</div></div>` : ""}
+        ${match.orderTypes && match.orderTypes.length ? `<div class="match-meta" style="margin-top:2px">${renderOrderTypeBadges(match.orderTypes)}</div>` : ""}
       </div>
       <div class="match-saving">${formatCurrency(match.expectedSaving)}</div>
     </div>
@@ -2963,6 +2975,8 @@ function computeRecommendations() {
         discountPct: getOfferDiscountPct(offer),
         discountLabel: offer.discountLabel,
         offerTitle: offer.offerTitle,
+        offerDescription: offer.offerDescription,
+        orderTypes: offer.orderTypes || [],
         daysLabel: offer.daysLabel,
         capPkr: offer.capPkr,
         fixedDiscountPkr: offer.fixedDiscountPkr ?? null,
@@ -3002,6 +3016,8 @@ function computeRecommendations() {
           discountPct: averageDiscount,
           discountLabel: strongestMatch.discountLabel,
           offerTitle: strongestMatch.offerTitle,
+          offerDescription: strongestMatch.offerDescription,
+          orderTypes: strongestMatch.orderTypes,
           daysLabel: coveredDayCount === totalSelectedDays
             ? "Matches all your chosen days"
             : bestByDay.map(([day]) => DAY_SHORT[day]).join(", "),
@@ -3747,6 +3763,9 @@ function renderCardDetailModal(inner) {
         city:         offer.city,
         saving,
         discountLabel: offer.discountLabel,
+        offerTitle:   offer.offerTitle,
+        offerDescription: offer.offerDescription,
+        orderTypes:   offer.orderTypes || [],
         daysLabel:    offer.daysLabel,
         capPkr:       offer.capPkr,
       });
@@ -3938,6 +3957,9 @@ function renderRestaurantDetailModal(inner) {
         bank: offer.bank,
         card: offer.card,
         saving,
+        offerTitle: offer.offerTitle,
+        offerDescription: offer.offerDescription,
+        orderTypes: offer.orderTypes || [],
         discountLabel: offer.discountLabel,
         discountPct: getOfferDiscountPct(offer) || 0,
         daysLabel: offer.daysLabel,
@@ -4042,6 +4064,9 @@ function getCompareRestaurantRows(compareKeys) {
       const candidate = {
         saving,
         discountLabel: offer.discountLabel,
+        offerTitle: offer.offerTitle,
+        offerDescription: offer.offerDescription,
+        orderTypes: offer.orderTypes || [],
         capPkr: offer.capPkr ?? null,
       };
       if (!current || candidate.saving > current.saving) {
@@ -4058,6 +4083,9 @@ function getCompareRestaurantRows(compareKeys) {
     return {
       saving: strongest.saving,
       discountLabel: strongest.discountLabel,
+      offerTitle: strongest.offerTitle,
+      offerDescription: strongest.offerDescription,
+      orderTypes: strongest.orderTypes,
       capPkr: strongest.capPkr,
       daysLabel: matches.length === selectedDays.size
         ? "All chosen days"
@@ -4127,7 +4155,9 @@ function renderCardDetailRestaurantRows(container, restaurants) {
       <div class="cd-rest-row">
         <div class="cd-rest-info">
           <div class="cd-rest-name">${escapeHtml(entry.restaurant)}</div>
-          <div class="cd-rest-meta">${escapeHtml(entry.city)} · ${escapeHtml(entry.daysLabel)}${entry.capPkr ? ` · cap ${formatCurrency(entry.capPkr)}` : ""}</div>
+          <div class="cd-rest-meta">${escapeHtml(entry.city)} · ${escapeHtml(entry.daysLabel)}${entry.capPkr ? ` · cap ${formatCurrency(entry.capPkr)}` : ""}${entry.offerTitle ? ` · ${escapeHtml(entry.offerTitle)}` : ""}</div>
+          ${entry.orderTypes && entry.orderTypes.length ? `<div class="cd-rest-meta" style="margin-top:2px">${renderOrderTypeBadges(entry.orderTypes)}</div>` : ""}
+          ${entry.offerDescription ? `<div class="cd-rest-meta" style="margin-top:1px"><span class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:11px;color:var(--brand);font-weight:600">Details ▾</span><div class="offer-detail-text" style="display:none;font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4">${escapeHtml(entry.offerDescription)}</div></div>` : ""}
         </div>
         <div class="cd-rest-right">
           <span class="cd-rest-pct">${escapeHtml(entry.discountLabel)}</span>
@@ -4157,7 +4187,9 @@ function renderRestaurantDetailCardRows(container, cards) {
             ${renderBankLogo(entry.bank, "rd-card-logo")}
             <div class="rd-card-copy">
               <div class="cd-rest-name">${escapeHtml(entry.card)}</div>
-              <div class="cd-rest-meta">${escapeHtml(entry.bank)} · ${escapeHtml(entry.daysLabel)}${entry.capPkr ? ` · cap ${formatCurrency(entry.capPkr)}` : ""}</div>
+              <div class="cd-rest-meta">${escapeHtml(entry.bank)} · ${escapeHtml(entry.daysLabel)}${entry.capPkr ? ` · cap ${formatCurrency(entry.capPkr)}` : ""}${entry.offerTitle ? ` · ${escapeHtml(entry.offerTitle)}` : ""}</div>
+              ${entry.orderTypes && entry.orderTypes.length ? `<div class="cd-rest-meta" style="margin-top:2px">${renderOrderTypeBadges(entry.orderTypes)}</div>` : ""}
+              ${entry.offerDescription ? `<div class="cd-rest-meta" style="margin-top:1px"><span class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:11px;color:var(--brand);font-weight:600">Details ▾</span><div class="offer-detail-text" style="display:none;font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4">${escapeHtml(entry.offerDescription)}</div></div>` : ""}
             </div>
           </div>
         </div>
@@ -4209,7 +4241,7 @@ function renderCompareRestaurantRows(container, cards, rows) {
               ? `
                 <div class="cmp-rest-card-pct">${escapeHtml(entry.discountLabel)}</div>
                 <div class="cmp-rest-card-saving">${formatCurrency(entry.saving)}</div>
-                <div class="cmp-rest-card-meta">${escapeHtml(entry.daysLabel)}${entry.capPkr ? ` · cap ${formatCurrency(entry.capPkr)}` : ""}</div>
+                <div class="cmp-rest-card-meta">${escapeHtml(entry.daysLabel)}${entry.capPkr ? ` · cap ${formatCurrency(entry.capPkr)}` : ""}${entry.offerTitle ? ` · ${escapeHtml(entry.offerTitle)}` : ""}</div>
               `
               : `
                 <div class="cmp-rest-card-pct">—</div>

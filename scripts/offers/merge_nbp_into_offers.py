@@ -162,6 +162,8 @@ def normalize_offer(row: dict, card_name: str, restaurant_name: str) -> dict:
         "discountLabel": discount_label,
         "fixedDiscountPkr": fixed_discount_pkr,
         "offerTitle": row["offer_title"],
+        "offerDescription": row.get("offer_description") or None,
+        "orderTypes": [{"Instore": "Dine-In", "Ecommerce": "Delivery"}.get(row.get("vertical", ""), "Dine-In")],
         "days": list(range(7)),
         "daysLabel": "All Days",
         "capPkr": cap_pkr,
@@ -183,6 +185,8 @@ def dedupe_key(offer: dict) -> tuple:
         offer.get("fixedDiscountPkr"),
         offer.get("capPkr"),
         offer.get("offerTitle"),
+        offer.get("offerDescription"),
+        tuple(offer.get("orderTypes", [])),
         offer.get("sourceAddress"),
     )
 

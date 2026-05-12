@@ -313,11 +313,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -348,7 +354,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at The Carnivore</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -356,161 +362,61 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 
         <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-credit-card/" style="color:var(--ink);font-weight:600">Mastercard World Credit Card</a></td>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-classic-credit-card/" style="color:var(--ink);font-weight:600">Askari Classic Credit Card</a></td>
           <td data-label="Type">Credit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">PKR 6,000</td>
-          <td data-label="Days">Thursday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">PKR 6,000</td>
-          <td data-label="Days">Wednesday, Thursday, Friday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-corporate-credit-card/" style="color:var(--ink);font-weight:600">Askari Corporate Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">50% off</td>
           <td data-label="Discount">50%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-world-credit-card/" style="color:var(--ink);font-weight:600">Askari World Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">Wednesday, Thursday, Friday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">Wednesday, Thursday, Friday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-platinum-credit-card/" style="color:var(--ink);font-weight:600">Askari Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-platinum-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Thursday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Wednesday, Thursday, Friday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Wednesday, Thursday, Friday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Wednesday, Thursday, Friday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-gold-credit-card/" style="color:var(--ink);font-weight:600">Askari Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-platinum-credit-card/" style="color:var(--ink);font-weight:600">Askari Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -518,99 +424,11 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-sahar-visa-debit-card/" style="color:var(--ink);font-weight:600">Askari Sahar Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">Wednesday, Thursday, Friday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-classic-credit-card/" style="color:var(--ink);font-weight:600">Askari Classic Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -618,10 +436,252 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">50% off</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-world-credit-card/" style="color:var(--ink);font-weight:600">Askari World Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">50% off</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-platinum-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off on Every Thursday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-credit-card/" style="color:var(--ink);font-weight:600">Mastercard World Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">50% off on Every Thursday</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">PKR 6,000</td>
+          <td data-label="Days">Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off on Every Wednesday, Thursday &amp; Friday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Wednesday, Thursday, Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off on Every Wednesday, Thursday &amp; Friday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Wednesday, Thursday, Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off on Every Wednesday, Thursday &amp; Friday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">Wednesday, Thursday, Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">50% off on Every Wednesday, Thursday &amp; Friday</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">PKR 6,000</td>
+          <td data-label="Days">Wednesday, Thursday, Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Wednesday, Thursday &amp; Friday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">Wednesday, Thursday, Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off on Every Wednesday, Thursday &amp; Friday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Wednesday, Thursday, Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">40% off on Every Wednesday, Thursday &amp; Friday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">Wednesday, Thursday, Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=The+Carnivore" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>

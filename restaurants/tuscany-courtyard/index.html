@@ -323,11 +323,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -358,7 +364,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Tuscany Courtyard</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -366,751 +372,37 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 
         <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">PKR 50,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">PKR 50,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">PKR 50,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-world-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">PKR 7,500</td>
-          <td data-label="Days">Wednesday</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-credit-card/" style="color:var(--ink);font-weight:600">Mastercard World Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">50%</td>
-          <td data-label="Cap">PKR 6,000</td>
-          <td data-label="Days">Friday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-corporate-credit-card/" style="color:var(--ink);font-weight:600">Askari Corporate Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 10,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 10,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-world-credit-card/" style="color:var(--ink);font-weight:600">Askari World Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 10,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 10,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/mcb-bank-limited/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 6,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-platinum-business-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Business Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-world-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa World Islamic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Friday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Friday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 8,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-platinum-credit-card/" style="color:var(--ink);font-weight:600">Askari Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-world-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor World  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/mcb-bank-limited/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/mastercard-signature-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">UBL Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-platinum-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Friday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-khaas-platinum-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa KHAAS Platinum Islamic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Friday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/mcb-bank-limited/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Saturday, Sunday</td>
-          <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-platinum-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 4,000</td>
-          <td data-label="Days">Monday, Tuesday, Wednesday</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-american-express-gold-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah American Express Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
-          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 15,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 15,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 15,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 15,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL World Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 15,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 15,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 15,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">UBL Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
           <td data-label="Discount">25%</td>
           <td data-label="Cap">PKR 2,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">Up to 25%</td>
-          <td data-label="Cap">PKR 2,500</td>
-          <td data-label="Days">Monday</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
-          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 2,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-power-pack-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Power Pack Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-power-pack-visa-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Women Power Pack Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Platinum Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/platinum-visa-debit-card/" style="color:var(--ink);font-weight:600">Platinum Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-charge-card/" style="color:var(--ink);font-weight:600">Visa Charge Card</a></td>
-          <td data-label="Type">Other</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-gold-credit-card/" style="color:var(--ink);font-weight:600">Askari Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">Friday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
-          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-platinum-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa Platinum Islamic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">Friday</td>
-          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-fcy-debit-card/" style="color:var(--ink);font-weight:600">Visa FCY Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-niswan-debit-card/" style="color:var(--ink);font-weight:600">Visa Niswan Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-platinum-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Platinum  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-platinum-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
-          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Visa Classic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
-          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-ladies-debit-card/" style="color:var(--ink);font-weight:600">Visa Ladies Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/mcb-bank-limited/nayab-visa-debit-card/" style="color:var(--ink);font-weight:600">Nayab Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">Saturday, Sunday</td>
-          <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-habib-university-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Habib University PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -1118,9 +410,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-ivs-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen IVS PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -1128,9 +422,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-riphah-university-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Riphah University PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -1138,9 +434,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-student-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Student PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -1148,199 +446,107 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Gold DebitCard</a></td>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
           <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Titanium DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-creditcard/" style="color:var(--ink);font-weight:600">HBL Gold CreditCard</a></td>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
           <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Gold DebitCard</a></td>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Titanium DebitCard</a></td>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
           <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-digital-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Digital Visa Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">Monday</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/paypak-classic-debit-card/" style="color:var(--ink);font-weight:600">PayPak Classic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">Monday, Tuesday, Wednesday</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-qadar-classic-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Qadar Classic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">Monday, Tuesday, Wednesday</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-qadar-gold-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Qadar Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">Monday, Tuesday, Wednesday</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Visa Classic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-junior-club-debit-card/" style="color:var(--ink);font-weight:600">Visa Junior Club Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-classic-credit-card/" style="color:var(--ink);font-weight:600">Askari Classic Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-corporate-credit-card/" style="color:var(--ink);font-weight:600">Askari Corporate Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 10,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-gold-credit-card/" style="color:var(--ink);font-weight:600">Askari Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-platinum-credit-card/" style="color:var(--ink);font-weight:600">Askari Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -1348,20 +554,1032 @@
           <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Askari Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 10,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/askari-bank-limited/askari-world-credit-card/" style="color:var(--ink);font-weight:600">Askari World Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 10,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Askari+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-digital-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Digital Visa Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-american-express-gold-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah American Express Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off on Every Monday to Thursday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">Monday, Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-power-pack-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Power Pack Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">50% off Everyday</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">PKR 50,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-power-pack-visa-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Women Power Pack Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">50% off Everyday</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">PKR 50,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">50% off Everyday</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">PKR 50,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off On Every Friday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-platinum-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off on Every Friday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-khaas-platinum-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa KHAAS Platinum Islamic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off on Every Friday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-platinum-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa Platinum Islamic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off On Every Friday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-taqwa-world-islamic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Taqwa World Islamic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off on Every Friday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-credit-card/" style="color:var(--ink);font-weight:600">Mastercard World Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">50% off on Every Friday</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">PKR 6,000</td>
+          <td data-label="Days">Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-of-punjab/">Bank of Punjab</a></td>
+          <td data-label="Card"><a href="/banks/bank-of-punjab/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off on Every Friday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Friday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+of+Punjab&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">Monday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off on Every Monday</td>
+          <td data-label="Discount">Up to 25%</td>
+          <td data-label="Cap">PKR 2,500</td>
+          <td data-label="Days">Monday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">Up to 25%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-platinum-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Platinum  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-world-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor World  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off Everyday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-platinum-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-world-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">50% off on Every Wednesday</td>
+          <td data-label="Discount">50%</td>
+          <td data-label="Cap">PKR 7,500</td>
+          <td data-label="Days">Wednesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-creditcard/" style="color:var(--ink);font-weight:600">HBL Gold CreditCard</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Gold DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 15,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Titanium DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL World Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 15,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 15,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 15,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
+          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Visa Classic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
+          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 2,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
+          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-ladies-debit-card/" style="color:var(--ink);font-weight:600">Visa Ladies Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
+          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Gold DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Titanium DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 15,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 15,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 15,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Tuesday, Wednesday &amp; Thursday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off on Every Tuesday, Wednesday &amp; Thursday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">40% off on Every Tuesday, Wednesday &amp; Thursday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
           <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">10% off on Every Tuesday, Wednesday &amp; Thursday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">PKR 2,000</td>
           <td data-label="Days">Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Tuesday, Wednesday &amp; Thursday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off on Every Tuesday, Wednesday &amp; Thursday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Tuesday, Wednesday, Thursday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/mcb-bank-limited/nayab-visa-debit-card/" style="color:var(--ink);font-weight:600">Nayab Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Saturday &amp; Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">Saturday, Sunday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/mcb-bank-limited/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off Everyday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/mcb-bank-limited/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off on Every Saturday &amp; Sunday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Saturday, Sunday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/mcb-bank-limited/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off Everyday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 6,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Bank+Limited&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/paypak-classic-debit-card/" style="color:var(--ink);font-weight:600">PayPak Classic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday, Tuesday &amp; Wednesday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">Monday, Tuesday, Wednesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-platinum-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off on Every Monday, Tuesday &amp; Wednesday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 4,000</td>
+          <td data-label="Days">Monday, Tuesday, Wednesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-qadar-classic-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Qadar Classic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday, Tuesday &amp; Wednesday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">Monday, Tuesday, Wednesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-qadar-gold-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Qadar Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday, Tuesday &amp; Wednesday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">Monday, Tuesday, Wednesday</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Visa Classic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-fcy-debit-card/" style="color:var(--ink);font-weight:600">Visa FCY Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-junior-club-debit-card/" style="color:var(--ink);font-weight:600">Visa Junior Club Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-niswan-debit-card/" style="color:var(--ink);font-weight:600">Visa Niswan Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-platinum-business-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Business Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off Everyday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off Everyday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 8,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Platinum Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/platinum-visa-debit-card/" style="color:var(--ink);font-weight:600">Platinum Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-charge-card/" style="color:var(--ink);font-weight:600">Visa Charge Card</a></td>
+          <td data-label="Type">Other</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 10,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 15% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Pizzas &amp; Pastas</div></td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 15% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Pizzas &amp; Pastas</div></td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 15% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Pizzas &amp; Pastas</div></td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 15% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Pizzas &amp; Pastas</div></td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 15% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Pizzas &amp; Pastas</div></td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/mastercard-signature-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">UBL Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">UBL Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Tuscany+Courtyard" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>

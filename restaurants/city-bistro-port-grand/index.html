@@ -293,11 +293,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -328,7 +334,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at City Bistro - Port Grand</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -336,9 +342,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -346,121 +354,25 @@
                 
         <tr>
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 10,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 10,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 10,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-platinum-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Platinum  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-world-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor World  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-platinum-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-world-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/bahl-unionpay-debit-card/" style="color:var(--ink);font-weight:600">BAHL UnionPay Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 10,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -468,9 +380,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-green-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Green Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -478,9 +392,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -488,9 +404,35 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 10,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 10,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -498,79 +440,35 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-silver-debit-card/" style="color:var(--ink);font-weight:600">Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -578,9 +476,11 @@
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-mastercard-classic-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Mastercard Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -588,9 +488,11 @@
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Mastercard Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -598,9 +500,11 @@
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-flexi-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Flexi Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -608,9 +512,23 @@
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-gold-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Gold  Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-platinum-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Platinum  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -618,9 +536,11 @@
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-titanium-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Titanium  Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -628,10 +548,156 @@
           <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-velocity-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Velocity Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-world-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor World  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-platinum-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-world-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off on Every Monday to Sunday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off on Every Monday to Sunday</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=City+Bistro+-+Port+Grand" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>

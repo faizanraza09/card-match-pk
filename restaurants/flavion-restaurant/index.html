@@ -281,11 +281,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -316,7 +322,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Flavion Restaurant</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -324,9 +330,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -334,41 +342,25 @@
                 
         <tr>
           <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-platinum-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-platinum-business-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Business Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
-          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
           <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/paypak-classic-debit-card/" style="color:var(--ink);font-weight:600">PayPak Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-platinum-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -376,9 +368,11 @@
           <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
           <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-qadar-classic-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Qadar Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -386,9 +380,11 @@
           <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
           <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/unionpay-qadar-gold-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Qadar Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -396,9 +392,11 @@
           <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
           <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Visa Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -406,9 +404,11 @@
           <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
           <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-fcy-debit-card/" style="color:var(--ink);font-weight:600">Visa FCY Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -416,9 +416,11 @@
           <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
           <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -426,9 +428,11 @@
           <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
           <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-junior-club-debit-card/" style="color:var(--ink);font-weight:600">Visa Junior Club Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -436,9 +440,35 @@
           <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
           <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-niswan-debit-card/" style="color:var(--ink);font-weight:600">Visa Niswan Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">10% off Everyday</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-platinum-business-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Business Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></td>
+          <td data-label="Card"><a href="/banks/mcb-islamic-bank-ltd/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off Everyday</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=MCB+Islamic+Bank+Ltd&amp;rests=Flavion+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         

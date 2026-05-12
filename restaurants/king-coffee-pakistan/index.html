@@ -299,11 +299,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -334,7 +340,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at King Coffee Pakistan</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -342,9 +348,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -354,9 +362,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-american-express-gold-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah American Express Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -364,9 +374,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-power-pack-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Power Pack Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -374,9 +386,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Infinite Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -384,9 +398,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -394,9 +410,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-power-pack-visa-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Women Power Pack Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -404,9 +422,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Women Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -414,9 +434,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-mastercard-optimus-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Mastercard Optimus Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -424,9 +446,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-mastercard-titanium-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Mastercard Titanium Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -434,9 +458,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-paypak-classic-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah PayPak Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -444,9 +470,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-paypak-islamic-classic-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah PayPak Islamic Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -454,9 +482,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-pehchaan-visa-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Pehchaan Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -464,9 +494,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -474,9 +506,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -484,9 +518,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Platinum Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -494,9 +530,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -504,9 +542,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-ultra-visa-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Ultra Visa Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -514,9 +554,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Classic Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -524,9 +566,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -534,9 +578,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-corporate-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Corporate Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -544,9 +590,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -554,9 +602,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -564,9 +614,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-classic-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -574,9 +626,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-gold-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -584,9 +638,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -594,9 +650,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Platinum Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -604,9 +662,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -614,179 +674,23 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL World Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-classic-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Classic Business DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-classic-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Classic DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Gold DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Titanium DebitCard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">15%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-classic-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Classic Business DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -794,9 +698,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-debitcard/" style="color:var(--ink);font-weight:600">HBL DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -804,9 +710,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-creditcard/" style="color:var(--ink);font-weight:600">HBL Gold CreditCard</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -814,9 +722,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Gold DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -824,9 +734,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-green-creditcard/" style="color:var(--ink);font-weight:600">HBL Green CreditCard</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -834,9 +746,11 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-konnect-debit-card/" style="color:var(--ink);font-weight:600">HBL Konnect Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -844,9 +758,23 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-nisa-debitcard/" style="color:var(--ink);font-weight:600">HBL Nisa DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-platinum-creditcard/" style="color:var(--ink);font-weight:600">HBL Platinum CreditCard</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -854,10 +782,192 @@
           <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
           <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Titanium DebitCard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL World Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-debitcard/" style="color:var(--ink);font-weight:600">HBL World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-bank-limited/">Habib Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/habib-bank-limited/hbl-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-classic-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Classic Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-classic-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Classic DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-gold-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Gold DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic Titanium DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
+          <td data-label="Discount">15%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-business-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Business DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/hbl-islamic-bank-limited/hbl-islamic-world-elite-debitcard/" style="color:var(--ink);font-weight:600">HBL Islamic World Elite DebitCard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=HBL+Islamic+Bank+Limited&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 20% Off | Flat 50% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Any Signature Latte with Choco Ball | On King Fiery Steak</div></td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 20% Off | Flat 50% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Any Signature Latte with Choco Ball | On King Fiery Steak</div></td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 20% Off | Flat 50% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Any Signature Latte with Choco Ball | On King Fiery Steak</div></td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 20% Off | Flat 50% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Any Signature Latte with Choco Ball | On King Fiery Steak</div></td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 20% Off | Flat 50% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On Any Signature Latte with Choco Ball | On King Fiery Steak</div></td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=King+Coffee+Pakistan" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>

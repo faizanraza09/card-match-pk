@@ -287,11 +287,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -322,7 +328,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Etcetera - Islamabad</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -330,9 +336,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -340,81 +348,25 @@
                 
         <tr>
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
-          <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
+          <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
+          <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
-          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
-          <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
+          <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
+          <td data-label="Offer Details">40% off on Entire Menu</td>
+          <td data-label="Discount">40%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -422,9 +374,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-silver-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -432,9 +386,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-habib-university-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Habib University PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -442,9 +398,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-ivs-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen IVS PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -452,9 +410,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-riphah-university-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Riphah University PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -462,9 +422,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-student-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Student PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -472,9 +434,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -482,9 +446,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/unionpay-gold-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -492,9 +458,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/unionpay-silver-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Entire Menu</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -502,9 +470,35 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-power-pack-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Power Pack Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off Everyday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Premier Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off Everyday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -512,9 +506,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-power-pack-visa-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Women Power Pack Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -522,9 +518,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-islamic-women-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Islamic Women Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -532,9 +530,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-mastercard-optimus-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Mastercard Optimus Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -542,9 +542,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-mastercard-titanium-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Mastercard Titanium Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -552,9 +554,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-paypak-classic-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah PayPak Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -562,9 +566,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-paypak-islamic-classic-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah PayPak Islamic Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -572,9 +578,59 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-pehchaan-visa-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Pehchaan Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">40% off Everyday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off Everyday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">30% off Everyday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
+          <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-premier-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Premier Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off Everyday</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -582,9 +638,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-ultra-visa-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Ultra Visa Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -592,9 +650,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Classic Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -602,9 +662,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -612,9 +674,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-corporate-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Corporate Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -622,9 +686,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -632,9 +698,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -642,9 +710,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-classic-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -652,9 +722,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-gold-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -662,9 +734,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-islamic-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Islamic Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -672,9 +746,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Platinum Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -682,9 +758,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -692,9 +770,11 @@
           <td data-label="Bank"><a href="/banks/bank-alfalah/">Bank Alfalah</a></td>
           <td data-label="Card"><a href="/banks/bank-alfalah/bank-alfalah-visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Bank Alfalah Visa Signature Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Everyday</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+Alfalah&amp;rests=Etcetera+-+Islamabad" class="table-tool-link">Compare →</a></td>
         </tr>
         

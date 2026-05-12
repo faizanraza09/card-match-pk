@@ -318,13 +318,17 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
 
 
 def nav_html(current: str = "") -> str:
-    pages = [
+    primary = [
         ("/banks/", "Banks"),
         ("/restaurants/", "Restaurants"),
+    ]
+    learn_pages = [
         ("/about", "About"),
         ("/methodology", "Methodology"),
         ("/how-discount-caps-work", "Discount Caps"),
         ("/how-card-tiers-affect-discounts", "Card Tiers"),
+    ]
+    all_pages = primary + learn_pages + [
         ("/privacy-policy", "Privacy"),
         ("/contact", "Contact"),
     ]
@@ -337,8 +341,15 @@ def nav_html(current: str = "") -> str:
         cur = ' aria-current="page"' if href.rstrip("/") == f"/{current}".rstrip("/") else ""
         return f'          <a class="utility-link" href="{href}"{cur}>{text}</a>'
 
-    desk = "\n".join(d_link(h, t) for h, t in pages)
-    util = "\n".join(u_link(h, t) for h, t in pages)
+    learn_active = any(href.rstrip("/") == f"/{current}".rstrip("/") for href, _ in learn_pages)
+    learn_trigger_cur = ' aria-current="page"' if learn_active else ""
+    learn_dropdown_items = "\n".join(
+        f'                <a class="nav-dropdown-link" href="{href}"{" aria-current=\"page\"" if href.rstrip("/") == f"/{current}".rstrip("/") else ""}>{text}</a>'
+        for href, text in learn_pages
+    )
+    contact_link = d_link("/contact", "Contact")
+    desk_primary = "\n".join(d_link(h, t) for h, t in primary)
+    util = "\n".join(u_link(h, t) for h, t in all_pages)
 
     return f"""
       <nav class="nav" role="banner">
@@ -351,7 +362,16 @@ def nav_html(current: str = "") -> str:
         </div>
         <div style="flex:1"></div>
         <div class="nav-links-desk">
-{desk}
+{desk_primary}
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger"{learn_trigger_cur}>Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+{learn_dropdown_items}
+              </div>
+            </div>
+          </div>
+{contact_link}
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
           <span>🎯</span> Find My Card
@@ -805,6 +825,21 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
     )
 
 
+def render_order_type_badges(order_types: list[str]) -> str:
+    badge_styles = {
+        "Dine-In": "background:#e8f5e9;color:#2e7d32",
+        "Takeaway": "background:#e3f2fd;color:#1565c0",
+        "Delivery": "background:#fff3e0;color:#e65100",
+    }
+    if not order_types:
+        return '<span class="pill" style="background:#f5f5f5;color:#999">—</span>'
+    badges = "".join(
+        f'<span class="pill" style="{badge_styles.get(ot, "background:#f5f5f5;color:#666")}">{escape(ot)}</span>'
+        for ot in order_types
+    )
+    return badges
+
+
 def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
     title = f"{summary['name']} bank discounts in Pakistan | KonsaCard"
     description = (
@@ -817,9 +852,11 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
           <td data-label="Bank"><a href="/banks/{bank_slug_map.get(offer['bank'], '#')}/">{escape(offer['bank'])}</a></td>
           <td data-label="Card"><a href="/banks/{offer['bank_slug']}/{offer['card_slug']}/" style="color:var(--ink);font-weight:600">{escape(offer['card'])}</a></td>
           <td data-label="Type">{escape(offer['card_type'])}</td>
+          <td data-label="Offer Details">{escape(offer['offer_title'] or offer['discount_label'] or '')}{"<div class=\"offer-detail-toggle\" onclick=\"var d=this.nextElementSibling;d.style.display=d.style.display===\'none\'?'block':'none';this.textContent=d.style.display===\'none\'?'Details \u25be':'Details \u25b4'\" style=\"cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px\">Details \u25be</div><div class=\"offer-detail-text\" style=\"display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4\">" + escape(offer["offer_description"]) + "</div>" if offer.get('offer_description') else ""}</td>
           <td data-label="Discount">{escape(offer['discount_label'] or format_pct(offer['max_discount_pct']))}</td>
           <td data-label="Cap">{escape(format_pkr(offer['max_cap_pkr']))}</td>
           <td data-label="Days">{escape(offer['days_label'] or 'All Days')}</td>
+          <td data-label="Order">{render_order_type_badges(offer['order_types'])}</td>
           <td data-label="Action"><a href="{escape(build_tool_url(bank=offer['bank'], restaurant=summary['name']))}" class="table-tool-link">Compare →</a></td>
         </tr>
         """
@@ -864,7 +901,7 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
       <div class="content">
         <section class="section">
           <h2>Cards available at {escape(summary['name'])}</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -872,9 +909,11 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -981,11 +1020,6 @@ def render_eligibility_section(req: dict | None) -> str:
     if reqs.get("annual_fee_waiver_rule"):
         waiver_html = f'<div class="req-waiver"><strong>Fee waiver:</strong> {escape(reqs["annual_fee_waiver_rule"])}</div>'
 
-    conf_html = ""
-    if confidence:
-        badge_cls = f"conf-{confidence}"
-        conf_html = f'<div class="req-confidence">Data confidence: <span class="conf-badge {badge_cls}">{escape(confidence)}</span></div>'
-
     all_notes = notes + gaps
     notes_html = ""
     if all_notes:
@@ -1004,7 +1038,6 @@ def render_eligibility_section(req: dict | None) -> str:
           <p>Key requirements and fees for this card. Always verify current terms directly with the bank.</p>
           {grid_html}
           {waiver_html}
-          {conf_html}
           {notes_html}
         </section>"""
 
@@ -1021,9 +1054,11 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
         f"""
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/{r['slug']}/" style="color:var(--ink);font-weight:600">{escape(r['name'])}</a></td>
-          <td data-label="Discount">{escape(r['discount_label'] or format_pct(r['max_discount_pct']))}</td>
+          <td data-label="Offer Details">{escape(r['offer_title'] or r['discount_label'] or '')}{"<div class=\"offer-detail-toggle\" onclick=\"var d=this.nextElementSibling;d.style.display=d.style.display===\'none\'?'block':'none';this.textContent=d.style.display===\'none\'?'Details \u25be':'Details \u25b4'\" style=\"cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px\">Details \u25be</div><div class=\"offer-detail-text\" style=\"display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4\">" + escape(r["offer_description"]) + "</div>" if r.get('offer_description') else ""}</td>
+          <td data-label="Discount">{escape(format_pct(r['max_discount_pct']))}</td>
           <td data-label="Cap">{escape(format_pkr(r['max_cap_pkr']))}</td>
           <td data-label="Days">{escape(r['days_label'] or 'All Days')}</td>
+          <td data-label="Order">{render_order_type_badges(r['order_types'])}</td>
           <td data-label="Cities">{escape(', '.join(r['cities']))}</td>
           <td data-label="Action"><a href="{escape(build_tool_url(bank=bank_summary['name'], restaurant=r['name']))}" class="table-tool-link">Compare →</a></td>
         </tr>
@@ -1068,9 +1103,11 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
               <thead>
                 <tr>
                   <th>Restaurant</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th>Cities</th>
                   <th></th>
                 </tr>
@@ -1169,6 +1206,9 @@ def build_summaries(payload: dict) -> tuple[list[dict], list[dict]]:
                     "max_discount_pct": best.get("discountPct") or None,
                     "max_cap_pkr": best.get("capPkr") or None,
                     "days_label": best.get("daysLabel", ""),
+                    "offer_title": best.get("offerTitle") or None,
+                    "offer_description": best.get("offerDescription") or None,
+                    "order_types": best.get("orderTypes") or [],
                     "cities": dedupe_sorted(r["city"] for r in rest_rows),
                 })
             card_restaurant_list.sort(key=lambda x: (-(x["max_discount_pct"] or 0), -(x["max_cap_pkr"] or 0)))
@@ -1267,23 +1307,37 @@ def build_summaries(payload: dict) -> tuple[list[dict], list[dict]]:
 
         top_banks.sort(key=lambda item: (-item.cards, -item.offers, item.name.casefold()))
 
-        # Build per-card offer list, sorted best discount first
+        # Build per-card offer list, all unique offers per (bank,card), grouped by card then sorted best discount first
         card_offers: list[dict] = []
         for (bank_name, card_name), card_rows in card_groups.items():
-            best_row = max(card_rows, key=lambda r: (r.get("discountPct") or 0, r.get("capPkr") or 0))
-            card_offers.append({
-                "bank": bank_name,
-                "bank_slug": bank_slug_map[bank_name],
-                "card": card_name,
-                "card_slug": all_card_slugs.get(bank_name, {}).get(card_name, slugify(card_name)),
-                "card_type": best_row.get("cardCategory", "").title(),
-                "discount_label": best_row.get("discountLabel", ""),
-                "max_discount_pct": best_row.get("discountPct") or None,
-                "max_cap_pkr": best_row.get("capPkr") or None,
-                "days_label": best_row.get("daysLabel", ""),
-                "cities": dedupe_sorted(r["city"] for r in card_rows),
-            })
-        card_offers.sort(key=lambda x: (-(x["max_discount_pct"] or 0), -(x["max_cap_pkr"] or 0)))
+            seen = set()
+            for row in card_rows:
+                key = (
+                    row.get("offerTitle") or "",
+                    tuple(sorted(row.get("orderTypes") or [])),
+                    row.get("discountPct"),
+                    row.get("capPkr"),
+                    row.get("daysLabel") or "",
+                )
+                if key not in seen:
+                    seen.add(key)
+                    card_offers.append({
+                        "bank": bank_name,
+                        "bank_slug": bank_slug_map[bank_name],
+                        "card": card_name,
+                        "card_slug": all_card_slugs.get(bank_name, {}).get(card_name, slugify(card_name)),
+                        "card_type": row.get("cardCategory", "").title(),
+                        "offer_title": row.get("offerTitle") or row.get("discountLabel", ""),
+                        "offer_description": row.get("offerDescription") or None,
+                        "order_types": row.get("orderTypes") or [],
+                        "discount_is_up_to": row.get("discountIsUpTo") or False,
+                        "discount_label": row.get("discountLabel", ""),
+                        "max_discount_pct": row.get("discountPct") or None,
+                        "max_cap_pkr": row.get("capPkr") or None,
+                        "days_label": row.get("daysLabel", ""),
+                        "cities": dedupe_sorted(r["city"] for r in card_rows),
+                    })
+        card_offers.sort(key=lambda x: (x["bank"].casefold(), x["card"].casefold(), -(x["max_discount_pct"] or 0), -(x["max_cap_pkr"] or 0)))
 
         restaurant_summaries_all.append(
             {

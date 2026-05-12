@@ -295,11 +295,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -330,7 +336,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Karak Express - کرَك اسرع </h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -338,9 +344,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -348,191 +356,13 @@
                 
         <tr>
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
-          <td data-label="Card"><a href="/banks/bankislami/mastercard-classic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Classic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
-          <td data-label="Card"><a href="/banks/bankislami/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/classic-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Classic Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/gold-visa-debit-card/" style="color:var(--ink);font-weight:600">Gold Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/kids-club-visa-debit-card-boys/" style="color:var(--ink);font-weight:600">Kids Club Visa Debit Card - Boys</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/kids-club-visa-debit-card-girls/" style="color:var(--ink);font-weight:600">Kids Club Visa Debit Card - Girls</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Platinum Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/platinum-visa-debit-card/" style="color:var(--ink);font-weight:600">Platinum Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/titanium-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Titanium Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-charge-card/" style="color:var(--ink);font-weight:600">Visa Charge Card</a></td>
-          <td data-label="Type">Other</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-student-debit-card/" style="color:var(--ink);font-weight:600">Visa Student Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-women-first-debit-card/" style="color:var(--ink);font-weight:600">Visa Women First Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/cash-shop-classic-visa-debit-card/" style="color:var(--ink);font-weight:600">Cash+Shop Classic Visa Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off (Saudia Arabia)</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -540,9 +370,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/classic-plus-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Classic Plus UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off (Saudia Arabia)</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -550,9 +382,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/classic-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Classic UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off (Saudia Arabia)</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -560,9 +394,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/gold-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Gold UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off (Saudia Arabia)</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -570,9 +406,11 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/khanum-classic-plus-upi-paypak-debit-card/" style="color:var(--ink);font-weight:600">Khanum Classic Plus UPI &amp; PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off (Saudia Arabia)</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -580,10 +418,228 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off (Saudia Arabia)</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off (Saudia Arabia)</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off (Saudia Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off (Saudia Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off (Saudia Arabia)</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
+          <td data-label="Card"><a href="/banks/bankislami/mastercard-classic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Classic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Total Bill</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
+          <td data-label="Card"><a href="/banks/bankislami/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off on Total Bill</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/classic-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Classic Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/gold-visa-debit-card/" style="color:var(--ink);font-weight:600">Gold Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/kids-club-visa-debit-card-boys/" style="color:var(--ink);font-weight:600">Kids Club Visa Debit Card - Boys</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/kids-club-visa-debit-card-girls/" style="color:var(--ink);font-weight:600">Kids Club Visa Debit Card - Girls</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Platinum Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/platinum-visa-debit-card/" style="color:var(--ink);font-weight:600">Platinum Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/titanium-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Titanium Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-charge-card/" style="color:var(--ink);font-weight:600">Visa Charge Card</a></td>
+          <td data-label="Type">Other</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-student-debit-card/" style="color:var(--ink);font-weight:600">Visa Student Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-women-first-debit-card/" style="color:var(--ink);font-weight:600">Visa Women First Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off Madinah &amp; Makkah (Saudi Arabia)</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Karak+Express+-+%DA%A9%D8%B1%D9%8E%D9%83+%D8%A7%D8%B3%D8%B1%D8%B9+" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>

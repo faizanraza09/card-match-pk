@@ -305,11 +305,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -340,7 +346,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Sizzlerz Cafe &amp; Grill</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -348,9 +354,11 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
@@ -358,81 +366,13 @@
                 
         <tr>
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-world-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor World  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-world-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/bahl-unionpay-debit-card/" style="color:var(--ink);font-weight:600">BAHL UnionPay Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
           <td data-label="Discount">35%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -440,9 +380,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off</td>
           <td data-label="Discount">35%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -450,9 +392,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-green-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Green Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off</td>
           <td data-label="Discount">35%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -460,9 +404,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
           <td data-label="Discount">35%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -470,9 +416,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
           <td data-label="Discount">35%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -480,9 +428,23 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
           <td data-label="Discount">35%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -490,279 +452,23 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-silver-debit-card/" style="color:var(--ink);font-weight:600">Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
           <td data-label="Discount">35%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-mastercard-classic-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Mastercard Classic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Mastercard Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-flexi-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Flexi Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-gold-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Gold  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-platinum-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Platinum  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-titanium-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Titanium  Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-velocity-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Velocity Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
-          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-platinum-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
-          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/classic-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Classic Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/classic-visa-debit-card/" style="color:var(--ink);font-weight:600">Classic Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/gold-visa-debit-card/" style="color:var(--ink);font-weight:600">Gold Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Platinum Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/platinum-visa-debit-card/" style="color:var(--ink);font-weight:600">Platinum Visa Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/titanium-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Titanium Mastercard Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-charge-card/" style="color:var(--ink);font-weight:600">Visa Charge Card</a></td>
-          <td data-label="Type">Other</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-student-debit-card/" style="color:var(--ink);font-weight:600">Visa Student Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
-          <td data-label="Card"><a href="/banks/meezan-bank/visa-women-first-debit-card/" style="color:var(--ink);font-weight:600">Visa Women First Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">35%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
           <td data-label="Card"><a href="/banks/bankislami/mastercard-classic-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Classic Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Total Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -770,9 +476,11 @@
           <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
           <td data-label="Card"><a href="/banks/bankislami/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Total Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -780,10 +488,396 @@
           <td data-label="Bank"><a href="/banks/bankislami/">BankIslami</a></td>
           <td data-label="Card"><a href="/banks/bankislami/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Total Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=BankIslami&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/amal-mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Amal Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-mastercard-classic-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Mastercard Classic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Mastercard Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-flexi-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Flexi Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-gold-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Gold  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-platinum-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Platinum  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-titanium-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Titanium  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-velocity-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor Velocity Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-noor-world-card/" style="color:var(--ink);font-weight:600">Faysal Islami Noor World  Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">40% off Everyday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-platinum-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off Everyday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></td>
+          <td data-label="Card"><a href="/banks/faysal-bank-limited/faysal-islami-priority-world-debit-card/" style="color:var(--ink);font-weight:600">Faysal Islami Priority World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off Everyday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Faysal+Bank+Limited&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off on Every Monday to Sunday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-her-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Her Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off on Every Monday to Sunday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off on Every Monday to Sunday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-titanium-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Titanium Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off on Every Monday to Sunday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off on Every Monday to Sunday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/private-banking-visa-signature-credit-card/" style="color:var(--ink);font-weight:600">Private Banking Visa Signature Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">40% off on Every Monday to Sunday</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-classic-credit-card/" style="color:var(--ink);font-weight:600">Visa Classic Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off on Every Monday to Sunday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-gold-credit-card/" style="color:var(--ink);font-weight:600">Visa Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off on Every Monday to Sunday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/js-bank/">JS Bank</a></td>
+          <td data-label="Card"><a href="/banks/js-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">35% off on Every Monday to Sunday</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=JS+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/classic-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Classic Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/classic-visa-debit-card/" style="color:var(--ink);font-weight:600">Classic Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/gold-visa-debit-card/" style="color:var(--ink);font-weight:600">Gold Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/mastercard-world-debit-card/" style="color:var(--ink);font-weight:600">Mastercard World Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/platinum-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Platinum Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/platinum-visa-debit-card/" style="color:var(--ink);font-weight:600">Platinum Visa Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/titanium-mastercard-debit-card/" style="color:var(--ink);font-weight:600">Titanium Mastercard Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-charge-card/" style="color:var(--ink);font-weight:600">Visa Charge Card</a></td>
+          <td data-label="Type">Other</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-student-debit-card/" style="color:var(--ink);font-weight:600">Visa Student Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/meezan-bank/">Meezan Bank</a></td>
+          <td data-label="Card"><a href="/banks/meezan-bank/visa-women-first-debit-card/" style="color:var(--ink);font-weight:600">Visa Women First Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">35% off</td>
+          <td data-label="Discount">35%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Meezan+Bank&amp;rests=Sizzlerz+Cafe+%26+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>

@@ -265,11 +265,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/" aria-current="page">Banks</a>
           <a class="nav-link" href="/restaurants/">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -308,9 +314,11 @@
               <thead>
                 <tr>
                   <th>Restaurant</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th>Cities</th>
                   <th></th>
                 </tr>
@@ -319,864 +327,1056 @@
                 
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizza-bake/" style="color:var(--ink);font-weight:600">Pizza Bake</a></td>
+          <td data-label="Offer Details">55%</td>
           <td data-label="Discount">55%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Pizza+Bake" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/angeethi-restaurant-legend-hotel/" style="color:var(--ink);font-weight:600">Angeethi Restaurant (Legend Hotel)</a></td>
+          <td data-label="Offer Details">50%</td>
           <td data-label="Discount">50%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Angeethi+Restaurant+%28Legend+Hotel%29" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/high-end-restaurant-legend-hotel/" style="color:var(--ink);font-weight:600">High-End Restaurant (Legend Hotel)</a></td>
+          <td data-label="Offer Details">50%</td>
           <td data-label="Discount">50%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=High-End+Restaurant+%28Legend+Hotel%29" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/faba-coffee-bar/" style="color:var(--ink);font-weight:600">Faba Coffee Bar</a></td>
+          <td data-label="Offer Details">50%</td>
           <td data-label="Discount">50%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Faba+Coffee+Bar" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/platos/" style="color:var(--ink);font-weight:600">Platos</a></td>
+          <td data-label="Offer Details">50%</td>
           <td data-label="Discount">50%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Platos" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/shot-coffee/" style="color:var(--ink);font-weight:600">Shot Coffee</a></td>
+          <td data-label="Offer Details">50%</td>
           <td data-label="Discount">50%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Shot+Coffee" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizzeria/" style="color:var(--ink);font-weight:600">Pizzeria</a></td>
+          <td data-label="Offer Details">45%</td>
           <td data-label="Discount">45%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Pizzeria" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizza-max/" style="color:var(--ink);font-weight:600">Pizza Max</a></td>
+          <td data-label="Offer Details">40%</td>
           <td data-label="Discount">40%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad, Karachi, Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Pizza+Max" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizza-crust/" style="color:var(--ink);font-weight:600">Pizza Crust</a></td>
+          <td data-label="Offer Details">40%</td>
           <td data-label="Discount">40%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Pizza+Crust" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/manzil-grill-parklane-hotel/" style="color:var(--ink);font-weight:600">Manzil Grill (Parklane Hotel)</a></td>
+          <td data-label="Offer Details">40%</td>
           <td data-label="Discount">40%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Manzil+Grill+%28Parklane+Hotel%29" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-spot-parklane-hotel/" style="color:var(--ink);font-weight:600">The Spot (Parklane Hotel)</a></td>
+          <td data-label="Offer Details">40%</td>
           <td data-label="Discount">40%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=The+Spot+%28Parklane+Hotel%29" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/coffeemistry/" style="color:var(--ink);font-weight:600">Coffeemistry</a></td>
+          <td data-label="Offer Details">30%</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Coffeemistry" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/kias-coffee/" style="color:var(--ink);font-weight:600">KIAS Coffee</a></td>
+          <td data-label="Offer Details">30%</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=KIAS+Coffee" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/sugar-latte/" style="color:var(--ink);font-weight:600">Sugar latte</a></td>
+          <td data-label="Offer Details">30%</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Sugar+latte" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-malt/" style="color:var(--ink);font-weight:600">The Malt</a></td>
+          <td data-label="Offer Details">30%</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=The+Malt" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/chapterone-coffee/" style="color:var(--ink);font-weight:600">ChapterOne coffee</a></td>
+          <td data-label="Offer Details">30%</td>
           <td data-label="Discount">30%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=ChapterOne+coffee" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/ping-pong/" style="color:var(--ink);font-weight:600">Ping Pong</a></td>
+          <td data-label="Offer Details">25%</td>
           <td data-label="Discount">25%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Ping+Pong" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cafe-bogie-2/" style="color:var(--ink);font-weight:600">Café Bogie</a></td>
+          <td data-label="Offer Details">25%</td>
           <td data-label="Discount">25%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Caf%C3%A9+Bogie" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/storm-fast-food/" style="color:var(--ink);font-weight:600">Storm Fast Food</a></td>
+          <td data-label="Offer Details">25%</td>
           <td data-label="Discount">25%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Storm+Fast+Food" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/crumbs-the-bakers/" style="color:var(--ink);font-weight:600">Crumbs - The Bakers</a></td>
+          <td data-label="Offer Details">25%</td>
           <td data-label="Discount">25%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Crumbs+-+The+Bakers" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/club-kitchen/" style="color:var(--ink);font-weight:600">Club Kitchen</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad, Karachi, Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Club+Kitchen" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cafe-bleu/" style="color:var(--ink);font-weight:600">Café Bleu</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Caf%C3%A9+Bleu" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cafe-mambos/" style="color:var(--ink);font-weight:600">Café Mambos</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Caf%C3%A9+Mambos" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cake-bites/" style="color:var(--ink);font-weight:600">Cake Bites</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Cake+Bites" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/grab-n-go/" style="color:var(--ink);font-weight:600">Grab N Go</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Grab+N+Go" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/manhattan-express/" style="color:var(--ink);font-weight:600">Manhattan Express</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Manhattan+Express" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/maryland-desserts/" style="color:var(--ink);font-weight:600">Maryland Desserts</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Maryland+Desserts" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/nawabish/" style="color:var(--ink);font-weight:600">Nawabish</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Nawabish" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/sajjad-restaurant/" style="color:var(--ink);font-weight:600">Sajjad Restaurant</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Sajjad+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-story/" style="color:var(--ink);font-weight:600">The Story</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=The+Story" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/zavery-pops/" style="color:var(--ink);font-weight:600">Zavery Pops</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Zavery+Pops" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bean-me-up/" style="color:var(--ink);font-weight:600">Bean Me Up</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Bean+Me+Up" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/papa-jee-039-s/" style="color:var(--ink);font-weight:600">Papa Jee&amp;#039;s</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Papa+Jee%26%23039%3Bs" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/showbiz-family-restaurant/" style="color:var(--ink);font-weight:600">Showbiz Family Restaurant</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Showbiz+Family+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/terrace-cafe-2/" style="color:var(--ink);font-weight:600">Terrace Café</a></td>
+          <td data-label="Offer Details">20%</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Terrace+Caf%C3%A9" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bigger-better-burger/" style="color:var(--ink);font-weight:600">Bigger Better Burger</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Bigger+Better+Burger" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/chicago-grill/" style="color:var(--ink);font-weight:600">Chicago Grill</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Chicago+Grill" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/second-wife-restaurant/" style="color:var(--ink);font-weight:600">Second Wife Restaurant</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Second+Wife+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/canttuck/" style="color:var(--ink);font-weight:600">Canttuck</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Canttuck" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/italiano-pizza/" style="color:var(--ink);font-weight:600">Italiano Pizza</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Italiano+Pizza" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/karachi-meat-shop/" style="color:var(--ink);font-weight:600">Karachi Meat Shop</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Karachi+Meat+Shop" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/mc-chilli/" style="color:var(--ink);font-weight:600">MC Chilli</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=MC+Chilli" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/miraal-restaurant/" style="color:var(--ink);font-weight:600">Miraal Restaurant</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Miraal+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/monumental-restaurant/" style="color:var(--ink);font-weight:600">Monumental Restaurant</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Monumental+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizza-origin/" style="color:var(--ink);font-weight:600">Pizza Origin</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Pizza+Origin" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/sky-dinning/" style="color:var(--ink);font-weight:600">Sky Dinning</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Sky+Dinning" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/substop/" style="color:var(--ink);font-weight:600">Substop</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Substop" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/tandoori-palace/" style="color:var(--ink);font-weight:600">Tandoori Palace</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Tandoori+Palace" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-fruit-company/" style="color:var(--ink);font-weight:600">The Fruit Company</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=The+Fruit+Company" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/zabha-organic-meat/" style="color:var(--ink);font-weight:600">Zabha Organic Meat</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Zabha+Organic+Meat" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/babaaz-cafe-amp-cuisine/" style="color:var(--ink);font-weight:600">Babaaz Café &amp;amp; Cuisine</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Babaaz+Caf%C3%A9+%26amp%3B+Cuisine" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cafe-ostyria/" style="color:var(--ink);font-weight:600">Cafe Ostyria</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Cafe+Ostyria" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/little-olives/" style="color:var(--ink);font-weight:600">Little Olives</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Little+Olives" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/meemu-039-s/" style="color:var(--ink);font-weight:600">Meemu&amp;#039;s</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Meemu%26%23039%3Bs" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizza-m21/" style="color:var(--ink);font-weight:600">Pizza M21</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Pizza+M21" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/wayback-burgers/" style="color:var(--ink);font-weight:600">Wayback Burgers</a></td>
+          <td data-label="Offer Details">15%</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Wayback+Burgers" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/dera-pashtun-restaurant/" style="color:var(--ink);font-weight:600">Dera Pashtun Restaurant</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Dera+Pashtun+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/des-pardes/" style="color:var(--ink);font-weight:600">Des Pardes</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Des+Pardes" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/meat-and-cuts/" style="color:var(--ink);font-weight:600">Meat and Cuts</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Islamabad</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Meat+and+Cuts" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/4-knots/" style="color:var(--ink);font-weight:600">4 Knots</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=4+Knots" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/ak-teez/" style="color:var(--ink);font-weight:600">AK Teez</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=AK+Teez" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/angus-steak-house/" style="color:var(--ink);font-weight:600">Angus Steak House</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Angus+Steak+House" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/atom-bun/" style="color:var(--ink);font-weight:600">Atom Bun</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Atom+Bun" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bad-egg/" style="color:var(--ink);font-weight:600">Bad Egg</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Bad+Egg" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bakepapa/" style="color:var(--ink);font-weight:600">Bakepapa</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Bakepapa" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/basic/" style="color:var(--ink);font-weight:600">Basic</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Basic" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/bon-bistro/" style="color:var(--ink);font-weight:600">Bon Bistro</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Bon+Bistro" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/cravings-captured/" style="color:var(--ink);font-weight:600">Cravings Captured</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Cravings+Captured" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/dera-nights/" style="color:var(--ink);font-weight:600">Dera Nights</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Dera+Nights" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/eat-max/" style="color:var(--ink);font-weight:600">Eat Max</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Eat+Max" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/karachi-broast/" style="color:var(--ink);font-weight:600">Karachi Broast</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Karachi+Broast" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/lala-039-s-cafe/" style="color:var(--ink);font-weight:600">LaLa&amp;#039;s Café</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=LaLa%26%23039%3Bs+Caf%C3%A9" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/mocca/" style="color:var(--ink);font-weight:600">Mocca</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Mocca" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/nihari-in/" style="color:var(--ink);font-weight:600">Nihari In</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Nihari+In" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizza-slice/" style="color:var(--ink);font-weight:600">Pizza Slice</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Pizza+Slice" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/pizza-wings/" style="color:var(--ink);font-weight:600">Pizza Wings</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Pizza+Wings" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/salto/" style="color:var(--ink);font-weight:600">Salto</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Salto" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/sorriso/" style="color:var(--ink);font-weight:600">Sorriso</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Sorriso" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/street-pizzeria/" style="color:var(--ink);font-weight:600">Street Pizzeria</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Street+Pizzeria" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-pavilion/" style="color:var(--ink);font-weight:600">The Pavilion</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=The+Pavilion" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/the-wok-hei/" style="color:var(--ink);font-weight:600">The Wok Hei</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=The+Wok+Hei" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/z-burger/" style="color:var(--ink);font-weight:600">Z Burger</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Karachi</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Z+Burger" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/baby-panda/" style="color:var(--ink);font-weight:600">Baby Panda</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Baby+Panda" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/dil-ara/" style="color:var(--ink);font-weight:600">Dil Ara</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Dil+Ara" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/food-parliament/" style="color:var(--ink);font-weight:600">Food Parliament</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Food+Parliament" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/fryday-cafe-2/" style="color:var(--ink);font-weight:600">Fryday cafe</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Fryday+cafe" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/god-father-burger/" style="color:var(--ink);font-weight:600">God Father Burger</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=God+Father+Burger" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/honey-bees-restaurant/" style="color:var(--ink);font-weight:600">Honey Bees Restaurant</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Honey+Bees+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/ibn-al-shaam/" style="color:var(--ink);font-weight:600">Ibn Al Shaam</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Ibn+Al+Shaam" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/madly/" style="color:var(--ink);font-weight:600">Madly</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Madly" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/marfa-cafe/" style="color:var(--ink);font-weight:600">Marfa Café</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Marfa+Caf%C3%A9" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/meetup-lounge/" style="color:var(--ink);font-weight:600">Meetup Lounge</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Meetup+Lounge" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/raib-meat/" style="color:var(--ink);font-weight:600">Raib Meat</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Raib+Meat" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/rocker-knife/" style="color:var(--ink);font-weight:600">Rocker Knife</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Rocker+Knife" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/romansu/" style="color:var(--ink);font-weight:600">Romansu</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Romansu" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/stoners-restaurant/" style="color:var(--ink);font-weight:600">Stoners Restaurant</a></td>
+          <td data-label="Offer Details">10%</td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#f5f5f5;color:#999">—</span></td>
           <td data-label="Cities">Lahore</td>
           <td data-label="Action"><a href="/?banks=Easypaisa&amp;rests=Stoners+Restaurant" class="table-tool-link">Compare →</a></td>
         </tr>
@@ -1192,7 +1392,6 @@
           <p>Key requirements and fees for this card. Always verify current terms directly with the bank.</p>
           <div class="req-grid"><div class="req-item"><span class="req-label">Annual fee</span><span class="req-value">Free</span></div><div class="req-item"><span class="req-label">Min. monthly salary</span><span class="req-value">No minimum salary</span></div><div class="req-item"><span class="req-label">Min. balance / deposit</span><span class="req-value">No minimum balance</span></div></div>
           <div class="req-waiver"><strong>Fee waiver:</strong> One-time issuance fee only; no annual fee</div>
-          <div class="req-confidence">Data confidence: <span class="conf-badge conf-high">high</span></div>
           
         <details class="req-notes-details">
           <summary class="req-notes-summary">

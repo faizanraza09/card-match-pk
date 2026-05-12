@@ -293,11 +293,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -328,7 +334,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at FomoFroyo </h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -336,51 +342,25 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 
         <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-gold-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -388,9 +368,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-platinum-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -398,9 +380,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/mastercard-silver-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -408,9 +392,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-habib-university-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Habib University PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -418,9 +404,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-ivs-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen IVS PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -428,9 +416,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-riphah-university-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Riphah University PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -438,9 +428,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/nexgen-student-paypak-debit-card/" style="color:var(--ink);font-weight:600">Nexgen Student PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -448,9 +440,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -458,9 +452,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/unionpay-gold-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -468,9 +464,11 @@
           <td data-label="Bank"><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></td>
           <td data-label="Card"><a href="/banks/al-baraka-bank/unionpay-silver-debit-card/" style="color:var(--ink);font-weight:600">UnionPay Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off on Entire Bill</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Al+Baraka+Bank&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -478,9 +476,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-digital-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Digital Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -488,9 +488,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-digital-visa-silver-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Digital Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -498,9 +500,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-remit-visa-silver-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Remit Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -508,9 +512,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-woman-visa-silver-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Woman Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -518,9 +524,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/bahl-unionpay-apna-debit-card/" style="color:var(--ink);font-weight:600">BAHL UnionPay Apna Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -528,9 +536,23 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/bahl-unionpay-debit-card/" style="color:var(--ink);font-weight:600">BAHL UnionPay Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -538,9 +560,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-green-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Green Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -548,9 +572,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/paypak-debit-card/" style="color:var(--ink);font-weight:600">PayPak Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -558,9 +584,35 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -568,9 +620,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-silver-debit-card/" style="color:var(--ink);font-weight:600">Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -578,9 +632,11 @@
           <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
           <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 10% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On the Entire Menu (Except Deals &amp; Beverages)</div></td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -588,9 +644,11 @@
           <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
           <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 10% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On the Entire Menu (Except Deals &amp; Beverages)</div></td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -598,9 +656,11 @@
           <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
           <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 10% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On the Entire Menu (Except Deals &amp; Beverages)</div></td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -608,9 +668,11 @@
           <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
           <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 10% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On the Entire Menu (Except Deals &amp; Beverages)</div></td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -618,9 +680,11 @@
           <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
           <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Flat 10% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">On the Entire Menu (Except Deals &amp; Beverages)</div></td>
           <td data-label="Discount">10%</td>
           <td data-label="Cap">N/A</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=FomoFroyo+" class="table-tool-link">Compare →</a></td>
         </tr>
         

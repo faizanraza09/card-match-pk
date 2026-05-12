@@ -305,11 +305,17 @@
         <div class="nav-links-desk">
           <a class="nav-link" href="/banks/">Banks</a>
           <a class="nav-link" href="/restaurants/" aria-current="page">Restaurants</a>
-          <a class="nav-link" href="/about">About</a>
-          <a class="nav-link" href="/methodology">Methodology</a>
-          <a class="nav-link" href="/how-discount-caps-work">Discount Caps</a>
-          <a class="nav-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
-          <a class="nav-link" href="/privacy-policy">Privacy</a>
+          <div class="nav-dropdown">
+            <span class="nav-link nav-dropdown-trigger">Learn</span>
+            <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu-inner">
+                <a class="nav-dropdown-link" href="/about">About</a>
+                <a class="nav-dropdown-link" href="/methodology">Methodology</a>
+                <a class="nav-dropdown-link" href="/how-discount-caps-work">Discount Caps</a>
+                <a class="nav-dropdown-link" href="/how-card-tiers-affect-discounts">Card Tiers</a>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/contact">Contact</a>
         </div>
         <a class="btn-find-my-card" href="/" title="Find your best card">
@@ -340,7 +346,7 @@
       <div class="content">
         <section class="section">
           <h2>Cards available at Bella Vita</h2>
-          <p>Every card that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -348,141 +354,37 @@
                   <th>Bank</th>
                   <th>Card</th>
                   <th>Type</th>
+                  <th>Offer Details</th>
                   <th>Discount</th>
                   <th>Cap</th>
                   <th>Days</th>
+                  <th>Order</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 
         <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">Up to 50%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">Up to 50%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">Up to 50%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">Up to 50%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
-          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">Up to 50%</td>
-          <td data-label="Cap">N/A</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">Visa Infinite Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">40% off</td>
           <td data-label="Discount">40%</td>
           <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
-          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">40%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/mastercard-signature-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">UBL Visa Infinite Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 5,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">30%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
-          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">UBL Visa Platinum Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 3,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
-          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">25%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Credit Card</a></td>
           <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -490,69 +392,35 @@
           <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
           <td data-label="Card"><a href="/banks/allied-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
           <td data-label="Discount">20%</td>
           <td data-label="Cap">PKR 3,000</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
-          <td data-label="Type">Credit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
-          <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Bank"><a href="/banks/allied-bank/">Allied Bank</a></td>
+          <td data-label="Card"><a href="/banks/allied-bank/visa-premium-debit-card/" style="color:var(--ink);font-weight:600">Visa Premium Debit Card</a></td>
           <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Offer Details">40% off</td>
+          <td data-label="Discount">40%</td>
+          <td data-label="Cap">PKR 5,000</td>
           <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
-          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Visa Classic Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
-          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
-        </tr>
-        
-        <tr>
-          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
-          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-ladies-debit-card/" style="color:var(--ink);font-weight:600">Visa Ladies Debit Card</a></td>
-          <td data-label="Type">Debit</td>
-          <td data-label="Discount">20%</td>
-          <td data-label="Cap">PKR 1,500</td>
-          <td data-label="Days">All Days</td>
-          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Allied+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
         <tr>
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-digital-visa-gold-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Digital Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -560,9 +428,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-digital-visa-silver-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Digital Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -570,9 +440,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-remit-visa-silver-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Remit Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -580,9 +452,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/al-habib-woman-visa-silver-debit-card/" style="color:var(--ink);font-weight:600">AL Habib Woman Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -590,9 +464,11 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/bahl-unionpay-apna-debit-card/" style="color:var(--ink);font-weight:600">BAHL UnionPay Apna Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -600,9 +476,23 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/bahl-unionpay-debit-card/" style="color:var(--ink);font-weight:600">BAHL UnionPay Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/mastercard-gold-credit-card/" style="color:var(--ink);font-weight:600">Mastercard Gold Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -610,9 +500,35 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
+          <td data-label="Card"><a href="/banks/bank-al-habib/visa-signature-debit-card/" style="color:var(--ink);font-weight:600">Visa Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
@@ -620,10 +536,216 @@
           <td data-label="Bank"><a href="/banks/bank-al-habib/">Bank AL Habib</a></td>
           <td data-label="Card"><a href="/banks/bank-al-habib/visa-silver-debit-card/" style="color:var(--ink);font-weight:600">Visa Silver Debit Card</a></td>
           <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">15% off</td>
           <td data-label="Discount">15%</td>
           <td data-label="Cap">PKR 1,500</td>
           <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
           <td data-label="Action"><a href="/?banks=Bank+AL+Habib&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
+          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-classic-debit-card/" style="color:var(--ink);font-weight:600">Visa Classic Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
+          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-gold-debit-card/" style="color:var(--ink);font-weight:600">Visa Gold Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
+          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-ladies-debit-card/" style="color:var(--ink);font-weight:600">Visa Ladies Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">20% off</td>
+          <td data-label="Discount">20%</td>
+          <td data-label="Cap">PKR 1,500</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></td>
+          <td data-label="Card"><a href="/banks/habib-metro-bank/visa-platinum-debit-card/" style="color:var(--ink);font-weight:600">Visa Platinum Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 2,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=Habib+Metro+Bank&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 30% Off | Up to 35% Off | Up to 35% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-classic/" style="color:var(--ink);font-weight:600">PayPak Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 35% Off | Up to 35% Off | Up to 30% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 30% Off | Up to 35% Off | Up to 35% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-edge-co-badge-mastercard/" style="color:var(--ink);font-weight:600">PayPak Edge co-badge Mastercard</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 35% Off | Up to 35% Off | Up to 30% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 30% Off | Up to 35% Off | Up to 35% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/paypak-pink/" style="color:var(--ink);font-weight:600">PayPak Pink</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 35% Off | Up to 35% Off | Up to 30% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 30% Off | Up to 35% Off | Up to 35% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-classic/" style="color:var(--ink);font-weight:600">UPI Classic</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 35% Off | Up to 35% Off | Up to 30% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 30% Off | Up to 35% Off | Up to 35% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></td>
+          <td data-label="Card"><a href="/banks/national-bank-of-pakistan/upi-gold/" style="color:var(--ink);font-weight:600">UPI Gold</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">Up to 50% Off | Up to 50% Off | Up to 45% Off | Up to 35% Off | Up to 35% Off | Up to 30% Off<div class="offer-detail-toggle" onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.textContent=d.style.display==='none'?'Details ▾':'Details ▴'" style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px">Details ▾</div><div class="offer-detail-text" style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">Buy 1 Moroccan Chicken, Mint Lemonade Get 1 Tarragona Chicken, Mint Lemonade Free in Rs. 2140 + Tax | Buy 1 Creamy Mushroom Grilled Chicken, Mint Lemonade Get 1 Peppercorn Grilled Chicken, Mint Lemonade Free in Rs. 2450 + Tax | Buy 1 Bella Vita Club Sandwich, Mint Lemonade Get 1 Crispy Chicken Burger, Mint Lemonade Free in Rs. 2190 + Tax | Buy 1 Qeema Paratha, Bella Vita Special Chai Get 1 Khageena Paratha Free in Rs. 1715 + Tax | Buy 1 Mexican Pizza, Mint Lemonade Get 1 Margarita Pizza Free in Rs. 2205 + Tax | Buy 1 Cheese and Mushroom Omelet, Cappuccino Coffee Get 1 Pakistani Omelet Free in Rs.1860 + Tax</div></td>
+          <td data-label="Discount">Up to 50%</td>
+          <td data-label="Cap">N/A</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=National+Bank+of+Pakistan&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/mastercard-signature-debit-card/" style="color:var(--ink);font-weight:600">Mastercard Signature Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-infinite-debit-card/" style="color:var(--ink);font-weight:600">UBL Visa Infinite Debit Card</a></td>
+          <td data-label="Type">Debit</td>
+          <td data-label="Offer Details">30% off</td>
+          <td data-label="Discount">30%</td>
+          <td data-label="Cap">PKR 5,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
+        </tr>
+        
+        <tr>
+          <td data-label="Bank"><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></td>
+          <td data-label="Card"><a href="/banks/united-bank-limited-ubl/ubl-visa-platinum-credit-card/" style="color:var(--ink);font-weight:600">UBL Visa Platinum Credit Card</a></td>
+          <td data-label="Type">Credit</td>
+          <td data-label="Offer Details">25% off</td>
+          <td data-label="Discount">25%</td>
+          <td data-label="Cap">PKR 3,000</td>
+          <td data-label="Days">All Days</td>
+          <td data-label="Order"><span class="pill" style="background:#e8f5e9;color:#2e7d32">Dine-In</span></td>
+          <td data-label="Action"><a href="/?banks=United+Bank+Limited+%28UBL%29&amp;rests=Bella+Vita" class="table-tool-link">Compare →</a></td>
         </tr>
         
               </tbody>
