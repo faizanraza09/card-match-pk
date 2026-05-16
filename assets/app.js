@@ -1,3 +1,4 @@
+// @ts-check
 /* ── STATE ── */
 const state = {
   data: null,
@@ -6093,6 +6094,20 @@ function syncDomToState() {
   if (monthlySalary) monthlySalary.value = state.monthlySalary ?? "";
   const accountBalance = document.getElementById("account-balance");
   if (accountBalance) accountBalance.value = state.accountBalance ?? "";
+}
+
+/* ── DEBUG HOOK ──
+   Expose state + compute fns on window for tests and devtools. No prod risk:
+   nothing reads from this in app code paths; classic-script let/const bindings
+   already share the same script scope so this is just discoverability sugar. */
+if (typeof window !== "undefined") {
+  window.__app = {
+    get state() { return state; },
+    computeRecommendations,
+    computeNextCardRecommendations,
+    computeWalletRecommendations,
+    getOfferSavingValue,
+  };
 }
 
 /* ── BOOT ── */
