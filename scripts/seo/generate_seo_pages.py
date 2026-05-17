@@ -345,9 +345,15 @@ def nav_html(current: str = "") -> str:
 
     learn_active = any(href.rstrip("/") == f"/{current}".rstrip("/") for href, _ in learn_pages)
     learn_trigger_cur = ' aria-current="page"' if learn_active else ""
+
+    def _learn_dropdown_link(href: str, text: str) -> str:
+        # Extracted into a helper so Python 3.11 doesn't choke on backslashes
+        # inside the f-string expression (that restriction was lifted in 3.12).
+        cur_attr = ' aria-current="page"' if href.rstrip("/") == f"/{current}".rstrip("/") else ""
+        return f'                <a class="nav-dropdown-link" href="{href}"{cur_attr}>{text}</a>'
+
     learn_dropdown_items = "\n".join(
-        f'                <a class="nav-dropdown-link" href="{href}"{" aria-current=\"page\"" if href.rstrip("/") == f"/{current}".rstrip("/") else ""}>{text}</a>'
-        for href, text in learn_pages
+        _learn_dropdown_link(href, text) for href, text in learn_pages
     )
     contact_link = d_link("/contact", "Contact")
     desk_primary = "\n".join(d_link(h, t) for h, t in primary)
@@ -827,6 +833,32 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
     )
 
 
+def render_offer_details_cell(title: str, description: str | None) -> str:
+    """Build the 'Offer Details' table cell.
+
+    Extracted into its own function because Python 3.11 forbids backslashes
+    inside f-string `{...}` expressions, and the inline HTML below uses
+    escaped quotes throughout the `onclick` attribute. Building the string
+    here keeps the call site clean and 3.11-compatible.
+    """
+    head = escape(title or "")
+    if not description:
+        return head
+    toggle = (
+        '<div class="offer-detail-toggle" '
+        'onclick="var d=this.nextElementSibling;'
+        "d.style.display=d.style.display==='none'?'block':'none';"
+        'this.textContent=d.style.display===\'none\'?\'Details ▾\':\'Details ▴\'" '
+        'style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px"'
+        ">Details ▾</div>"
+        '<div class="offer-detail-text" '
+        'style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">'
+        + escape(description)
+        + "</div>"
+    )
+    return head + toggle
+
+
 def render_order_type_badges(order_types: list[str]) -> str:
     badge_styles = {
         "Dine-In": "background:#e8f5e9;color:#2e7d32",
@@ -854,7 +886,7 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
           <td data-label="Bank"><a href="/banks/{bank_slug_map.get(offer['bank'], '#')}/">{escape(offer['bank'])}</a></td>
           <td data-label="Card"><a href="/banks/{offer['bank_slug']}/{offer['card_slug']}/" style="color:var(--ink);font-weight:600">{escape(offer['card'])}</a></td>
           <td data-label="Type">{escape(offer['card_type'])}</td>
-          <td data-label="Offer Details">{escape(offer['offer_title'] or offer['discount_label'] or '')}{"<div class=\"offer-detail-toggle\" onclick=\"var d=this.nextElementSibling;d.style.display=d.style.display===\'none\'?'block':'none';this.textContent=d.style.display===\'none\'?'Details \u25be':'Details \u25b4'\" style=\"cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px\">Details \u25be</div><div class=\"offer-detail-text\" style=\"display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4\">" + escape(offer["offer_description"]) + "</div>" if offer.get('offer_description') else ""}</td>
+          <td data-label="Offer Details">{render_offer_details_cell(offer.get('offer_title') or offer.get('discount_label') or '', offer.get('offer_description'))}</td>
           <td data-label="Discount">{escape(offer['discount_label'] or format_pct(offer['max_discount_pct']))}</td>
           <td data-label="Cap">{escape(format_pkr(offer['max_cap_pkr']))}</td>
           <td data-label="Days">{escape(offer['days_label'] or 'All Days')}</td>
@@ -1059,7 +1091,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
         f"""
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/{r['slug']}/" style="color:var(--ink);font-weight:600">{escape(r['name'])}</a></td>
-          <td data-label="Offer Details">{escape(r['offer_title'] or r['discount_label'] or '')}{"<div class=\"offer-detail-toggle\" onclick=\"var d=this.nextElementSibling;d.style.display=d.style.display===\'none\'?'block':'none';this.textContent=d.style.display===\'none\'?'Details \u25be':'Details \u25b4'\" style=\"cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px\">Details \u25be</div><div class=\"offer-detail-text\" style=\"display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4\">" + escape(r["offer_description"]) + "</div>" if r.get('offer_description') else ""}</td>
+          <td data-label="Offer Details">{render_offer_details_cell(r.get('offer_title') or r.get('discount_label') or '', r.get('offer_description'))}</td>
           <td data-label="Discount">{escape(format_pct(r['max_discount_pct']))}</td>
           <td data-label="Cap">{escape(format_pkr(r['max_cap_pkr']))}</td>
           <td data-label="Days">{escape(r['days_label'] or 'All Days')}</td>
