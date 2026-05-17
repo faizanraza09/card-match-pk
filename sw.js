@@ -26,6 +26,7 @@ const SHELL_URLS = [
   "/assets/styles.css",
   "/assets/algorithms.js",
   "/assets/chat.js",
+  "/assets/quiz.js",
   "/assets/app.js",
   "/assets/logo/favicon.svg",
   "/assets/logo/mark-32.png",
