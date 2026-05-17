@@ -25,7 +25,6 @@ const SHELL_URLS = [
   "/",
   "/assets/styles.css",
   "/assets/app.js",
-  "/assets/sentry-init.js",
   "/assets/logo/favicon.svg",
   "/assets/logo/mark-32.png",
   "/assets/logo/mark-64.png",

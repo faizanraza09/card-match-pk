@@ -37,12 +37,35 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552095742304526" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles.css" />
 
-    <!-- Sentry error monitoring (no-op until you set the DSN below).
-         To enable: create a Sentry project, copy its DSN, and paste it here.
-         The init script (sentry-init.js) only loads the SDK when a DSN exists,
-         so this has zero cost in development or when monitoring is disabled. -->
-    <meta name="sentry-dsn" content="" />
-    <script defer src="./assets/sentry-init.js"></script>
+    <!-- Sentry error monitoring via the official Loader Script.
+         The hex string in the URL is the project's public key — safe to expose.
+         The Sentry.onLoad() block tunes defaults for our traffic: trace sampling
+         dropped from 1.0 (100%) to 0.1 (10%) to stay within free quota; session
+         replay kept at 10% normal / 100% on error. Production / preview tag
+         lets us filter the dashboard. Skipped on localhost so dev errors
+         don't pollute the dashboard. -->
+    <script
+      src="https://js.sentry-cdn.com/83b7ee8d2efa25d11bb8a6c5fef6da4c.min.js"
+      crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var host = location.hostname;
+        if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") return;
+        if (typeof Sentry === "undefined" || !Sentry.onLoad) return;
+        Sentry.onLoad(function () {
+          Sentry.init({
+            tracesSampleRate: 0.1,
+            environment: host === "konsacard.pk" ? "production" : "preview",
+            ignoreErrors: [
+              "ResizeObserver loop limit exceeded",
+              "Non-Error promise rejection captured",
+              /chrome-extension:/,
+              /^Script error\.?$/,
+            ],
+          });
+        });
+      })();
+    </script>
     <script defer src="./assets/app.js"></script>
     <script type="application/ld+json">
       {
