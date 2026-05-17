@@ -25,6 +25,7 @@ async function init() {
   bindEvents();
   syncDomToState();
   renderDataFreshness();
+  renderFavoritesAlert();
   render();
 }
 
@@ -62,6 +63,76 @@ function buildReportMailto(bank, card) {
     "",
   ].join("\n");
   return `mailto:hello@konsacard.pk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+/* ── FAVORITES + NEW-OFFER ALERTS ──
+   Users can star restaurants. On every boot we snapshot which offers exist
+   at each favorite restaurant, store that snapshot, then on the next boot
+   diff current vs stored. New offers → in-app banner inviting them to
+   open the restaurant detail. No backend, no push permission needed —
+   just a localStorage diff at visit time. */
+const FAVS_SNAPSHOT_KEY = "konsacard_fav_offers_v1";
+
+function toggleFavoriteRestaurant(name) {
+  if (state.favoriteRestaurants.has(name)) state.favoriteRestaurants.delete(name);
+  else state.favoriteRestaurants.add(name);
+  saveStateToLocal();
+  trackEvent("favorite_toggle", { count: state.favoriteRestaurants.size });
+}
+
+function buildFavoritesSnapshot() {
+  // Snapshot = { restaurantName: [list of "bank||card" offer keys] }
+  const snap = {};
+  if (!state.data?.offers) return snap;
+  state.favoriteRestaurants.forEach((name) => snap[name] = []);
+  state.data.offers.forEach((o) => {
+    if (!state.favoriteRestaurants.has(o.restaurant)) return;
+    snap[o.restaurant].push(`${o.bank}||${o.card}`);
+  });
+  Object.keys(snap).forEach((k) => { snap[k] = [...new Set(snap[k])].sort(); });
+  return snap;
+}
+
+function detectNewOffersForFavorites() {
+  let stored = {};
+  try { stored = JSON.parse(localStorage.getItem(FAVS_SNAPSHOT_KEY) || "{}"); } catch (_) {}
+  const current = buildFavoritesSnapshot();
+  /** @type {{restaurant: string, added: string[]}[]} */
+  const newOffers = [];
+  for (const r of Object.keys(current)) {
+    const before = new Set(stored[r] || []);
+    const added = current[r].filter((k) => !before.has(k));
+    if (added.length > 0) newOffers.push({ restaurant: r, added });
+  }
+  // Save the new snapshot for next visit
+  try { localStorage.setItem(FAVS_SNAPSHOT_KEY, JSON.stringify(current)); } catch (_) {}
+  return newOffers;
+}
+
+function renderFavoritesAlert() {
+  // Only check after first visit (avoid alerting a brand-new user about
+  // every offer on their first favorite). buildFavoritesSnapshot itself
+  // doesn't gate this — we check whether stored has any keys.
+  let stored = null;
+  try { stored = localStorage.getItem(FAVS_SNAPSHOT_KEY); } catch (_) {}
+  if (state.favoriteRestaurants.size === 0) return;
+  const newOffers = detectNewOffersForFavorites();
+  // Skip on first-ever check (nothing stored before) — we just seeded the snapshot.
+  if (!stored) return;
+  if (newOffers.length === 0) return;
+  const banner = document.getElementById("favs-alert");
+  if (!banner) return;
+  const total = newOffers.reduce((sum, r) => sum + r.added.length, 0);
+  const names = newOffers.slice(0, 3).map((r) => r.restaurant).join(", ");
+  const more = newOffers.length > 3 ? ` and ${newOffers.length - 3} more` : "";
+  banner.innerHTML = `
+    <span class="favs-alert-icon">✨</span>
+    <span><strong>${total} new offer${total === 1 ? "" : "s"}</strong> at your favorites — ${escapeHtml(names)}${escapeHtml(more)}.</span>
+    <button class="favs-alert-close" id="favs-alert-close" type="button" aria-label="Dismiss">×</button>
+  `;
+  banner.classList.remove("hidden");
+  document.getElementById("favs-alert-close")?.addEventListener("click", () => banner.classList.add("hidden"));
+  trackEvent("favorites_new_offers_shown", { restaurants: newOffers.length, total });
 }
 
 function renderDataFreshness() {
@@ -2695,6 +2766,10 @@ function renderRestaurantDetailModal(inner) {
           </div>
         </div>
         <div class="cd-head-actions">
+          <button class="btn-fav${state.favoriteRestaurants.has(restaurant) ? " active" : ""}" id="btn-rd-fav" type="button" aria-label="Favorite this restaurant" aria-pressed="${state.favoriteRestaurants.has(restaurant)}" title="Get notified about new offers here">
+            <span class="btn-fav-star">${state.favoriteRestaurants.has(restaurant) ? "★" : "☆"}</span>
+            <span class="btn-fav-label">${state.favoriteRestaurants.has(restaurant) ? "Saved" : "Save"}</span>
+          </button>
           <button class="btn-modal-close" id="btn-rd-close" type="button">×</button>
         </div>
       </div>
@@ -2711,6 +2786,11 @@ function renderRestaurantDetailModal(inner) {
   `;
 
   inner.querySelector("#btn-rd-close")?.addEventListener("click", closeRestaurantDetail);
+  inner.querySelector("#btn-rd-fav")?.addEventListener("click", () => {
+    toggleFavoriteRestaurant(restaurant);
+    // Re-render so the star/label flips
+    renderRestaurantDetailModal(inner);
+  });
   const searchInput = inner.querySelector(".rd-card-search");
   const listContainer = inner.querySelector(".rd-card-list");
   const renderRows = () => {
@@ -3147,6 +3227,7 @@ function saveStateToLocal() {
       walletObjective: state.walletObjective,
       walletMustInclude: Array.from(state.walletMustInclude),
       walletAdvancedOpen: state.walletAdvancedOpen,
+      favoriteRestaurants: Array.from(state.favoriteRestaurants),
     };
     localStorage.setItem(LS_KEY, JSON.stringify(payload));
   } catch (_) { /* quota or disabled — silently skip */ }
@@ -3179,6 +3260,7 @@ function restoreStateFromLocal() {
     if (typeof p.walletObjective === "string" && ["savings", "coverage", "roi"].includes(p.walletObjective)) state.walletObjective = p.walletObjective;
     if (Array.isArray(p.walletMustInclude)) state.walletMustInclude = new Set(p.walletMustInclude.filter(Boolean));
     if (typeof p.walletAdvancedOpen === "boolean") state.walletAdvancedOpen = p.walletAdvancedOpen;
+    if (Array.isArray(p.favoriteRestaurants)) state.favoriteRestaurants = new Set(p.favoriteRestaurants.filter(Boolean));
   } catch (_) { /* corrupted payload — ignore */ }
 }
 

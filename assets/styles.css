@@ -937,6 +937,58 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .stale-banner-icon { flex-shrink: 0; }
 .stale-banner strong { color: var(--ink); font-weight: 700; }
 
+/* New-offers-at-favorites banner */
+.favs-alert {
+  margin: 14px 20px 0;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, var(--brand-light) 0%, #fff 100%);
+  border: 1px solid var(--brand-mid);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.4;
+  box-shadow: var(--shadow-sm);
+}
+.favs-alert.hidden { display: none; }
+.favs-alert-icon { flex-shrink: 0; font-size: 16px; }
+.favs-alert strong { color: var(--brand); font-weight: 800; }
+.favs-alert-close {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+.favs-alert-close:hover { color: var(--ink); }
+
+/* "Save" star button on restaurant detail modal */
+.btn-fav {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn-fav:hover { border-color: var(--brand-mid); color: var(--brand); background: var(--brand-light); }
+.btn-fav.active { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
+.btn-fav-star { font-size: 14px; line-height: 1; }
+.btn-fav.active .btn-fav-star { color: var(--brand); }
+
 /* "Report this card" CTA in the card-detail modal */
 .cd-report {
   padding: 12px 20px 18px;

@@ -34,6 +34,7 @@ const state = {
   walletMustInclude: new Set(),      // cardKeys that MUST appear in every wallet
   walletMustIncludeSearchTerm: "",
   walletAdvancedOpen: false,         // disclosure state for "Advanced options" panel
+  favoriteRestaurants: new Set(),    // restaurant names the user has starred
   detailCardKey: null,
   detailRestaurantKey: null,
   compareList: [],               // up to 2 card keys "bank || card"
