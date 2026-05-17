@@ -53,8 +53,10 @@
         if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") return;
         if (typeof Sentry === "undefined" || !Sentry.onLoad) return;
         Sentry.onLoad(function () {
+          // Note: we use the basic (error-only) Loader Script bundle. To enable
+          // performance tracing later, switch the script URL above to the
+          // .tracing.min.js variant and add tracesSampleRate here.
           Sentry.init({
-            tracesSampleRate: 0.1,
             environment: host === "konsacard.pk" ? "production" : "preview",
             ignoreErrors: [
               "ResizeObserver loop limit exceeded",
