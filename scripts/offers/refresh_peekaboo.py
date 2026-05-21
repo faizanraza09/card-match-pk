@@ -722,22 +722,85 @@ def _gallery_urls(detail: dict) -> list[str]:
     return deduped
 
 
+# Curated allowlist of actual cuisines / cuisine-style food categories.
+# Peekaboo's `tags` field mixes real cuisines (e.g. "Pakistani", "BBQ")
+# with service styles (e.g. "Buffet", "Dine-in") that aren't cuisines at
+# all — we filter against this list so chip rows like "BBQ · Pakistani"
+# never end up looking like "Buffet · Dine-in" (true story: that's what
+# the raw tags said for Rangoli, which actually serves 8 cuisines all
+# named in its description).
+#
+# Keep entries in the canonical capitalization we want to render. Match is
+# case-insensitive and looks at whole-word boundaries to avoid false hits
+# (e.g. "Thai" must not match inside "Thailand"). Add to this list when
+# new cuisines show up — false negatives (dropping a real cuisine) are
+# preferable to false positives (claiming a service style is a cuisine).
+KNOWN_CUISINES = [
+    # Regional / cultural
+    "Pakistani", "Indian", "Chinese", "Japanese", "Thai", "Korean", "Vietnamese",
+    "Italian", "French", "Spanish", "Greek", "Mediterranean", "Continental",
+    "Lebanese", "Arabic", "Persian", "Turkish", "Afghan", "Mexican", "American",
+    "British", "European", "Asian", "Middle Eastern",
+    # Food category / style
+    "BBQ", "Burgers", "Pizza", "Sushi", "Seafood", "Steakhouse", "Steaks",
+    "Sandwiches", "Wraps", "Fast Food", "Cafe", "Bakery", "Desserts", "Ice Cream",
+    "Cakes", "Beverages", "Tea", "Coffee", "Shakes", "Karak",
+    # Pakistani specifics
+    "Biryani", "Karahi", "Nihari", "Mughlai", "Punjabi", "Sindhi", "Pathani",
+    "Hyderabadi", "Lahori",
+    # Dietary
+    "Healthy", "Vegan", "Vegetarian",
+]
+_CUISINE_LOWER_TO_CANON = {c.lower(): c for c in KNOWN_CUISINES}
+
+
 def _cuisines_from_detail(detail: dict) -> list[str]:
-    """Tag names are the most accurate cuisine signal (e.g. 'BBQ',
-    'Pakistani'). Fall back to splitting `keywords` if no tags are present.
+    """Build the cuisine list by combining Peekaboo's `tags` (filtered to
+    actual cuisines via KNOWN_CUISINES) with cuisine words found in the
+    free-text `description`. Returns a deduped, canonical-cased list.
+
+    Why this is more complicated than just reading `tags`: Peekaboo's tag
+    system is mixed-use — same field carries cuisines AND service styles.
+    Without the filter we'd surface garbage like "Buffet" or "Dine-in" as
+    cuisines.
     """
+    canon_seen: set[str] = set()
+    out: list[str] = []
+
+    def _add(label: str) -> None:
+        canon = _CUISINE_LOWER_TO_CANON.get(label.strip().lower())
+        if canon and canon not in canon_seen:
+            canon_seen.add(canon)
+            out.append(canon)
+
+    # 1. Filter Peekaboo's tags through the allowlist.
     tags = detail.get("tags") or []
     if isinstance(tags, list):
-        names = [t.get("tag") for t in tags if isinstance(t, dict) and t.get("tag")]
-        if names:
-            return names
-    raw = detail.get("keywords") or ""
-    if isinstance(raw, str) and raw.strip():
-        # Keywords are comma-separated; filter to short, capitalize-worthy words.
-        parts = [p.strip() for p in raw.split(",") if p.strip()]
-        # Drop the long descriptive entries; keep cuisine-like tokens.
-        return [p.title() for p in parts if len(p) <= 24][:8]
-    return []
+        for t in tags:
+            if isinstance(t, dict) and t.get("tag"):
+                _add(str(t["tag"]))
+
+    # 2. Scan description text for cuisine words (case-insensitive whole-word).
+    desc = detail.get("description") or ""
+    if isinstance(desc, str) and desc:
+        lowered = desc.lower()
+        for canon in KNOWN_CUISINES:
+            # Whole-word match: bound by non-letter on each side.
+            needle = canon.lower()
+            idx = 0
+            while True:
+                pos = lowered.find(needle, idx)
+                if pos < 0:
+                    break
+                before = lowered[pos - 1] if pos > 0 else " "
+                after_pos = pos + len(needle)
+                after = lowered[after_pos] if after_pos < len(lowered) else " "
+                if not before.isalpha() and not after.isalpha():
+                    _add(canon)
+                    break
+                idx = pos + 1
+
+    return out[:8]
 
 
 def _social_urls(detail: dict) -> dict[str, str]:
