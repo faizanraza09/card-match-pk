@@ -66,13 +66,36 @@ def main() -> None:
         city_files[city] = f"./data/offers-{slug}.json"
         print(f"[split]   {city}: {len(city_offers)} offers -> {out.name}")
 
-    # Lightweight index: everything except the offers array
-    index = {k: v for k, v in payload.items() if k != "offers"}
+    # Restaurant enrichment (description, photos, social, branches, cuisine)
+    # lives in its own file so the index stays tiny. The frontend loads it
+    # in parallel with the per-city offer files — total payload is the same,
+    # but a fresh boot sees the index + a stable URL it can cache separately.
+    restaurants_enrichment = payload.get("restaurants") or {}
+    restaurants_url = None
+    if restaurants_enrichment:
+        with (OUT_DIR / "offers-restaurants.json").open("w", encoding="utf-8") as f:
+            json.dump(
+                {
+                    "generatedAt": payload.get("generatedAt"),
+                    "restaurants": restaurants_enrichment,
+                },
+                f,
+                ensure_ascii=False,
+                separators=(",", ":"),
+            )
+        restaurants_url = "./data/offers-restaurants.json"
+        print(f"[split] wrote offers-restaurants.json ({len(restaurants_enrichment)} restaurants)")
+
+    # Lightweight index: everything except the offers array AND the
+    # restaurants map (which lives in its own file now).
+    index = {k: v for k, v in payload.items() if k not in ("offers", "restaurants")}
     index["cityFiles"] = city_files
-    index["splitFormat"] = "v1"
+    if restaurants_url:
+        index["restaurantsFile"] = restaurants_url
+    index["splitFormat"] = "v2"
     with (OUT_DIR / "offers-index.json").open("w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, separators=(",", ":"))
-    print(f"[split] wrote offers-index.json (no offers list)")
+    print(f"[split] wrote offers-index.json (no offers list, no restaurants map)")
 
 
 if __name__ == "__main__":

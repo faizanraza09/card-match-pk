@@ -549,6 +549,7 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                         {
                             "city": city_name,
                             "restaurant": entity.get("name"),
+                            "entityId": entity.get("id"),
                             "bank": bank["name"],
                             "card": card["typeName"],
                             "cardCategory": infer_card_category(card["typeName"]),
@@ -588,6 +589,7 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                     {
                         "city": city_name,
                         "restaurant": entity.get("name"),
+                        "entityId": entity.get("id"),
                         "bank": bank["name"],
                         "card": card["typeName"],
                         "cardCategory": infer_card_category(card["typeName"]),
@@ -619,7 +621,355 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
     return offers
 
 
-def build_payload(offers: list[dict]) -> dict:
+# ----------------------------------------------------------------------
+# Peekaboo enrichment: detail + branches per restaurant.
+# Used by the SEO generator to emit accurate Restaurant schema (real
+# description, photos, telephone, cuisine, social, aggregateRating, and
+# real per-branch street addresses + coords + opening hours).
+# ----------------------------------------------------------------------
+
+DAY_NAMES_ORDER = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+DAY_NAME_TO_SCHEMA = {
+    "Monday": "Mo",
+    "Tuesday": "Tu",
+    "Wednesday": "We",
+    "Thursday": "Th",
+    "Friday": "Fr",
+    "Saturday": "Sa",
+    "Sunday": "Su",
+}
+
+
+def _parse_time_12h_to_24h(raw: str | None) -> str | None:
+    """Parse '04:30PM' / '4:30 PM' / '16:30' style strings to 'HH:MM'.
+
+    Peekaboo's everyDayTimngs uses formats like '04:30PM-01:00AM' which we
+    split on '-' first; here we convert one side.
+    """
+    if not raw:
+        return None
+    s = raw.strip().upper().replace(" ", "")
+    if not s:
+        return None
+    try:
+        if s.endswith("AM") or s.endswith("PM"):
+            ampm = s[-2:]
+            body = s[:-2]
+            if ":" in body:
+                h_str, m_str = body.split(":", 1)
+            else:
+                h_str, m_str = body, "00"
+            h, m = int(h_str), int(m_str)
+            if ampm == "AM":
+                if h == 12:
+                    h = 0
+            else:
+                if h != 12:
+                    h += 12
+            return f"{h:02d}:{m:02d}"
+        # Already 24h
+        if ":" in s:
+            h_str, m_str = s.split(":", 1)
+            return f"{int(h_str):02d}:{int(m_str):02d}"
+    except Exception:
+        return None
+    return None
+
+
+def parse_branch_hours(every_day: dict | None) -> list[dict]:
+    """Convert Peekaboo's everyDayTimngs dict into schema.org-friendly rows.
+
+    Returns a list of {"day": "Monday", "opens": "16:30", "closes": "01:00"}.
+    """
+    if not isinstance(every_day, dict):
+        return []
+    rows: list[dict] = []
+    for day in DAY_NAMES_ORDER:
+        raw = every_day.get(day)
+        if not raw or not isinstance(raw, str) or raw.lower() == "closed":
+            continue
+        if "-" not in raw:
+            continue
+        open_raw, close_raw = raw.split("-", 1)
+        opens = _parse_time_12h_to_24h(open_raw)
+        closes = _parse_time_12h_to_24h(close_raw)
+        if not opens or not closes:
+            continue
+        rows.append({"day": day, "opens": opens, "closes": closes})
+    return rows
+
+
+def _gallery_urls(detail: dict) -> list[str]:
+    """Pull cover + gallery photo URLs from entity/detail richContent."""
+    urls: list[str] = []
+    rc = detail.get("richContent") or {}
+    cover = rc.get("cover") or {}
+    cover_list = cover.get("content")
+    if isinstance(cover_list, list):
+        urls.extend(u for u in cover_list if isinstance(u, str) and u.strip())
+    gallery = rc.get("gallery") or {}
+    gallery_list = gallery.get("content")
+    if isinstance(gallery_list, list):
+        urls.extend(u for u in gallery_list if isinstance(u, str) and u.strip())
+    # De-dupe while preserving order
+    seen: set[str] = set()
+    deduped: list[str] = []
+    for u in urls:
+        if u in seen:
+            continue
+        seen.add(u)
+        deduped.append(u)
+    return deduped
+
+
+def _cuisines_from_detail(detail: dict) -> list[str]:
+    """Tag names are the most accurate cuisine signal (e.g. 'BBQ',
+    'Pakistani'). Fall back to splitting `keywords` if no tags are present.
+    """
+    tags = detail.get("tags") or []
+    if isinstance(tags, list):
+        names = [t.get("tag") for t in tags if isinstance(t, dict) and t.get("tag")]
+        if names:
+            return names
+    raw = detail.get("keywords") or ""
+    if isinstance(raw, str) and raw.strip():
+        # Keywords are comma-separated; filter to short, capitalize-worthy words.
+        parts = [p.strip() for p in raw.split(",") if p.strip()]
+        # Drop the long descriptive entries; keep cuisine-like tokens.
+        return [p.title() for p in parts if len(p) <= 24][:8]
+    return []
+
+
+def _social_urls(detail: dict) -> dict[str, str]:
+    social = detail.get("social") or {}
+    if not isinstance(social, dict):
+        return {}
+    cleaned: dict[str, str] = {}
+    for k, v in social.items():
+        if isinstance(v, str) and v.strip() and v != "null":
+            cleaned[k] = v.strip()
+    return cleaned
+
+
+# In-memory caches so concurrent enrichment doesn't refetch.
+_detail_cache: dict[int, dict | None] = {}
+_detail_cache_lock = Lock()
+_branches_cache: dict[tuple[int, str], list[dict]] = {}
+_branches_cache_lock = Lock()
+
+
+def fetch_entity_detail(entity_id: int, city_name: str, city_meta: dict) -> dict | None:
+    """Return Peekaboo's /api/v8/entity/detail payload for `entity_id`, or
+    None on error. Cached per entity_id (city affects only nearestBranch,
+    which we don't rely on)."""
+    if entity_id is None:
+        return None
+    with _detail_cache_lock:
+        if entity_id in _detail_cache:
+            return _detail_cache[entity_id]
+    try:
+        res = session.post(
+            f"{BASE}/api/v8/entity/detail",
+            json={
+                "city": city_name,
+                "country": "Pakistan",
+                "lat": city_meta["lat"],
+                "long": city_meta["long"],
+                "language": "en",
+                "entityId": str(entity_id),
+            },
+            timeout=30,
+        )
+        if res.status_code != 200:
+            with _detail_cache_lock:
+                _detail_cache[entity_id] = None
+            return None
+        data = res.json()
+        with _detail_cache_lock:
+            _detail_cache[entity_id] = data
+        return data
+    except Exception:
+        with _detail_cache_lock:
+            _detail_cache[entity_id] = None
+        return None
+
+
+def fetch_entity_branches(entity_id: int, entity_name: str, city_name: str, city_meta: dict) -> list[dict]:
+    """Return Peekaboo's /api/v6/entity/branch/_all branches for one
+    (entity, city), or [] on error. Cached per (entity_id, city)."""
+    if entity_id is None:
+        return []
+    key = (entity_id, city_name)
+    with _branches_cache_lock:
+        if key in _branches_cache:
+            return _branches_cache[key]
+    try:
+        res = session.post(
+            f"{BASE}/api/v6/entity/branch/_all",
+            json={
+                "city": city_name,
+                "country": "Pakistan",
+                "lat": city_meta["lat"],
+                "long": city_meta["long"],
+                "language": "en",
+                "entity": entity_name,
+                "entityId": entity_id,
+                "entityName": entity_name,
+                "limit": 50,
+                "offset": 0,
+                "sortType": "alphabetical",
+                "sortOrder": "asc",
+                "openNow": "false",
+                "isOpenOnTop": "false",
+                "amenityIds": [98],
+            },
+            timeout=30,
+        )
+        if res.status_code != 200:
+            with _branches_cache_lock:
+                _branches_cache[key] = []
+            return []
+        data = res.json()
+        raw = data.get("branches", []) if isinstance(data, dict) else []
+        normalized: list[dict] = []
+        for b in raw:
+            if not isinstance(b, dict):
+                continue
+            lat = b.get("latitude")
+            lng = b.get("longitude")
+            normalized.append({
+                "id": b.get("id"),
+                "name": b.get("name"),
+                "address": (b.get("address") or "").strip() or None,
+                "city": b.get("city") or city_name,
+                "country": b.get("country") or "Pakistan",
+                "lat": lat,
+                "lng": lng,
+                "telephone": b.get("contactNumber") or None,
+                "openingHours": parse_branch_hours(b.get("everyDayTimngs")),
+                "isVerified": bool(b.get("isVerified")),
+            })
+        with _branches_cache_lock:
+            _branches_cache[key] = normalized
+        return normalized
+    except Exception:
+        with _branches_cache_lock:
+            _branches_cache[key] = []
+        return []
+
+
+def enrich_restaurants(offers: list[dict]) -> dict[str, dict]:
+    """Build a {restaurant_name: enriched_dict} map for every restaurant
+    referenced in `offers`.
+
+    For each restaurant we fetch entity/detail once, plus
+    entity/branch/_all once per (entity, city). Calls run in a thread pool
+    and tolerate per-call errors so a few bad entities don't kill the
+    pipeline.
+    """
+    # 1. Build the unique work list.
+    name_to_id: dict[str, int] = {}
+    name_to_cities: dict[str, set[str]] = {}
+    for o in offers:
+        eid = o.get("entityId")
+        name = o.get("restaurant")
+        city = o.get("city")
+        if eid is None or not name or not city:
+            continue
+        name_to_id.setdefault(name, eid)
+        name_to_cities.setdefault(name, set()).add(city)
+
+    print(f"\nEnriching {len(name_to_id)} unique restaurants...")
+
+    # 2. Fetch entity details in parallel.
+    detail_tasks: dict[str, tuple[int, str, dict]] = {}
+    for name, eid in name_to_id.items():
+        # Use any city the entity appears in for the detail call (the
+        # endpoint is city-bound only for the nearestBranch field, which
+        # we discard).
+        any_city = next(iter(name_to_cities[name]))
+        detail_tasks[name] = (eid, any_city, CITIES[any_city])
+
+    details: dict[str, dict | None] = {}
+    completed = 0
+    with ThreadPoolExecutor(max_workers=12) as executor:
+        future_to_name = {
+            executor.submit(fetch_entity_detail, eid, city, meta): name
+            for name, (eid, city, meta) in detail_tasks.items()
+        }
+        for future in as_completed(future_to_name):
+            name = future_to_name[future]
+            try:
+                details[name] = future.result()
+            except Exception:
+                details[name] = None
+            completed += 1
+            if completed % 100 == 0 or completed == len(detail_tasks):
+                print(f"  detail: {completed}/{len(detail_tasks)}")
+
+    # 3. Fetch branches per (entity, city) in parallel.
+    branch_tasks: list[tuple[str, int, str]] = [
+        (name, name_to_id[name], city)
+        for name, cities in name_to_cities.items()
+        for city in sorted(cities)
+    ]
+    print(f"  fetching branches: {len(branch_tasks)} (entity, city) pairs")
+    branches_by_name_city: dict[tuple[str, str], list[dict]] = {}
+    completed = 0
+    with ThreadPoolExecutor(max_workers=12) as executor:
+        future_to_key = {
+            executor.submit(fetch_entity_branches, eid, name, city, CITIES[city]): (name, city)
+            for (name, eid, city) in branch_tasks
+        }
+        for future in as_completed(future_to_key):
+            key = future_to_key[future]
+            try:
+                branches_by_name_city[key] = future.result()
+            except Exception:
+                branches_by_name_city[key] = []
+            completed += 1
+            if completed % 200 == 0 or completed == len(branch_tasks):
+                print(f"  branches: {completed}/{len(branch_tasks)}")
+
+    # 4. Assemble per-restaurant enriched dicts.
+    #
+    # We intentionally do NOT persist Peekaboo's photo/logo/menu URLs even
+    # though the API returns them. Hot-linking those would (a) put load on
+    # Peekaboo's CDN and (b) raise display-rights issues we don't have a
+    # license for. We keep only text-style enrichment (description, phone,
+    # cuisine, social URLs, and our own structured branch data).
+    restaurants: dict[str, dict] = {}
+    for name, eid in name_to_id.items():
+        detail = details.get(name) or {}
+        contact_list = detail.get("contactNumber") or []
+        telephone = None
+        if isinstance(contact_list, list) and contact_list:
+            telephone = str(contact_list[0])
+        elif isinstance(contact_list, str) and contact_list:
+            telephone = contact_list
+        social = _social_urls(detail)
+        cuisines = _cuisines_from_detail(detail)
+
+        branches_by_city: dict[str, list[dict]] = {}
+        for city in sorted(name_to_cities[name]):
+            entries = branches_by_name_city.get((name, city)) or []
+            if entries:
+                branches_by_city[city] = entries
+
+        restaurants[name] = {
+            "entityId": eid,
+            "description": detail.get("description") or None,
+            "telephone": telephone,
+            "social": social,
+            "servesCuisine": cuisines,
+            "branchesByCity": branches_by_city,
+        }
+    print(f"Enriched {len(restaurants)} restaurants "
+          f"({sum(1 for v in restaurants.values() if v['branchesByCity'])} have branch data).")
+    return restaurants
+
+
+def build_payload(offers: list[dict], restaurants_enrichment: dict[str, dict] | None = None) -> dict:
     restaurants_by_city: dict[str, set[str]] = {}
     for offer in offers:
         restaurants_by_city.setdefault(offer["city"], set()).add(offer["restaurant"])
@@ -640,6 +990,8 @@ def build_payload(offers: list[dict]) -> dict:
         },
         "offers": offers,
     }
+    if restaurants_enrichment:
+        payload["restaurants"] = restaurants_enrichment
     return payload
 
 
@@ -673,7 +1025,21 @@ def main() -> None:
                     first = card_offers[0]
                     print(f"  {first['bank']} / {first['card']} ({len(card_offers)} offers)")
 
-    payload = build_payload(offers)
+    # Per-restaurant enrichment (real address, photos, telephone, cuisine,
+    # social links, aggregateRating). Failures are tolerated so a flaky
+    # Peekaboo run still produces a usable offers.json — the SEO generator
+    # treats the enrichment as optional.
+    enrichment: dict[str, dict] = {}
+    if os.environ.get("PEEKABOO_SKIP_ENRICHMENT") == "1":
+        print("\nSkipping restaurant enrichment (PEEKABOO_SKIP_ENRICHMENT=1).")
+    else:
+        try:
+            enrichment = enrich_restaurants(offers)
+        except Exception as e:
+            print(f"\nEnrichment failed: {e!r} — continuing without it.")
+            enrichment = {}
+
+    payload = build_payload(offers, enrichment)
     OUTPUT_PATH.write_text(
         json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
