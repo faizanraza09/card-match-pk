@@ -743,13 +743,16 @@ KNOWN_CUISINES = [
     "British", "European", "Asian", "Middle Eastern",
     # Food category / style
     "BBQ", "Burgers", "Pizza", "Sushi", "Seafood", "Steakhouse", "Steaks",
-    "Sandwiches", "Wraps", "Fast Food", "Cafe", "Bakery", "Desserts", "Ice Cream",
-    "Cakes", "Beverages", "Tea", "Coffee", "Shakes", "Karak",
+    "Sandwiches", "Wraps", "Shawarma", "Falafel", "Tacos", "Noodles", "Ramen",
+    "Dumplings", "Pasta", "Fast Food", "Cafe", "Bistro", "Bakery", "Desserts",
+    "Ice Cream", "Cakes", "Donuts", "Crepes", "Waffles", "Pancakes", "Bagels",
+    "Sweets", "Chocolate", "Beverages", "Tea", "Coffee", "Shakes", "Smoothies",
+    "Juices", "Karak", "Snacks", "Bowls", "Salads", "Dry Fruits", "Nuts",
     # Pakistani specifics
     "Biryani", "Karahi", "Nihari", "Mughlai", "Punjabi", "Sindhi", "Pathani",
-    "Hyderabadi", "Lahori",
+    "Hyderabadi", "Lahori", "Tikka",
     # Dietary
-    "Healthy", "Vegan", "Vegetarian",
+    "Healthy", "Wellness", "Vegan", "Vegetarian",
 ]
 _CUISINE_LOWER_TO_CANON = {c.lower(): c for c in KNOWN_CUISINES}
 
@@ -780,12 +783,17 @@ def _cuisines_from_detail(detail: dict) -> list[str]:
             if isinstance(t, dict) and t.get("tag"):
                 _add(str(t["tag"]))
 
-    # 2. Scan description text for cuisine words (case-insensitive whole-word).
-    desc = detail.get("description") or ""
-    if isinstance(desc, str) and desc:
-        lowered = desc.lower()
+    # 2. Scan the restaurant name + description text for cuisine words.
+    #    Restaurant names often carry the cuisine clue (e.g. "YUM Chinese
+    #    & Thai", "Shawarma On Fire", "Bombay Bhel") even when the
+    #    description text is empty or vague. Whole-word matching avoids
+    #    false positives (e.g. "Thai" inside "Thailand").
+    haystacks = [detail.get("name") or "", detail.get("description") or ""]
+    for raw in haystacks:
+        if not isinstance(raw, str) or not raw:
+            continue
+        lowered = raw.lower()
         for canon in KNOWN_CUISINES:
-            # Whole-word match: bound by non-letter on each side.
             needle = canon.lower()
             idx = 0
             while True:
