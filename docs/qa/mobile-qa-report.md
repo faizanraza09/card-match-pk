@@ -1,469 +1,376 @@
 # KonsaCard Mobile QA Report
 
-**Date:** 2026-04-28  
-**URL tested:** http://localhost:8787/  
-**App:** KonsaCard — Pakistani bank card comparison single-page app  
-**Tester:** Automated Playwright QA (Claude Code)  
-**Viewports tested:** iPhone SE (375×667), iPhone 14 (390×844), Pixel 5 (393×851)
+**Date:** 2026-05-21
+**URL tested:** http://127.0.0.1:8002/
+**App:** KonsaCard — Pakistani bank card comparison single-page app
+**Tester:** Automated Playwright audit (Claude Code)
+**Viewports:** iPhone SE (375×667), iPhone 14 (390×844), Pixel 5 (393×851)
+**Methodology:** Headless Chromium; cleared localStorage on each load; walked main app flows + spot-checked one bank and one restaurant SEO page; measured `boundingBox()` for every interactive control.
 
 ---
 
 ## Summary Table
 
 | Section | Description | iPhone SE | iPhone 14 | Pixel 5 | Status |
-|---------|-------------|-----------|-----------|---------|--------|
-| A | Landing / Quiz flow | ⚠️ Issues | ✅ Pass | ✅ Pass | PARTIAL |
-| B | Main results page | ⚠️ Issues | ⚠️ Issues | ⚠️ Issues | PARTIAL |
-| C | Sidebar filters | ❌ FAIL | n/a | n/a | FAIL |
-| D | Card detail view | ⚠️ Issues | ✅ Pass | ⚠️ Issues | PARTIAL |
-| E | Compare modal | ❌ FAIL | n/a | n/a | FAIL |
-| F | Chat panel | ⚠️ Issues | ⚠️ Issues | ⚠️ Issues | PARTIAL |
-| G | Horizontal overflow | ✅ Pass | ✅ Pass | ✅ Pass | PASS |
+|---|---|---|---|---|---|
+| A | Landing / Quiz / Onboarding | ⚠️ Info | ⚠️ Info | ⚠️ Info | INFO |
+| B | Main results page | ⚠️ Minor | ⚠️ Minor | ⚠️ Minor | PARTIAL |
+| C | Mobile bottom tab + Filters | ⚠️ Minor | ⚠️ Minor | ⚠️ Minor | PARTIAL |
+| D | Card detail modal | ⚠️ Issues | ⚠️ Issues | ⚠️ Issues | PARTIAL |
+| E | Compare flow | ⚠️ Minor | ⚠️ Minor | ⚠️ Minor | PARTIAL |
+| F | Chat panel | ⚠️ Minor | ⚠️ Minor | ⚠️ Minor | PARTIAL |
+| G | My Wallet view | ⚠️ Minor | ⚠️ Minor | ⚠️ Minor | PARTIAL |
+| H | Build Wallet advisor | ❌ Issues | ❌ Issues | ❌ Issues | FAIL |
+| I | Favorites button (in restaurant detail) | ⚠️ Issues | ⚠️ Issues | ⚠️ Issues | PARTIAL |
+| J | Bottom tab bar (mob-tabs) | ✅ Pass | ✅ Pass | ✅ Pass | PASS |
+| K | Horizontal overflow | ✅ Pass | ✅ Pass | ✅ Pass | PASS |
+| L | Static SEO pages | ❌ Issues | n/a | n/a | FAIL |
+| M | Restaurant detail modal | ❌ Issues | ❌ Issues | ❌ Issues | FAIL |
 
-**Total issues found: 19** (1 HIGH, 13 MEDIUM, 5 LOW)
+**Total issues (deduped across viewports):** 25 — 0 HIGH, 15 MEDIUM, 10 LOW (after follow-up investigation; original 2 INFO items both resolved as false positives)
+
+**Big-picture verdict:** No HIGH-severity bugs and no horizontal overflow anywhere. Main app touch targets are mostly fine; the worst-offender areas are:
+
+1. **Restaurant detail modal** — multiple controls under 36px including the conversion-critical `.btn-apply.btn-apply-sm` "Apply →" link at 69×27px (many instances, one per offer row)
+2. **Build Wallet setup row** — controls 27px tall, an input only 16px tall
+3. **Static SEO bank/restaurant pages** — ship the old desktop-only nav/control sizes
 
 ---
 
 ## Issues Found
 
-### Section A — Landing / Quiz Flow
+### Section A — Landing / Quiz / Onboarding
+
+#### A-1 — ~~INFO~~ RESOLVED (false positive)
+- **Original claim:** Onboarding screen did not appear after "Get Started"
+- **Investigation result:** Flow works correctly. Reproduced manually:
+  - First load → `landing-screen` shown, `konsacard_visited_v2` flag set
+  - `localStorage.clear()` + reload → landing-screen shown again (flag re-set on this load)
+  - Click `#landing-start-btn` → `landing-screen` hidden, `#onboarding-screen` displays with 1814 chars of content
+- **Root cause of false positive:** The original audit likely cleared localStorage *after* the page had already booted (which sets the visited flag), then didn't reload — so it never saw the landing screen and Get Started had no effect on the already-rendered results view.
+- **App state:** No bug. `assets/quiz.js:21-36` is correctly wired.
 
 ---
 
-#### A-1 — MEDIUM — Landing "Skip to app →" and secondary skip link are too small to tap
+### Section B — Main results page
 
-- **Viewport:** iPhone SE (375×667), likely all phones
-- **Measured size:** "Skip to app →" button = 81×16px; "Already know what you want? Skip…" = 309×16px (both height = 16px, far below 44px minimum)
-- **Description:** Two of the three buttons on the landing screen have 16px hit height. On a phone, the primary "Get Started →" CTA (185×58px) is fine, but the skip links are essentially untappable without precise tapping.
-- **CSS selector to fix:** `.landing-skip`, `#landing-skip-nav-btn`
-- **Fix:** Add `padding: 14px 16px;` (or `min-height: 44px; display: inline-flex; align-items: center;`) to `.landing-skip` and the nav skip button. The text can remain small but the hit target must be larger.
+#### B-1 — MEDIUM — "Estimated Saving" label font is 10.5px
+- **Viewports:** All
+- **Selector:** `.cs-l` (`assets/styles.css:722`)
+- **Measured:** `font-size: 10.5px`
+- **Description:** The "Fit Score" / "Estimated Saving" / "Restaurants Matched" stat labels under each card are 10.5px. Readable on iPhone 14 / Pixel 5 but tight on iPhone SE.
+- **Fix:** Bump to `12px` on viewports ≤ 768px.
+  ```css
+  @media (max-width: 768px) { .cs-l { font-size: 12px; } }
+  ```
 
-```css
-/* current */
-.landing-skip { font-size: 13px; ... }
+#### B-2 — LOW — `.btn-compare` is exactly at the 36px floor
+- **Viewports:** All
+- **Selector:** `.btn-compare`
+- **Measured:** 75×36
+- **Description:** At-threshold rather than below. Already has a mobile-specific `min-height: 36px` (`assets/styles.css:1916`). Bumping to 40 would give comfortable headroom.
 
-/* fix */
-.landing-skip { font-size: 13px; padding: 14px 16px; display: inline-flex; align-items: center; ... }
-```
-
----
-
-#### A-2 — MEDIUM — Onboarding "Skip →" button is 40×16px — untappable
-
-- **Viewport:** All phones
-- **Measured size:** 40×16px
-- **Description:** The `#ob-skip-btn` "Skip →" link in the top-right of the onboarding screen has only 16px height. Users will find it very difficult to tap on mobile.
-- **CSS selector to fix:** `#ob-skip-btn`, `.ob-s-nav button`
-- **Fix:** Apply `min-height: 44px; padding: 10px 16px;` to this button.
+#### B-3 — LOW — `.view-toggle-btn` is 72×36
+- **Viewports:** All (also fires inside My Wallet / Build Wallet — see G-1 / H-4)
+- **Selector:** `.view-toggle-btn` (line 2235)
+- **Description:** Same story — at the 36px floor, not below. Adding `min-height: 40px` on mobile would be safer.
 
 ---
 
-#### A-3 — LOW — After skipping onboarding, the quiz modal does not auto-open
+### Section C — Mobile bottom tab + Filters sidebar
 
-- **Viewport:** All phones
-- **Description:** When a first-time user clicks "Get Started →" → sees the onboarding flow → clicks "Skip →", the quiz modal (`#quiz-modal`) is not shown afterward. The app simply displays the main results screen with no quiz prompt, which means new users bypass the personalization step entirely when they skip onboarding.
-- **CSS selector to fix:** N/A — this is a JavaScript behavior in `assets/app.js` around the `ob-skip-btn` listener (`line ~1164`).
-- **Fix:** On `ob-skip-btn` click, either call `openQuiz()` or at least mark state so the quiz will open when the user clicks "Find My Card". Currently `skipToApp()` just hides the screen without prompting the quiz.
+#### C-1 — LOW — `.s-pill` filter pills are 38×36
+- **Viewports:** All
+- **Selector:** `.s-pill` (line 292)
+- **Description:** Pills like "1×", "2×", "Mon", "Tue" inside the filter sidebar are 38×36 — narrow width because the labels are short. Sit on the 36px floor; readable and tappable but tight.
+- **Fix:** `min-width: 44px;` on `.s-pill` in the mobile media query.
 
----
-
-### Section B — Main Results Page
-
----
-
-#### B-1 — MEDIUM — Hamburger button is 36×36px — below 44px touch target minimum
-
-- **Viewport:** iPhone SE (375×667), iPhone 14 (390×844), Pixel 5 (393×851) — all phones
-- **Measured size:** 36×36px
-- **Description:** The hamburger/menu button (`.hamburger-btn`, `#nav-toggle`) is the sole navigation control on mobile (desktop nav links and "Find My Card" are `display:none` on mobile). At 36×36px it falls below the 44×44px minimum recommended touch target. Users with larger fingers or motor impairments will frequently miss it.
-- **CSS selector to fix:** `.hamburger-btn` in `assets/styles.css` line 135
-- **Fix:** Increase to `width: 44px; height: 44px;`
-
-```css
-/* current (line 135) */
-.hamburger-btn { width: 36px; height: 36px; ... }
-
-/* fix */
-.hamburger-btn { width: 44px; height: 44px; ... }
-```
+#### C-2 — INFO — Bottom tab bar works correctly
+- **Viewports:** All — **PASS**
+- The `#mob-tabs` bar with Filters / Results / Chat buttons opens the sidebar correctly. No bug here — calling out only because the previous QA report flagged this as broken.
 
 ---
 
-#### B-2 — MEDIUM — "Find My Card" button is hidden on mobile with no replacement
+### Section D — Card detail modal
 
-- **Viewport:** All phones
-- **Description:** `@media (max-width: 768px)` applies `.btn-find-my-card { display: none; }`. The only way to start the quiz on mobile is through the hamburger menu's utility nav. However, when the hamburger is clicked, it opens the `utility-nav` dropdown — but the dropdown's `.btn-find-my-card.utility-link` with id `nav-mobile-quiz` also shows as 0×0px in DOM inspection. This means there is **no accessible path to open the quiz from the main screen on mobile** unless the sidebar/utility nav renders correctly.
-- **CSS selector to fix:** `assets/styles.css` line 1637: `.btn-find-my-card { display: none; }` inside `@media (max-width: 768px)`; also `.nav > .utility-nav.nav-open { display: flex; }` (line 1660)
-- **Fix:** Verify that the mobile nav utility dropdown renders the quiz button correctly. Consider keeping a small "🎯 Find" icon button in the nav bar on mobile as a shortcut.
-
----
-
-#### B-3 — MEDIUM — "+ Compare" buttons are 26px tall — below 44px touch target
-
-- **Viewport:** All phones (375–393px)
-- **Measured size:** 96×26px each
-- **Description:** Every card row has a `+ Compare` button (`.btn-compare`) that is 26px tall at mobile widths. Although the mobile CSS widens them to `width: 100%` and reduces font to 10.5px, the height stays at 26px — well below the 44px minimum for touch targets.
-- **CSS selector to fix:** `.btn-compare` in `@media (max-width: 480px)` at line 1672
-- **Fix:** Add `min-height: 44px;` to the `.btn-compare` mobile rule.
-
-```css
-/* current (line 1672) */
-.btn-compare { padding: 5px 8px; font-size: 10.5px; width: 100%; text-align: center; }
-
-/* fix */
-.btn-compare { padding: 5px 8px; font-size: 10.5px; width: 100%; text-align: center; min-height: 44px; }
-```
-
----
-
-#### B-4 — MEDIUM — Detail expand button (⤢) and inline expand (↓) are 28×28px — below 44px
-
-- **Viewport:** All phones
-- **Measured size:** `.btn-detail` = 32×32px at 375px (28×28px at 480px breakpoint); `.btn-expand` = 28×28px
-- **Description:** Both icon-only buttons have no visible label and sit at 28–32px — too small for reliable tapping. They often appear in the top-right area of each card where fingers are less precise.
-- **CSS selector to fix:** `.btn-detail, .btn-expand` in `@media (max-width: 480px)` at line 1673
-- **Fix:** At minimum add padding to create a larger hit area:
-
-```css
-/* current (line 1673) */
-.btn-detail, .btn-expand { width: 28px; height: 28px; font-size: 12px; }
-
-/* fix */
-.btn-detail, .btn-expand { width: 44px; height: 44px; font-size: 14px; }
-```
-
----
-
-#### B-5 — MEDIUM — "Fit Score" label text is 9px — too small to read on mobile
-
-- **Viewport:** All phones
-- **Description:** The "Fit Score" label under the score number renders at 9px on mobile (`.cs-l` class, `font-size: 9.5px` on line 617). This falls below the recommended 11px minimum for body copy. Combined with the label being in uppercase, it is very hard to read on mobile.
-- **CSS selector to fix:** `.cs-l` at `assets/styles.css` line 617
-- **Fix:** Raise `font-size` to at least `10.5px` (ideally `11px`) on mobile.
-
----
-
-#### B-6 — LOW — View toggle buttons ("💳 Cards" / "🍽️ Restaurants") are 26px tall
-
-- **Viewport:** All phones
-- **Measured size:** 26px height
-- **Description:** The view toggle buttons (`.view-toggle-btn`) above the results list are 26px tall. Although they span across the screen, the hit height is small for a toggle that changes the entire content view.
-- **CSS selector to fix:** `.view-toggle-btn`
-- **Fix:** Add `min-height: 36px; align-items: center;` at minimum (or 44px to fully comply).
-
----
-
-#### B-7 — LOW — Mobile bottom tab bar (`#mob-tab-filters`) not found by initial test
-
-- **Viewport:** All phones
-- **Description:** The first test pass couldn't locate the mobile tab bar because it uses class `.mob-tabs` (not `.mobile-tabs` or `.bottom-tab-bar`). Upon inspection, the tab bar **does exist and work** (`#mob-tab-filters`, `#mob-tab-results`, `#mob-tab-chat` — each 125×57px, which is fine). The sidebar toggling is handled by the Filters tab via JavaScript (toggling `.mob-open` class on `#sidebar`). This is a test infrastructure note — the tab bar itself passes.
-
----
-
-### Section C — Sidebar Filters on Mobile
-
----
-
-#### C-1 — HIGH — Hamburger menu opens utility nav dropdown, NOT the sidebar filters
-
-- **Viewport:** All phones
-- **Description:** There are two separate mobile entry points that appear to control filters: (1) The hamburger button (`.hamburger-btn`) in the top nav toggles a `.utility-nav` dropdown for links (About, Methodology, etc.) — it does NOT open the sidebar. (2) The bottom tab bar "Filters" tab (`#mob-tab-filters`) correctly toggles `.mob-open` on `#sidebar`. However, **the hamburger is a natural target for "open the filter panel"** and users clicking it will see a nav link dropdown, not filters. The sidebar filter panel is buried behind the less-obvious bottom tab bar.
-- **Additional detail:** When hamburger is clicked, `aria-expanded="true"` is set on `#nav-toggle` and `.nav-open` is toggled on `.utility-nav`, but the sidebar remains `display:none`. The sidebar only opens via the `mob-tab-filters` click handler.
-- **CSS/JS selector to fix:** `assets/app.js` — the hamburger button handler and `assets/styles.css` `.nav > .utility-nav.nav-open`
-- **Fix (UX):** Add a clear "Filters" link or chevron in the utility nav dropdown, or add a brief label "Filters" below the hamburger button. Alternatively, make the hamburger directly open the sidebar (if nav links have another home).
-
----
-
-#### C-2 — MEDIUM — Search inputs in sidebar are 32px tall — below 44px minimum
-
-- **Viewport:** All phones (when sidebar is open)
-- **Measured size:** `#restaurant-search` and `#bank-search` = 339×32px
-- **Description:** The two search inputs inside the sidebar filters have a computed height of 32px. While the width is fine (full-width), the 32px height makes tapping and text entry harder on mobile, especially for users with larger fingers.
-- **CSS selector to fix:** `#restaurant-search, #bank-search` or the `s-search-box input` rule
-- **Fix:** Add `min-height: 44px; padding: 10px 12px;` to these inputs in the mobile breakpoint.
-
----
-
-#### C-3 — MEDIUM — Eligibility checkbox is 14×14px — far too small for mobile
-
-- **Viewport:** All phones
-- **Measured size:** `#use-eligibility` checkbox = 14×14px
-- **Description:** The eligibility toggle checkbox is a native 14×14px browser checkbox. With no surrounding clickable label that has sufficient padding, it is extremely difficult to tap accurately on mobile.
-- **CSS selector to fix:** `#use-eligibility` or its parent `label`
-- **Fix:** Either use a custom toggle switch, or ensure the wrapping `<label>` has `padding: 12px 8px; min-height: 44px; display: flex; align-items: center;`.
-
----
-
-#### C-4 — LOW — Filter pill buttons (times/week, day-of-week) are 28px tall
-
-- **Viewport:** All phones
-- **Measured size:** `.s-pill` = various widths × 28px height
-- **Description:** All the pill-style filter buttons (1×, 2×, 3×, Mon, Tue, etc., Debit, Credit, Other) are 28px tall. While they are usable, they fall short of the 44px recommendation. Day-of-week pills (Mon–Sun) are particularly small at 42–52px wide × 28px tall.
-- **CSS selector to fix:** `.s-pill` at `assets/styles.css` line 246
-- **Fix:** Add `min-height: 36px;` or `padding: 8px 12px;` to `.s-pill`.
-
----
-
-### Section D — Card Detail View
-
----
-
-#### D-1 — MEDIUM — Modal close button is 30×30px — below 44px minimum
-
-- **Viewport:** iPhone SE (375×667), Pixel 5 (393×851)
-- **Measured size:** 30×30px
-- **Description:** The close button on the card detail modal is only 30×30px. For a modal that covers the full screen, the close button must be easily tappable. At 30×30px it is too small, especially in the top-right corner where precision is lower.
-- **CSS selector to fix:** `.modal-bg .modal-close` or the close button selector in `#card-detail-modal`
-- **Fix:** Increase to `min-width: 44px; min-height: 44px;`.
-
----
-
-#### D-2 — LOW — No ~PKR "estimated fee" values or estimation note visible in tested card
-
-- **Viewport:** All phones
-- **Description:** The first card's detail view contained no `~PKR` estimated fee values during testing, so the "estimation note" check was inconclusive. If any card does display `~PKR` (estimated) values (for cards where fee data is approximate), the test confirmed the system looks for an estimation disclaimer. Manual verification is needed on a card known to have estimated fees to confirm the disclaimer note is properly visible.
-- **CSS selector to fix:** N/A — flag for manual review
-- **Fix:** Verify manually on a card with estimated fees.
-
----
-
-#### D-3 — LOW — Restaurant list items inside card detail not found by CSS class
-
-- **Viewport:** All phones
-- **Description:** The restaurant list inside the card detail is present (72 items found via broader selector) but the specific class names (`rest-item`, `restaurant-item`) didn't match. This is a test infrastructure note — the content is present but class names differ. The list renders correctly.
-
----
-
-### Section E — Compare Modal
-
----
-
-#### E-1 — HIGH — Compare tray "Compare →" button is inaccessible — tray first button is "×" (remove card), not "Compare →"
-
-- **Viewport:** iPhone SE (375×667), likely all phones
-- **Description:** When 2 cards are added to compare, the compare tray (`#cmp-tray`) appears. The tray contains: `×` (remove card 1), `×` (remove card 2), `Compare →`, `Clear`. However, the `×` buttons (`.cmp-tray-card-remove`) are only **9×16px** — essentially invisible touch targets. On the automated test, clicking the first button in the tray hit the `×` instead of "Compare →", causing the modal to never open.
-  
-  More critically: the tray sits at `right: 86px` on mobile (leaving space for the chat FAB at right), placing the "Compare →" button (`#btn-compare-open`) which is 105×36px — this button itself is below 44px height. The tray layout on mobile needs validation.
-- **CSS selector to fix:** `.cmp-tray-card-remove` and `.btn-compare-open` in `assets/styles.css` lines 849 and 860
+#### D-1 — MEDIUM — `.btn-modal-close` "×" button is 29×34
+- **Viewports:** All
+- **Selector:** `.btn-modal-close` (line 1200), narrowed by `.cd-head-actions .btn-modal-close { height: 34px }` (line 2347)
+- **Measured:** 29×34
+- **Description:** Both dimensions below 36. The header close button in the card detail modal is harder to tap than it should be.
 - **Fix:**
-  - `.cmp-tray-card-remove`: add `min-width: 32px; min-height: 32px; display: flex; align-items: center; justify-content: center;`
-  - `.btn-compare-open`: add `min-height: 44px;`
+  ```css
+  @media (max-width: 768px) {
+    .cd-head-actions .btn-modal-close {
+      min-width: 44px;
+      min-height: 44px;
+      height: auto;
+    }
+  }
+  ```
+
+#### D-2 — MEDIUM — `.cd-head-actions .btn-apply` is 79×34
+- **Viewports:** All
+- **Selector:** `.cd-head-actions .btn-apply`
+- **Measured:** 79×34
+- **Description:** Primary "Apply →" CTA in the card detail header is 34px tall — below 36. This is one of the more important conversion actions in the app.
+- **Fix:**
+  ```css
+  @media (max-width: 768px) {
+    .cd-head-actions .btn-apply { min-height: 44px; }
+  }
+  ```
 
 ---
 
-#### E-2 — MEDIUM — Compare modal did not open in automated test; manual verification needed
+### Section E — Compare flow
 
-- **Viewport:** iPhone SE (375×667)
-- **Description:** Due to issue E-1 (× button being clicked instead of "Compare →"), the compare modal itself was never verified on mobile. Manual testing is needed to confirm the modal opens and the comparison table either fits within the viewport or scrolls horizontally.
-- **CSS selector to fix:** `#compare-modal .modal` — check `max-height`, `overflow-y`, and any inner table width
-- **Fix:** Verify `#compare-modal table` is wrapped in a `overflow-x: auto` container. Looking at the CSS, `#compare-modal` uses `.modal-bg`/`.modal` which has `max-height: 88vh; overflow-y: auto` but no explicit `overflow-x: auto` for inner table columns. Add a scrollable wrapper for the comparison table on mobile.
+#### E-1 — MEDIUM — `.cmp-tray-card-remove` "×" is 32×32
+- **Viewports:** All
+- **Selector:** `.cmp-tray-card-remove` (line 1052)
+- **Measured:** 32×32 (already has explicit `min-width: 32px; min-height: 32px;`)
+- **Description:** The small "×" used to remove a card from the compare tray sits at 32 — below the 36 floor. Risk is hitting "×" when the user means to tap the card. Stacked against `.btn-compare-open` (which is fine at 44px), this is annoying but not flow-breaking.
+- **Fix:** Lift the min from 32 → 36, or wrap "×" in extra padding so the hit target is larger than the glyph.
 
----
-
-### Section F — Chat Panel
-
----
-
-#### F-1 — MEDIUM — Chat input textarea is 36px tall — below 44px touch target
-
-- **Viewport:** iPhone SE (375×667), iPhone 14 (390×844), Pixel 5 (393×851) — all phones
-- **Measured size:** `#chat-panel textarea` = 264–282px wide × 36px tall
-- **Description:** The chat textarea (`.chat-in`) has `padding: 9px 13px` which produces a 36px rendered height. Users must tap a 36px target to start typing. The 8px shortfall means many thumb taps in the lower-input area will miss.
-- **CSS selector to fix:** `.chat-in` at `assets/styles.css` line 1213
-- **Fix:** Add `min-height: 44px;` to `.chat-in` — it already has `max-height: 80px` so this won't break the auto-resize.
-
-```css
-/* current (line 1213) */
-.chat-in { flex: 1; padding: 9px 13px; ... max-height: 80px; }
-
-/* fix */
-.chat-in { flex: 1; padding: 9px 13px; ... max-height: 80px; min-height: 44px; }
-```
+#### E-2 — LOW — `.cmp-tray-card` is 106×42
+- **Viewports:** All
+- **Description:** Card pill in the compare tray; 42px height is fine, width is the cramped dimension. Not a bug; flagged because tap area sits next to the "×" remove.
 
 ---
 
-#### F-2 — MEDIUM — Chat send button (`#chat-send`) is 28×28px — below 44px
+### Section F — Chat panel
 
-- **Viewport:** All phones
-- **Measured size:** 28×28px
-- **Description:** The send button (`.chat-send`, `#chat-send`) renders at 28×28px. Note: the automated test found the `#chat-close` (×) button at 28×28px — this is the close button in the chat header, not the actual Send button. Looking at CSS, `.chat-send` has `padding: 9px 14px` but the computed size is small because the flex layout collapses it. The Send button is below minimum touch target size.
-- **CSS selector to fix:** `.chat-send` at `assets/styles.css` line 1226, and `.chat-close`, `.chat-top-btn` at lines 1181–1188
-- **Fix:** Add explicit `min-height: 44px; min-width: 44px;` to `.chat-send`. For `.chat-close` and `.chat-top-btn`, increase from 28px to at least 36px (32px is acceptable in header contexts but 44px is ideal).
+#### F-1 — LOW — `.chat-close` is 36×36
+- **Viewports:** All
+- **Description:** At the floor. Same story as B-2.
 
-```css
-/* current (line 1226) */
-.chat-send { padding: 9px 14px; border-radius: 9px; ... }
+#### F-2 — LOW — `.chat-top-btn` (delete-thread) is 36×36
+- **Viewports:** All
+- **Description:** At the floor.
 
-/* fix */
-.chat-send { padding: 9px 14px; border-radius: 9px; min-height: 44px; min-width: 60px; ... }
-```
+#### F-3 — LOW — `.quick-chip` quick-question chips are 36px tall
+- **Viewports:** All
+- **Description:** Sit at the floor, but width is fine (244px on iPhone SE). Bumping to 40 would help.
 
 ---
 
-#### F-3 — LOW — Chat FAB (💬) is correctly 52×52px — PASS
+### Section G — My Wallet view
 
-- **Viewport:** All phones
-- **Measured size:** 52×52px
-- **Description:** The chat FAB button (`#chat-fab`) is 52×52px and well within touch target guidelines. On mobile, it sits at bottom-right at `bottom: 76px` to clear the mobile tab bar. No issue.
-
----
-
-#### F-4 — LOW — Quick question chips are 28px tall
-
-- **Viewport:** All phones
-- **Measured size:** `.quick-chip` = various widths × ~28px
-- **Description:** The suggested quick-question chips (`.quick-chip`) inside the chat panel are 28px tall. They are the first interactive element users see when opening chat, and they're slightly below the 44px recommendation. However, they're presentational enough that this is LOW severity.
-- **CSS selector to fix:** `.quick-chip` at `assets/styles.css` line 1202
-- **Fix:** Add `padding: 8px 10px; min-height: 36px;` to `.quick-chip`.
+#### G-1 — LOW — `.view-toggle-btn` inside wallet view is 72×36
+- **Viewports:** All
+- **Description:** Same selector as B-3, surfaces again inside My Wallet. Fix once in the shared rule.
 
 ---
 
-### Section G — Horizontal Overflow
+### Section H — Build Wallet advisor
+
+#### H-1 — MEDIUM — `#wallet-setup` "size" buttons are 58×27
+- **Viewports:** All
+- **Selector:** `#wallet-setup button`, `.wo-setup-wrap button`
+- **Measured:** 58×27 (button labelled "2 cards" / "3 cards" / etc.)
+- **Description:** The wallet-size selector buttons in the Build Wallet setup row are 27px tall — well below the 36 minimum. These are core to the flow.
+- **Fix:** Add explicit min-height in `assets/styles.css`:
+  ```css
+  @media (max-width: 768px) {
+    .wo-setup-wrap button { min-height: 44px; padding: 10px 14px; }
+  }
+  ```
+
+#### H-2 — MEDIUM — `#wallet-setup input` is 235×16
+- **Viewports:** All
+- **Selector:** `#wallet-setup input`
+- **Measured:** 235×16
+- **Description:** The budget/input field in Build Wallet renders at 16px tall. Effectively impossible to tap with a finger; users would have to land precisely on a 16px-tall line.
+- **Fix:**
+  ```css
+  @media (max-width: 768px) {
+    .wo-setup-wrap input { min-height: 44px; padding: 10px 12px; font-size: 14px; }
+  }
+  ```
+
+#### H-3 — LOW — `.view-toggle-btn` 72×36 inside Build Wallet
+- Same root cause as B-3.
 
 ---
 
-#### G-1 — PASS — No horizontal overflow detected on any device
+### Section I — Favorites button (in restaurant detail)
 
-- **Viewport:** iPhone SE (375×667), iPhone 14 (390×844), Pixel 5 (393×851)
-- **Description:** `document.documentElement.scrollWidth > document.documentElement.clientWidth` returned `false` on all three viewports for the main results page. No element was found extending beyond the right viewport edge. The CSS `@media (max-width: 768px)` rules correctly constrain layout.
+#### I-1 — ~~INFO~~ RESOLVED (false positive) — Favorite button is in the **restaurant detail modal**, not the restaurants list
+- **Investigation result:** The feature is reachable and works. Open a restaurant from the list → modal opens → header shows `#btn-rd-fav` "☆ Save" button → click toggles to "★ Saved" and updates `state.favoriteRestaurants` in localStorage. Confirmed via repro.
+- **Location in code:** `assets/app.js:2788` (renders inside the restaurant detail modal header).
+- **App state:** No bug. The original audit's selector probe assumed favorites would surface as stars next to each restaurant in the list, but they're a save-toggle in the detail view — which is the intended UX per the commit message ("Users can now star restaurants from the restaurant-detail modal").
+- **Followup issue:** While verifying, the modal's controls were measured and several are below 36px — see Section M.
 
 ---
 
-## Additional Observations (Not Classified as Issues)
+### Section J — Bottom tab bar (`mob-tabs`)
 
-1. **Landing screen renders correctly at 375×667** — full 375×667px, text is readable, the "Get Started →" CTA (185×58px) is well-sized.
-2. **Onboarding city selection buttons (159×64–72px)** — the option cards in the onboarding step are well-sized and easily tappable.
-3. **Mobile tab bar (Filters / Results / Ask AI)** — each tab is 125×57px, which comfortably exceeds the 44px minimum. The tab bar itself is correct.
-4. **Card items do not overflow horizontally** — card items are 335–353px wide on the three test devices (viewport 375–393px), leaving ~20px margins on each side. Layout is clean.
-5. **Sidebar filter content (when force-shown)** — the range slider for Typical Bill and the day/card-type pill groups all render correctly within the 375px width.
-6. **Chat panel dimensions on mobile** — the panel is `calc(100vw - 20px)` wide and 490px tall, positioned at `bottom: 70px` to clear the tab bar. On iPhone SE (375×667) the panel occupies 355×490px, leaving only 667 − 70 − 490 = 107px from the top. The panel is functional but very tall relative to the viewport.
+✅ **PASS** on all viewports. Filters / Results / Chat tabs are present, sized adequately, and the Filters tab opens the sidebar as expected. This addresses the previous report's HIGH-severity C-1 ("no way to reach filters on mobile").
+
+---
+
+### Section K — Horizontal overflow
+
+✅ **PASS** on all viewports. `document.documentElement.scrollWidth` did not exceed `window.innerWidth` on any tested screen state (landing, results, filters open, card detail, compare tray, chat open, My Wallet, Build Wallet). Previously fragile flows are clean.
+
+---
+
+### Section L — Static SEO pages
+
+#### L-1 — MEDIUM — `/banks/habib-bank-limited/` has 36 controls below 36px
+- **Viewport:** iPhone SE (representative)
+- **Description:** The generated static bank page ships with the old desktop nav and table chrome — e.g., `.nav-wordmark` 108×30, `.btn-find-my-card` 116×32, `.hamburger-btn` 18×44 (width too narrow), and 30+ smaller controls in the offers table/header.
+- **Root cause:** `scripts/seo/generate_seo_pages.py` renders these pages with their own inline CSS, which hasn't been updated alongside the main `assets/styles.css` mobile pass.
+- **Fix:** Either (a) audit + update the inline styles in the generator template, or (b) link the SEO pages against shared `assets/styles.css` so future mobile fixes flow through automatically.
+
+#### L-2 — MEDIUM — `/restaurants/xander-s/` has 68 controls below 36px
+- **Viewport:** iPhone SE (representative)
+- **Description:** Same as L-1 but worse — restaurant pages have a longer card list, so the count of sub-36 controls is higher. Same root cause.
+- **Fix:** Same as L-1.
+
+---
+
+### Section M — Restaurant detail modal (added during follow-up investigation)
+
+The original audit never opened the restaurant detail modal (it was looking for favorite buttons in the list and didn't find them). Probing the modal directly surfaced five new findings, all consistent across viewports.
+
+#### M-1 — MEDIUM — `.btn-apply.btn-apply-sm` "Apply →" links are 69×27
+- **Viewports:** All
+- **Selector:** `.btn-apply.btn-apply-sm` (one per offer row inside the modal)
+- **Measured:** 69×27
+- **Description:** 27px tall — well below 36. These are conversion-critical CTAs: each row in the restaurant modal pairs a card with its discount and an inline Apply link. There are 5–10+ of these stacked tightly, so users miss-tap into the wrong row easily.
+- **Fix:**
+  ```css
+  @media (max-width: 768px) {
+    .btn-apply-sm { min-height: 40px; padding: 8px 12px; }
+  }
+  ```
+
+#### M-2 — MEDIUM — `#btn-rd-fav` "☆ Save" favorite button is 72×34
+- **Viewports:** All
+- **Selector:** `#btn-rd-fav.btn-fav`
+- **Measured:** 72×34
+- **Description:** Height below 36px. The main entry point for the favorites feature (commit f96f623). At 34px tall it's borderline tappable.
+- **Fix:**
+  ```css
+  @media (max-width: 768px) { #btn-rd-fav { min-height: 44px; } }
+  ```
+
+#### M-3 — MEDIUM — `#btn-rd-close` close-modal "×" is 29×34
+- **Viewports:** All
+- **Selector:** `#btn-rd-close.btn-modal-close`
+- **Measured:** 29×34
+- **Description:** Same selector class as the card-detail close (D-1) — both modals share `.btn-modal-close`. One fix covers both.
+
+#### M-4 — MEDIUM — `.btn-detail.rd-open-card` "⤢" expand button is 32×32
+- **Viewports:** All
+- **Selector:** `.btn-detail.rd-open-card`
+- **Measured:** 32×32 (one per offer row, so many instances)
+- **Description:** The icon button that jumps from a restaurant row to that card's full detail page. Below 36 on both axes.
+- **Fix:**
+  ```css
+  @media (max-width: 768px) { .btn-detail { min-width: 40px; min-height: 40px; } }
+  ```
+
+#### M-5 — LOW — `.pager-btn` Prev/Next pagination buttons are 72×33
+- **Viewports:** All
+- **Description:** Used to page through long lists in the modal. Height below 36 by 3px.
 
 ---
 
 ## Priority Fix List
 
-| Priority | Issue | Section | Severity | Estimated Effort |
-|----------|-------|---------|----------|-----------------|
-| 1 | Hamburger opens nav links, not filters — no clear filter entry on mobile | C-1 | HIGH | Medium (UX redesign) |
-| 2 | Compare tray × buttons are 9×16px; "Compare →" button 36px tall | E-1 | HIGH | Small CSS fix |
-| 3 | Hamburger button 36×36px (all phones) | B-1 | MEDIUM | Trivial CSS |
-| 4 | "+ Compare" buttons 26px tall (all phones, all cards) | B-3 | MEDIUM | Trivial CSS |
-| 5 | `.btn-detail` / `.btn-expand` 28–32px (all phones) | B-4 | MEDIUM | Trivial CSS |
-| 6 | Chat textarea 36px tall (all phones) | F-1 | MEDIUM | Trivial CSS |
-| 7 | Chat send button 28×28px (all phones) | F-2 | MEDIUM | Trivial CSS |
-| 8 | Landing skip links 16px tall (all phones) | A-1, A-2 | MEDIUM | Small CSS |
-| 9 | Sidebar search inputs 32px tall | C-2 | MEDIUM | Small CSS |
-| 10 | Eligibility checkbox 14px (no label hit area) | C-3 | MEDIUM | Small CSS/HTML |
-| 11 | Modal close button 30×30px | D-1 | MEDIUM | Trivial CSS |
-| 12 | "Fit Score" label 9px font | B-5 | MEDIUM | Trivial CSS |
-| 13 | View toggle buttons 26px tall | B-6 | LOW | Trivial CSS |
-| 14 | Filter pill buttons 28px tall | C-4 | LOW | Small CSS |
-| 15 | Quiz not shown after skipping onboarding | A-3 | LOW | Small JS |
-
----
-
-## Screenshots Taken
-
-All screenshots saved to `C:/Temp/mobile-qa/`
-
-### Section A — Landing & Quiz
-- `A-01-landing-iphone-se.png` — Landing screen, iPhone SE
-- `A-01-landing-iphone-14.png` — Landing screen, iPhone 14
-- `A-01-landing-pixel-5.png` — Landing screen, Pixel 5
-- `EXTRA-01-fresh-load.png` — Fresh load (localStorage cleared)
-- `EXTRA-02-after-get-started.png` — After clicking "Get Started →"
-- `EXTRA-03-onboarding.png` — Onboarding screen (city selection)
-- `EXTRA-04-ob-step0.png` — Onboarding step 0
-- `EXTRA-05-after-onboarding.png` — After clicking "Skip →" in onboarding
-
-### Section B — Results Page
-- `B-01-results-iphone-se.png` — Results list, iPhone SE
-- `B-01-results-iphone-14.png` — Results list, iPhone 14
-- `B-01-results-pixel-5.png` — Results list, Pixel 5
-- `B-02-results-full-iphone-se.png` — Full-page results, iPhone SE
-- `B-02-results-full-iphone-14.png` — Full-page results, iPhone 14
-- `B-02-results-full-pixel-5.png` — Full-page results, Pixel 5
-- `B-03-results-scrolled-iphone-se.png` — Results scrolled mid-page, iPhone SE
-- `B-03-results-scrolled-iphone-14.png` — Results scrolled mid-page, iPhone 14
-- `B-03-results-scrolled-pixel-5.png` — Results scrolled mid-page, Pixel 5
-
-### Section C — Sidebar Filters
-- `C-01-filters-open-iphone-se.png` — State when Filters tab clicked (before fix)
-- `C-01-hamburger-open-iphone-se.png` — Hamburger clicked, showing utility nav (not filters)
-- `EXTRA-C-01-before-hamburger.png` — Before hamburger click
-- `EXTRA-C-02-after-hamburger.png` — After hamburger click (full page)
-- `EXTRA-C-03-after-hamburger-viewport.png` — After hamburger, viewport view
-- `EXTRA-SIDEBAR-forced-visible.png` — Sidebar filter panel force-shown (full page)
-
-### Section D — Card Detail
-- `D-01-detail-open-iphone-se.png` — Card detail modal, iPhone SE
-- `D-01-detail-open-pixel-5.png` — Card detail modal, Pixel 5
-- `D-02-detail-full-iphone-se.png` — Card detail full page, iPhone SE
-- `D-02-detail-full-pixel-5.png` — Card detail full page, Pixel 5
-
-### Section E — Compare
-- `EXTRA-E-01-one-added.png` — After first card added to compare
-- `EXTRA-E-02-two-added.png` — After second card added, tray visible
-- `EXTRA-E-03-after-tray-click.png` — After clicking first button in tray (× hit instead of Compare)
-
-### Section F — Chat Panel
-- `F-01-before-chat-iphone-se.png` — Before opening chat, iPhone SE
-- `F-01-before-chat-iphone-14.png` — Before opening chat, iPhone 14
-- `F-01-before-chat-pixel-5.png` — Before opening chat, Pixel 5
-- `F-02-chat-open-iphone-se.png` — Chat panel open, iPhone SE
-- `F-02-chat-open-iphone-14.png` — Chat panel open, iPhone 14
-- `F-02-chat-open-pixel-5.png` — Chat panel open, Pixel 5
-- `F-03-chat-full-iphone-se.png` — Chat full page, iPhone SE
-- `F-03-chat-full-iphone-14.png` — Chat full page, iPhone 14
-- `F-03-chat-full-pixel-5.png` — Chat full page, Pixel 5
+| # | Issue | Section | Severity | Effort | Notes |
+|---|---|---|---|---|---|
+| 1 | Restaurant modal "Apply →" links 69×27 (many) | M-1 | MEDIUM | Trivial CSS | Conversion CTA, repeated per row — high mis-tap risk |
+| 2 | Build Wallet input is 16px tall — effectively untappable | H-2 | MEDIUM | Trivial CSS | Highest impact per CSS line |
+| 3 | Build Wallet size buttons 58×27 | H-1 | MEDIUM | Trivial CSS | Pair with H-2 |
+| 4 | Static SEO pages ship 36+ undersized controls | L-1, L-2 | MEDIUM | Medium (template) | Biggest absolute volume — needs template work in `generate_seo_pages.py` |
+| 5 | Card detail "Apply →" button 79×34 | D-2 | MEDIUM | Trivial CSS | Conversion-critical CTA |
+| 6 | `.btn-modal-close` 29×34 (both card detail and restaurant detail share the class) | D-1, M-3 | MEDIUM | Trivial CSS | One rule covers both |
+| 7 | Restaurant favorite "☆ Save" button 72×34 | M-2 | MEDIUM | Trivial CSS | Primary entry point for favorites feature |
+| 8 | Restaurant row expand "⤢" button 32×32 | M-4 | MEDIUM | Trivial CSS | Many instances per modal |
+| 9 | Compare tray "×" remove 32×32 | E-1 | MEDIUM | Trivial CSS | Risk of mis-tap next to card pill |
+| 10 | `.cs-l` stat labels 10.5px on mobile | B-1 | MEDIUM | Trivial CSS | Bump to 12px on mobile |
+| 11 | At-floor 36px / 33px controls (`.btn-compare`, `.view-toggle-btn`, `.s-pill`, chat buttons, quick chips, `.pager-btn`) | B-2/B-3, C-1, F-1/F-2/F-3, G-1, H-3, M-5 | LOW | Trivial CSS | Bump from 36 → 40 in one batch |
 
 ---
 
 ## CSS Quick-Fix Reference
 
-The following CSS additions in `assets/styles.css` fix the majority of touch target issues (add inside or after the `@media (max-width: 768px)` block):
+Most issues collapse to one mobile-media-query block in `assets/styles.css`:
 
 ```css
-/* === MOBILE TOUCH TARGET FIXES === */
+@media (max-width: 768px) {
+  /* B-1 — readable stat labels */
+  .cs-l { font-size: 12px; }
 
-/* Hamburger button */
-.hamburger-btn { width: 44px; height: 44px; }
+  /* D-1 + M-3 — modal close button (used by both card detail and restaurant detail) */
+  .btn-modal-close { min-width: 44px; min-height: 44px; height: auto; }
 
-/* View toggle buttons */
-.view-toggle-btn { min-height: 36px; display: inline-flex; align-items: center; }
+  /* D-2 — card detail Apply button */
+  .cd-head-actions .btn-apply { min-height: 44px; }
 
-/* Card action buttons */
-.btn-compare { min-height: 44px; }
-.btn-detail, .btn-expand { min-width: 44px; min-height: 44px; }
+  /* E-1 — compare tray remove */
+  .cmp-tray-card-remove { min-width: 36px; min-height: 36px; }
 
-/* Chat */
-.chat-in { min-height: 44px; }
-.chat-send { min-height: 44px; min-width: 60px; }
-.chat-top-btn, .chat-close { min-width: 36px; min-height: 36px; }
+  /* H-1, H-2 — Build Wallet setup row */
+  .wo-setup-wrap button { min-height: 44px; padding: 10px 14px; }
+  .wo-setup-wrap input { min-height: 44px; padding: 10px 12px; font-size: 14px; }
 
-/* Landing skip links */
-.landing-skip { padding: 14px 16px; display: inline-flex; align-items: center; min-height: 44px; }
-#landing-skip-nav-btn { padding: 14px 16px; min-height: 44px; display: inline-flex; align-items: center; }
+  /* M-1 — restaurant detail inline Apply links (per-row) */
+  .btn-apply-sm { min-height: 40px; padding: 8px 12px; }
 
-/* Onboarding skip */
-#ob-skip-btn { padding: 10px 16px; min-height: 44px; }
+  /* M-2 — restaurant detail favorite button */
+  #btn-rd-fav { min-height: 44px; }
 
-/* Sidebar inputs */
-#restaurant-search, #bank-search { min-height: 44px; padding: 10px 12px; }
+  /* M-4 — restaurant detail per-row expand button */
+  .btn-detail { min-width: 40px; min-height: 40px; }
 
-/* Eligibility label */
-label[for="use-eligibility"] { padding: 12px 8px; min-height: 44px; display: flex; align-items: center; }
-
-/* Compare tray */
-.cmp-tray-card-remove { min-width: 32px; min-height: 32px; display: flex; align-items: center; justify-content: center; }
-.btn-compare-open { min-height: 44px; }
-
-/* Modal close */
-#card-detail-modal .modal-close { min-width: 44px; min-height: 44px; }
-
-/* Filter pills */
-.s-pill { min-height: 36px; padding: 6px 12px; }
-
-/* Score label */
-.cs-l { font-size: 10.5px; }
+  /* Low-priority lift from 36/33 → 40 */
+  .btn-compare { min-height: 40px; }
+  .view-toggle-btn { min-height: 40px; }
+  .s-pill { min-width: 44px; min-height: 40px; }
+  .chat-close,
+  .chat-top-btn { min-width: 40px; min-height: 40px; }
+  .quick-chip { min-height: 40px; }
+  .pager-btn { min-height: 40px; }
+}
 ```
+
+The static SEO pages (L-1, L-2) need a separate pass in `scripts/seo/generate_seo_pages.py` — either consolidating to the shared stylesheet or updating the inline template's mobile rules.
+
+---
+
+## Methodology notes / scope limits
+
+- **What was NOT tested:** dark/light mode toggle, real network conditions, A11y / screen reader, RTL, very long restaurant names overflowing within rows, the entire `archive/` directory.
+- **What changed since the prior (2026-04-28) report:** the previous HIGH issues (hamburger doesn't reach filters; compare tray button blocked) are both resolved — the bottom tab bar and the larger `.btn-compare-open` (44px) fix them.
+- **Follow-up investigation:** Two original findings (A-1 onboarding gate, I-1 missing favorites) were flagged as INFO during the automated audit. A manual repro pass against `assets/quiz.js` and `assets/app.js` confirmed both are working as intended — both were audit false positives caused by the test approach (clearing localStorage post-boot; probing for favorites in the list instead of the detail modal). The investigation also uncovered the Section M findings that the automated pass missed.
+
+---
+
+## Fixes proposed and rejected (2026-05-21)
+
+A first pass applied the CSS Quick-Fix Reference above to `assets/styles.css`
+and was reverted after a visual side-by-side review. The 44px touch-target
+minimum made the UI feel oversized and broke the compact editorial aesthetic
+of the app — the Build Wallet setup row, the restaurant detail modal, and
+the card detail header all looked noticeably heavier than intended.
+
+**Design call:** keep the existing compact sizing. The smaller controls are a
+deliberate aesthetic choice, not an oversight. Don't apply blanket 44×44
+HIG minimums on this project.
+
+**Implication for future mobile work:**
+- Treat the measurements above as a reference, not a fix list.
+- If a specific control is causing real mis-tap complaints, address it in
+  isolation rather than as part of a global touch-target sweep.
+- The Build Wallet input (H-2, 16px tall) is the one finding still worth
+  re-examining — 16px is below the threshold where the issue is purely
+  aesthetic.
+
+**Outstanding (unrelated to the rejected pass):**
+- L-1, L-2 — static SEO pages have undersized inline-template controls.
+  Whether or not this is acted on, the fix would belong in
+  `scripts/seo/generate_seo_pages.py`.

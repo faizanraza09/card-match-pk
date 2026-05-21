@@ -1,6 +1,7 @@
 import json
 import re
 from collections import Counter, defaultdict
+from datetime import date
 from pathlib import Path
 
 
@@ -242,8 +243,9 @@ def main() -> None:
     for key in flagged_rows:
         flagged_rows[key].sort(key=lambda item: (item["bank_name"], item["card_name"]))
 
+    today = date.today().isoformat()
     audit_payload = {
-        "generated_at": "2026-04-26",
+        "generated_at": today,
         "matched_card_count": len(audited_rows),
         "field_basis_summary": {field: dict(counter) for field, counter in summary.items()},
         "manual_review_counts": {field: len(items) for field, items in flagged_rows.items()},
@@ -256,7 +258,7 @@ def main() -> None:
     lines = [
         "# Requirement Evidence Audit",
         "",
-        "Audit date: 2026-04-26",
+        f"Audit date: {today}",
         "",
         "This report classifies filled requirement fields into direct evidence versus inferred/account-relationship fills.",
         "",
