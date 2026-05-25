@@ -18,15 +18,17 @@ async function readUtilityNav(page) {
 }
 
 test.describe("Nav — mobile utility-nav is identical across pages", () => {
-  test("home + /about/ + /contact/ + /banks/ all share the same mobile menu", async ({ page }) => {
+  test("home and content sub-pages share the same mobile menu", async ({ page }) => {
     await gotoApp(page);
     const home = await readUtilityNav(page);
     expect(home.length).toBeGreaterThan(0);
 
-    for (const path of ["/about/", "/contact/", "/banks/", "/methodology/"]) {
+    // /banks/ and /restaurants/ are SEO build artifacts (gitignored, generated
+    // by npm run build), so they're not always present in test envs. The static
+    // sub-pages below exercise the same content-pages.js code path that powers
+    // the generated pages, which catches any nav drift.
+    for (const path of ["/about/", "/contact/", "/methodology/", "/how-discount-caps-work/"]) {
       await page.goto(path);
-      // content-pages.js runs on DOMContentLoaded; a small wait covers any
-      // sync timing edge case.
       await page.waitForLoadState("domcontentloaded");
       await page.waitForTimeout(50);
       const items = await readUtilityNav(page);
