@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "KonsaCard",
+    "slug": "konsacard-mobile",
+    "scheme": "konsacard",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "pk.konsacard.app",
+      "associatedDomains": ["applinks:konsacard.pk"]
+    },
+    "android": {
+      "package": "pk.konsacard.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [{ "scheme": "https", "host": "konsacard.pk" }],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      ["expo-router", { "origin": "https://konsacard.pk" }],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "KonsaCard uses your location to surface nearby restaurants and the deals at them."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#BD5B3D"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

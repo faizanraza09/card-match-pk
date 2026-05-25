@@ -1,144 +1,64 @@
-# Card Match PK
+# KonsaCard
 
-Static web app for comparing restaurant discount cards in Pakistan across
-Karachi, Lahore, and Islamabad.
+Monorepo for the KonsaCard restaurant-discount-card comparison tool, covering
+the web app at [konsacard.pk](https://konsacard.pk) and the upcoming
+React Native mobile app.
 
-The app is driven by `data/offers.json` and now combines:
+## Layout
 
-- the existing Peekaboo-backed offers pipeline
-- a public-source Easypaisa offers pipeline
-- an NBP merchant-workbook pipeline
-
-## Repo Structure
-
-```text
-assets/                     Frontend CSS, JS, and logo assets
-data/
-  offers.json               Final app dataset used by the frontend
-  sources/                  Intermediate/source-specific datasets
-  card-requirements/        Requirements research workspace and normalized outputs
-docs/                       Process notes, pipeline docs, and roadmap
-scripts/
-  offers/                   Offers refresh, merge, and validation scripts
-  card_requirements/        Requirements normalization and mapping builders
-  dev/                      Local development utilities
+```
+.
+├── apps/
+│   ├── web/      Cloudflare Pages site (static + functions), Python data pipelines
+│   └── mobile/   Expo (React Native + TypeScript) mobile app
+└── packages/     Reserved for shared TS packages (planned: algorithms)
 ```
 
-## Main Data Outputs
+Each app keeps its own `package.json`, lockfile, and tooling. The shared
+algorithm logic is still duplicated today (`apps/web/assets/algorithms.js`
+vs. `apps/mobile/src/lib/algorithms.ts`); the planned `packages/algorithms/`
+extraction will collapse that into a single TypeScript source that builds to
+both targets.
 
-Primary app dataset:
+## Running locally
 
-```text
-data/offers.json
+### Web
+
+```
+cd apps/web
+npm install
+npm run dev          # Cloudflare Pages dev (wrangler) on :8002
+# or
+npm run dev:static   # plain Python static server on :8002
 ```
 
-Easypaisa intermediate dataset:
+### Mobile
 
-```text
-data/sources/easypaisa/discountworld-food.json
+```
+cd apps/mobile
+npm install
+npx expo start       # then open in Expo Go or a dev build
 ```
 
-Card requirements research workspace:
+## Deployment
 
-```text
-data/card-requirements/
-  raw/
-  work/
-  normalized/
-```
+### Web
 
-## Offers Refresh
+Cloudflare Pages auto-deploys from this repo's `main` branch with **Root
+Directory** set to `apps/web/`. The Pages project also discovers Functions
+under `apps/web/functions/` automatically.
 
-Create a `.env` file in the project root with:
+### Mobile
 
-```text
-PEEKABOO_TOKEN=PASTE_TOKEN_HERE
-```
+Not auto-deployed. Use EAS Build / `expo run:ios` / `expo run:android`
+during development; store submission is a manual step in Phase 5.
 
-Then run the full offers rebuild with:
+## Data pipelines
 
-```powershell
-python scripts/offers/refresh_all_offers.py
-```
+The offers + card-requirements pipelines live under `apps/web/scripts/` and
+write to `apps/web/data/`. Mobile fetches that same data from the deployed
+web origin (`konsacard.pk/data/...`) with a version-aware AsyncStorage cache,
+so a single `npm run refresh:offers` on the web side flows through to mobile
+on the next launch.
 
-That orchestrates:
-
-2. `scripts/offers/extract_easypaisa_discountworld.py`
-3. `scripts/offers/merge_easypaisa_into_offers.py`
-4. `scripts/offers/extract_nbp_merchants.py`
-5. `scripts/offers/merge_nbp_into_offers.py`
-6. `scripts/offers/validate_offers_dataset.py`
-
-For more detail, see:
-
-- `docs/offers_refresh_pipeline.md`
-
-## Card Requirements Pipeline
-
-The repo also contains a separate card eligibility / fee research workflow.
-
-Main outputs:
-
-```text
-data/card-requirements/normalized/cards.json
-data/card-requirements/normalized/card_requirements.json
-data/card-requirements/normalized/sources.json
-data/card-requirements/normalized/deal_requirement_card_map.json
-data/card-requirements/normalized/deal_requirement_coverage_summary.json
-```
-
-Main builders:
-
-```powershell
-python scripts/card_requirements/build_card_requirements_normalized.py
-python scripts/card_requirements/build_deal_requirement_card_map.py
-```
-
-Documentation:
-
-- `data/card-requirements/README.md`
-- `docs/card_requirements_agentic_pipeline.md`
-- `docs/card_requirements_process.md`
-
-## Run Locally
-
-From the repo root:
-
-```powershell
-python scripts/dev/local_dev_server.py --host 0.0.0.0 --port 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
-This local server supports the same clean URLs used in production, so routes like
-`/about` and `/contact` work locally instead of breaking back to `.html`.
-
-## Recommended Local Check
-
-Before deploying:
-
-```powershell
-python scripts/offers/refresh_all_offers.py
-python scripts/dev/local_dev_server.py --host 0.0.0.0 --port 8000
-```
-
-Then verify:
-
-- city filters
-- restaurant filters
-- bank filters
-- card type filters
-- top pick and ranking output
-- Easypaisa appears in bank search/filter results
-
-## Deploy
-
-Recommended host:
-
-- Cloudflare Pages
-
-Use the repo root as the static site directory.
+See `apps/web/README.md` for the full data-refresh procedure.
