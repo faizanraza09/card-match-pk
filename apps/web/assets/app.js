@@ -992,6 +992,17 @@ function renderMetricLabel(label) {
   return `<span class="metric-label-text">${escapeHtml(label)}</span>`;
 }
 
+// Render the "sweet spot" note: where this card's cap kicks in. Below the
+// saturation bill the user gets the headline %; above it the saving plateaus.
+// For cards with no cap in scope, surface "uncapped at any bill size".
+function renderSweetSpot(result) {
+  if (result?.saturationBill === undefined) return "";
+  const text = result.saturationBill === null
+    ? `<strong>Uncapped saving</strong> at any bill size`
+    : `Sweet spot: <strong>bills ≤ ${formatCurrency(result.saturationBill)}</strong>`;
+  return `<div class="card-sweet-spot">${text}</div>`;
+}
+
 /* ── FEATURED CARD ── */
 function renderFeaturedCard(result, container) {
   if (!container) return;
@@ -1049,6 +1060,7 @@ function renderFeaturedCard(result, container) {
           <div class="cs-v">${result.medianCap !== null ? formatCurrency(result.medianCap) : "No cap"}</div>
         </div>
       </div>
+      ${renderSweetSpot(result)}
       ${isExpanded ? renderCardDetail(result) : ""}
     </article>
   `;
@@ -1125,6 +1137,7 @@ function renderResultCards(results, container) {
           <div class="cs-v">${result.medianCap !== null ? formatCurrency(result.medianCap) : "No cap"}</div>
         </div>
       </div>
+      ${renderSweetSpot(result)}
       ${isExpanded ? renderCardDetail(result) : ""}
     `;
 

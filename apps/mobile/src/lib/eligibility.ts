@@ -312,7 +312,9 @@ export function computeQualificationConfidence(
   if (!hasEligibilityInput || !status?.hasRequirementRecord) return 0.5;
   if (status.status === "ineligible" || status.status === "est_ineligible") return 0.0;
 
-  const scores: number[] = [];
+  // Track each dimension's score AND whether the user actually entered an input
+  // for that dimension. The distinction matters for the OR-rescue blend below.
+  const scores: { q: number; entered: boolean }[] = [];
   const scoreDimension = (
     inputValue: number | null,
     requirementValue: number | null,
@@ -323,8 +325,10 @@ export function computeQualificationConfidence(
     if (req === null || req <= 0) return;
 
     let q = 0.5;
+    let entered = true;
     if (input === null) {
       q = 0.5;
+      entered = false;
     } else {
       const ratio = input / req;
       if (ratio >= 1.3) q = 1.0;
@@ -334,12 +338,26 @@ export function computeQualificationConfidence(
     }
 
     if (isEstimated) q = 0.5 + (q - 0.5) * 0.7;
-    scores.push(q);
+    scores.push({ q, entered });
   };
 
   scoreDimension(state.monthlySalary, status.salaryReq, status.salaryIsEstimated);
   scoreDimension(state.accountBalance, status.balanceReq, status.balanceIsEstimated);
 
   if (!scores.length) return 0.5;
-  return Math.max(0, Math.min(1, Math.max(...scores)));
+
+  // OR-blend semantics with an "explicit-failure floor". When the user has
+  // entered some inputs but not all, an explicit failure on an entered
+  // dimension drags the confidence down even though the unentered dimension
+  // might still rescue eligibility. The card stays visible (the visibility
+  // logic in evaluateEligibility doesn't filter it), but it ranks well below
+  // cards the user hasn't failed any dimension on.
+  const enteredFailures = scores.filter((s) => s.entered && s.q < 0.5);
+  const allEntered = scores.every((s) => s.entered);
+  const maxScore = Math.max(...scores.map((s) => s.q));
+  let confidence = maxScore;
+  if (!allEntered && enteredFailures.length > 0) {
+    confidence = Math.min(0.25, maxScore);
+  }
+  return Math.max(0, Math.min(1, confidence));
 }

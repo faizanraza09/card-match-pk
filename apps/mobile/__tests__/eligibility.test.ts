@@ -130,3 +130,59 @@ describe("computeQualificationConfidence — req=0 no longer dominates Math.max"
     expect(computeQualificationConfidence(state, status)).toBe(0);
   });
 });
+
+describe("computeQualificationConfidence — explicit-failure floor for needs_input cards", () => {
+  // The case behind the floor: card has BOTH salary and balance reqs. User
+  // entered balance and failed it; salary missing. Without a floor the score is
+  // Math.max(0.5_unknown_salary, 0_balance_fail) = 0.5, which gives the card a
+  // 0 score-delta and lets it sit at the top of the list despite hard failure.
+  // With the floor, confidence caps at 0.25 → -7.5pt qualification delta.
+  test("balance entered + fails, salary missing → confidence capped at 0.25", () => {
+    const state = makeState({ monthlySalary: null, accountBalance: 500_000 });
+    seed(state.requirements!, "Allied Bank", "Visa Premium Debit", {
+      minimum_monthly_salary_pkr: 416_667,
+      minimum_account_balance_pkr: 2_000_000,
+    });
+    const status = evaluateEligibility(state, "allied bank", "visa premium debit");
+    expect(status.status).toBe("needs_input");
+    const confidence = computeQualificationConfidence(state, status);
+    expect(confidence).toBeLessThanOrEqual(0.25);
+  });
+
+  test("balance entered + passes, salary missing → confidence ≥ 0.8 (no floor applies)", () => {
+    const state = makeState({ monthlySalary: null, accountBalance: 3_000_000 });
+    seed(state.requirements!, "Allied Bank", "Visa Premium Debit", {
+      minimum_monthly_salary_pkr: 416_667,
+      minimum_account_balance_pkr: 2_000_000,
+    });
+    const status = evaluateEligibility(state, "allied bank", "visa premium debit");
+    const confidence = computeQualificationConfidence(state, status);
+    // ratio = 3M/2M = 1.5 → q = 1.0 for balance; salary missing → 0.5; floor doesn't apply since no entered failure
+    expect(confidence).toBe(1.0);
+  });
+
+  test("both entered, one passes one fails → OR semantics, no floor", () => {
+    // User has 300K salary (passes 100K req) but 500K balance (fails 1M req).
+    // OR semantics: Math.max picks the salary pass. No floor because user has
+    // explicitly entered every defined dimension, no rescue needed.
+    const state = makeState({ monthlySalary: 300_000, accountBalance: 500_000 });
+    seed(state.requirements!, "Bank A", "Premium Card", {
+      minimum_monthly_salary_pkr: 100_000,
+      minimum_account_balance_pkr: 1_000_000,
+    });
+    const status = evaluateEligibility(state, "bank a", "premium card");
+    expect(status.status).toBe("eligible");
+    const confidence = computeQualificationConfidence(state, status);
+    expect(confidence).toBeGreaterThanOrEqual(0.8);
+  });
+
+  test("nothing entered → neutral 0.5 (no input means no opinion)", () => {
+    const state = makeState({ monthlySalary: null, accountBalance: null });
+    seed(state.requirements!, "Bank A", "Premium Card", {
+      minimum_monthly_salary_pkr: 100_000,
+      minimum_account_balance_pkr: 1_000_000,
+    });
+    const status = evaluateEligibility(state, "bank a", "premium card");
+    expect(computeQualificationConfidence(state, status)).toBe(0.5);
+  });
+});

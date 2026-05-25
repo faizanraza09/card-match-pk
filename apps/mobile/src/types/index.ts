@@ -186,10 +186,13 @@ export interface CardRecommendation {
   totalVenueCount: number;
   averageDiscount: number | null;
   medianCap: number | null;
+  /** Bill amount at which this card's typical cap kicks in. Null = uncapped in scope. */
+  saturationBill: number | null;
   topMatches: VenueMatch[];
   requirementStatus: EligibilityStatus;
   coverageAdjustedSaving?: number;
   E?: number;
+  feePenalty?: number;
 }
 
 export interface NextCardRecommendation {

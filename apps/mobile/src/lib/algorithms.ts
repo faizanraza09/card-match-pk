@@ -20,6 +20,29 @@ import {
 } from "./format";
 import { getOfferDiscountPct, getOfferSavingValue } from "./savings";
 
+/**
+ * Convert a card's annual fee into a score penalty, capped at 25 points.
+ *
+ *   yearlyValue  = avgExpectedSaving × outingsPerYear × coverage  (PKR)
+ *   waiverFactor = 0.5 if waiver rule documented, else 1.0
+ *   effectiveFee = annualFeePkr × waiverFactor
+ *   penalty      = min(25, 25 × effectiveFee / max(yearlyValue, 1))
+ *
+ * Null/zero fee returns 0. Used by the Cards-tab default score.
+ */
+export function computeFeePenalty(
+  item: Pick<CardRecommendation, "requirementStatus" | "avgExpectedSaving" | "coverage">,
+  outingsPerYear: number
+): number {
+  const fee = item.requirementStatus?.annualFeePkr;
+  if (fee === null || fee === undefined || fee <= 0) return 0;
+  const waiver = !!item.requirementStatus?.annualFeeWaiverRule;
+  const effective = fee * (waiver ? 0.5 : 1.0);
+  const yearlyValue = (item.avgExpectedSaving || 0) * outingsPerYear * (item.coverage || 0);
+  const ratio = effective / Math.max(yearlyValue, 1);
+  return Math.min(25, 25 * Math.min(1, ratio));
+}
+
 function cityMatches(state: Pick<AlgorithmState, "selectedCity">, city: string): boolean {
   const sel = normalizeCityValue(state.selectedCity);
   return sel === "all" || sel === normalizeCityValue(city);
@@ -292,6 +315,17 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
     );
     const caps = venueSummaries.map((m) => m.capPkr as number).filter((v) => Number.isFinite(v));
     const medianCap = caps.length ? median(caps) : null;
+    // Saturation bill: where the cap kicks in (cap / (pct/100)). Below this bill
+    // size the user gets the headline %; above it the saving plateaus at cap.
+    const saturations = venueSummaries
+      .map((m) => {
+        const cap = m.capPkr as number;
+        const pct = m.discountPct as number;
+        if (!Number.isFinite(cap) || !Number.isFinite(pct) || pct <= 0) return null;
+        return cap / (pct / 100);
+      })
+      .filter((v): v is number => v !== null && Number.isFinite(v));
+    const saturationBill = saturations.length ? median(saturations) : null;
     const topMatches = [...venueSummaries].sort((a, b) => b.expectedSaving - a.expectedSaving).slice(0, 3);
 
     return {
@@ -306,6 +340,7 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
       totalVenueCount: scoringVenues.size,
       averageDiscount: averageDiscount as number | null,
       medianCap,
+      saturationBill,
       topMatches,
       requirementStatus: evaluateEligibility(state, cardRecord.bank, cardRecord.card),
     };
@@ -323,6 +358,10 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
     eSorted.length > 0 ? eSorted[Math.max(0, Math.ceil(0.95 * eSorted.length) - 1)] : 1;
   const p95ESafe = Math.max(p95E, 1);
 
+  // Annual-fee penalty. Effective fee = annualFeePkr × (0.5 if waiver rule
+  // present, else 1.0). Cards with null annualFeePkr get no penalty (we treat
+  // absent data as unknown). Penalty caps at 25 points.
+  const outingsPerYear = (state.outingsPerWeek || 1) * 52;
   aggregates.forEach((item) => {
     const Ns = Math.min(1, (item.E as number) / p95ESafe);
     const R = 0.65 * Ns + 0.25 * item.coverage + 0.1 * item.avgDayFit;
@@ -332,7 +371,12 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
       state.useEligibility && hasEligibilityInput
         ? 30 * (item.qualificationConfidence - 0.5)
         : 0;
-    item.score = Math.max(0, Math.min(100, (item.baseScore as number) + item.qualificationDelta));
+    const feePenalty = computeFeePenalty(item, outingsPerYear);
+    (item as CardRecommendation & { feePenalty: number }).feePenalty = feePenalty;
+    item.score = Math.max(
+      0,
+      Math.min(100, (item.baseScore as number) + item.qualificationDelta - feePenalty)
+    );
   });
 
   let visible = aggregates.filter((item) => {

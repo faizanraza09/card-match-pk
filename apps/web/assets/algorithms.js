@@ -863,6 +863,19 @@ function computeRecommendations() {
       .map((match) => match.capPkr)
       .filter((v) => Number.isFinite(v));
     const medianCap = caps.length ? median(caps) : null;
+    // Saturation bill: the bill amount at which a card's cap kicks in. Below it
+    // the user gets the headline % on the full bill; above it the saving caps.
+    // Computed per match where both cap and % are finite, then medianed across
+    // the card's matches. Null means the card has no caps in scope → uncapped.
+    const saturations = matches
+      .map((m) => {
+        const cap = Number(m.capPkr);
+        const pct = Number(m.discountPct);
+        if (!Number.isFinite(cap) || !Number.isFinite(pct) || pct <= 0) return null;
+        return cap / (pct / 100);
+      })
+      .filter((v) => v !== null && Number.isFinite(v));
+    const saturationBill = saturations.length ? median(saturations) : null;
     const topMatches = matches.sort((a, b) => b.expectedSaving - a.expectedSaving).slice(0, 3);
 
     return {
@@ -876,6 +889,7 @@ function computeRecommendations() {
       totalVenueCount: scoringVenues.size,
       averageDiscount,
       medianCap,
+      saturationBill,
       topMatches,
     };
   });
@@ -899,6 +913,14 @@ function computeRecommendations() {
     : 1;
   const p95ESafe = Math.max(p95E, 1);
 
+  // Annual-fee penalty. Cards with a positive fee get a score deduction
+  // proportional to (effective fee / expected yearly gross value at this scope).
+  // Effective fee halves when the card has a documented waiver rule (we can't
+  // tell whether the user qualifies for the waiver, so we hedge). Cards with
+  // null annualFeePkr get no penalty — we treat absent data as unknown, not
+  // free. Bounded at -25 points so it never single-handedly buries a great
+  // card; combined with the qualification floor it remains a real signal.
+  const outingsPerYear = (state.outingsPerWeek || 1) * 52;
   aggregates.forEach((item) => {
     const Ns = Math.min(1, item.E / p95ESafe);
     const R = 0.65 * Ns + 0.25 * item.coverage + 0.10 * item.avgDayFit;
@@ -907,7 +929,8 @@ function computeRecommendations() {
     item.qualificationDelta = (state.useEligibility && hasEligibilityInput)
       ? 30 * (item.qualificationConfidence - 0.5)
       : 0;
-    item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta));
+    item.feePenalty = computeFeePenalty(item, outingsPerYear);
+    item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta - item.feePenalty));
   });
 
   let visible = aggregates.filter((item) => {
@@ -1147,6 +1170,34 @@ function evaluateEligibility(bank, card) {
   return                   { ...base, status: "eligible",          label: "Likely eligible",            tone: "eligible",        sortRank: 3,   detail: "Entered salary and balance meet the public thresholds captured for this card." };
 }
 
+/**
+ * Convert a card's annual fee into a score penalty, capped at 25 points. Inputs:
+ *   - item.requirementStatus.annualFeePkr   (number | null)
+ *   - item.requirementStatus.annualFeeWaiverRule (string | null)
+ *   - item.avgExpectedSaving                (PKR per outing in current scope)
+ *   - item.coverage                         (0..1)
+ *   - outingsPerYear                        (user-set, default 52)
+ *
+ * Logic:
+ *   yearlyValue  = avgExpectedSaving * outingsPerYear * coverage     (in PKR)
+ *   waiverFactor = 0.5 when waiver rule exists, 1.0 otherwise
+ *   effectiveFee = (annualFeePkr || 0) * waiverFactor
+ *   ratio        = effectiveFee / max(yearlyValue, 1)
+ *   penalty      = min(25, 25 * ratio)
+ *
+ * Null fee → 0 penalty (we hedge in favour of visibility when data is missing).
+ * Zero fee → 0 penalty.
+ */
+function computeFeePenalty(item, outingsPerYear) {
+  const fee = item.requirementStatus?.annualFeePkr;
+  if (fee === null || fee === undefined || fee <= 0) return 0;
+  const waiver = !!item.requirementStatus?.annualFeeWaiverRule;
+  const effective = fee * (waiver ? 0.5 : 1.0);
+  const yearlyValue = (item.avgExpectedSaving || 0) * outingsPerYear * (item.coverage || 0);
+  const ratio = effective / Math.max(yearlyValue, 1);
+  return Math.min(25, 25 * Math.min(1, ratio));
+}
+
 function computeQualificationConfidence(status) {
   const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
   if (!hasEligibilityInput || !status?.hasRequirementRecord) return 0.5;
@@ -1154,28 +1205,30 @@ function computeQualificationConfidence(status) {
   // Hard penalty for known ineligibility (unifies filter and score)
   if (status.status === "ineligible" || status.status === "est_ineligible") return 0.0;
 
+  // Track each dimension's score AND whether the user actually entered an input
+  // for that dimension. The distinction matters for the OR-rescue blend below.
   const scores = [];
   const scoreDimension = (inputValue, requirementValue, isEstimated = false) => {
     const input = normalizeRequirementNumber(inputValue);
     const req = normalizeRequirementNumber(requirementValue);
     // Skip dimensions that aren't real requirements. A req of 0 or null is the
     // absence of a threshold, not a satisfied one — counting it as q=1.0 would
-    // mask failures on the other dimension when Math.max combines them below.
+    // mask failures on the other dimension when blended below.
     if (req === null || req <= 0) return;
 
     let q = 0.5;
+    let entered = true;
     if (input === null) {
       q = 0.5;
+      entered = false;
     } else {
       const ratio = input / req;
       // Smooth piecewise linear curve
       if (ratio >= 1.3) {
         q = 1.0;
       } else if (ratio >= 1.0) {
-        // Linear between 1.0 (0.8 score) and 1.3 (1.0 score)
         q = 0.8 + (ratio - 1.0) * (0.2 / 0.3);
       } else if (ratio >= 0.7) {
-        // Linear between 0.7 (0.0 score) and 1.0 (0.8 score)
         q = 0.0 + (ratio - 0.7) * (0.8 / 0.3);
       } else {
         q = 0.0;
@@ -1186,14 +1239,27 @@ function computeQualificationConfidence(status) {
       q = 0.5 + (q - 0.5) * 0.7;
     }
 
-    scores.push(q);
+    scores.push({ q, entered });
   };
 
   scoreDimension(state.monthlySalary, status.salaryReq, status.salaryIsEstimated);
   scoreDimension(state.accountBalance, status.balanceReq, status.balanceIsEstimated);
 
   if (!scores.length) return 0.5;
-  // Use Math.max to support alternative qualification paths (OR logic)
-  const maxScore = Math.max(...scores);
-  return Math.max(0, Math.min(1, maxScore));
+
+  // OR-blend semantics, but with an "explicit-failure floor":
+  //   - If the user has entered every defined dimension, Math.max is fine — the
+  //     card uses OR semantics so passing one path is enough.
+  //   - If only some dimensions are entered AND any entered dimension explicitly
+  //     fails (q < 0.5), don't let the unentered "unknown=0.5" rescue the score.
+  //     Cap confidence at 0.25, which translates to a ~7.5pt score penalty.
+  //     The card stays visible (it's still needs_input), but ranks much lower.
+  const enteredFailures = scores.filter((s) => s.entered && s.q < 0.5);
+  const allEntered = scores.every((s) => s.entered);
+  const maxScore = Math.max(...scores.map((s) => s.q));
+  let confidence = maxScore;
+  if (!allEntered && enteredFailures.length > 0) {
+    confidence = Math.min(0.25, maxScore);
+  }
+  return Math.max(0, Math.min(1, confidence));
 }

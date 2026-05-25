@@ -95,6 +95,19 @@ export function CardRow({ item, rank }: { item: CardRecommendation; rank: number
             · {formatCurrency(item.topMatches[0].expectedSaving)}/visit
           </Text>
         ) : null}
+
+        {item.saturationBill !== null ? (
+          <Text style={styles.sweetSpot} numberOfLines={1}>
+            Sweet spot:{" "}
+            <Text style={styles.sweetSpotBold}>
+              bills ≤ {formatCurrency(item.saturationBill as number)}
+            </Text>
+          </Text>
+        ) : (
+          <Text style={styles.sweetSpot} numberOfLines={1}>
+            <Text style={styles.sweetSpotBold}>Uncapped saving</Text> at any bill size
+          </Text>
+        )}
       </Pressable>
     </Link>
   );
@@ -267,4 +280,10 @@ const styles = StyleSheet.create({
   },
   topMatchPrefix: { fontWeight: typography.weight.semibold },
   topMatchName: { color: colors.text, fontWeight: typography.weight.semibold },
+  sweetSpot: {
+    color: colors.textDim,
+    fontSize: typography.size.xs,
+    marginTop: 4,
+  },
+  sweetSpotBold: { color: colors.textMuted, fontWeight: typography.weight.semibold },
 });
