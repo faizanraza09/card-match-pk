@@ -1112,11 +1112,24 @@ function evaluateEligibility(bank, card) {
 
   const base = { criteria, annualFeePkr, annualFeeWaiverRule, benefitSummary, salaryReq, balanceReq, isEstimated, salaryIsEstimated, balanceIsEstimated, estimationNote, hasRequirementRecord: true, sourceIds, cardNotes, bankGaps };
 
-  // Treat Salary and Balance as ALTERNATIVE paths (OR logic)
-  // A card is only "ineligible" if it has requirements and the user fails BOTH.
+  // Salary and Balance are treated as ALTERNATIVE paths (OR) when a card lists
+  // both, since many Pakistani cards accept either. But a "passed path" only
+  // counts when the path actually exists — otherwise a card with only one real
+  // requirement gets a free pass on the absent one and slips through as eligible.
   const hasSalaryReq  = salaryReq !== null && salaryReq > 0;
   const hasBalanceReq = balanceReq !== null && balanceReq > 0;
-  const isBlocked     = (hasSalaryReq || hasBalanceReq) && (!salaryPassed && !balancePassed);
+  const salaryHardPass  = hasSalaryReq  && state.monthlySalary  !== null && state.monthlySalary  >= salaryReq;
+  const balanceHardPass = hasBalanceReq && state.accountBalance !== null && state.accountBalance >= balanceReq;
+  const salaryHardFail  = hasSalaryReq  && !salaryPassed;
+  const balanceHardFail = hasBalanceReq && !balancePassed;
+  const salaryInputMissing  = hasSalaryReq  && state.monthlySalary  === null;
+  const balanceInputMissing = hasBalanceReq && state.accountBalance === null;
+  // Block when user has affirmatively failed at least one defined path AND has
+  // no other defined path that either passes or is still undecided (missing input).
+  const isBlocked = (salaryHardFail || balanceHardFail)
+                 && !(salaryHardPass || balanceHardPass)
+                 && !salaryInputMissing
+                 && !balanceInputMissing;
 
   if (isBlocked) {
     const detail = blockers.length > 1 ? `${blockers[0]} (and balance)` : blockers[0];
@@ -1145,12 +1158,13 @@ function computeQualificationConfidence(status) {
   const scoreDimension = (inputValue, requirementValue, isEstimated = false) => {
     const input = normalizeRequirementNumber(inputValue);
     const req = normalizeRequirementNumber(requirementValue);
-    if (req === null) return;
+    // Skip dimensions that aren't real requirements. A req of 0 or null is the
+    // absence of a threshold, not a satisfied one — counting it as q=1.0 would
+    // mask failures on the other dimension when Math.max combines them below.
+    if (req === null || req <= 0) return;
 
     let q = 0.5;
-    if (req <= 0) {
-      q = 1.0;
-    } else if (input === null) {
+    if (input === null) {
       q = 0.5;
     } else {
       const ratio = input / req;
