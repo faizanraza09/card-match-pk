@@ -923,11 +923,20 @@ function computeRecommendations() {
   const outingsPerYear = (state.outingsPerWeek || 1) * 52;
   aggregates.forEach((item) => {
     const Ns = Math.min(1, item.E / p95ESafe);
-    const R = 0.65 * Ns + 0.25 * item.coverage + 0.10 * item.avgDayFit;
+    // Calibration #6: drop avgDayFit from R. It's already inside
+    // expectedSaving via the /totalSelectedDays divisor, so weighting it
+    // here double-discounts cards with limited day windows. The freed 0.10
+    // weight folds into Ns (which already encodes coverage via √coverage
+    // inside E).
+    const R = 0.75 * Ns + 0.25 * item.coverage;
     item.baseScore = 20 + 80 * R;
     item.qualificationConfidence = computeQualificationConfidence(item.requirementStatus);
+    // Calibration #3: halve qualDelta to ±7.5. Was ±15 (range 30), which
+    // let "you can probably get this" beat "this saves you more" too easily
+    // — both salary-60k and salary-150k users landed on the same #1
+    // because the boost saturated for any eligible card.
     item.qualificationDelta = (state.useEligibility && hasEligibilityInput)
-      ? 30 * (item.qualificationConfidence - 0.5)
+      ? 15 * (item.qualificationConfidence - 0.5)
       : 0;
     item.feePenalty = computeFeePenalty(item, outingsPerYear);
     item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta - item.feePenalty));
@@ -1189,11 +1198,31 @@ function evaluateEligibility(bank, card) {
  * Zero fee → 0 penalty.
  */
 function computeFeePenalty(item, outingsPerYear) {
-  const fee = item.requirementStatus?.annualFeePkr;
-  if (fee === null || fee === undefined || fee <= 0) return 0;
-  const waiver = !!item.requirementStatus?.annualFeeWaiverRule;
+  const status = item.requirementStatus;
+  const fee = status?.annualFeePkr;
+
+  // Calibration #2: missing fee data → small soft penalty instead of free
+  // pass. Cards without a verified requirements record were being silently
+  // ranked alongside actually-free cards, advantaging them over disclosed
+  // peers. 3 points is small enough not to dominate, big enough to level
+  // the field with cards that publish their fee.
+  if (fee === null || fee === undefined) {
+    if (!status?.hasRequirementRecord) return 3;
+    if (status?.annualFeeWaiverRule) return 0;  // documented "Conditional"
+    return 3;                                    // null fee, no waiver context
+  }
+  if (fee <= 0) return 0;
+
+  const waiver = !!status?.annualFeeWaiverRule;
   const effective = fee * (waiver ? 0.5 : 1.0);
-  const yearlyValue = (item.avgExpectedSaving || 0) * outingsPerYear * (item.coverage || 0);
+
+  // Calibration #1: drop the × coverage multiplier from the denominator.
+  // Previously the formula compared the fee against a coverage-discounted
+  // "expected yearly value", which double-counted coverage (already in E +
+  // R) and inverted the impact for high-coverage cards. The denominator
+  // here now matches the "Annual saving" the card detail modal shows the
+  // user — same number for explainability.
+  const yearlyValue = (item.avgExpectedSaving || 0) * outingsPerYear;
   const ratio = effective / Math.max(yearlyValue, 1);
   return Math.min(25, 25 * Math.min(1, ratio));
 }

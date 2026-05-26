@@ -1053,14 +1053,16 @@ function renderMetricLabel(label) {
   return `<span class="metric-label-text">${escapeHtml(label)}</span>`;
 }
 
-// Score → human tier. Mirrors scoreColor()'s thresholds so the badge and the
-// bar agree visually. ≥80 = excellent, 70–79 = strong, 50–69 = decent, <50 =
-// weak. We avoid "poor" / "bad" — Pakistani consumer tone is encouraging.
+// Score → human tier. The score floor is 20 (baseScore = 20 + 80·R), so the
+// effective range is 20–100, not 0–100. Calibration #7 shifts the tier
+// thresholds to ~the same percentiles of the effective range as the original
+// 80/70/50 cuts would have been on a true 0-100 scale: 84/72/56. We avoid
+// "poor" / "bad" — Pakistani-consumer tone is encouraging.
 function fitTier(score) {
   const s = Number(score) || 0;
-  if (s >= 80) return "Excellent fit";
-  if (s >= 70) return "Strong fit";
-  if (s >= 50) return "Decent fit";
+  if (s >= 84) return "Excellent fit";
+  if (s >= 72) return "Strong fit";
+  if (s >= 56) return "Decent fit";
   return "Weak fit";
 }
 

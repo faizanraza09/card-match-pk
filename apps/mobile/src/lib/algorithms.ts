@@ -34,11 +34,25 @@ export function computeFeePenalty(
   item: Pick<CardRecommendation, "requirementStatus" | "avgExpectedSaving" | "coverage">,
   outingsPerYear: number
 ): number {
-  const fee = item.requirementStatus?.annualFeePkr;
-  if (fee === null || fee === undefined || fee <= 0) return 0;
-  const waiver = !!item.requirementStatus?.annualFeeWaiverRule;
+  const status = item.requirementStatus;
+  const fee = status?.annualFeePkr;
+
+  // Calibration #2 (May 2026): missing-fee soft penalty. Cards without a
+  // verified requirements record were being silently advantaged over
+  // disclosed peers. 3 points is small enough not to dominate, big enough
+  // to level the field.
+  if (fee === null || fee === undefined) {
+    if (!status?.hasRequirementRecord) return 3;
+    if (status?.annualFeeWaiverRule) return 0;
+    return 3;
+  }
+  if (fee <= 0) return 0;
+
+  const waiver = !!status?.annualFeeWaiverRule;
   const effective = fee * (waiver ? 0.5 : 1.0);
-  const yearlyValue = (item.avgExpectedSaving || 0) * outingsPerYear * (item.coverage || 0);
+  // Calibration #1: drop the × coverage multiplier — see the matching
+  // change in apps/web/assets/algorithms.js for the rationale.
+  const yearlyValue = (item.avgExpectedSaving || 0) * outingsPerYear;
   const ratio = effective / Math.max(yearlyValue, 1);
   return Math.min(25, 25 * Math.min(1, ratio));
 }
@@ -364,12 +378,15 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
   const outingsPerYear = (state.outingsPerWeek || 1) * 52;
   aggregates.forEach((item) => {
     const Ns = Math.min(1, (item.E as number) / p95ESafe);
-    const R = 0.65 * Ns + 0.25 * item.coverage + 0.1 * item.avgDayFit;
+    // Calibration #6: drop avgDayFit from R — already inside expectedSaving.
+    const R = 0.75 * Ns + 0.25 * item.coverage;
     item.baseScore = 20 + 80 * R;
     item.qualificationConfidence = computeQualificationConfidence(state, item.requirementStatus);
+    // Calibration #3: halve qualDelta from ±15 to ±7.5 so eligibility
+    // nudges the ranking instead of dominating it.
     item.qualificationDelta =
       state.useEligibility && hasEligibilityInput
-        ? 30 * (item.qualificationConfidence - 0.5)
+        ? 15 * (item.qualificationConfidence - 0.5)
         : 0;
     const feePenalty = computeFeePenalty(item, outingsPerYear);
     (item as CardRecommendation & { feePenalty: number }).feePenalty = feePenalty;
