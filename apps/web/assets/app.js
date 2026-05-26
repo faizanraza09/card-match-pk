@@ -484,28 +484,30 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
     });
   }
 
-  // Mobile tabs
-  const tabFilters = document.getElementById("mob-tab-filters");
-  const tabResults = document.getElementById("mob-tab-results");
-  const tabChat = document.getElementById("mob-tab-chat");
-  if (tabFilters) tabFilters.addEventListener("click", () => {
-    const sidebar = document.getElementById("sidebar");
-    const main = document.getElementById("main-content");
-    if (sidebar) sidebar.classList.toggle("mob-open");
-    setActiveTab("mob-tab-filters");
-    if (main) main.style.display = sidebar?.classList.contains("mob-open") ? "none" : "";
+  // Mobile bottom tabs. Each `mob-tab` carries a data-view that maps to a
+  // viewMode value; clicking it switches the view (same handler as the
+  // desktop view-toggle buttons) and closes any open overlay sheet.
+  document.querySelectorAll(".mob-tab[data-view]").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const view = tab.dataset.view;
+      if (!view) return;
+      closeAllModals();
+      closeMobileSheet();
+      state.viewMode = view;
+      trackEvent("view_change", { view, source: "mob-tab" });
+      render();
+    });
   });
-  if (tabResults) tabResults.addEventListener("click", () => {
-    const sidebar = document.getElementById("sidebar");
-    const main = document.getElementById("main-content");
-    if (sidebar) sidebar.classList.remove("mob-open");
-    if (main) main.style.display = "";
-    setActiveTab("mob-tab-results");
-  });
-  if (tabChat) tabChat.addEventListener("click", () => {
+
+  // Mobile header icons replace the secondary bottom-strip nav. Gear opens
+  // the filter sheet, chat opens the AI panel.
+  document.getElementById("mob-icon-filters")?.addEventListener("click", openMobileSheet);
+  document.getElementById("mob-icon-chat")?.addEventListener("click", () => {
+    closeMobileSheet();
     openChat();
-    setActiveTab("mob-tab-chat");
   });
+  // Tap scrim to close the bottom sheet.
+  document.getElementById("mob-sheet-scrim")?.addEventListener("click", closeMobileSheet);
 
   // Tonight button
   document.getElementById("btn-tonight")?.addEventListener("click", () => {
@@ -591,6 +593,36 @@ function setActiveTab(id) {
   document.getElementById(id)?.classList.add("active");
 }
 
+// Sync the bottom-tab .active class to whatever the current state.viewMode
+// is. Called from render() so the highlight always reflects the live view.
+function syncMobileTabActive() {
+  const view = state.viewMode || "cards";
+  document.querySelectorAll(".mob-tab[data-view]").forEach((t) => {
+    t.classList.toggle("active", t.dataset.view === view);
+  });
+}
+
+// Mobile filter bottom-sheet open/close. The sidebar element is repurposed
+// — same DOM, different positioning on small screens (see styles.css).
+function openMobileSheet() {
+  document.getElementById("sidebar")?.classList.add("mob-open");
+  document.getElementById("mob-sheet-scrim")?.classList.add("is-open");
+  document.getElementById("mob-sheet-scrim")?.removeAttribute("hidden");
+  // Lock body scroll so background doesn't move while the sheet is open.
+  document.body.classList.add("mob-sheet-open");
+}
+function closeMobileSheet() {
+  document.getElementById("sidebar")?.classList.remove("mob-open");
+  const scrim = document.getElementById("mob-sheet-scrim");
+  if (scrim) {
+    scrim.classList.remove("is-open");
+    // Re-hide the scrim after the transition so it doesn't intercept clicks
+    // when "transitioning back". 250ms is the same as the CSS transition.
+    setTimeout(() => scrim.setAttribute("hidden", ""), 250);
+  }
+  document.body.classList.remove("mob-sheet-open");
+}
+
 /* ── RESET ── */
 function resetFilters() {
   state.selectedCity = "all";
@@ -658,6 +690,7 @@ function render() {
   updateMobileFilterBadge();
   updateTonightButton();
   updateViewToggle();
+  syncMobileTabActive();
   encodeStateToUrl();
 }
 
@@ -3468,12 +3501,17 @@ function getActiveFilterCount() {
 }
 
 function updateMobileFilterBadge() {
-  const tab = document.getElementById("mob-tab-filters");
-  if (!tab) return;
+  // The badge now sits on the gear icon in the top nav, not the old
+  // bottom-strip Filters tab (which has been replaced by the 4 view tabs).
+  const badge = document.getElementById("mob-icon-filters-badge");
+  if (!badge) return;
   const n = getActiveFilterCount();
-  tab.innerHTML = n > 0
-    ? `<span>⚙️</span><span class="mob-tab-label">Filters <span class="mob-tab-badge">${n}</span></span>`
-    : `<span>⚙️</span><span class="mob-tab-label">Filters</span>`;
+  if (n > 0) {
+    badge.textContent = String(n);
+    badge.removeAttribute("hidden");
+  } else {
+    badge.setAttribute("hidden", "");
+  }
 }
 
 /* ── SHAREABLE URL ── */
