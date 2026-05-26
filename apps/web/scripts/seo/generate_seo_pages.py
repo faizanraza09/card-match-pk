@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import stat
+import time
 import unicodedata
 from collections import defaultdict
 from dataclasses import dataclass
@@ -2230,10 +2232,38 @@ def regenerate_sitemap(payload: dict, bank_count: int, restaurant_count: int, ca
     print(f"[seo] Offers dataset timestamp: {payload.get('generatedAt', 'unknown')}")
 
 
+def stamp_service_worker_version(payload: dict) -> None:
+    """Replace the __BUILD_VERSION__ placeholder in sw.js with a build stamp
+    so each deploy invalidates the service worker cache. The version is
+    derived from the offers payload's generatedAt (or the current epoch as a
+    fallback) — same value on a given dataset, distinct across deploys."""
+    sw_path = ROOT / "sw.js"
+    if not sw_path.exists():
+        return
+    version = payload.get("generatedAt") or str(int(time.time()))
+    # Compact alphanumeric token — keeps the cache name short.
+    version = re.sub(r"[^A-Za-z0-9]", "", str(version))[-14:] or "dev"
+    text = sw_path.read_text(encoding="utf-8")
+    if "__BUILD_VERSION__" not in text:
+        # Already stamped on a previous build. Replace the existing literal
+        # so re-runs continue to bump the version forward.
+        text = re.sub(
+            r'const SHELL_VERSION = "[^"]*";',
+            f'const SHELL_VERSION = "{version}";',
+            text,
+            count=1,
+        )
+    else:
+        text = text.replace("__BUILD_VERSION__", version)
+    sw_path.write_text(text, encoding="utf-8")
+    print(f"[seo] Stamped sw.js with SHELL_VERSION={version}")
+
+
 def main() -> None:
     payload = json.loads(OFFERS_PATH.read_text(encoding="utf-8"))
     bank_count, restaurant_count, card_count = render_and_write_pages(payload)
     regenerate_sitemap(payload, bank_count, restaurant_count, card_count)
+    stamp_service_worker_version(payload)
 
 
 if __name__ == "__main__":

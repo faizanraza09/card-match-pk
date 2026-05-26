@@ -3,19 +3,25 @@
  * Service worker for KonsaCard.
  *
  * Strategy:
- *  - App shell (HTML, CSS, JS, logos): cache-first, fall back to network.
- *    Versioned by SHELL_VERSION; bump to invalidate after a deploy.
- *  - Data JSON (offers, requirements): stale-while-revalidate. We return the
- *    cached copy immediately for snappy first paint, then fetch a fresh copy
- *    in the background so the next reload sees the latest data.
+ *  - App shell (HTML, CSS, JS, logos): stale-while-revalidate. Returns the
+ *    cached copy immediately for instant paint, then fetches in the
+ *    background so the next reload always sees the latest. (Previously
+ *    cache-first, which made Cmd+R show the old shell forever and forced
+ *    users into Cmd+Shift+R.)
+ *  - Data JSON (offers, requirements): stale-while-revalidate, same idea.
  *  - Everything else: network-first.
  *
- * This is intentionally minimal — no fancy precaching, no Workbox dependency.
- * If anything goes wrong with the SW it should "fail open" to the network so
- * users always see fresh content.
+ * SHELL_VERSION is replaced at build time with the build timestamp
+ * (see scripts/seo/generate_seo_pages.py). Each deploy ships a new
+ * sw.js byte-for-byte, which triggers `install` → re-primes the new
+ * cache name and `activate` → deletes the old caches.
  */
 
-const SHELL_VERSION = "v2";
+// SHELL_VERSION is replaced at build time by scripts/seo/generate_seo_pages.py
+// with the build epoch (e.g. "1748293340"). If it stays literal "0260526T204215"
+// in local dev, that's fine — the SW still works, it just doesn't auto-invalidate
+// across local edits (you can unregister it from DevTools if needed).
+const SHELL_VERSION = "0260526T204215";
 const SHELL_CACHE = `konsa-shell-${SHELL_VERSION}`;
 const DATA_CACHE  = `konsa-data-${SHELL_VERSION}`;
 
@@ -111,7 +117,11 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   if (isShellRequest(url)) {
-    event.respondWith(cacheFirst(request, SHELL_CACHE));
+    // SWR for shell too — cache-first was making Cmd+R serve the stale shell
+    // forever after a deploy, since `install` only re-primes when sw.js bytes
+    // change. SWR returns the cached shell for instant paint and updates the
+    // cache in the background, so the next reload picks up the new build.
+    event.respondWith(staleWhileRevalidate(request, SHELL_CACHE));
     return;
   }
   // Everything else (generated /banks/* and /restaurants/* pages, etc.)
