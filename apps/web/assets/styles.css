@@ -4285,12 +4285,20 @@ html.content-page-root .content > * { min-width: 0; }
   .wo-setup-title { font-size: 16px; }
   .wo-setup-sub { font-size: 12px; }
 
-  /* Tighter when collapsed: smaller paddings + tighter line gaps so the
-   * card doesn't look like it has empty space to fill. The expanded
-   * version retains breathing room for the controls. */
-  .wo-setup--collapsible:not([open]) > summary { padding: 12px 14px; }
+  /* Collapsible variant: outer padding goes to ZERO so the summary's
+   * own padding alone defines the content inset. Without this the
+   * outer .wo-setup padding (12/14) stacked with the summary padding,
+   * pushing the kicker/title ~28px in from the card edge — way more
+   * than the wallet result card directly below. */
+  .wo-setup--collapsible { padding: 0; }
+  .wo-setup--collapsible:not([open]) > summary { padding: 14px 16px; }
+  .wo-setup--collapsible[open] > summary { padding: 16px 16px 8px; }
+  .wo-setup--collapsible[open] > .wo-controls-grid,
+  .wo-setup--collapsible[open] > .wo-advanced,
+  .wo-setup--collapsible[open] > .wo-anchor-note,
+  .wo-setup--collapsible[open] > .wo-crosslink { padding-left: 16px; padding-right: 16px; }
   .wo-setup--collapsible:not([open]) .wo-setup-kicker { margin-bottom: 2px; }
-  .wo-setup--collapsible:not([open]) .wo-setup-title { font-size: 15px; line-height: 1.2; }
+  .wo-setup--collapsible:not([open]) .wo-setup-title { font-size: 15px; line-height: 1.2; margin-bottom: 0; }
   .wo-setup--collapsible:not([open]) .wo-setup-summary-line { margin-top: 2px; font-size: 12px; }
   /* Smaller chevron when collapsed to match the smaller content. */
   .wo-setup--collapsible:not([open]) .wo-setup-chevron { width: 26px; height: 26px; margin-top: 0; }
