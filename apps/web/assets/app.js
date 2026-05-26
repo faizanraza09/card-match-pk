@@ -1633,14 +1633,15 @@ function renderOwnedCardsPanel(container, walletStats) {
   const ownedCount = state.ownedCards.size;
   const hasWallet = ownedCount > 0;
   // Wrapped in <details> so users on mobile can tap to expand and see the
-  // full 4-stat grid. Desktop defaults to open (always visible — same as
-  // before); mobile defaults to closed so the Best Next Card surfaces
-  // near the top. User toggles persist via state.walletSummaryOpen.
+  // full 4-stat grid. Desktop is ALWAYS open (chevron hidden, full grid
+  // visible — same as before this card was collapsible). Mobile defaults
+  // to closed so the Best Next Card surfaces near the top; user toggles
+  // there persist via state.walletSummaryOpen.
   const isPhoneSummary = typeof window !== "undefined"
     && window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
-  const summaryOpen = state.walletSummaryOpen === undefined
-    ? !isPhoneSummary
-    : state.walletSummaryOpen;
+  const summaryOpen = isPhoneSummary
+    ? (state.walletSummaryOpen ?? false)
+    : true;
 
   const summaryHtml = hasWallet && walletStats ? `
     <details class="mw-summary mw-summary--collapsible"${summaryOpen ? " open" : ""}>
@@ -2088,14 +2089,15 @@ function renderWalletSetupPanel(container) {
   const summaryBits = `${K} cards · ${startLabel} · ${objLabel} · ${feeLabel}`;
 
   // On phones the config is closed by default so the wallet list rises
-  // to the top; on desktop the always-visible layout is preserved. Once
-  // the user toggles, that choice sticks across re-renders via
-  // state.walletConfigOpen.
+  // to the top. On desktop the config is ALWAYS open — toggling doesn't
+  // make sense there (the chevron is hidden by CSS), and we don't want a
+  // user who closed it on mobile to land on desktop and find an empty
+  // card with no way to expand.
   const isPhone = typeof window !== "undefined"
     && window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
-  const configOpen = state.walletConfigOpen === undefined
-    ? !isPhone
-    : state.walletConfigOpen;
+  const configOpen = isPhone
+    ? (state.walletConfigOpen ?? false)
+    : true;
 
   container.innerHTML = `
     <details class="wo-setup wo-setup--collapsible"${configOpen ? " open" : ""}>

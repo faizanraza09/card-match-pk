@@ -4291,8 +4291,12 @@ html.content-page-root .content > * { min-width: 0; }
    * pushing the kicker/title ~28px in from the card edge — way more
    * than the wallet result card directly below. */
   .wo-setup--collapsible { padding: 0; }
-  .wo-setup--collapsible:not([open]) > summary { padding: 14px 16px; }
-  .wo-setup--collapsible[open] > summary { padding: 16px 16px 8px; }
+  /* margin-bottom: 0 kills the inherited .wo-setup-head margin-bottom of
+   * 14px that was adding 14px below the closed summary (on top of its
+   * own padding), making the bottom of the card look ~28px tall while
+   * the top was 14px. */
+  .wo-setup--collapsible:not([open]) > summary { padding: 14px 16px; margin-bottom: 0; }
+  .wo-setup--collapsible[open] > summary { padding: 16px 16px 8px; margin-bottom: 0; }
   .wo-setup--collapsible[open] > .wo-controls-grid,
   .wo-setup--collapsible[open] > .wo-advanced,
   .wo-setup--collapsible[open] > .wo-anchor-note,
