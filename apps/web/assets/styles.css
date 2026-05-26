@@ -2518,13 +2518,13 @@ html.content-page-root .content > * { min-width: 0; }
   .wo-combined-stat-l { font-size: 9.5px; }
   .wo-combined-stat-v { font-size: 15px; }
 
-  /* Collapsible Build-Wallet config: closed by default on mobile, so
-   * the wallet list surfaces above the fold. Tap the summary row to
-   * reveal the full pill controls. The verbose intro paragraph is
-   * hidden — the summary chip below the title says everything. */
+  /* Collapsible Build-Wallet config on mobile. Hide the verbose intro
+   * paragraph; show the one-line config summary instead. Hide the
+   * summary when expanded (the open controls below already state every
+   * value). Chevron in the top-right is the affordance. */
   .wo-setup--collapsible > summary .wo-setup-sub { display: none; }
-  .wo-setup--collapsible > summary .wo-setup-summary { display: flex; }
-  .wo-setup--collapsible[open] > summary .wo-setup-summary { display: none; }
+  .wo-setup--collapsible > summary .wo-setup-summary-line { display: block; }
+  .wo-setup--collapsible[open] > summary .wo-setup-summary-line { display: none; }
   .wo-setup-chevron { display: inline-flex; }
   .wo-setup--collapsible[open] > summary .wo-setup-title { margin-bottom: 6px; }
 
@@ -3670,27 +3670,29 @@ html.content-page-root .content > * { min-width: 0; }
   flex-shrink: 0;
 }
 .wo-setup--collapsible[open] .wo-setup-chevron { transform: rotate(180deg); }
-.wo-setup-summary {
+
+/* Compact summary sub-line that replaces the verbose .wo-setup-sub on
+ * mobile when collapsed. No boxed chip, no Edit text — the chevron is
+ * the affordance, matching the YOUR WALLET pattern. */
+.wo-setup-summary-line {
   display: none;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  background: var(--surface);
-  border: 1px solid var(--line);
+  margin-top: 4px;
   font-size: 12.5px;
   font-weight: 600;
   color: var(--ink2);
-  flex-wrap: wrap;
-  justify-content: space-between;
+  line-height: 1.4;
 }
-.wo-setup-summary-edit {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--brand);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+
+/* Mobile reveals: the chevron + summary line + hide-the-verbose-sub
+ * rules, placed AFTER the unscoped .wo-setup-chevron rule so the
+ * cascade resolves correctly (same trap as .mw-summary-stats had).
+ * The earlier copies of these rules inside the 768px block are kept
+ * for clarity but are no-ops once these rules run. */
+@media (max-width: 768px) {
+  .wo-setup-chevron { display: inline-flex; }
+  .wo-setup--collapsible > summary .wo-setup-sub { display: none; }
+  .wo-setup--collapsible > summary .wo-setup-summary-line { display: block; }
+  .wo-setup--collapsible[open] > summary .wo-setup-summary-line { display: none; }
 }
 .wo-setup--collapsible > .wo-controls-grid,
 .wo-setup--collapsible > .wo-advanced,
@@ -3708,7 +3710,7 @@ html.content-page-root .content > * { min-width: 0; }
 @media (min-width: 769px) {
   .wo-setup--collapsible { padding: 18px 20px 16px; }
   .wo-setup--collapsible > summary { padding: 0; cursor: default; }
-  .wo-setup--collapsible > summary .wo-setup-summary { display: none; }
+  .wo-setup--collapsible > summary .wo-setup-summary-line { display: none; }
   .wo-setup--collapsible > .wo-controls-grid,
   .wo-setup--collapsible > .wo-advanced,
   .wo-setup--collapsible > .wo-anchor-note,

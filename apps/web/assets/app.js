@@ -2104,7 +2104,7 @@ function renderWalletSetupPanel(container) {
           <div class="wo-setup-kicker">Wallet Builder</div>
           <div class="wo-setup-title">Best ${K}-card wallet for you</div>
           <div class="wo-setup-sub">We pick a combination of cards that <strong>together</strong> covers the most restaurants and saves the most.</div>
-          <div class="wo-setup-summary"><span>${escapeHtml(summaryBits)}</span><span class="wo-setup-summary-edit">Edit</span></div>
+          <div class="wo-setup-summary-line">${escapeHtml(summaryBits)}</div>
         </div>
         <span class="wo-setup-chevron" aria-hidden="true">
           <svg viewBox="0 0 12 12" width="12" height="12"><path d="M2 4.5 L6 8.5 L10 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
