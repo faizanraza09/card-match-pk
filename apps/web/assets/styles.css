@@ -2518,13 +2518,14 @@ html.content-page-root .content > * { min-width: 0; }
   .wo-combined-stat-l { font-size: 9.5px; }
   .wo-combined-stat-v { font-size: 15px; }
 
-  /* Collapsible Build-Wallet config on mobile. Hide the verbose intro
-   * paragraph; show the one-line config summary instead. Hide the
-   * summary when expanded (the open controls below already state every
-   * value). Chevron in the top-right is the affordance. */
+  /* Collapsible Build-Wallet config on mobile. Keep kicker + title +
+   * one-line config summary; hide the verbose intro paragraph. All
+   * three lines top-anchored on the left, chevron top-anchored on the
+   * right — no vertical centering against a tall block. */
   .wo-setup--collapsible > summary .wo-setup-sub { display: none; }
   .wo-setup--collapsible > summary .wo-setup-summary-line { display: block; }
   .wo-setup--collapsible[open] > summary .wo-setup-summary-line { display: none; }
+  .wo-setup--collapsible:not([open]) > summary .wo-setup-title { margin-bottom: 2px; }
   .wo-setup-chevron { display: inline-flex; }
   .wo-setup--collapsible[open] > summary .wo-setup-title { margin-bottom: 6px; }
 
@@ -3588,7 +3589,9 @@ html.content-page-root .content > * { min-width: 0; }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nc-setup-wrap { padding: 0 12px 12px; }
+  /* Match results-list 20px horizontal padding so YOUR WALLET / Manage /
+   * Coverage cards line up with the BEST NEXT CARD list below them. */
+  .nc-setup-wrap { padding: 0 20px 12px; }
   .nc-setup { padding: 14px 14px 12px; border-radius: 12px; }
   .nc-setup-head { flex-direction: column; gap: 10px; margin-bottom: 10px; }
   .nc-setup-count {
@@ -3626,7 +3629,11 @@ html.content-page-root .content > * { min-width: 0; }
 /* ── BUILD WALLET VIEW ── */
 .wo-setup-wrap { padding: 0 20px 14px; }
 .wo-setup {
-  background: linear-gradient(135deg, var(--brand-light) 0%, #fff 60%);
+  /* Gradient fades to white at 100% (was 60%), matching .mw-summary.
+   * The previous quick fade left the right side near-white, which
+   * blended into the chevron's white background and made it look like
+   * it was floating. */
+  background: linear-gradient(135deg, var(--brand-light) 0%, #fff 100%);
   border: 1px solid var(--brand-mid);
   border-radius: 14px;
   padding: 18px 20px 16px;
@@ -3657,7 +3664,11 @@ html.content-page-root .content > * { min-width: 0; }
 .wo-setup--collapsible > summary .wo-setup-title-wrap { flex: 1; min-width: 0; }
 .wo-setup-chevron {
   display: none;
-  align-self: center;
+  /* Anchor to the title row, not the block centre. With center-alignment
+   * the chevron drifted to a midpoint between title and sub-line and
+   * looked disconnected from any text. */
+  align-self: flex-start;
+  margin-top: 2px;
   width: 28px;
   height: 28px;
   border-radius: 999px;
@@ -4266,10 +4277,23 @@ html.content-page-root .content > * { min-width: 0; }
   .persona-chip { font-size: 11.5px; padding: 6px 10px; }
 }
 
-  .wo-setup-wrap { padding: 0 12px 12px; }
-  .wo-setup { padding: 14px 14px 12px; border-radius: 12px; }
+  /* Match the results-list 20px horizontal padding so the WALLET BUILDER
+   * card sits at the same width as the wallet result cards below it
+   * (was 12px → wider, looked like a different size class). */
+  .wo-setup-wrap { padding: 0 20px 12px; }
+  .wo-setup { padding: 12px 14px; border-radius: 12px; }
   .wo-setup-title { font-size: 16px; }
   .wo-setup-sub { font-size: 12px; }
+
+  /* Tighter when collapsed: smaller paddings + tighter line gaps so the
+   * card doesn't look like it has empty space to fill. The expanded
+   * version retains breathing room for the controls. */
+  .wo-setup--collapsible:not([open]) > summary { padding: 12px 14px; }
+  .wo-setup--collapsible:not([open]) .wo-setup-kicker { margin-bottom: 2px; }
+  .wo-setup--collapsible:not([open]) .wo-setup-title { font-size: 15px; line-height: 1.2; }
+  .wo-setup--collapsible:not([open]) .wo-setup-summary-line { margin-top: 2px; font-size: 12px; }
+  /* Smaller chevron when collapsed to match the smaller content. */
+  .wo-setup--collapsible:not([open]) .wo-setup-chevron { width: 26px; height: 26px; margin-top: 0; }
   .wo-controls,
   .wo-controls-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .wo-fee-wrap { width: 100%; }
