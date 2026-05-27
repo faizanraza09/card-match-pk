@@ -56,6 +56,12 @@ jobs:
         # cuisine filter for 6 days without anyone noticing.
         run: python3 scripts/offers/test_merges_preserve_enrichment.py
 
+      - name: Python — restaurant name matching tests
+        # Eight known drift cases (case-only, whitespace, compound words,
+        # HTML entities, Unicode accents) that previously caused the merge
+        # to create duplicate restaurants and silently drop cuisine coverage.
+        run: python3 scripts/offers/test_restaurant_match.py
+
       - name: Playwright tests
         run: npm test
         env:

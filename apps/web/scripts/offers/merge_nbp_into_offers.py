@@ -1,130 +1,21 @@
 from __future__ import annotations
 
 import json
-import re
-import unicodedata
-from collections import Counter, defaultdict
-from difflib import SequenceMatcher
+from collections import defaultdict
 from pathlib import Path
+
+from restaurant_match import (
+    build_match_index as build_restaurant_match_index,  # name kept for call-site stability
+    fix_mojibake,
+    match_score as restaurant_match_score,
+    normalize_tokens as normalize_restaurant_tokens,
+    signature as restaurant_signature,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
 OFFERS_PATH = ROOT / "data" / "offers.json"
 NBP_SOURCE_PATH = ROOT / "data" / "sources" / "nbp" / "active-merchants-food.json"
-
-SUPPORTED_CITY_TOKENS = {"karachi", "lahore", "islamabad"}
-GENERIC_RESTAURANT_TOKENS = {
-    "and",
-    "bakery",
-    "bar",
-    "bistro",
-    "cafe",
-    "café",
-    "co",
-    "deli",
-    "eatery",
-    "express",
-    "food",
-    "foods",
-    "family",
-    "grill",
-    "house",
-    "kitchen",
-    "pakistan",
-    "pk",
-    "restaurant",
-    "restaurants",
-    "the",
-}
-
-
-def fix_mojibake(text: str | None) -> str:
-    if not text:
-        return ""
-    if any(ch in text for ch in ("Ã", "Â", "â", "Ð", "Ñ")):
-        try:
-            return text.encode("latin1").decode("utf-8")
-        except UnicodeError:
-            return text
-    return text
-
-
-def strip_accents(text: str) -> str:
-    return "".join(
-        ch for ch in unicodedata.normalize("NFKD", text) if not unicodedata.combining(ch)
-    )
-
-
-def normalize_restaurant_tokens(name: str, city: str) -> list[str]:
-    text = fix_mojibake(name)
-    text = unicodedata.normalize("NFKC", text)
-    text = strip_accents(text)
-    text = text.lower().replace("&", " and ")
-    text = text.replace("’", "'").replace("‘", "'")
-    text = re.sub(r"[^a-z0-9]+", " ", text)
-    city_token = city.lower()
-    return [
-        token
-        for token in text.split()
-        if token
-        and token not in GENERIC_RESTAURANT_TOKENS
-        and token not in SUPPORTED_CITY_TOKENS
-        and token != city_token
-    ]
-
-
-def restaurant_signature(name: str, city: str) -> tuple[list[str], str]:
-    tokens = normalize_restaurant_tokens(name, city)
-    return tokens, "".join(tokens)
-
-
-def build_restaurant_match_index(
-    existing_offers: list[dict],
-) -> tuple[dict[str, set[str]], dict[str, Counter]]:
-    restaurants_by_city: dict[str, set[str]] = defaultdict(set)
-    token_frequency_by_city: dict[str, Counter] = defaultdict(Counter)
-
-    for offer in existing_offers:
-        city = offer["city"]
-        restaurants_by_city[city].add(offer["restaurant"])
-
-    for city, restaurants in restaurants_by_city.items():
-        for restaurant in restaurants:
-            token_frequency_by_city[city].update(set(normalize_restaurant_tokens(restaurant, city)))
-
-    return restaurants_by_city, token_frequency_by_city
-
-
-def restaurant_match_score(
-    query_name: str,
-    candidate_name: str,
-    city: str,
-    token_frequency_by_city: dict[str, Counter],
-) -> float:
-    query_tokens, query_sig = restaurant_signature(query_name, city)
-    candidate_tokens, candidate_sig = restaurant_signature(candidate_name, city)
-    if not query_sig or not candidate_sig:
-        return 0.0
-
-    if query_sig == candidate_sig:
-        if len(set(query_tokens)) >= 2 or len(set(candidate_tokens)) >= 2:
-            return 1.0
-
-        # One-token restaurant names are only safe when the token is distinctive.
-        token = query_sig
-        return 0.98 if len(token) >= 6 and token_frequency_by_city[city].get(token, 0) <= 2 else 0.0
-
-    if len(query_sig) < 6 or len(candidate_sig) < 6:
-        return 0.0
-
-    shared_tokens = len(set(query_tokens) & set(candidate_tokens))
-    if shared_tokens < 2:
-        return 0.0
-
-    similarity = SequenceMatcher(None, query_sig, candidate_sig).ratio()
-    if similarity >= 0.90:
-        return similarity
-    return 0.0
 
 
 def normalize_offer(row: dict, card_name: str, restaurant_name: str) -> dict:

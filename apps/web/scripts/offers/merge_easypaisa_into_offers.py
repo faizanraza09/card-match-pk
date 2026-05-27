@@ -1,4 +1,5 @@
 import json
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -7,8 +8,22 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OFFERS_PATH = ROOT / "data" / "offers.json"
 DEFAULT_EASYPAISA_PATH = ROOT / "data" / "sources" / "easypaisa" / "discountworld-food.json"
 
+# Path setup so we can import from sibling restaurant_match without
+# requiring the caller to mess with PYTHONPATH.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from restaurant_match import (  # noqa: E402
+    build_match_index,
+    clean_name,
+    find_match,
+)
+
 
 def normalize_offer(row: dict) -> dict:
+    """Build the canonical offer record. Cleans the merchant name (HTML
+    entity decode + accent strip + whitespace collapse) so Easypaisa
+    rows like 'Babaaz Café &amp; Cuisine' don't end up alongside their
+    real siblings as a separate restaurant. Canonicalization against
+    the existing pool happens at merge time, see merge_easypaisa_into_offers."""
     discount_pct_raw = row.get("headline_discount_pct")
     discount_pct = float(discount_pct_raw) if discount_pct_raw is not None else None
 
@@ -22,9 +37,11 @@ def normalize_offer(row: dict) -> dict:
     if cap_pkr is not None:
         cap_pkr = int(cap_pkr)
 
+    cleaned_name = clean_name(row["merchant_name"])
+
     return {
         "city": row["city"],
-        "restaurant": row["merchant_name"],
+        "restaurant": cleaned_name,
         "bank": "Easypaisa",
         "card": row["card_name"],
         "cardCategory": "debit",
@@ -128,9 +145,20 @@ def merge_easypaisa_into_offers(
         for row in existing_offers
     }
 
+    # Canonicalize Easypaisa merchant names against the existing
+    # restaurant pool (Peekaboo + NBP) so case/spacing/accent drift
+    # doesn't spawn duplicate restaurants. e.g. 'Café Bleu' merges into
+    # the existing 'Cafe Bleu'; 'Sub Stop' into 'Substop'; etc.
+    restaurants_by_city, token_frequency_by_city = build_match_index(existing_offers)
+
     merged_offers = list(existing_offers)
     for row in easypaisa_payload["offers"]:
         normalized = normalize_offer(row)
+        city = normalized["city"]
+        candidates = restaurants_by_city.get(city, set())
+        canonical = find_match(normalized["restaurant"], city, candidates, token_frequency_by_city)
+        if canonical:
+            normalized["restaurant"] = canonical
         key = (
             normalized["city"],
             normalized["restaurant"],
