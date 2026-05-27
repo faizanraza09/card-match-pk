@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -432,7 +433,7 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
-    <link rel="stylesheet" href="/assets/styles.css" />
+    <link rel="stylesheet" href="/assets/styles.css?v=__BUILD_VERSION__" />
     <style>
 {COMPONENT_CSS}
     </style>
@@ -444,7 +445,7 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
     <div class="page-shell content-shell">
     {body}
     </div>
-    <script defer src="/assets/content-pages.js"></script>
+    <script defer src="/assets/content-pages.js?v=__BUILD_VERSION__"></script>
   </body>
 </html>
 """
@@ -2232,38 +2233,81 @@ def regenerate_sitemap(payload: dict, bank_count: int, restaurant_count: int, ca
     print(f"[seo] Offers dataset timestamp: {payload.get('generatedAt', 'unknown')}")
 
 
-def stamp_service_worker_version(payload: dict) -> None:
-    """Replace the __BUILD_VERSION__ placeholder in sw.js with a build stamp
-    so each deploy invalidates the service worker cache. The version is
-    derived from the offers payload's generatedAt (or the current epoch as a
-    fallback) — same value on a given dataset, distinct across deploys."""
+# Files whose content drives the build version. A change to any of these
+# bumps the ?v= query string in every <script>/<link> tag and the SW's
+# SHELL_VERSION, which busts both the HTTP cache (because the URL changes)
+# and the SW's cache (because the pre-cache list rebuilds). Stable across
+# no-op builds — running the build twice with no code change keeps the
+# version, so users don't get a forced refresh for nothing.
+VERSIONED_ASSET_FILES = [
+    "assets/styles.css",
+    "assets/state.js",
+    "assets/algorithms.js",
+    "assets/chat.js",
+    "assets/quiz.js",
+    "assets/app.js",
+    "assets/content-pages.js",
+]
+
+
+def compute_build_version() -> str:
+    """Content hash of all versioned asset files. Returns a 12-char hex token."""
+    h = hashlib.sha256()
+    for rel in VERSIONED_ASSET_FILES:
+        p = ROOT / rel
+        if p.exists():
+            h.update(rel.encode("utf-8"))
+            h.update(b"\0")
+            h.update(p.read_bytes())
+            h.update(b"\0")
+    return h.hexdigest()[:12]
+
+
+def stamp_build_version(version: str) -> None:
+    """Replace __BUILD_VERSION__ placeholders in sw.js and all generated
+    HTML files, plus rewrite any previously-stamped ?v= tokens so re-runs
+    keep moving forward."""
+    # 1. Service worker — keep the existing 'const SHELL_VERSION = "..."'
+    #    line in sync so SHELL_URLS pre-cache the right ?v= URLs.
     sw_path = ROOT / "sw.js"
-    if not sw_path.exists():
-        return
-    version = payload.get("generatedAt") or str(int(time.time()))
-    # Compact alphanumeric token — keeps the cache name short.
-    version = re.sub(r"[^A-Za-z0-9]", "", str(version))[-14:] or "dev"
-    text = sw_path.read_text(encoding="utf-8")
-    if "__BUILD_VERSION__" not in text:
-        # Already stamped on a previous build. Replace the existing literal
-        # so re-runs continue to bump the version forward.
-        text = re.sub(
-            r'const SHELL_VERSION = "[^"]*";',
-            f'const SHELL_VERSION = "{version}";',
-            text,
-            count=1,
-        )
-    else:
-        text = text.replace("__BUILD_VERSION__", version)
-    sw_path.write_text(text, encoding="utf-8")
-    print(f"[seo] Stamped sw.js with SHELL_VERSION={version}")
+    if sw_path.exists():
+        text = sw_path.read_text(encoding="utf-8")
+        if "__BUILD_VERSION__" in text:
+            text = text.replace("__BUILD_VERSION__", version)
+        else:
+            text = re.sub(
+                r'const SHELL_VERSION = "[^"]*";',
+                f'const SHELL_VERSION = "{version}";',
+                text,
+                count=1,
+            )
+        sw_path.write_text(text, encoding="utf-8")
+
+    # 2. All HTML files under ROOT — replace both the source placeholder and
+    #    any previously-stamped hash so consecutive builds work.
+    prev_hash_pattern = re.compile(r"\?v=(?:__BUILD_VERSION__|[a-f0-9]{8,16})")
+    html_count = 0
+    for html_path in ROOT.rglob("*.html"):
+        # Skip node_modules and any test artifacts.
+        parts_set = set(html_path.parts)
+        if "node_modules" in parts_set or "test-results" in parts_set:
+            continue
+        text = html_path.read_text(encoding="utf-8")
+        new_text = prev_hash_pattern.sub(f"?v={version}", text)
+        if new_text != text:
+            html_path.write_text(new_text, encoding="utf-8")
+            html_count += 1
+
+    print(f"[seo] Stamped build version {version} into sw.js and {html_count} HTML files")
 
 
 def main() -> None:
     payload = json.loads(OFFERS_PATH.read_text(encoding="utf-8"))
     bank_count, restaurant_count, card_count = render_and_write_pages(payload)
     regenerate_sitemap(payload, bank_count, restaurant_count, card_count)
-    stamp_service_worker_version(payload)
+    # Stamp build version LAST — it walks all generated HTML and replaces
+    # __BUILD_VERSION__ placeholders, so it has to run after page generation.
+    stamp_build_version(compute_build_version())
 
 
 if __name__ == "__main__":

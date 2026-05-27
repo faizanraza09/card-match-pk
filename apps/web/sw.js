@@ -21,20 +21,24 @@
 // with the build epoch (e.g. "1748293340"). If it stays literal "0260526T204215"
 // in local dev, that's fine — the SW still works, it just doesn't auto-invalidate
 // across local edits (you can unregister it from DevTools if needed).
-const SHELL_VERSION = "0260527T213732";
+const SHELL_VERSION = "92be75d3995d";
 const SHELL_CACHE = `konsa-shell-${SHELL_VERSION}`;
 const DATA_CACHE  = `konsa-data-${SHELL_VERSION}`;
 
 // Pre-cache the app shell on install. Keep this list tight — anything missing
 // would block the SW install.
+// Versioned bundles use ?v= query strings substituted at build time so they
+// match exactly what HTML <script>/<link> tags request — otherwise the SW
+// would pre-cache /assets/chat.js (no version) while HTML asks for
+// /assets/chat.js?v=abc, causing a duplicate network fetch every page load.
 const SHELL_URLS = [
   "/",
-  "/assets/styles.css",
-  "/assets/state.js",
-  "/assets/algorithms.js",
-  "/assets/chat.js",
-  "/assets/quiz.js",
-  "/assets/app.js",
+  `/assets/styles.css?v=${SHELL_VERSION}`,
+  `/assets/state.js?v=${SHELL_VERSION}`,
+  `/assets/algorithms.js?v=${SHELL_VERSION}`,
+  `/assets/chat.js?v=${SHELL_VERSION}`,
+  `/assets/quiz.js?v=${SHELL_VERSION}`,
+  `/assets/app.js?v=${SHELL_VERSION}`,
   "/assets/logo/favicon.svg",
   "/assets/logo/mark-32.png",
   "/assets/logo/mark-64.png",

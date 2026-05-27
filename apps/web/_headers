@@ -23,3 +23,17 @@
 # we want the new copy picked up promptly on next visit.
 /manifest.webmanifest
   Cache-Control: public, max-age=300, must-revalidate
+
+# Versioned bundles. The build script stamps ?v=<content-hash> into every
+# <script> and <link> tag in HTML; any code change produces a new hash and
+# therefore a new URL, so we can safely tell the browser to never re-check
+# until the URL changes. immutable means even a forced reload won't hit
+# origin for these. Saves a conditional GET per file per page load.
+#
+# IMPORTANT: this only takes effect if Cloudflare's zone-level Browser
+# Cache TTL is set to "Respect Existing Headers" (Dashboard → Caching →
+# Configuration). Otherwise Cloudflare overrides these.
+/assets/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*.css
+  Cache-Control: public, max-age=31536000, immutable
