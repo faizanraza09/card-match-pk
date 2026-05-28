@@ -14,9 +14,9 @@
     "refresh:offers": "python3 scripts/offers/refresh_all_offers.py",
     "refresh:requirements": "python3 scripts/card_requirements/build_card_requirements_normalized.py && python3 scripts/card_requirements/build_deal_requirement_card_map.py",
     "refresh:all": "npm run refresh:offers && npm run refresh:requirements && npm run generate:seo",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed"
+    "test": "npm run build:assets && playwright test",
+    "test:ui": "npm run build:assets && playwright test --ui",
+    "test:headed": "npm run build:assets && playwright test --headed"
   },
   "repository": {
     "type": "git",
