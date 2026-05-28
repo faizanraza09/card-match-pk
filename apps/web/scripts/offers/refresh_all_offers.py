@@ -19,21 +19,37 @@ CUISINE_INFER = ROOT / "scripts" / "offers" / "infer_cuisines_from_names.py"
 SEO_PAGE_GENERATION = ROOT / "scripts" / "seo" / "generate_seo_pages.py"
 
 
-def run_step(label: str, command: list[str]) -> None:
+def run_step(label: str, command: list[str], *, must_succeed: bool = True) -> bool:
+    """Run a pipeline step. Returns True on success, False on failure.
+
+    By default any non-zero exit aborts the whole pipeline. Source extractor
+    steps pass must_succeed=False: a single flaky external feed (e.g. easypaisa
+    blocking the runner with a 403) shouldn't kill the rest of the refresh.
+    The merge steps that follow naturally fall back to the previous JSON in
+    data/sources/<source>/ — i.e. yesterday's data for that one source — and
+    strict validation at the end still gates the commit if drift is too large.
+    """
     print(f"[offers] {label}...")
     completed = subprocess.run(command, cwd=ROOT, check=False)
-    if completed.returncode != 0:
-        raise SystemExit(
-            f"[offers] {label} failed with exit code {completed.returncode}."
-        )
+    if completed.returncode == 0:
+        return True
+    msg = f"[offers] {label} failed with exit code {completed.returncode}."
+    if must_succeed:
+        raise SystemExit(msg)
+    print(f"{msg} Continuing with previous source data for this feed.")
+    return False
 
 
 def main() -> None:
     python = sys.executable
 
-    run_step("Refreshing Peekaboo dataset", [python, str(PEEKABOO_REFRESH)])
-    run_step("Refreshing Easypaisa dataset", [python, str(EASYPAISA_REFRESH)])
-    run_step("Refreshing NBP merchant dataset", [python, str(NBP_REFRESH)])
+    failed_sources: list[str] = []
+    if not run_step("Refreshing Peekaboo dataset", [python, str(PEEKABOO_REFRESH)], must_succeed=False):
+        failed_sources.append("peekaboo")
+    if not run_step("Refreshing Easypaisa dataset", [python, str(EASYPAISA_REFRESH)], must_succeed=False):
+        failed_sources.append("easypaisa")
+    if not run_step("Refreshing NBP merchant dataset", [python, str(NBP_REFRESH)], must_succeed=False):
+        failed_sources.append("nbp")
 
     print("[offers] Merging Easypaisa into data/offers.json...")
     payload = merge_easypaisa_into_offers()
@@ -49,6 +65,11 @@ def main() -> None:
     print(f"[offers] Cards: {payload['stats']['cards']}")
     print(f"[offers] Banks: {payload['stats']['banks']}")
     print(f"[offers] Restaurants: {payload['stats']['restaurants']}")
+    if failed_sources:
+        print(
+            f"[offers] WARN: {len(failed_sources)} source(s) used stale data this run: "
+            f"{', '.join(failed_sources)}. Strict validation gates the eventual commit."
+        )
 
 
 if __name__ == "__main__":

@@ -11,7 +11,6 @@ import requests
 ROOT = Path(__file__).resolve().parents[2]
 OUT_PATH = ROOT / "data" / "sources" / "easypaisa" / "discountworld-food.json"
 BASE = "https://discovery.discountworld.net"
-COFFEE_PAGE_API = "https://easypaisa.com.pk/wp-json/wp/v2/pages/54677"
 COFFEE_PAGE_URL = "https://easypaisa.com.pk/coffee-house-partners/"
 
 CITIES = {
@@ -150,28 +149,6 @@ def parse_detail_page(html: str) -> dict:
     }
 
 
-def parse_city_labels(block_html: str) -> list[dict]:
-    entries = []
-    pattern = re.compile(
-        r'<p class="city_label">(.*?)</p>\s*<ul>(.*?)</ul>',
-        re.S,
-    )
-    for match in pattern.finditer(block_html):
-        city_label = strip_tags(match.group(1))
-        raw_locations = []
-        for item in re.findall(r"<li>(.*?)</li>", match.group(2), re.S):
-            cleaned = strip_tags(item.replace("Location", ""))
-            if cleaned:
-                raw_locations.append(cleaned.replace(" -", ""))
-        entries.append(
-            {
-                "city_label": city_label,
-                "locations": raw_locations,
-            }
-        )
-    return entries
-
-
 def expand_coffee_cities(city_label: str, locations: list[str]) -> list[str]:
     lowered = city_label.lower()
     if lowered in {"karachi", "lahore", "islamabad"}:
@@ -189,31 +166,101 @@ def expand_coffee_cities(city_label: str, locations: list[str]) -> list[str]:
     return sorted(resolved)
 
 
+_ADDR_CELL_RE = r'<td class="addr_(?:cell|col)"[^>]*>([\s\S]*?)</td>'
+_CITY_BEFORE_ADDR_RE = r'<td(?:[^>]*)?>\s*([^<]+?)\s*</td>\s*<td class="addr_(?:cell|col)"'
+_DISCOUNT_CELL_RE = r'<td(?:[^>]*)?>\s*([0-9]+)%\s*</td>'
+_CAP_CELL_RE = r'<td(?:[^>]*)?>\s*Cap:\s*Rs\.?\s*([0-9,]+)\s*</td>'
+
+
 def parse_coffee_partner_page(html: str) -> list[dict]:
-    page = json.loads(html)
-    rendered = page["content"]["rendered"]
-    records = []
-    accordion_pattern = re.compile(
-        r'<div class="accordion_item">(.*?)</div>\s*</div>',
-        re.S,
-    )
-    for block in accordion_pattern.findall(rendered):
-        name_match = re.search(r"<span>(.*?)</span>", block, re.S)
-        discount_match = re.search(r"<strong>([0-9]+)%\s*OFF</strong>", block, re.I)
-        terms_match = re.search(r'<div class="terms_label">(.*?)</div>', block, re.S)
-        if not name_match or not discount_match:
+    """Parse the coffee-partners page (https://easypaisa.com.pk/coffee-house-partners/).
+
+    The page is a single <table> where each merchant occupies one or more rows.
+    Multi-branch merchants use rowspan on the discount and cap cells so the
+    first row carries: brand box + discount + first city + first address + map
+    link + cap, and subsequent rows carry just the next city (when changing) +
+    next address + map link.
+
+    Single-branch merchants (e.g. Senzo London, Faba Coffee) don't use rowspan
+    — every cell is on the one row, classes may be missing. To handle both
+    layouts uniformly we identify cells by content rather than by class:
+      - Discount = the first <td> whose contents are an integer %.
+      - Cap      = the first <td> whose contents start with "Cap:".
+      - City     = the <td> immediately preceding the address cell.
+      - Address  = <td class="addr_cell"> or <td class="addr_col"> (newer
+                   entries use the second class).
+    """
+    first = html.find('brand_box_dsktp')
+    if first < 0:
+        return []
+    end = html.find('</tr>', html.rfind('brand_box_dsktp'))
+    section = html[first:end + 5]
+
+    rows = re.findall(r'<tr[^>]*>([\s\S]*?)</tr>', section)
+    merchants: list[dict] = []
+    current: dict | None = None
+    city_carry: str | None = None
+
+    for row in rows:
+        brand_m = re.search(
+            r'<div class="brand_box_dsktp"[^>]*>\s*<img[^>]*>\s*<strong>([^<]+)</strong>',
+            row,
+        )
+        if brand_m:
+            if current and current["_addrs"]:
+                merchants.append(current)
+            current = {
+                "name": strip_tags(brand_m.group(1)),
+                "discount_pct": None,
+                "cap_pkr": None,
+                "_addrs": [],
+            }
+            city_carry = None
+        if current is None:
             continue
-        merchant_name = strip_tags(name_match.group(1))
-        terms = strip_tags(terms_match.group(1)) if terms_match else None
-        city_entries = parse_city_labels(block)
+
+        disc_m = re.search(_DISCOUNT_CELL_RE, row)
+        if disc_m and current["discount_pct"] is None:
+            current["discount_pct"] = int(disc_m.group(1))
+
+        cap_m = re.search(_CAP_CELL_RE, row)
+        if cap_m and current["cap_pkr"] is None:
+            current["cap_pkr"] = int(cap_m.group(1).replace(",", ""))
+
+        city_m = re.search(_CITY_BEFORE_ADDR_RE, row)
+        if city_m:
+            t = city_m.group(1).strip()
+            if t and not re.match(r"^[0-9]+%$", t) and "Cap" not in t and not t.startswith("Rs"):
+                city_carry = t
+
+        addr_m = re.search(_ADDR_CELL_RE, row)
+        if addr_m:
+            addr_text = strip_tags(addr_m.group(1))
+            if addr_text and city_carry:
+                current["_addrs"].append((city_carry, addr_text))
+
+    if current and current["_addrs"]:
+        merchants.append(current)
+
+    records: list[dict] = []
+    for m in merchants:
+        if m["discount_pct"] is None:
+            continue
+        by_city: dict[str, list[str]] = {}
+        for city, addr in m["_addrs"]:
+            by_city.setdefault(city, []).append(addr)
+        terms = f"Cap: Rs. {m['cap_pkr']:,}" if m["cap_pkr"] else None
         records.append(
             {
-                "merchant_name": merchant_name,
-                "merchant_slug": slugify_name(merchant_name),
-                "discount_pct": int(discount_match.group(1)),
+                "merchant_name": m["name"],
+                "merchant_slug": slugify_name(m["name"]),
+                "discount_pct": m["discount_pct"],
                 "terms": terms,
-                "cap_pkr": parse_cap_pkr(terms),
-                "city_entries": city_entries,
+                "cap_pkr": m["cap_pkr"],
+                "city_entries": [
+                    {"city_label": city, "locations": addrs}
+                    for city, addrs in by_city.items()
+                ],
                 "source_url": COFFEE_PAGE_URL,
             }
         )
@@ -258,7 +305,22 @@ def main() -> None:
                     }
                 )
 
-    coffee_records = parse_coffee_partner_page(fetch(session, COFFEE_PAGE_API))
+    # Fetch the public coffee-partners HTML page. The wp-json variant
+    # (/wp-json/wp/v2/pages/54677) started returning 403 from datacenter IPs
+    # like the GitHub Actions runners on 2026-05-28, breaking the whole daily
+    # refresh. The public HTML URL has the same merchant table inlined and
+    # appears to be served without the same WAF rule. We still wrap the call
+    # in try/except so any future block degrades gracefully — discountworld
+    # offers above are unaffected and the merge step will fall back to the
+    # last committed source JSON for the coffee data.
+    try:
+        coffee_records = parse_coffee_partner_page(fetch(session, COFFEE_PAGE_URL))
+    except requests.HTTPError as exc:
+        print(
+            f"[easypaisa] WARN: coffee partner page fetch failed ({exc}). "
+            f"Proceeding without coffee-partner enrichments."
+        )
+        coffee_records = []
     coffee_index = {}
     for record in coffee_records:
         for city_entry in record["city_entries"]:
