@@ -2080,7 +2080,7 @@ function renderNextCardItem(result, container, rank) {
 }
 
 /* ── BUILD WALLET: VIEW + SETUP PANEL ── */
-function renderWalletSetupPanel(container) {
+function renderWalletSetupPanel(container, stats) {
   if (!container) return;
   const K = state.walletSize;
   const ownedCount = state.ownedCards.size;
@@ -2103,7 +2103,7 @@ function renderWalletSetupPanel(container) {
   // forcing them to scroll past ~600px of pills + toggles to reach the
   // actual wallet results.
   const objLabel = (objectiveOptions.find((o) => o.v === obj) || { label: "Max savings" }).label;
-  const startLabel = buildOnOwned ? `On top of ${stats.anchorCount || ownedCount}` : "From scratch";
+  const startLabel = buildOnOwned ? `On top of ${stats?.anchorCount || ownedCount}` : "From scratch";
   const feeLabel = maxFeeRaw !== null ? `Max fee ${formatCurrencyShort(maxFeeRaw)}/yr` : "No fee cap";
   const summaryBits = `${K} cards · ${startLabel} · ${objLabel} · ${feeLabel}`;
 
@@ -2399,9 +2399,8 @@ function renderWalletView(resultsGrid) {
   const rhSub = document.getElementById("rh-sub");
   const summaryBest = document.getElementById("summary-best");
 
-  renderWalletSetupPanel(setupContainer);
-
   const { ranked, stats } = computeWalletRecommendations();
+  renderWalletSetupPanel(setupContainer, stats);
   const K = stats.K;
 
   if (countEl) countEl.textContent = ranked.length ? String(K) : "0";
