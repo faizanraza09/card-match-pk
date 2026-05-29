@@ -1,5 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
+  AlgorithmState,
+  CardRecommendation,
   OffersBundle,
   OffersIndex,
   RequirementMapping,
@@ -21,6 +23,75 @@ function dataOrigin(): string {
 
 const CACHE_KEY_REQS = "konsacard-cache-reqs-v1";
 const CACHE_KEY_SUMMARY = "konsacard-cache-summary-v1";
+
+// Server ranking API. ON by default; set EXPO_PUBLIC_USE_RANK_API=0/false/off to
+// force the local summary/raw path. When on, the Cards-list ranking is fetched
+// from POST {origin}/api/rank so the phone never parses the ~21 MB raw bundle
+// while online; on any failure the caller falls back to the local compute.
+export function rankApiEnabled(): boolean {
+  const raw = (process.env.EXPO_PUBLIC_USE_RANK_API || "").trim().toLowerCase();
+  if (!raw) return true; // default ON when unset
+  return !(raw === "0" || raw === "false" || raw === "off" || raw === "no");
+}
+
+const RANK_API_TIMEOUT_MS = 8000;
+
+interface RankApiOptions {
+  limit?: number;
+  offset?: number;
+  signal?: AbortSignal;
+}
+
+/**
+ * Fetches a fully-scored, eligibility-baked, pre-sorted card ranking from the
+ * server. Serializes only the algorithm settings (Sets → arrays); never sends
+ * the raw `data`, `requirements`, or wallet fields. Aborts after
+ * RANK_API_TIMEOUT_MS and throws on timeout/non-2xx so callers can fall back to
+ * the local raw compute (this thrown error is also the offline signal — we
+ * don't ship a separate native NetInfo dep).
+ */
+export async function rankViaApi(
+  state: AlgorithmState,
+  opts: RankApiOptions = {}
+): Promise<CardRecommendation[]> {
+  const payload = {
+    city: state.selectedCity,
+    orderValue: state.orderValue,
+    selectedDays: Array.from(state.selectedDays),
+    selectedRestaurants: Array.from(state.selectedRestaurants),
+    selectedBanks: Array.from(state.selectedBanks),
+    selectedCardTypes: Array.from(state.selectedCardTypes),
+    selectedCards: Array.from(state.selectedCards),
+    selectedCuisines: Array.from(state.selectedCuisines),
+    monthlySalary: state.monthlySalary,
+    accountBalance: state.accountBalance,
+    useEligibility: state.useEligibility,
+    outingsPerWeek: state.outingsPerWeek,
+    ...(opts.limit !== undefined ? { limit: opts.limit } : {}),
+    ...(opts.offset !== undefined ? { offset: opts.offset } : {}),
+  };
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), RANK_API_TIMEOUT_MS);
+  // Honor a caller-provided signal (e.g. scope changed) in addition to timeout.
+  if (opts.signal) {
+    if (opts.signal.aborted) controller.abort();
+    else opts.signal.addEventListener("abort", () => controller.abort());
+  }
+  try {
+    const res = await fetch(`${dataOrigin()}/api/rank`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status} from /api/rank`);
+    const json = (await res.json()) as { recs?: CardRecommendation[] };
+    return Array.isArray(json.recs) ? json.recs : [];
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 async function fetchJson<T>(url: string): Promise<T> {
   const res = await fetch(url);

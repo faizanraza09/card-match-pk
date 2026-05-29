@@ -10,6 +10,7 @@ import type {
   ViewMode,
   WalletObjective,
 } from "@/types";
+import type { SavingWindow } from "@/lib/algorithms";
 
 // Persistable subset of state. We store Sets as arrays in JSON and rehydrate.
 interface PersistedShape {
@@ -36,6 +37,7 @@ interface PersistedShape {
   favoriteRestaurants: string[];
   compareList: string[];
   viewMode: ViewMode;
+  savingWindow: SavingWindow;
 }
 
 export interface AppState extends AlgorithmState {
@@ -52,6 +54,11 @@ export interface AppState extends AlgorithmState {
    * state — left out of AlgorithmState so it doesn't pollute the algorithm
    * signature. */
   compareList: string[];
+  /** Saving-window view for the per-card hero saving: /outing | /month | /year.
+   * UI-only (display reframing of the same per-outing number) — deliberately
+   * kept out of AlgorithmState so it doesn't bust the recommendation cache. */
+  savingWindow: SavingWindow;
+  setSavingWindow: (w: SavingWindow) => void;
   toggleCompare: (cardKey: string) => void;
   clearCompare: () => void;
   setData: (data: OffersBundle, requirements: RequirementsPack | null) => void;
@@ -132,7 +139,9 @@ export const useAppStore = create<AppState>()(
       summary: null,
       rawLoading: false,
       compareList: [],
+      savingWindow: "yr",
 
+      setSavingWindow: (savingWindow) => set({ savingWindow }),
       toggleCompare: (cardKey) =>
         set((s) => {
           if (s.compareList.includes(cardKey)) {
@@ -328,6 +337,7 @@ export const useAppStore = create<AppState>()(
           walletMustInclude: state.walletMustInclude,
           favoriteRestaurants: state.favoriteRestaurants,
           viewMode: state.viewMode,
+          savingWindow: state.savingWindow,
         }) as unknown as AppState,
       onRehydrateStorage: () => (state) => {
         if (!state) return;

@@ -9,7 +9,7 @@ function TabIcon({ Icon, focused }: { Icon: LucideIcon; focused: boolean }) {
   return (
     <Icon
       size={24}
-      color={focused ? colors.brand : colors.textDim}
+      color={focused ? colors.brand : colors.textMid}
       strokeWidth={focused ? 2.25 : 1.75}
     />
   );
@@ -30,7 +30,7 @@ export default function TabsLayout() {
         headerShown: false,
         freezeOnBlur: true,
         tabBarActiveTintColor: colors.brand,
-        tabBarInactiveTintColor: colors.textDim,
+        tabBarInactiveTintColor: colors.textMid,
         tabBarStyle: {
           backgroundColor: colors.bgElev,
           borderTopColor: colors.border,
@@ -69,7 +69,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="wallet"
         options={{
-          title: "Build Wallet",
+          title: "Build",
           tabBarIcon: ({ focused }) => <TabIcon Icon={Layers} focused={focused} />,
         }}
       />

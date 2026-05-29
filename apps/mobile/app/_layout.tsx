@@ -1,7 +1,7 @@
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PostHogProvider } from "posthog-react-native";
@@ -10,13 +10,29 @@ import { loadOffers, loadRequirements, loadSummary } from "@/data";
 import { posthog } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, spacing, typography } from "@/theme";
+import { shouldShowOnboarding } from "./onboarding";
 
 export default function RootLayout() {
+  const router = useRouter();
   const setData = useAppStore((s) => s.setData);
   const setSummary = useAppStore((s) => s.setSummary);
   const summary = useAppStore((s) => s.summary);
   const data = useAppStore((s) => s.data);
   const [err, setErr] = useState<string | null>(null);
+  // First-launch onboarding gate. Resolved off AsyncStorage during boot so we
+  // know whether to redirect before the tabs are interactive. `null` = unknown.
+  const [needsOnboarding, setNeedsOnboarding] = useState<boolean | null>(null);
+  const redirectedToOnboarding = useRef(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    shouldShowOnboarding().then((show) => {
+      if (!cancelled) setNeedsOnboarding(show);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Cold-start fast path: load the small precomputed summary + requirements
   // (both small) and clear the boot spinner as soon as the summary is ready.
@@ -52,6 +68,16 @@ export default function RootLayout() {
   }, [setData, setSummary]);
 
   const ready = !!summary || !!data;
+
+  // Once data is loaded and the navigator is mounted, send first-time users to
+  // the onboarding flow. Onboarding's `finish()` writes the seen flag and
+  // router.replace("/")s back into the tabs. Guarded so it fires at most once.
+  useEffect(() => {
+    if (ready && needsOnboarding && !redirectedToOnboarding.current) {
+      redirectedToOnboarding.current = true;
+      router.replace("/onboarding");
+    }
+  }, [ready, needsOnboarding, router]);
 
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.bg }}>
