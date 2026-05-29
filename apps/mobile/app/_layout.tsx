@@ -4,8 +4,10 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { PostHogProvider } from "posthog-react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { loadOffers, loadRequirements } from "@/data";
+import { posthog } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, spacing, typography } from "@/theme";
 
@@ -31,6 +33,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.bg }}>
+      <PostHogProvider client={posthog} autocapture={{ captureScreens: true, captureTouches: true }}>
       <SafeAreaProvider>
         <BottomSheetModalProvider>
           <StatusBar style="dark" />
@@ -108,6 +111,7 @@ export default function RootLayout() {
           )}
         </BottomSheetModalProvider>
       </SafeAreaProvider>
+      </PostHogProvider>
     </GestureHandlerRootView>
   );
 }

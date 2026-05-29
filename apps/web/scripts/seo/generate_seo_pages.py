@@ -223,6 +223,7 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
     <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="/assets/dist/styles.css?v=__BUILD_VERSION__" />
     <link rel="stylesheet" href="/assets/dist/components.css?v=__BUILD_VERSION__" />
+    <script src="/assets/dist/posthog-init.js?v=__BUILD_VERSION__"></script>
     <script type="application/ld+json">
 {schema_json}
     </script>
@@ -2107,6 +2108,7 @@ VERSIONED_ASSET_FILES = [
     "assets/content-pages.js",
     "assets/sentry-init.js",
     "assets/ga-init.js",
+    "assets/posthog-init.js",
 ]
 
 

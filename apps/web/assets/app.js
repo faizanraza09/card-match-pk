@@ -3848,14 +3848,21 @@ if (typeof window !== "undefined") {
 }
 
 /* ── ANALYTICS ──
-   Thin wrapper over gtag (already wired in index.html). Calls into the global
-   gtag if it's loaded, swallows errors, and namespaces all events under
-   "konsa_*" so they're easy to filter in GA. Pass small JSON-safe values only. */
+   Fan-out wrapper. Sends each event to both Google Analytics (gtag) and
+   PostHog (posthog.capture). Both globals are init'd from their own
+   *-init.js scripts in index.html; if either isn't loaded yet, that branch
+   is silently skipped. GA gets the "konsa_" prefix it already expects;
+   PostHog gets the bare name (cleaner in their UI). Pass small JSON-safe
+   values only. */
 function trackEvent(name, params) {
+  const p = params || {};
   try {
-    const fn = /** @type {any} */ (window).gtag;
-    if (typeof fn !== "function") return;
-    fn("event", `konsa_${name}`, params || {});
+    const gtag = /** @type {any} */ (window).gtag;
+    if (typeof gtag === "function") gtag("event", `konsa_${name}`, p);
+  } catch (_) { /* no-op */ }
+  try {
+    const ph = /** @type {any} */ (window).posthog;
+    if (ph && typeof ph.capture === "function") ph.capture(name, p);
   } catch (_) { /* no-op */ }
 }
 
