@@ -13,8 +13,10 @@ name: Daily offers refresh
 
 on:
   schedule:
-    # 06:00 UTC daily = 11:00 PKT
-    - cron: "0 6 * * *"
+    # 06:17 UTC daily = 11:17 PKT.
+    # Offset off the top of the hour so we're not in GitHub's HH:00 cron pile-up
+    # (top-of-hour scheduled runs routinely get delayed by hours or skipped).
+    - cron: "17 6 * * *"
   workflow_dispatch:
 
 permissions:
