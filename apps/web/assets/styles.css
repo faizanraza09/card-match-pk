@@ -344,13 +344,33 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
   gap: 12px;
   flex-wrap: wrap;
 }
-.rh-count-row { display: flex; align-items: baseline; gap: 8px; }
-.rh-count { font-size: 28px; font-weight: 800; color: var(--ink); line-height: 1; }
+.rh-count-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  /* Reserve a fixed line so swapping the count (0 → 3 digits) or the label
+     never reflows the header row. */
+  min-height: 28px;
+}
+.rh-count {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+  /* Tabular figures keep "0" and "320" the same width per digit, and the
+     min-width reserves room for ~3 digits so the label beside it doesn't
+     slide as the count populates. */
+  font-variant-numeric: tabular-nums;
+  min-width: 1.4ch;
+}
 .rh-count-label { font-size: 15px; font-weight: 500; color: var(--muted); }
 .rh-sub {
   font-size: 12.5px;
   color: var(--muted);
   margin-top: 2px;
+  /* Reserve the subtitle's line height so it never collapses to 0 before
+     the text is set, then jumps when it populates. */
+  min-height: 16px;
   /* Single line so the count block stays one row tall — prevents the flex
      row from wrapping and pushing the view-toggle to a new line when the
      subtitle is long (e.g. on the empty My Wallet view). */
@@ -461,7 +481,17 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .empty-msg { font-size: 14px; color: var(--muted); }
 
 /* ── FEATURED CARD (top pick) ── */
-.top-pick-wrap { padding: 0 20px 10px; }
+.top-pick-wrap {
+  padding: 0 20px 10px;
+  /* Reserve roughly the rendered height of a featured top-pick card
+     (logo row + stats row + sweet-spot note + the 10px bottom padding) so
+     the results list below doesn't get shoved down when the pick populates
+     after data loads. min-height (not fixed) lets it grow gracefully and the
+     box already collapses to its padding before content arrives, so an empty
+     state reserves space rather than snapping from 0. */
+  min-height: 210px;
+  box-sizing: border-box;
+}
 .card-item--featured {
   background: linear-gradient(135deg, #FDF3F0 0%, #FAE8E2 100%);
   border: 1.5px solid var(--brand-mid);
@@ -587,7 +617,36 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .card-featured-elig { padding: 6px 22px 12px; }
 
 /* ── CARD ITEM ── */
-.results-list { padding: 0 20px; display: flex; flex-direction: column; gap: 10px; padding-bottom: 10px; }
+.results-list {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  /* Reserve the results area on first paint so the guide cards / footer
+     below don't jump up while the list is empty and then back down as
+     rows render in. ~3 result rows tall; min-height so it grows naturally. */
+  min-height: 320px;
+  box-sizing: border-box;
+}
+
+/* ── AD SLOTS (AdSense / Auto Ads) ──────────────────────────────────────
+   AdSense injects <ins class="adsbygoogle"> elements (Auto Ads and any
+   future explicit slots) with no intrinsic size, so the iframe popping in
+   shoves content down — a large CLS source. Reserve a box for every
+   adsbygoogle slot so the injected ad fills space we already accounted for
+   rather than pushing layout. The collapse rule keeps unfilled slots from
+   leaving a permanent empty band once Google reports "no ad". */
+ins.adsbygoogle {
+  display: block;
+  min-height: 90px;
+  margin: 12px auto;
+  text-align: center;
+  overflow: hidden;
+}
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
 
 /* ── CARD VIEW SEARCH ── */
 .cards-view-search-wrap { margin-bottom: 0; }

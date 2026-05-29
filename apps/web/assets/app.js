@@ -1105,7 +1105,7 @@ function renderBankLogo(bank, className) {
   const initials = getBankLogoInitials(bank);
   return `
     <div class="${escapeAttr(className)}">
-      ${src ? `<img class="bank-logo-image" src="${escapeAttr(src)}" alt="${escapeAttr(bank)} logo" loading="lazy" onerror="this.style.display='none'" />` : ""}
+      ${src ? `<img class="bank-logo-image" src="${escapeAttr(src)}" alt="${escapeAttr(bank)} logo" width="42" height="42" loading="lazy" decoding="async" onerror="this.style.display='none'" />` : ""}
       ${src ? "" : `<span class="bank-logo-fallback">${escapeHtml(initials)}</span>`}
     </div>
   `;
