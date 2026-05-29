@@ -724,6 +724,37 @@ function computeWalletRestaurantCoverage() {
    eligibility-based boost/penalty when the user has entered salary/balance.
    This is the algorithm that powers the default "Cards" view. */
 function computeRecommendations() {
+  // FIRST-PAINT FAST PATH: at the default scope (no raw offers loaded yet,
+  // plain ranked cards view, default bill, no filters, eligibility off) the
+  // precomputed summary IS the ranking core's default output — same shared
+  // `computeRanking` core, same settings. Serve it verbatim instead of
+  // aggregating ~28k raw records on the main thread.
+  //
+  // The summary cards carry every ranking + display field (baseScore,
+  // feePenalty, score, avgExpectedSaving, coverage, medianCap, topMatches,
+  // saturationBill, …) but NOT `requirementStatus` — that's a browser-only
+  // overlay computed from state.requirements + user input. Layer it on here,
+  // mirroring the cheap tail of the compute path below. At the default scope
+  // there is no salary/balance input, so qualificationDelta is 0 and the
+  // adjusted score equals the precomputed score: order is UNCHANGED. Do NOT
+  // re-sort — that would risk diverging from the summary order on ties.
+  if (!state.data && typeof isDefaultScope === "function" && isDefaultScope()) {
+    const cityKey = typeof getSummaryCityKey === "function" ? getSummaryCityKey() : null;
+    const summaryCards = cityKey ? state.summary?.scopes?.[cityKey] : null;
+    if (Array.isArray(summaryCards)) {
+      return summaryCards.map((c) => ({
+        ...c,
+        // Reuse the app's own eligibility overlay (no new logic / no parity
+        // risk). Falls back gracefully to "unavailable" if requirements
+        // failed to load — renders without the badge rather than crashing.
+        requirementStatus: evaluateEligibility(c.bank, c.card),
+        qualificationDelta: 0, // default scope: no salary/balance entered
+      }));
+    }
+    // Summary scope unexpectedly missing → fall through (returns [] below
+    // since raw offers aren't loaded; the caller's lazy-load path recovers).
+  }
+
   if (!state.data) return [];
 
   // Delegate the pure data steps (per-offer saving math, per-card aggregation,

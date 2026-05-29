@@ -19,6 +19,15 @@
 /data/offers-index.json
   Cache-Control: public, max-age=0, must-revalidate
 
+# Precomputed ranking summary. The loaders fetch it as
+# summary.json?v=<summaryVersion>, where summaryVersion is a content hash
+# carried by the always-fresh offers-index.json (max-age=0 above). A data
+# refresh bumps the hash → a new URL → cache bust, so the file itself is
+# safe to cache immutably. This is the small (~64 KB br) payload that powers
+# the default first paint instead of the multi-MB raw offer shards.
+/data/summary.json
+  Cache-Control: public, max-age=31536000, immutable
+
 # Manifest changes rarely but when it does (icon swap, theme color),
 # we want the new copy picked up promptly on next visit.
 /manifest.webmanifest

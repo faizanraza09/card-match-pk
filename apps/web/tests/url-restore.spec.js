@@ -17,8 +17,16 @@ async function gotoWithUrl(page, urlPath) {
     try { localStorage.setItem("konsacard_visited_v2", "true"); } catch {}
   });
   await page.goto(urlPath);
+  // App is interactive once it has renderable data. Under the summary-first
+  // architecture a default scope (e.g. ?city=karachi) is served from
+  // state.summary with raw offers still lazy; non-default params (?bill,
+  // ?types, ?banks…) trigger ensureRawOffers() and populate state.data.
+  // Accept either, matching helpers.js gotoApp.
   await page.waitForFunction(
-    () => /** @type {any} */ (window).__app?.state?.data?.offers?.length > 0,
+    () => {
+      const s = /** @type {any} */ (window).__app?.state;
+      return !!(s && (s.summary || (s.data?.offers?.length > 0)));
+    },
     { timeout: 10_000 },
   );
 }

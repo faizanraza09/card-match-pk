@@ -75,7 +75,13 @@ test.describe("Filter behavior — list actually narrows", () => {
     await page.locator("#bank-search").fill("HBL");
     await page.waitForTimeout(200);
     await page.locator("#bank-results .s-search-item").first().click();
-    await page.waitForTimeout(300);
+    // Selecting a bank is a non-default filter that lazily pulls in raw offers;
+    // computeRecommendations() returns [] until they land. Wait for the load to
+    // settle before asserting the list actually narrows.
+    await page.waitForFunction(
+      () => /** @type {any} */ (window).__app?.state?.data?.offers?.length > 0,
+      { timeout: 15_000 },
+    );
 
     const banks = await page.evaluate(() => {
       const w = /** @type {any} */ (window);

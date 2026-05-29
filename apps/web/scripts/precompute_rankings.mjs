@@ -19,6 +19,7 @@
 // content-hashing of the filename is wired in the pipeline step).
 
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { computeRanking, getOfferSavingValue } from "../lib/ranking-core.mjs";
@@ -166,10 +167,24 @@ function main() {
   };
 
   const outPath = path.join(DATA_DIR, "summary.json");
-  fs.writeFileSync(outPath, JSON.stringify(summary));
-  const bytes = fs.statSync(outPath).size;
+  const json = JSON.stringify(summary);
+  fs.writeFileSync(outPath, json);
+  const bytes = json.length;
+
+  // Publish the summary into offers-index.json so the loaders can find it.
+  // offers-index.json is served max-age=0 (always fresh), so the content-hash
+  // version it carries is a safe cache-bust token: the loaders fetch
+  // `${summaryFile}?v=${summaryVersion}` and long-cache the result.
+  const version = crypto.createHash("sha256").update(json).digest("hex").slice(0, 12);
+  const indexPath = path.join(DATA_DIR, "offers-index.json");
+  const idx = readJson(indexPath);
+  idx.summaryFile = "./data/summary.json";
+  idx.summaryVersion = version;
+  fs.writeFileSync(indexPath, JSON.stringify(idx)); // compact, matches split_offers_by_city.py
+
   const cardCounts = SCOPES.map((s) => `${s}:${scopes[s].length}`).join(" ");
-  console.log(`[precompute] wrote ${path.relative(process.cwd(), outPath)} ${(bytes / 1e6).toFixed(2)}MB in ${Date.now() - t0}ms`);
+  console.log(`[precompute] wrote ${path.relative(process.cwd(), outPath)} ${(bytes / 1e6).toFixed(2)}MB v=${version} in ${Date.now() - t0}ms`);
+  console.log(`[precompute] patched offers-index.json (summaryFile + summaryVersion=${version})`);
   console.log(`[precompute] scopes ${cardCounts}  | offers in=${offers.length}  | requirements=${requirements ? "yes" : "no"}`);
 }
 
