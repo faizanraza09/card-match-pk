@@ -8,10 +8,14 @@ import { FilterSheet, FilterSheetHandle } from "@/components/FilterSheet";
 import { ResultsHeader } from "@/components/ResultsHeader";
 import { RestaurantRow } from "@/components/RestaurantRow";
 import { TopBar } from "@/components/TopBar";
-import { computeRestaurantDeals } from "@/lib/restaurants";
+import { cachedRestaurantDeals } from "@/lib/computeCache";
+import { useInteractionReady } from "@/lib/useInteractionReady";
 import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, spacing, typography } from "@/theme";
+
+// Stable empty list so a deferred/empty compute doesn't churn downstream memos.
+const EMPTY_DEALS: RestaurantDeal[] = [];
 
 export default function RestaurantsScreen() {
   const state = useAppStore();
@@ -28,17 +32,38 @@ export default function RestaurantsScreen() {
     if (!state.data) ensureRawOffers();
   }, [state.data, ensureRawOffers]);
 
-  const allDeals = useMemo(() => computeRestaurantDeals(deferredState), [deferredState]);
-  const recomputing = state !== deferredState || (!state.data && state.rawLoading);
+  // Cached restaurant deals (see computeCache). The nested recommendations pass
+  // reuses the Cards-tab cache. Keyed on the cache signature so unrelated state
+  // churn doesn't recompute, and revisiting a scope is instant. Defer the first
+  // uncached compute past the screen transition.
+  const ready = useInteractionReady();
+  const dealsKey = cachedRestaurantDeals.key(deferredState);
+  const { deals: allDeals, pending: dealsPending } = useMemo(() => {
+    if (!deferredState.data) return { deals: EMPTY_DEALS, pending: false };
+    const hit = cachedRestaurantDeals.peek(deferredState);
+    if (hit) return { deals: hit, pending: false };
+    if (!ready) return { deals: EMPTY_DEALS, pending: true };
+    return { deals: cachedRestaurantDeals(deferredState), pending: false };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dealsKey, ready]);
+  const recomputing =
+    state !== deferredState || (!state.data && state.rawLoading) || dealsPending;
   const deals = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return allDeals;
     return allDeals.filter((d) => d.restaurant.toLowerCase().includes(q));
   }, [allDeals, search]);
 
+  // Reset scroll to the top when the city changes. Key off deferredState (what
+  // the list renders) and defer a frame, otherwise the reset fires before the
+  // deferred data swaps in and FlashList's maintainVisibleContentPosition
+  // re-anchors the new list mid-scroll. See index.tsx for the full rationale.
   useEffect(() => {
-    listRef.current?.scrollToOffset({ offset: 0, animated: false });
-  }, [state.selectedCity, search]);
+    const id = requestAnimationFrame(() => {
+      listRef.current?.scrollToOffset({ offset: 0, animated: false });
+    });
+    return () => cancelAnimationFrame(id);
+  }, [deferredState.selectedCity, search]);
 
   // Debounced search analytics — fire once after the user settles on a query
   // for ~600ms instead of per-keystroke. Empty queries don't fire.
@@ -95,6 +120,10 @@ export default function RestaurantsScreen() {
           renderItem={({ item }) => <RestaurantRow item={item} />}
           keyExtractor={(item) => `${item.city}|||${item.restaurant}`}
           contentContainerStyle={styles.list}
+          // Re-sorted ranking list: disable FlashList v2's default
+          // maintainVisibleContentPosition so a city switch doesn't anchor to a
+          // key-stable row mid-list. We reset to the top explicitly. (index.tsx)
+          maintainVisibleContentPosition={{ disabled: true }}
         />
         {recomputing ? (
           <View style={styles.recomputing} pointerEvents="none">

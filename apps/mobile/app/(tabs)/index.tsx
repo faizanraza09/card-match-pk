@@ -20,7 +20,8 @@ import { FreshnessChip } from "@/components/FreshnessChip";
 import { ResultsHeader } from "@/components/ResultsHeader";
 import { TopBar } from "@/components/TopBar";
 import { WelcomeStrip } from "@/components/WelcomeStrip";
-import { computeRecommendations } from "@/lib/algorithms";
+import { cachedRecommendations } from "@/lib/computeCache";
+import { useInteractionReady } from "@/lib/useInteractionReady";
 import { evaluateEligibility } from "@/lib/eligibility";
 import { normalizeCityValue } from "@/lib/format";
 import { loadOffers, loadRequirements, loadSummary } from "@/data";
@@ -63,6 +64,9 @@ const AnimatedFlashList = Animated.createAnimatedComponent(FlashList) as unknown
 const FADE_END = 80;
 const STRIP_MAX_HEIGHT = 72;
 
+// Stable empty list so a deferred/empty compute doesn't churn downstream memos.
+const EMPTY_RECS: CardRecommendation[] = [];
+
 export default function CardsScreen() {
   const state = useAppStore();
   const deferredState = useDeferredValue(state);
@@ -98,14 +102,29 @@ export default function CardsScreen() {
     if (needsRaw) ensureRawOffers();
   }, [needsRaw, ensureRawOffers]);
 
-  const computedRecs = useMemo(
-    () => (deferredState.data ? computeRecommendations(deferredState) : []),
-    [deferredState]
-  );
+  // Heavy recommendation compute, served from the module-level cache. Keyed on
+  // the cache signature (only the inputs that change the result) so unrelated
+  // state churn — toggling compare, loading flags — no longer recomputes, and
+  // revisiting a city/scope you've already seen is an instant cache hit. On a
+  // genuine cache miss we defer the work past the screen transition (ready),
+  // showing the recomputing spinner meanwhile so navigation stays smooth.
+  const ready = useInteractionReady();
+  const recsKey = cachedRecommendations.key(deferredState);
+  const { recs: computedRecs, pending: recsPending } = useMemo(() => {
+    if (!deferredState.data) return { recs: EMPTY_RECS, pending: false };
+    const hit = cachedRecommendations.peek(deferredState);
+    if (hit) return { recs: hit, pending: false };
+    if (!ready) return { recs: EMPTY_RECS, pending: true };
+    return { recs: cachedRecommendations(deferredState), pending: false };
+    // recsKey captures every input that affects the result; deferredState is
+    // read fresh inside but only re-run when the key or readiness changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [recsKey, ready]);
   const allRecs = summaryRecs ?? computedRecs;
-  // "Recomputing" overlay: deferred lag while React catches up, OR we're
-  // waiting on the lazy raw load to satisfy a non-default scope.
-  const recomputing = state !== deferredState || (needsRaw && rawLoading);
+  // "Recomputing" overlay: deferred lag while React catches up, the lazy raw
+  // load for a non-default scope, or a deferred first compute of a new scope.
+  const recomputing =
+    state !== deferredState || (needsRaw && rawLoading) || recsPending;
   const recs = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return allRecs;
@@ -121,10 +140,18 @@ export default function CardsScreen() {
       : state.selectedCity.charAt(0).toUpperCase() + state.selectedCity.slice(1);
 
   // Reset list scroll when the city tab changes so the new list reads from the
-  // top, not from wherever the previous city left off.
+  // top, not from wherever the previous city left off. Key off deferredState
+  // (the value the list actually renders), not the immediate state: keying off
+  // state.selectedCity fires a commit too early — before the deferred data
+  // swaps in — so FlashList's maintainVisibleContentPosition (on by default in
+  // v2) re-anchors the new list mid-scroll. The rAF lets the new data lay out
+  // first, then we pin it to the top.
   useEffect(() => {
-    listRef.current?.scrollToOffset({ offset: 0, animated: false });
-  }, [state.selectedCity, search]);
+    const id = requestAnimationFrame(() => {
+      listRef.current?.scrollToOffset({ offset: 0, animated: false });
+    });
+    return () => cancelAnimationFrame(id);
+  }, [deferredState.selectedCity, search]);
 
   // Debounced search analytics — fire once the user settles on a query for
   // ~600ms, not once per keystroke. Empty queries don't fire.
@@ -233,6 +260,12 @@ export default function CardsScreen() {
           data={recs}
           renderItem={({ item, index }) => <CardRow item={item} rank={index + 1} />}
           keyExtractor={(item) => `${item.bank}||${item.card}`}
+          // This is a re-sorted ranking list, not a chat feed. FlashList v2
+          // enables maintainVisibleContentPosition by default, which anchors
+          // scroll to a key-stable row across data changes — so switching city
+          // jumps to wherever the previously-top card now ranks (e.g. #9)
+          // instead of the top. Disable it; we reset to the top explicitly.
+          maintainVisibleContentPosition={{ disabled: true }}
           contentContainerStyle={{
             paddingTop: 4,
             // Bump the bottom inset while the compare tray is floating so the
