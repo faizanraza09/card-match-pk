@@ -1,7 +1,7 @@
 import { FlashList } from "@shopify/flash-list";
 import { Link } from "expo-router";
-import { useMemo, useRef } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { useDeferredValue, useMemo, useRef } from "react";
+import { ActivityIndicator, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import type { StyleProp, ViewStyle } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
@@ -26,8 +26,10 @@ import {
 
 export default function MyWalletScreen() {
   const state = useAppStore();
+  const deferredState = useDeferredValue(state);
+  const recomputing = state !== deferredState;
   const sheet = useRef<FilterSheetHandle>(null);
-  const result = useMemo(() => computeNextCardRecommendations(state), [state]);
+  const result = useMemo(() => computeNextCardRecommendations(deferredState), [deferredState]);
 
   return (
     <SafeAreaView style={styles.flex} edges={["top"]}>
@@ -43,24 +45,31 @@ export default function MyWalletScreen() {
         }
         onPressFilters={() => sheet.current?.open()}
       />
-      <FlashList
-        data={result.ranked}
-        ListHeaderComponent={
-          <View style={styles.setup}>
-            <OwnedCardPicker />
-            {state.ownedCards.size > 0 && result.stats.wallet ? (
-              <View style={styles.walletStats}>
-                <WalletStat label="Per outing" value={formatCurrency(result.stats.wallet.perOuting)} />
-                <WalletStat label="Coverage" value={`${Math.round(result.stats.wallet.coverage * 100)}%`} />
-                <WalletStat label="Est. yearly" value={formatCurrency(result.stats.wallet.yearly)} />
-              </View>
-            ) : null}
+      <View style={styles.flex}>
+        <FlashList
+          data={result.ranked}
+          ListHeaderComponent={
+            <View style={styles.setup}>
+              <OwnedCardPicker />
+              {state.ownedCards.size > 0 && result.stats.wallet ? (
+                <View style={styles.walletStats}>
+                  <WalletStat label="Per outing" value={formatCurrency(result.stats.wallet.perOuting)} />
+                  <WalletStat label="Coverage" value={`${Math.round(result.stats.wallet.coverage * 100)}%`} />
+                  <WalletStat label="Est. yearly" value={formatCurrency(result.stats.wallet.yearly)} />
+                </View>
+              ) : null}
+            </View>
+          }
+          keyExtractor={(item) => `${item.bank}||${item.card}`}
+          renderItem={({ item, index }) => <NextCardRow item={item} rank={index + 1} />}
+          contentContainerStyle={styles.list}
+        />
+        {recomputing ? (
+          <View style={styles.recomputing} pointerEvents="none">
+            <ActivityIndicator color={colors.brand} />
           </View>
-        }
-        keyExtractor={(item) => `${item.bank}||${item.card}`}
-        renderItem={({ item, index }) => <NextCardRow item={item} rank={index + 1} />}
-        contentContainerStyle={styles.list}
-      />
+        ) : null}
+      </View>
       <FilterSheet ref={sheet} matchCount={result.ranked.length} matchLabel="picks" />
     </SafeAreaView>
   );
@@ -172,6 +181,13 @@ function WalletStat({ label, value }: { label: string; value: string }) {
 
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
+  recomputing: {
+    position: "absolute",
+    top: spacing.md,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
   list: { paddingBottom: 80, paddingTop: 4 },
 
   setup: {

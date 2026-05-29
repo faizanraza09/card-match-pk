@@ -1,7 +1,7 @@
 import { FlashList, type FlashListRef } from "@shopify/flash-list";
 import { ChevronDown, ChevronUp } from "lucide-react-native";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
 import { EligibilityBadge } from "@/components/EligibilityBadge";
@@ -23,9 +23,11 @@ const OBJECTIVE_LABEL: Record<WalletObjective, string> = {
 
 export default function BuildWalletScreen() {
   const state = useAppStore();
+  const deferredState = useDeferredValue(state);
+  const recomputing = state !== deferredState;
   const sheet = useRef<FilterSheetHandle>(null);
   const listRef = useRef<FlashListRef<WalletShape>>(null);
-  const result = useMemo(() => computeWalletRecommendations(state), [state]);
+  const result = useMemo(() => computeWalletRecommendations(deferredState), [deferredState]);
 
   const k = result.stats.K ?? state.walletSize;
   const obj = (result.stats.objective ?? "savings") as WalletObjective;
@@ -44,23 +46,30 @@ export default function BuildWalletScreen() {
         subtitle={`Combinations of ${k} cards · ${OBJECTIVE_LABEL[obj]}`}
         onPressFilters={() => sheet.current?.open()}
       />
-      <FlashList
-        ref={listRef}
-        ListHeaderComponent={<WalletConfig />}
-        data={result.ranked}
-        keyExtractor={(w) => w.walletKey}
-        renderItem={({ item, index }) => <WalletCard wallet={item} rank={index + 1} />}
-        contentContainerStyle={styles.list}
-        ListFooterComponent={
-          result.stats.warnings.length ? (
-            <View style={styles.warnBox}>
-              {result.stats.warnings.map((w, i) => (
-                <Text key={i} style={styles.warnText}>• {w}</Text>
-              ))}
-            </View>
-          ) : null
-        }
-      />
+      <View style={styles.flex}>
+        <FlashList
+          ref={listRef}
+          ListHeaderComponent={<WalletConfig />}
+          data={result.ranked}
+          keyExtractor={(w) => w.walletKey}
+          renderItem={({ item, index }) => <WalletCard wallet={item} rank={index + 1} />}
+          contentContainerStyle={styles.list}
+          ListFooterComponent={
+            result.stats.warnings.length ? (
+              <View style={styles.warnBox}>
+                {result.stats.warnings.map((w, i) => (
+                  <Text key={i} style={styles.warnText}>• {w}</Text>
+                ))}
+              </View>
+            ) : null
+          }
+        />
+        {recomputing ? (
+          <View style={styles.recomputing} pointerEvents="none">
+            <ActivityIndicator color={colors.brand} />
+          </View>
+        ) : null}
+      </View>
       <FilterSheet ref={sheet} matchCount={result.ranked.length} matchLabel="wallets" />
     </SafeAreaView>
   );
@@ -216,6 +225,13 @@ function WalletCard({ wallet, rank }: { wallet: WalletShape; rank: number }) {
 
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
+  recomputing: {
+    position: "absolute",
+    top: spacing.md,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
   list: { paddingBottom: 80, paddingTop: 4 },
   config: {
     backgroundColor: colors.bgElev,

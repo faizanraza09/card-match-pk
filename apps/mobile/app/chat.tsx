@@ -12,6 +12,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors, radii, spacing, typography } from "@/theme";
 import { useAppStore } from "@/store";
 import {
@@ -140,6 +141,7 @@ export default function ChatScreen() {
   const [hydrated, setHydrated] = useState(false);
   const listRef = useRef<FlatList<DisplayMsg>>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const insets = useSafeAreaInsets();
 
   // Pull store + setters once. The store is reactive so this re-renders on changes.
   const storeState = useAppStore();
@@ -321,7 +323,7 @@ export default function ChatScreen() {
           <Text style={styles.loadingText}>Thinking…</Text>
         </View>
       ) : null}
-      <View style={styles.composer}>
+      <View style={[styles.composer, { paddingBottom: Math.max(insets.bottom, spacing.sm) }]}>
         <TextInput
           style={styles.input}
           placeholder="Ask a question…"
@@ -401,7 +403,8 @@ const styles = StyleSheet.create({
   retryText: { color: colors.text, fontSize: typography.size.sm, fontWeight: typography.weight.semibold },
   composer: {
     flexDirection: "row",
-    padding: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    paddingTop: spacing.sm,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.border,
     backgroundColor: colors.bgElev,

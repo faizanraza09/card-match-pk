@@ -1,3 +1,4 @@
+import * as Haptics from "expo-haptics";
 import { useMemo } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { track } from "@/lib/analytics";
@@ -28,6 +29,7 @@ export function CityTabs() {
                 key={c}
                 onPress={() => {
                   if (selectedCity === c) return;
+                  Haptics.selectionAsync().catch(() => undefined);
                   track("city_change", { from: selectedCity, to: c });
                   setSelectedCity(c);
                 }}

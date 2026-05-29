@@ -1,7 +1,7 @@
 import { FlashList, type FlashListRef } from "@shopify/flash-list";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import type { RestaurantDeal } from "@/components/RestaurantRow";
-import { StyleSheet, TextInput, View } from "react-native";
+import { ActivityIndicator, StyleSheet, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
 import { FilterSheet, FilterSheetHandle } from "@/components/FilterSheet";
@@ -15,11 +15,13 @@ import { colors, radii, spacing, typography } from "@/theme";
 
 export default function RestaurantsScreen() {
   const state = useAppStore();
+  const deferredState = useDeferredValue(state);
+  const recomputing = state !== deferredState;
   const sheet = useRef<FilterSheetHandle>(null);
   const listRef = useRef<FlashListRef<RestaurantDeal>>(null);
   const [search, setSearch] = useState("");
 
-  const allDeals = useMemo(() => computeRestaurantDeals(state), [state]);
+  const allDeals = useMemo(() => computeRestaurantDeals(deferredState), [deferredState]);
   const deals = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return allDeals;
@@ -86,6 +88,11 @@ export default function RestaurantsScreen() {
           keyExtractor={(item) => `${item.city}|||${item.restaurant}`}
           contentContainerStyle={styles.list}
         />
+        {recomputing ? (
+          <View style={styles.recomputing} pointerEvents="none">
+            <ActivityIndicator color={colors.brand} />
+          </View>
+        ) : null}
       </View>
       <FilterSheet ref={sheet} matchCount={deals.length} matchLabel="restaurants" />
     </SafeAreaView>
@@ -94,6 +101,13 @@ export default function RestaurantsScreen() {
 
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
+  recomputing: {
+    position: "absolute",
+    top: spacing.md,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
   list: { paddingBottom: 80, paddingTop: 4 },
   searchWrap: { paddingHorizontal: spacing.lg, paddingBottom: spacing.sm },
   searchInput: {

@@ -1,8 +1,8 @@
 import { FlashList, type FlashListRef } from "@shopify/flash-list";
 import type { CardRecommendation } from "@/types";
 import * as Haptics from "expo-haptics";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { RefreshControl, StyleSheet, TextInput, View } from "react-native";
+import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { ActivityIndicator, RefreshControl, StyleSheet, TextInput, View } from "react-native";
 import Animated, {
   Extrapolation,
   interpolate,
@@ -39,13 +39,15 @@ const STRIP_MAX_HEIGHT = 72;
 
 export default function CardsScreen() {
   const state = useAppStore();
+  const deferredState = useDeferredValue(state);
+  const recomputing = state !== deferredState;
   const setData = useAppStore((s) => s.setData);
   const sheet = useRef<FilterSheetHandle>(null);
   const listRef = useRef<FlashListRef<CardRecommendation>>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [search, setSearch] = useState("");
 
-  const allRecs = useMemo(() => computeRecommendations(state), [state]);
+  const allRecs = useMemo(() => computeRecommendations(deferredState), [deferredState]);
   const recs = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return allRecs;
@@ -173,6 +175,11 @@ export default function CardsScreen() {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.brand} />
           }
         />
+        {recomputing ? (
+          <View style={styles.recomputing} pointerEvents="none">
+            <ActivityIndicator color={colors.brand} />
+          </View>
+        ) : null}
       </View>
       <FilterSheet ref={sheet} matchCount={recs.length} matchLabel="cards" />
       <CompareTray />
@@ -182,6 +189,13 @@ export default function CardsScreen() {
 
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
+  recomputing: {
+    position: "absolute",
+    top: spacing.md,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
   searchWrap: { paddingHorizontal: spacing.lg, paddingBottom: spacing.sm },
   searchInput: {
     backgroundColor: colors.bgElev,
