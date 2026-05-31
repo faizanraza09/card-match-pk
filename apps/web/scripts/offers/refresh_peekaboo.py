@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import re
 import socket
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -136,6 +138,48 @@ session.headers.update(HEADERS)
 adapter = HTTPAdapter(pool_connections=20, pool_maxsize=20, max_retries=3)
 session.mount("https://", adapter)
 session.mount("http://", adapter)
+
+
+# Peekaboo's API is intermittently slow under the volume we hit it with
+# (~200 cards x 3 cities, paginated = thousands of POSTs). A single 60s read
+# timeout used to raise straight out of a worker and abort the whole scrape,
+# throwing away everything already fetched and falling back to stale data.
+# Every Peekaboo call now goes through request_with_retries: it retries
+# timeouts, connection errors, and 429/5xx with exponential backoff + jitter.
+# Completeness is prioritised over speed — a run either fetches everything or
+# fails loudly, so the pipeline keeps yesterday's COMPLETE data rather than
+# publishing a partial dataset.
+DEFAULT_TIMEOUT = (15, 90)  # (connect, read) seconds
+MAX_ATTEMPTS = 6
+RETRYABLE_STATUS = {429, 500, 502, 503, 504}
+
+
+def request_with_retries(method: str, url: str, **kwargs):
+    kwargs.setdefault("timeout", DEFAULT_TIMEOUT)
+    last_exc: Exception | None = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            res = session.request(method, url, **kwargs)
+            if res.status_code in RETRYABLE_STATUS:
+                raise requests.exceptions.HTTPError(
+                    f"{res.status_code} Server Error for {method} {url}", response=res
+                )
+            return res
+        except requests.exceptions.RequestException as exc:
+            last_exc = exc
+            if attempt == MAX_ATTEMPTS:
+                break
+            backoff = min(30.0, 2.0 ** (attempt - 1))
+            delay = backoff / 2 + random.uniform(0, backoff / 2)
+            endpoint = url.split("?", 1)[0].replace(BASE, "")
+            print(
+                f"  [peekaboo] {method} {endpoint} failed "
+                f"(attempt {attempt}/{MAX_ATTEMPTS}): {exc!r} — retrying in {delay:.1f}s",
+                flush=True,
+            )
+            time.sleep(delay)
+    assert last_exc is not None  # loop only exits via return or break-with-exc
+    raise last_exc
 
 deals_cache: dict[tuple[str, str], list[dict]] = {}
 deals_cache_lock = Lock()
@@ -434,7 +478,7 @@ def get_entity_deals(city_name: str, city_meta: dict, entity_id: str | int) -> l
 
     deals = []
     while True:
-        res = session.post(f"{BASE}/api/v8/entity/deals", json=payload, timeout=60)
+        res = request_with_retries("POST", f"{BASE}/api/v8/entity/deals", json=payload)
         res.raise_for_status()
         data = res.json()
         page_deals = data.get("deals", [])
@@ -466,10 +510,10 @@ def deal_matches_card(deal: dict, bank: dict, card: dict) -> bool:
 
 
 def get_banks() -> list[dict]:
-    res = session.post(
+    res = request_with_retries(
+        "POST",
         f"{BASE}/api/v6/sourceEntities",
         json={**COMMON_BODY, "limit": 200, "offset": 0},
-        timeout=60,
     )
     res.raise_for_status()
     banks = []
@@ -492,7 +536,7 @@ def get_cards(bank: dict) -> tuple[dict, list[dict]]:
         f"?city=Karachi&country=Pakistan&entity=&language=en"
         f"&lat=24.861462&limit=50&long=67.009939&offset=0"
     )
-    res = session.get(url, timeout=60)
+    res = request_with_retries("GET", url)
     res.raise_for_status()
     data = res.json()
     if not isinstance(data, list):
@@ -523,10 +567,10 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
     }
 
     while True:
-        res = session.post(
+        res = request_with_retries(
+            "POST",
             f"{BASE}/api/v8/entities",
             json={**base_body, "limit": 50, "offset": offset},
-            timeout=60,
         )
         res.raise_for_status()
         data = res.json()
@@ -839,7 +883,8 @@ def fetch_entity_detail(entity_id: int, city_name: str, city_meta: dict) -> dict
         if entity_id in _detail_cache:
             return _detail_cache[entity_id]
     try:
-        res = session.post(
+        res = request_with_retries(
+            "POST",
             f"{BASE}/api/v8/entity/detail",
             json={
                 "city": city_name,
@@ -849,7 +894,6 @@ def fetch_entity_detail(entity_id: int, city_name: str, city_meta: dict) -> dict
                 "language": "en",
                 "entityId": str(entity_id),
             },
-            timeout=30,
         )
         if res.status_code != 200:
             with _detail_cache_lock:
@@ -875,7 +919,8 @@ def fetch_entity_branches(entity_id: int, entity_name: str, city_name: str, city
         if key in _branches_cache:
             return _branches_cache[key]
     try:
-        res = session.post(
+        res = request_with_retries(
+            "POST",
             f"{BASE}/api/v6/entity/branch/_all",
             json={
                 "city": city_name,
@@ -894,7 +939,6 @@ def fetch_entity_branches(entity_id: int, entity_name: str, city_name: str, city
                 "isOpenOnTop": "false",
                 "amenityIds": [98],
             },
-            timeout=30,
         )
         if res.status_code != 200:
             with _branches_cache_lock:
@@ -1084,7 +1128,9 @@ def main() -> None:
     offers: list[dict] = []
     for city_name, city_meta in CITIES.items():
         print(f"\nFetching offers for {city_name}...")
-        with ThreadPoolExecutor(max_workers=8) as executor:
+        # Gentler concurrency (was 8) to reduce the request rate that triggers
+        # Peekaboo's slow responses; request_with_retries absorbs the rest.
+        with ThreadPoolExecutor(max_workers=6) as executor:
             futures = [
                 executor.submit(get_card_offers, city_name, city_meta, bank, card)
                 for bank, card in bank_cards
