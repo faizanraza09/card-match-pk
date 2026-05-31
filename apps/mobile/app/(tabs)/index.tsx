@@ -68,6 +68,13 @@ const AnimatedFlashList = Animated.createAnimatedComponent(FlashList) as unknown
 // Stable empty list so a deferred/empty compute doesn't churn downstream memos.
 const EMPTY_RECS: CardRecommendation[] = [];
 
+// The cards list shows the FULL ranking (parity with the local raw-offers
+// compute), so ask /api/rank for everything. Without a limit the endpoint falls
+// back to its 100 default, which made the count jump from ~100 (API cold-start)
+// to the real total once raw offers loaded. 500 = the API's MAX_LIMIT, well
+// above the current ~207 cards.
+const RANK_API_LIMIT = 500;
+
 export default function CardsScreen() {
   const state = useAppStore();
   const deferredState = useDeferredValue(state);
@@ -129,7 +136,7 @@ export default function CardsScreen() {
     let cancelled = false;
     const controller = new AbortController();
     const t = setTimeout(() => {
-      rankViaApi(deferredState, { signal: controller.signal })
+      rankViaApi(deferredState, { signal: controller.signal, limit: RANK_API_LIMIT })
         .then((recs) => {
           if (cancelled) return; // scope changed before the response landed
           setApiRecs({ key: recsKey, recs });
