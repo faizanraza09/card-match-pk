@@ -2,7 +2,7 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { Stack, useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useRef, useState } from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { Animated, Easing, Image, StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PostHogProvider } from "posthog-react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -165,10 +165,43 @@ export default function RootLayout() {
 }
 
 function Boot() {
+  // Branded splash while summary + requirements load. A soft halo pulses behind
+  // the card/dining medallion (same motif as onboarding) so the wait feels
+  // intentional and on-brand rather than a bare spinner.
+  const pulse = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulse, { toValue: 1, duration: 950, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+        Animated.timing(pulse, { toValue: 0, duration: 950, easing: Easing.inOut(Easing.ease), useNativeDriver: true }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [pulse]);
+  const haloScale = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.92, 1.18] });
+  const haloOpacity = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.25, 0.55] });
+
   return (
     <View style={styles.boot}>
-      <ActivityIndicator size="large" color={colors.brand} />
-      <Text style={styles.bootText}>Loading deals…</Text>
+      <View style={styles.bootCenter}>
+        <View style={styles.medallionWrap}>
+          <Animated.View
+            style={[styles.halo, { opacity: haloOpacity, transform: [{ scale: haloScale }] }]}
+          />
+          <Image
+            source={require("../assets/splash-icon.png")}
+            style={styles.medallion}
+            resizeMode="contain"
+            accessibilityLabel="KonsaCard"
+          />
+        </View>
+        <Text style={styles.brandWord}>
+          konsa<Text style={{ color: colors.brand }}>card</Text>
+        </Text>
+        <Text style={styles.bootTitle}>Finding your best cards…</Text>
+        <Text style={styles.bootSub}>Ranking restaurant deals across 18 banks in your city</Text>
+      </View>
     </View>
   );
 }
@@ -192,6 +225,37 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: colors.bg,
     padding: spacing.xl,
+  },
+  bootCenter: { alignItems: "center" },
+  medallionWrap: { alignItems: "center", justifyContent: "center", marginBottom: spacing.xxl },
+  halo: {
+    position: "absolute",
+    width: 128,
+    height: 128,
+    borderRadius: 64,
+    backgroundColor: colors.brandMid,
+  },
+  medallion: { width: 96, height: 96, borderRadius: 48 },
+  brandWord: {
+    fontSize: typography.size.lg,
+    fontWeight: typography.weight.black,
+    color: colors.text,
+    letterSpacing: -0.3,
+    marginBottom: spacing.lg,
+  },
+  bootTitle: {
+    color: colors.text,
+    fontSize: typography.size.xl,
+    fontWeight: typography.weight.bold,
+    textAlign: "center",
+  },
+  bootSub: {
+    marginTop: spacing.xs,
+    color: colors.textDim,
+    fontSize: typography.size.sm,
+    textAlign: "center",
+    paddingHorizontal: spacing.xl,
+    lineHeight: 19,
   },
   bootText: {
     marginTop: spacing.md,
