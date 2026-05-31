@@ -315,13 +315,20 @@ function CuisineSection() {
   const toggle = useAppStore((s) => s.toggleCuisine);
   const [expanded, setExpanded] = useState(false);
 
-  if (cuisines.length === 0) return null;
-
-  const popularInData = POPULAR_CUISINES.filter((c) => cuisines.includes(c));
+  // Hooks must run unconditionally and in a stable order — keep this useMemo
+  // ABOVE the early return below. `cuisines` starts empty and fills in once
+  // restaurantsEnrichment loads, so an early return before this hook changes
+  // the hook count between renders ("Rendered more hooks than during the
+  // previous render"). popularInData is computed inside so the deps stay
+  // stable (it was a fresh array each render, defeating the memo).
   const collapsed = useMemo(() => {
+    const popularInData = POPULAR_CUISINES.filter((c) => cuisines.includes(c));
     const set = new Set<string>([...popularInData, ...Array.from(selected)]);
     return Array.from(set).filter((c) => cuisines.includes(c));
-  }, [popularInData, selected, cuisines]);
+  }, [selected, cuisines]);
+
+  if (cuisines.length === 0) return null;
+
   const visible = expanded ? cuisines : collapsed;
   const hiddenCount = Math.max(0, cuisines.length - collapsed.length);
 
