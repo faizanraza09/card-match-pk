@@ -31,6 +31,34 @@
       ]
     },
     {
+      "card_name": "HBL Islamic UPI & PayPak Co-Badge DebitCard",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2700,
+        "supplementary_annual_fee_pkr": 550,
+        "annual_fee_waiver_rule": "First-year free issuance of the PayPak debit card for HBL Uraan, HBL Islamic Rutba, all Islamic Asaan accounts, and HBL Islamic Mahana Amdan; second year onwards annual fees apply (ISOBC Jan-Jun 2026, note iii).",
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.hbl.com/news-and-media/hbl-to-launch-unionpay-paypak-co-badge-debit-card",
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Co-badge Islamic debit card combining UnionPay International (UPI) global acceptance with the domestic PayPak scheme (HBL UnionPay PayPak Co-Badge Debit Card launch).",
+        "ISOBC Jan-Jun 2026 (HBL Islamic Debit Card section) bills by chip type: UnionPay Chip primary annual fee Rs. 2,700, supplementary Rs. 550, replacement Rs. 850. The co-badge card carries the UnionPay (classic) chip, so it is billed at the UnionPay Chip rate; PayPak Chip alone is Rs. 2,000.",
+        "HBL Islamic does not publish a salary or minimum-balance threshold for consumer Islamic debit cards; both left null per methodology (null != 0).",
+        "Issued against an existing HBL Islamic account; inherits the linked account's eligibility."
+      ]
+    },
+    {
       "card_name": "HBL Islamic Mastercard Standard Debit Card",
       "card_type": "debit",
       "tier": "classic",

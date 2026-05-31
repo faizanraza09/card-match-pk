@@ -1565,6 +1565,7 @@
       "hbl--hbl-platinum-creditcard",
       "hbl--hbl-prestige-world-elite-debitcard",
       "hbl--hbl-titanium-debitcard",
+      "hbl--hbl-upi-paypak-co-badge-debitcard",
       "hbl--hbl-world-business-debitcard",
       "hbl--hbl-world-debitcard"
     ]
@@ -1579,6 +1580,16 @@
       "hbl--hbl-gold-debitcard",
       "hbl--hbl-prestige-world-elite-debitcard",
       "hbl--hbl-world-debitcard"
+    ]
+  },
+  {
+    "source_id": "hbl-src-c685c065d9",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "url": "https://www.hbl.com/news-and-media/hbl-to-launch-unionpay-paypak-co-badge-debit-card",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "hbl--hbl-upi-paypak-co-badge-debitcard"
     ]
   },
   {
@@ -1671,6 +1682,16 @@
     ]
   },
   {
+    "source_id": "hbl-src-8fc91121ea",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "url": "https://www.hbl.com/personal/cards/debit-cards/hbl-paypak-debit-card",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "hbl--hbl-upi-paypak-co-badge-debitcard"
+    ]
+  },
+  {
     "source_id": "hbl-src-61fcb687a1",
     "bank_slug": "hbl",
     "bank_name": "HBL",
@@ -1712,6 +1733,7 @@
       "hbl-islamic--hbl-islamic-mastercard-standard-debit-card",
       "hbl-islamic--hbl-islamic-paypak-debit-card",
       "hbl-islamic--hbl-islamic-titanium-debitcard",
+      "hbl-islamic--hbl-islamic-upi-paypak-co-badge-debitcard",
       "hbl-islamic--hbl-islamic-world-debit-card",
       "hbl-islamic--hbl-world-islamic-business-debitcard"
     ]
@@ -1726,6 +1748,7 @@
       "hbl-islamic--hbl-islamic-mastercard-gold-debit-card",
       "hbl-islamic--hbl-islamic-mastercard-standard-debit-card",
       "hbl-islamic--hbl-islamic-paypak-debit-card",
+      "hbl-islamic--hbl-islamic-upi-paypak-co-badge-debitcard",
       "hbl-islamic--hbl-islamic-world-debit-card"
     ]
   },
@@ -1787,6 +1810,16 @@
     "source_type": "html",
     "used_by_card_ids": [
       "hbl-islamic--hbl-world-islamic-business-debitcard"
+    ]
+  },
+  {
+    "source_id": "hbl-islamic-src-c685c065d9",
+    "bank_slug": "hbl-islamic",
+    "bank_name": "HBL Islamic Bank Limited",
+    "url": "https://www.hbl.com/news-and-media/hbl-to-launch-unionpay-paypak-co-badge-debit-card",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "hbl-islamic--hbl-islamic-upi-paypak-co-badge-debitcard"
     ]
   },
   {

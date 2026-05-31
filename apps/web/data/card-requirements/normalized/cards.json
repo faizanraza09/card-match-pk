@@ -1163,7 +1163,7 @@
     "card_type": "debit",
     "tier": "business",
     "confidence": "high",
-    "pilot_position": 8
+    "pilot_position": 9
   },
   {
     "card_id": "hbl--hbl-classic-debitcard",
@@ -1185,7 +1185,7 @@
     "card_type": "debit",
     "tier": "gold",
     "confidence": "medium",
-    "pilot_position": 7
+    "pilot_position": 8
   },
   {
     "card_id": "hbl--hbl-nisa-debitcard",
@@ -1196,7 +1196,7 @@
     "card_type": "debit",
     "tier": "other",
     "confidence": "medium",
-    "pilot_position": 12
+    "pilot_position": 13
   },
   {
     "card_id": "hbl--hbl-prestige-world-elite-debitcard",
@@ -1207,7 +1207,7 @@
     "card_type": "debit",
     "tier": "world-elite",
     "confidence": "high",
-    "pilot_position": 11
+    "pilot_position": 12
   },
   {
     "card_id": "hbl--hbl-titanium-debitcard",
@@ -1218,7 +1218,18 @@
     "card_type": "debit",
     "tier": "titanium",
     "confidence": "medium",
-    "pilot_position": 13
+    "pilot_position": 14
+  },
+  {
+    "card_id": "hbl--hbl-upi-paypak-co-badge-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL UPI & PayPak Co-Badge DebitCard",
+    "card_slug": "hbl-upi-paypak-co-badge-debitcard",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "medium",
+    "pilot_position": 7
   },
   {
     "card_id": "hbl--hbl-world-business-debitcard",
@@ -1229,7 +1240,7 @@
     "card_type": "debit",
     "tier": "world-business",
     "confidence": "high",
-    "pilot_position": 9
+    "pilot_position": 10
   },
   {
     "card_id": "hbl--hbl-world-debitcard",
@@ -1240,7 +1251,7 @@
     "card_type": "debit",
     "tier": "world",
     "confidence": "medium",
-    "pilot_position": 10
+    "pilot_position": 11
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-business-debitcard",
@@ -1251,7 +1262,7 @@
     "card_type": "debit",
     "tier": "business",
     "confidence": "medium",
-    "pilot_position": 5
+    "pilot_position": 6
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-mastercard-gold-debit-card",
@@ -1262,7 +1273,7 @@
     "card_type": "debit",
     "tier": "gold",
     "confidence": "medium",
-    "pilot_position": 3
+    "pilot_position": 4
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-mastercard-standard-debit-card",
@@ -1273,7 +1284,7 @@
     "card_type": "debit",
     "tier": "classic",
     "confidence": "medium",
-    "pilot_position": 2
+    "pilot_position": 3
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-paypak-debit-card",
@@ -1295,7 +1306,7 @@
     "card_type": "debit",
     "tier": "world-elite",
     "confidence": "high",
-    "pilot_position": 7
+    "pilot_position": 8
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-titanium-debitcard",
@@ -1306,7 +1317,18 @@
     "card_type": "debit",
     "tier": "titanium",
     "confidence": "low",
-    "pilot_position": 8
+    "pilot_position": 9
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-upi-paypak-co-badge-debitcard",
+    "bank_slug": "hbl-islamic",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic UPI & PayPak Co-Badge DebitCard",
+    "card_slug": "hbl-islamic-upi-paypak-co-badge-debitcard",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "medium",
+    "pilot_position": 2
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-world-debit-card",
@@ -1317,7 +1339,7 @@
     "card_type": "debit",
     "tier": "world",
     "confidence": "medium",
-    "pilot_position": 4
+    "pilot_position": 5
   },
   {
     "card_id": "hbl-islamic--hbl-world-islamic-business-debitcard",
@@ -1328,7 +1350,7 @@
     "card_type": "debit",
     "tier": "world-business",
     "confidence": "medium",
-    "pilot_position": 6
+    "pilot_position": 7
   },
   {
     "card_id": "habib-metro--business-debit-card",
