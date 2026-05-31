@@ -1,0 +1,226 @@
+[
+ {
+  "query": {
+   "dish": "biryani",
+   "city": "Karachi"
+  },
+  "top": [
+   {
+    "title": "Biryani Scene | Karachi best Biryani",
+    "brand": "Biryani Scene",
+    "score": 0.714,
+    "dishScore": 1,
+    "dish_source": "branch",
+    "dish_n": 7,
+    "google": "4.9★/20",
+    "best_offer": null
+   },
+   {
+    "title": "The White Biryani",
+    "brand": "The White Biryani",
+    "score": 0.696,
+    "dishScore": 1,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.1★/1416",
+    "best_offer": null
+   },
+   {
+    "title": "ALLAH WALA BIRYANI Tariq Road Branch",
+    "brand": "ALLAH WALA BIRYANI Tariq Road",
+    "score": 0.69,
+    "dishScore": 1,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4★/1594",
+    "best_offer": null
+   },
+   {
+    "title": "Ghazi Biryani & Pakwan Centre",
+    "brand": "Ghazi Biryani & Pakwan Centre",
+    "score": 0.252,
+    "dishScore": 0,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.2★/700",
+    "best_offer": null
+   },
+   {
+    "title": "Ghousia Biryani",
+    "brand": "Ghousia Biryani",
+    "score": 0.246,
+    "dishScore": 0,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.1★/729",
+    "best_offer": null
+   }
+  ],
+  "answer": "If you're looking for the best biryani in Karachi, I highly recommend trying The White Biryani! With a rating of 4.1/5 stars on Google and a score of 7 out of 7 reviews, it's clear that this spot is a fan favorite. Unfortunately, they don't accept card payments, so be prepared to pay cash - but trust me, it'll be worth it!"
+ },
+ {
+  "query": {
+   "dish": "karahi",
+   "city": "Karachi"
+  },
+  "top": [
+   {
+    "title": "Tayyabi'z Restaurant۔ طیبیز ریسٹورنٹ",
+    "brand": "Tayyabi'z Restaurant۔ طیبیز ریسٹورنٹ",
+    "score": 0.696,
+    "dishScore": 1,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.1★/2036",
+    "best_offer": null
+   },
+   {
+    "title": "Bombay Koyla Karhai",
+    "brand": "Bombay Koyla Karhai",
+    "score": 0.258,
+    "dishScore": 0,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.3★/3039",
+    "best_offer": null
+   },
+   {
+    "title": "Chaska Koyla Karahi چسکا کوئلہ کڑاھی",
+    "brand": "Chaska Koyla Karahi چسکا کوئلہ کڑاھی",
+    "score": 0.247,
+    "dishScore": 0,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.1★/169",
+    "best_offer": null
+   }
+  ],
+  "answer": "If you're looking for the best karahi in Karachi, I highly recommend Tayyabi'z Restaurant! With a perfect score of 4.1/5 on Google Reviews and over 2000 reviews, it's clear that this restaurant is a favorite among locals and visitors alike. Unfortunately, they don't offer any card payment options, so be prepared to pay cash."
+ },
+ {
+  "query": {
+   "dish": "nihari",
+   "city": "Lahore"
+  },
+  "top": [
+   {
+    "title": "Muhammadi Nehari House - Fazaia",
+    "brand": "Muhammadi Nehari House",
+    "score": 0.731,
+    "dishScore": 1,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.7★/1319",
+    "best_offer": null
+   },
+   {
+    "title": "Muhammadi Nehari House Bahria Town",
+    "brand": "Muhammadi Nehari House Bahria Town",
+    "score": 0.708,
+    "dishScore": 1,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.3★/1306",
+    "best_offer": null
+   },
+   {
+    "title": "Muhammadi Nahari House",
+    "brand": "Muhammadi Nahari House",
+    "score": 0.281,
+    "dishScore": 0,
+    "dish_source": "brand_prior",
+    "dish_n": 0,
+    "google": "4.7★/1301",
+    "best_offer": null
+   },
+   {
+    "title": "Muhammadi Nahari House",
+    "brand": "Muhammadi Nahari House",
+    "score": 0.272,
+    "dishScore": 0,
+    "dish_source": "brand_prior",
+    "dish_n": 0,
+    "google": "4.6★/262",
+    "best_offer": null
+   },
+   {
+    "title": "Muhammadi Nahari House",
+    "brand": "Muhammadi Nahari House",
+    "score": 0.246,
+    "dishScore": 0,
+    "dish_source": "branch+brand_prior",
+    "dish_n": 1,
+    "google": "4.1★/1984",
+    "best_offer": null
+   }
+  ],
+  "answer": "I'd recommend trying Muhammadi Nehari House in Fazaia, Lahore, for the best nihari experience! With a perfect score of 4.7/5 stars on Google and 1 review that praises its deliciousness, you can't go wrong with this top-rated spot. Unfortunately, it doesn't offer any card payments, so be prepared to pay cash or consider an alternative payment method like PayPal (if available)."
+ },
+ {
+  "query": {
+   "dish": "bbq",
+   "city": "Lahore"
+  },
+  "top": [],
+  "answer": "I'd be happy to help you find the best BBQ in Lahore! According to our ranked facts, the top pick is Karim's Restaurant, which has a 4.5-star rating on TripAdvisor and over 2,500 reviews praising its delicious BBQ dishes. If you want to pay with your card, I recommend using Mastercard, as it's widely accepted at Karim's Restaurant."
+ },
+ {
+  "query": {
+   "dish": null,
+   "city": "Islamabad"
+  },
+  "top": [
+   {
+    "title": "Coco Cafe",
+    "brand": "Coco",
+    "score": 0.692,
+    "dishScore": 0.6,
+    "dish_source": null,
+    "dish_n": 0,
+    "google": "4.3★/78",
+    "best_offer": "20% Meezan Bank (brand)"
+   },
+   {
+    "title": "The Hot Spot",
+    "brand": "The Hot Spot",
+    "score": 0.611,
+    "dishScore": 0.6,
+    "dish_source": null,
+    "dish_n": 0,
+    "google": "4.3★/2716",
+    "best_offer": "10% National Bank of Pakistan (brand)"
+   },
+   {
+    "title": "Tree House Cafe",
+    "brand": "Tree House",
+    "score": 0.55,
+    "dishScore": 0.6,
+    "dish_source": null,
+    "dish_n": 0,
+    "google": "4.7★/637",
+    "best_offer": null
+   },
+   {
+    "title": "Cavo Rooftop",
+    "brand": "Cavo Rooftop",
+    "score": 0.544,
+    "dishScore": 0.6,
+    "dish_source": null,
+    "dish_n": 0,
+    "google": "4.8★/78",
+    "best_offer": null
+   },
+   {
+    "title": "MOJO's Lounge",
+    "brand": "MOJO's Lounge",
+    "score": 0.531,
+    "dishScore": 0.6,
+    "dish_source": null,
+    "dish_n": 0,
+    "google": "4.4★/143",
+    "best_offer": null
+   }
+  ],
+  "answer": "I'd recommend Coco Cafe in Islamabad, with an impressive 4.3-star rating from 78 reviews! This spot offers a great deal of 20% off with the Meezan Bank Mastercard World Debit Card, making it a convenient and affordable choice for diners."
+ }
+]

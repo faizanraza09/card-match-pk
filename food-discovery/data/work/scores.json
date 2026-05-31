@@ -1,0 +1,6794 @@
+{
+ "ChIJvypU_RE_sz4RXc1su929iy8": {
+  "branch_id": "ChIJvypU_RE_sz4RXc1su929iy8",
+  "brand": "Tayyabi'z Restaurant۔ طیبیز ریسٹورنٹ",
+  "brand_key": "tayyabizrestaurant",
+  "title": "Tayyabi'z Restaurant۔ طیبیز ریسٹورنٹ",
+  "city": "Karachi",
+  "lat": 24.915227599999998,
+  "lng": 67.05842299999999,
+  "price_range": "Rs 1–4,000",
+  "google_rating": 4.1,
+  "google_review_count": 2036,
+  "star_quality": 0.82,
+  "dishes": {
+   "katakat": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "bbq platter": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "bbq": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "karahi": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "fried rice": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "zinger rolls": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "excellent": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "beef boti": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "ambiance": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   },
+   "food": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   },
+   "value": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "cleanliness": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "portion": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "wait": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "service": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJH1K8LxI_sz4Rlj7lhXJ37qg": {
+  "branch_id": "ChIJH1K8LxI_sz4Rlj7lhXJ37qg",
+  "brand": "Bombay Koyla Karhai",
+  "brand_key": "bombaykoylakarhai",
+  "title": "Bombay Koyla Karhai",
+  "city": "Karachi",
+  "lat": 24.916861599999997,
+  "lng": 67.0607266,
+  "price_range": "Rs 1–4,000",
+  "google_rating": 4.3,
+  "google_review_count": 3039,
+  "star_quality": 0.86,
+  "dishes": {
+   "tasteless karahi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "half done meat": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJZZytTsg_sz4RMAejuFHmWLc": {
+  "branch_id": "ChIJZZytTsg_sz4RMAejuFHmWLc",
+  "brand": "Chaska Koyla Karahi چسکا کوئلہ کڑاھی",
+  "brand_key": "chaskakoylakarahi",
+  "title": "Chaska Koyla Karahi چسکا کوئلہ کڑاھی",
+  "city": "Karachi",
+  "lat": 24.878749799999998,
+  "lng": 67.0372021,
+  "price_range": "Rs 500–1,000",
+  "google_rating": 4.1,
+  "google_review_count": 169,
+  "star_quality": 0.825,
+  "dishes": {
+   "beef karahi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.25,
+    "n": 2,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.25,
+    "brand_rate": 0.25
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJRQYk_Io_sz4RZ_bwcZuuGyk": {
+  "branch_id": "ChIJRQYk_Io_sz4RZ_bwcZuuGyk",
+  "brand": "Gul Malik Hassan Zai Restaurant (Desilwa)",
+  "brand_key": "gulmalikhassanzairestaurantdesilwa",
+  "title": "Gul Malik Hassan Zai Restaurant (Desilwa) - D. Silwa Koyla Karahi",
+  "city": "Karachi",
+  "lat": 24.9268187,
+  "lng": 67.0300263,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.2,
+  "google_review_count": 896,
+  "star_quality": 0.84,
+  "dishes": {
+   "no test": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "price are little bit higher": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken tikka": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "puri paratha": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "nan": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "portion": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJRYgdCBcDGTkRKU-607ci3ZA": {
+  "branch_id": "ChIJRYgdCBcDGTkRKU-607ci3ZA",
+  "brand": "Waris Nihari",
+  "brand_key": "warisnihari",
+  "title": "Waris Nihari",
+  "city": "Lahore",
+  "lat": 31.5221171,
+  "lng": 74.2930056,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.3,
+  "google_review_count": 2402,
+  "star_quality": 0.86,
+  "dishes": {
+   "nali": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "m bread": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "great taste": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "National Bank of Pakistan",
+   "card": "PayPak Classic",
+   "cardCategory": "debit",
+   "discountPct": 10,
+   "discountLabel": "10%",
+   "offerTitle": "Flat 10% Off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": null,
+   "lat": null,
+   "lng": null,
+   "address": "Spring north Commercial, Near Clock Tower, Phase 7, Bahria Town, Islamabad",
+   "scope": "brand"
+  },
+  "offer_count": 5
+ },
+ "ChIJb357UwEBGTkRNZNxu84FYVg": {
+  "branch_id": "ChIJb357UwEBGTkRNZNxu84FYVg",
+  "brand": "Muhammadi Nahari House",
+  "brand_key": "muhammadinaharihouse",
+  "title": "Muhammadi Nahari House",
+  "city": "Lahore",
+  "lat": 31.3957996,
+  "lng": 74.24863669999999,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.7,
+  "google_review_count": 1301,
+  "star_quality": 0.936,
+  "dishes": {
+   "good": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "breakfast": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "excellent food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food quality": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "beef nihari, chicken nihari, chana, sheermal": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "naan chana and halwa puri": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "taste is exelnt": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "overall excellent": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "nashta": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "taste": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "best taste in town": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "nehari": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "lassi": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "good food": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.686,
+    "n": 4,
+    "pos": 3,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.75,
+    "brand_rate": 0.6
+   },
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "value": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "cleanliness": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJFdRvyJ4DGTkRcRPi5mPKRuw": {
+  "branch_id": "ChIJFdRvyJ4DGTkRcRPi5mPKRuw",
+  "brand": "Muhammadi Nahari House",
+  "brand_key": "muhammadinaharihouse",
+  "title": "Muhammadi Nahari House",
+  "city": "Lahore",
+  "lat": 31.467665099999998,
+  "lng": 74.25100309999999,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 4.6,
+  "google_review_count": 262,
+  "star_quality": 0.907,
+  "dishes": {
+   "naan chana and halwa puri": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "taste is exelnt": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "overall excellent": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "good": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "nashta": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "taste": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "best taste in town": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "nehari": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "lassi": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "good food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "beef nihari, chicken nihari, chana, sheermal": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "breakfast": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "excellent food": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "food quality": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "value": {
+    "score": 0.625,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.5
+   },
+   "service": {
+    "score": 0.6,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.6
+   },
+   "cleanliness": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJv7bLEcQFGTkRwRuRWAPYFOo": {
+  "branch_id": "ChIJv7bLEcQFGTkRwRuRWAPYFOo",
+  "brand": "Muhammadi Nahari House",
+  "brand_key": "muhammadinaharihouse",
+  "title": "Muhammadi Nahari House",
+  "city": "Lahore",
+  "lat": 31.4935765,
+  "lng": 74.37562319999999,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.1,
+  "google_review_count": 1984,
+  "star_quality": 0.82,
+  "dishes": {
+   "beef nihari, chicken nihari, chana, sheermal": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "naan chana and halwa puri": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "good": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "taste is exelnt": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "overall excellent": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "nashta": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "taste": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "best taste in town": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "nehari": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "lassi": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "breakfast": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "excellent food": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "food quality": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "good food": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "value": {
+    "score": 0.375,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.5
+   },
+   "cleanliness": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 0.45,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.6
+   },
+   "food": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJX_M6KwCrGTkRattJfq7m524": {
+  "branch_id": "ChIJX_M6KwCrGTkRattJfq7m524",
+  "brand": "Muhammadi Nehari House",
+  "brand_key": "muhammadineharihouse",
+  "title": "Muhammadi Nehari House - Fazaia",
+  "city": "Lahore",
+  "lat": 31.3683731,
+  "lng": 74.2382343,
+  "price_range": "Rs 1,000–3,000",
+  "google_rating": 4.7,
+  "google_review_count": 1319,
+  "star_quality": 0.936,
+  "dishes": {
+   "nihari": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "gulab jamun": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chai": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "lassi": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "halwa puri": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "alu bhujya": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "beef nehari": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "taste and service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "value": {
+    "score": 0,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "ambiance": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJcbquOif_GDkRrLm3k5vgz1c": {
+  "branch_id": "ChIJcbquOif_GDkRrLm3k5vgz1c",
+  "brand": "Muhammadi Nehari House Bahria Town",
+  "brand_key": "muhammadineharihousebahriatown",
+  "title": "Muhammadi Nehari House Bahria Town",
+  "city": "Lahore",
+  "lat": 31.3759375,
+  "lng": 74.1864375,
+  "price_range": "Rs 1,000–3,000",
+  "google_rating": 4.3,
+  "google_review_count": 1306,
+  "star_quality": 0.859,
+  "dishes": {
+   "roti naan": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "nehari": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   },
+   "nihari": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJY_PdF0w5sz4RKrZvozaolZc": {
+  "branch_id": "ChIJY_PdF0w5sz4RKrZvozaolZc",
+  "brand": "Kababjees Fried Chicken",
+  "brand_key": "kababjeesfriedchicken",
+  "title": "Kababjees Fried Chicken | Gulshan-e-Iqbal, Block 4",
+  "city": "Karachi",
+  "lat": 24.929848099999997,
+  "lng": 67.0981169,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 3.4,
+  "google_review_count": 353,
+  "star_quality": 0.7,
+  "dishes": {
+   "food": {
+    "score": 0.4,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.5
+   },
+   "pink ramen noodles": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "black dekr chle gaye": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "coleslaw": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "other dishes": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "pc fish and fries": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "midnight deal": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken": {
+    "score": 0.4,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.5
+   },
+   "pizza": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "sauce": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "korean range": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "trio deal burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "kabab jee": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "hot burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "cold drinks": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "noodles": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "premium water": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken is not properly cooked and there is a hair on my food": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "burgers": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "8 crispy burgers": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "fried chicken bucket with slaw": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "zingeratha": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "order": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zenga burger": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "majesty burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "alfredo pasta": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "stale bun and cold chicken": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "wraps": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "thanda food tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zinger burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "loaded fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "the food was hot and delicious.": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.164,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.273
+   },
+   "service": {
+    "score": 0.163,
+    "n": 5,
+    "pos": 0,
+    "neg": 4,
+    "source": "branch",
+    "branch_rate": 0.1,
+    "brand_rate": 0.269
+   },
+   "value": {
+    "score": 0.292,
+    "n": 3,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.167,
+    "brand_rate": 0.417
+   },
+   "wait": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "delivery": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Habib Metro Bank",
+   "card": "Visa Platinum Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off (Eid Offer)",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 3000,
+   "lat": 33.54879191,
+   "lng": 73.13067958,
+   "address": "Bahria Town Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 4
+ },
+ "ChIJFYDvnUc_sz4RbybPtSz6ENA": {
+  "branch_id": "ChIJFYDvnUc_sz4RbybPtSz6ENA",
+  "brand": "Kababjees Fried Chicken",
+  "brand_key": "kababjeesfriedchicken",
+  "title": "Kababjees Fried Chicken - Garden East Branch",
+  "city": "Karachi",
+  "lat": 24.8853834,
+  "lng": 67.03460749999999,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 3.7,
+  "google_review_count": 485,
+  "star_quality": 0.749,
+  "dishes": {
+   "sauce": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "noodles": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "zenga burger": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "korean range": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "trio deal burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "kabab jee": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "hot burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "cold drinks": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "pink ramen noodles": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "black dekr chle gaye": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "premium water": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken is not properly cooked and there is a hair on my food": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "coleslaw": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "other dishes": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "burgers": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "8 crispy burgers": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "fried chicken bucket with slaw": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "zingeratha": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "order": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "pc fish and fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "midnight deal": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "majesty burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "alfredo pasta": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "stale bun and cold chicken": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "wraps": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pizza": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "thanda food tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zinger burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "loaded fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "the food was hot and delicious.": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.202,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.269
+   },
+   "food": {
+    "score": 0.455,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.273
+   },
+   "value": {
+    "score": 0.417,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.417
+   },
+   "wait": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "delivery": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Habib Metro Bank",
+   "card": "Visa Platinum Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off (Eid Offer)",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 3000,
+   "lat": 33.54879191,
+   "lng": 73.13067958,
+   "address": "Bahria Town Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 4
+ },
+ "ChIJQbSOtt4_sz4R3ZvBRA_XJDg": {
+  "branch_id": "ChIJQbSOtt4_sz4R3ZvBRA_XJDg",
+  "brand": "Kababjees Fried Chicken",
+  "brand_key": "kababjeesfriedchicken",
+  "title": "Kababjees Fried Chicken",
+  "city": "Karachi",
+  "lat": 24.9044073,
+  "lng": 67.0776453,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 3.3,
+  "google_review_count": 229,
+  "star_quality": 0.692,
+  "dishes": {
+   "hot burgers": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "cold drinks": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken is not properly cooked and there is a hair on my food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "majesty burger": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "sauce": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "korean range": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "trio deal burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "kabab jee": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "noodles": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pink ramen noodles": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "black dekr chle gaye": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "premium water": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "coleslaw": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "other dishes": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "burgers": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "8 crispy burgers": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "fried chicken bucket with slaw": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "zingeratha": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "order": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "pc fish and fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "midnight deal": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zenga burger": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "chicken": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "alfredo pasta": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "stale bun and cold chicken": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "wraps": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pizza": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "thanda food tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zinger burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "loaded fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "the food was hot and delicious.": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.164,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.273
+   },
+   "wait": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 0.202,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.269
+   },
+   "value": {
+    "score": 0.417,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.417
+   },
+   "delivery": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Habib Metro Bank",
+   "card": "Visa Platinum Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off (Eid Offer)",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 3000,
+   "lat": 33.54879191,
+   "lng": 73.13067958,
+   "address": "Bahria Town Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 4
+ },
+ "ChIJc85d5A4_sz4RSxS13qLyl8Q": {
+  "branch_id": "ChIJc85d5A4_sz4RSxS13qLyl8Q",
+  "brand": "Kababjees Fried Chicken",
+  "brand_key": "kababjeesfriedchicken",
+  "title": "Kababjees Fried Chicken",
+  "city": "Karachi",
+  "lat": 24.8752949,
+  "lng": 67.08781189999999,
+  "price_range": "Rs 1–2,000",
+  "google_rating": 3.9,
+  "google_review_count": 715,
+  "star_quality": 0.784,
+  "dishes": {
+   "kabab jee": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 0.6,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.5
+   },
+   "the food was hot and delicious.": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "sauce": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "korean range": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "trio deal burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "hot burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "cold drinks": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "noodles": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pink ramen noodles": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "black dekr chle gaye": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "premium water": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken is not properly cooked and there is a hair on my food": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "coleslaw": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "other dishes": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "burgers": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "8 crispy burgers": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "fried chicken bucket with slaw": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "zingeratha": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "order": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "pc fish and fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "midnight deal": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zenga burger": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "majesty burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "alfredo pasta": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "stale bun and cold chicken": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "wraps": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pizza": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "thanda food tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zinger burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "loaded fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.562,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.269
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 0.455,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.273
+   },
+   "value": {
+    "score": 0.417,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.417
+   },
+   "wait": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "delivery": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   }
+  },
+  "best_offer": {
+   "bank": "Habib Metro Bank",
+   "card": "Visa Platinum Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off (Eid Offer)",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 3000,
+   "lat": 33.54879191,
+   "lng": 73.13067958,
+   "address": "Bahria Town Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 4
+ },
+ "ChIJ21cmYgA_sz4RP1EcEhzhJDY": {
+  "branch_id": "ChIJ21cmYgA_sz4RP1EcEhzhJDY",
+  "brand": "Kababjees Fried Chicken",
+  "brand_key": "kababjeesfriedchicken",
+  "title": "Kababjees Fried Chicken - North Five Star Branch",
+  "city": "Karachi",
+  "lat": 24.9406133,
+  "lng": 67.0450571,
+  "price_range": "Rs 1–2,000",
+  "google_rating": 3.8,
+  "google_review_count": 596,
+  "star_quality": 0.766,
+  "dishes": {
+   "premium water": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "8 crispy burgers": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "fried chicken bucket with slaw": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "zingeratha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "order": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "alfredo pasta": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "thanda food tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "zinger burger": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "loaded fries": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "sauce": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "korean range": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "trio deal burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "kabab jee": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "hot burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "cold drinks": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "noodles": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pink ramen noodles": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "black dekr chle gaye": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken is not properly cooked and there is a hair on my food": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "coleslaw": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "other dishes": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "burgers": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "pc fish and fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "midnight deal": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zenga burger": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "majesty burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "stale bun and cold chicken": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "wraps": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pizza": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "the food was hot and delicious.": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.303,
+    "n": 3,
+    "pos": 1,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.333,
+    "brand_rate": 0.273
+   },
+   "service": {
+    "score": 0.301,
+    "n": 3,
+    "pos": 1,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.333,
+    "brand_rate": 0.269
+   },
+   "delivery": {
+    "score": 0.625,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.5
+   },
+   "value": {
+    "score": 0.563,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.417
+   },
+   "wait": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Habib Metro Bank",
+   "card": "Visa Platinum Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off (Eid Offer)",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 3000,
+   "lat": 33.54879191,
+   "lng": 73.13067958,
+   "address": "Bahria Town Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 4
+ },
+ "ChIJT99HFQA9sz4R3TJvMwgJukE": {
+  "branch_id": "ChIJT99HFQA9sz4R3TJvMwgJukE",
+  "brand": "KABABJEES FRIED CHICKEN",
+  "brand_key": "kababjeesfriedchicken",
+  "title": "KABABJEES FRIED CHICKEN",
+  "city": "Karachi",
+  "lat": 24.8314375,
+  "lng": 67.0788125,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.2,
+  "google_review_count": 1310,
+  "star_quality": 0.84,
+  "dishes": {
+   "burgers": {
+    "score": 0.4,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.5
+   },
+   "stale bun and cold chicken": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "sauce": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "korean range": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "trio deal burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "kabab jee": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "hot burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "cold drinks": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "noodles": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pink ramen noodles": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "black dekr chle gaye": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "premium water": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken is not properly cooked and there is a hair on my food": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "coleslaw": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "other dishes": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "8 crispy burgers": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "fried chicken bucket with slaw": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "zingeratha": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "order": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "pc fish and fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "midnight deal": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zenga burger": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "majesty burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "alfredo pasta": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "wraps": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pizza": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "thanda food tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zinger burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "loaded fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "the food was hot and delicious.": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.202,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.269
+   },
+   "delivery": {
+    "score": 0.375,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.5
+   },
+   "food": {
+    "score": 0.205,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.273
+   },
+   "value": {
+    "score": 0.417,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.417
+   },
+   "wait": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Habib Metro Bank",
+   "card": "Visa Platinum Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off (Eid Offer)",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 3000,
+   "lat": 33.54879191,
+   "lng": 73.13067958,
+   "address": "Bahria Town Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 4
+ },
+ "ChIJGS5wCQA_sz4RcRAg-A7dRnA": {
+  "branch_id": "ChIJGS5wCQA_sz4RcRAg-A7dRnA",
+  "brand": "Kababjees Fried Chicken",
+  "brand_key": "kababjeesfriedchicken",
+  "title": "Kababjees Fried Chicken - SMCHS",
+  "city": "Karachi",
+  "lat": 24.863738599999998,
+  "lng": 67.054923,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 3.2,
+  "google_review_count": 30,
+  "star_quality": 0.765,
+  "dishes": {
+   "korean range": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "trio deal burgers": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken": {
+    "score": 0.6,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.5
+   },
+   "burgers": {
+    "score": 0.6,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.5
+   },
+   "wraps": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "sauce": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "kabab jee": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "hot burgers": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "cold drinks": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "noodles": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "pink ramen noodles": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "black dekr chle gaye": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "premium water": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "chicken is not properly cooked and there is a hair on my food": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "coleslaw": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "other dishes": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "8 crispy burgers": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "fried chicken bucket with slaw": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "zingeratha": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "order": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "pc fish and fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "midnight deal": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zenga burger": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "majesty burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "alfredo pasta": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "stale bun and cold chicken": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "pizza": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "thanda food tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "zinger burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "loaded fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "the food was hot and delicious.": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.205,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.273
+   },
+   "value": {
+    "score": 0.45,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.417
+   },
+   "service": {
+    "score": 0.269,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.269
+   },
+   "wait": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "delivery": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Habib Metro Bank",
+   "card": "Visa Platinum Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off (Eid Offer)",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 3000,
+   "lat": 33.54879191,
+   "lng": 73.13067958,
+   "address": "Bahria Town Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 4
+ },
+ "ChIJs47OUiA_sz4Rq37wrjoenmI": {
+  "branch_id": "ChIJs47OUiA_sz4Rq37wrjoenmI",
+  "brand": "Kababjees Express Garden",
+  "brand_key": "kababjeesexpressgarden",
+  "title": "Kababjees Express Garden",
+  "city": "Karachi",
+  "lat": 24.8861301,
+  "lng": 67.0312089,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 3.7,
+  "google_review_count": 125,
+  "star_quality": 0.769,
+  "dishes": {
+   "chicken": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": {
+   "bank": "Bank of Punjab",
+   "card": "Mastercard World Credit Card",
+   "cardCategory": "credit",
+   "discountPct": 50,
+   "discountLabel": "50%",
+   "offerTitle": "50% off on Every Wednesday",
+   "days": [
+    2
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 6000,
+   "lat": 24.8830203,
+   "lng": 67.06012309,
+   "address": "Shaheed-e-Millat Rd Karachi Branch",
+   "scope": "brand"
+  },
+  "offer_count": 98
+ },
+ "ChIJFXpFG8c_sz4RbHlOgVlsgVg": {
+  "branch_id": "ChIJFXpFG8c_sz4RbHlOgVlsgVg",
+  "brand": "Kababjees Express",
+  "brand_key": "kababjeesexpress",
+  "title": "Kababjees Express",
+  "city": "Karachi",
+  "lat": 24.866504799999998,
+  "lng": 67.026602,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 3.7,
+  "google_review_count": 315,
+  "star_quality": 0.754,
+  "dishes": {
+   "burger": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "puri paratha": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "shitty food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 0,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "ambiance": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": {
+   "bank": "Askari Bank Limited",
+   "card": "Askari Visa Signature Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 10000,
+   "lat": 24.8664876,
+   "lng": 67.02660908,
+   "address": "Saddar Karachi Branch",
+   "scope": "branch"
+  },
+  "offer_count": 30
+ },
+ "ChIJZfbUeAA_sz4RMb41GICXQsw": {
+  "branch_id": "ChIJZfbUeAA_sz4RMb41GICXQsw",
+  "brand": "Kababjees Express",
+  "brand_key": "kababjeesexpress",
+  "title": "Kababjees Express",
+  "city": "Karachi",
+  "lat": 24.9215575,
+  "lng": 67.05619759999999,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 3.3,
+  "google_review_count": 66,
+  "star_quality": 0.738,
+  "dishes": {
+   "burger": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "puri paratha": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "shitty food": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "value": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "ambiance": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": {
+   "bank": "Askari Bank Limited",
+   "card": "Askari Visa Signature Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 10000,
+   "lat": 31.45325874,
+   "lng": 74.213091,
+   "address": "Canal Rd Lahore Branch",
+   "scope": "brand"
+  },
+  "offer_count": 12
+ },
+ "ChIJzWIPaAA_sz4RZIOQz4rlnTQ": {
+  "branch_id": "ChIJzWIPaAA_sz4RZIOQz4rlnTQ",
+  "brand": "House of Kababjees",
+  "brand_key": "houseofkababjees",
+  "title": "House of Kababjees",
+  "city": "Karachi",
+  "lat": 24.9390534,
+  "lng": 67.0521019,
+  "price_range": "Rs 1,000–5,000",
+  "google_rating": 4.1,
+  "google_review_count": 571,
+  "star_quality": 0.822,
+  "dishes": {
+   "quality of food compromise . not exact time to deliver order": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "good food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "hot and fresh food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "wings": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "kababjees": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.5,
+    "n": 4,
+    "pos": 2,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "food": {
+    "score": 0.4,
+    "n": 5,
+    "pos": 2,
+    "neg": 3,
+    "source": "branch",
+    "branch_rate": 0.4,
+    "brand_rate": 0.4
+   },
+   "delivery": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": {
+   "bank": "Bank of Punjab",
+   "card": "Mastercard World Credit Card",
+   "cardCategory": "credit",
+   "discountPct": 50,
+   "discountLabel": "50%",
+   "offerTitle": "50% off on Every Wednesday",
+   "days": [
+    2
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 6000,
+   "lat": 24.8830203,
+   "lng": 67.06012309,
+   "address": "Shaheed-e-Millat Rd Karachi Branch",
+   "scope": "brand"
+  },
+  "offer_count": 98
+ },
+ "ChIJUzuB2-c_sz4R86_qaYlml6s": {
+  "branch_id": "ChIJUzuB2-c_sz4R86_qaYlml6s",
+  "brand": "Kababjees Bakers",
+  "brand_key": "kababjeesbakers",
+  "title": "Kababjees Bakers - Sharfabad",
+  "city": "Karachi",
+  "lat": 24.884461899999998,
+  "lng": 67.0635643,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.2,
+  "google_review_count": 789,
+  "star_quality": 0.84,
+  "dishes": {
+   "3milk cake": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": {
+   "bank": "MCB Islamic Bank Ltd",
+   "card": "Visa Platinum Business Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 50,
+   "discountLabel": "50%",
+   "offerTitle": "50% off Everyday",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 1500,
+   "lat": 24.86649122,
+   "lng": 67.0266034,
+   "address": "M.A Jinnah Rd Karachi Branch",
+   "scope": "brand"
+  },
+  "offer_count": 42
+ },
+ "ChIJ5-J1G689sz4Rqt6A6z4_Ijs": {
+  "branch_id": "ChIJ5-J1G689sz4Rqt6A6z4_Ijs",
+  "brand": "Kababjees Pizza",
+  "brand_key": "kababjeespizza",
+  "title": "Kababjees Pizza - Clifton",
+  "city": "Karachi",
+  "lat": 24.8351448,
+  "lng": 67.0364767,
+  "price_range": "Rs 1–4,000",
+  "google_rating": 3.7,
+  "google_review_count": 163,
+  "star_quality": 0.763,
+  "dishes": {},
+  "aspects": {},
+  "best_offer": {
+   "bank": "Askari Bank Limited",
+   "card": "Askari Visa Signature Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 10000,
+   "lat": 24.8664699,
+   "lng": 67.02659058,
+   "address": "M.A Jinnah Rd Karachi Branch",
+   "scope": "brand"
+  },
+  "offer_count": 12
+ },
+ "ChIJDf5w4vcEGTkROndroLAiCv8": {
+  "branch_id": "ChIJDf5w4vcEGTkROndroLAiCv8",
+  "brand": "Mocca Coffee",
+  "brand_key": "moccacoffee",
+  "title": "Mocca Coffee",
+  "city": "Lahore",
+  "lat": 31.518667899999997,
+  "lng": 74.3462086,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.2,
+  "google_review_count": 2231,
+  "star_quality": 0.84,
+  "dishes": {
+   "amazing": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "taste good": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "spanish latte": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "the food was really good": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "so was the service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "taste": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 1,
+    "n": 3,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
+  "best_offer": {
+   "bank": "Bank of Punjab",
+   "card": "Mastercard World Credit Card",
+   "cardCategory": "credit",
+   "discountPct": 50,
+   "discountLabel": "50%",
+   "offerTitle": "50% off Everyday",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 3000,
+   "lat": 31.5142615,
+   "lng": 74.35103171,
+   "address": "MM Alam Rd Lahore Branch",
+   "scope": "branch"
+  },
+  "offer_count": 41
+ },
+ "ChIJlZpHPfAFGTkRU8_nqi_0RMY": {
+  "branch_id": "ChIJlZpHPfAFGTkRU8_nqi_0RMY",
+  "brand": "Theatre",
+  "brand_key": "theatre",
+  "title": "Theatre - Live Bakery & Cafe - Lahore",
+  "city": "Lahore",
+  "lat": 31.516995599999998,
+  "lng": 74.3511249,
+  "price_range": "Rs 1,000–5,000",
+  "google_rating": 4.3,
+  "google_review_count": 1168,
+  "star_quality": 0.859,
+  "dishes": {
+   "food": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food was delicious": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "ambiance": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   },
+   "value": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJRV5MNwAFGTkROHPkKKxJrFk": {
+  "branch_id": "ChIJRV5MNwAFGTkROHPkKKxJrFk",
+  "brand": "Drip",
+  "brand_key": "drip",
+  "title": "Drip - Coffee Bakery Kitchen - Gulberg",
+  "city": "Lahore",
+  "lat": 31.5306832,
+  "lng": 74.3520506,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.5,
+  "google_review_count": 662,
+  "star_quality": 0.896,
+  "dishes": {
+   "shake": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "tiramisu latte": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "banana bread": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "kunafa tart": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "matcha & spanish milk": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "double shot": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "pasta": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "spanish latte": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "value": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": {
+   "bank": "Easypaisa",
+   "card": "Easy Paisa DebitCard",
+   "cardCategory": "debit",
+   "discountPct": 30,
+   "discountLabel": "30%",
+   "offerTitle": null,
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "capPkr": 1000,
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "scope": "brand"
+  },
+  "offer_count": 85
+ },
+ "ChIJAdYucv4FGTkRrJgwJ6qB3mc": {
+  "branch_id": "ChIJAdYucv4FGTkRrJgwJ6qB3mc",
+  "brand": "Contra Coffee Shop",
+  "brand_key": "contracoffeeshop",
+  "title": "Contra Coffee Shop",
+  "city": "Lahore",
+  "lat": 31.521510399999997,
+  "lng": 74.3492483,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.3,
+  "google_review_count": 1200,
+  "star_quality": 0.859,
+  "dishes": {
+   "shakes and coffees": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "nocciolatte freddo": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "the contra special frappe": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "breakfast": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "signature drinks": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "fresh pastries": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   },
+   "value": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Allied Bank",
+   "card": "Visa Infinite Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 50,
+   "discountLabel": "50%",
+   "offerTitle": "50% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 10000,
+   "lat": 33.73285436,
+   "lng": 73.08661491,
+   "address": "Marriott Hotel Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 50
+ },
+ "ChIJY7GsCz8FGTkRcU5c_M7I2Jc": {
+  "branch_id": "ChIJY7GsCz8FGTkRcU5c_M7I2Jc",
+  "brand": "Artisan Coffee Gulberg",
+  "brand_key": "artisancoffeegulberg",
+  "title": "Artisan Coffee Gulberg",
+  "city": "Lahore",
+  "lat": 31.5231879,
+  "lng": 74.3531283,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.5,
+  "google_review_count": 495,
+  "star_quality": 0.894,
+  "dishes": {
+   "coffee": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "lisbon chocolate cake": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "cappuccino": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Askari Bank Limited",
+   "card": "Askari Visa Signature Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 10000,
+   "lat": 33.7272616,
+   "lng": 73.0476066,
+   "address": "E-7 Markaz Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 16
+ },
+ "ChIJ1wtgoAIbGTkRWbnCX1ouzVs": {
+  "branch_id": "ChIJ1wtgoAIbGTkRWbnCX1ouzVs",
+  "brand": "Gates Café",
+  "brand_key": "gatescaf",
+  "title": "Lahore Gates Café",
+  "city": "Lahore",
+  "lat": 31.5615533,
+  "lng": 74.3298284,
+  "price_range": "Rs 1,500–2,000",
+  "google_rating": 4.8,
+  "google_review_count": 647,
+  "star_quality": 0.951,
+  "dishes": {
+   "must have food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "service": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
+  "best_offer": {
+   "bank": "Al Baraka Bank",
+   "card": "Mastercard Gold Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 20,
+   "discountLabel": "20%",
+   "offerTitle": "20% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": null,
+   "lat": 31.5615625,
+   "lng": 74.329758,
+   "address": "Four Points By Sheraton Lahore",
+   "scope": "branch"
+  },
+  "offer_count": 76
+ },
+ "ChIJmZ1oxTkBGTkRYlOfK4hQPqA": {
+  "branch_id": "ChIJmZ1oxTkBGTkRYlOfK4hQPqA",
+  "brand": "Coffee Wagera Gulberg Galleria ()",
+  "brand_key": "coffeewageragulberggalleria",
+  "title": "Coffee Wagera Gulberg Galleria (Lahore)",
+  "city": "Lahore",
+  "lat": 31.532027199999998,
+  "lng": 74.3517142,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 4.5,
+  "google_review_count": 249,
+  "star_quality": 0.89,
+  "dishes": {
+   "blueberry lemonade": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "hazelnut latte coffee": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "coffee": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "caramel latte": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "brownie dessert": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "ambiance": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJd-42DQAFGTkRqBYiqeGsHOU": {
+  "branch_id": "ChIJd-42DQAFGTkRqBYiqeGsHOU",
+  "brand": "Sucré",
+  "brand_key": "sucr",
+  "title": "Sucré - Coffee & Desserts [Girja Chowk]",
+  "city": "Lahore",
+  "lat": 31.5207528,
+  "lng": 74.3802169,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.5,
+  "google_review_count": 135,
+  "star_quality": 0.884,
+  "dishes": {
+   "yummy desserts": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "coffee": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "مزیدار ڈیسرٹس": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "ambiance": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "HBL Islamic Bank Limited",
+   "card": "HBL Islamic Classic Business DebitCard",
+   "cardCategory": "debit",
+   "discountPct": 15,
+   "discountLabel": "15%",
+   "offerTitle": "15% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 2500,
+   "lat": 31.51637271,
+   "lng": 74.34054689,
+   "address": "Gulberg III Lahore Branch",
+   "scope": "brand"
+  },
+  "offer_count": 19
+ },
+ "ChIJPevECsUFGTkRMCL-SGE2sgk": {
+  "branch_id": "ChIJPevECsUFGTkRMCL-SGE2sgk",
+  "brand": "Extraction Coffee",
+  "brand_key": "extractioncoffee",
+  "title": "Extraction Coffee",
+  "city": "Lahore",
+  "lat": 31.524172,
+  "lng": 74.3519031,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.4,
+  "google_review_count": 495,
+  "star_quality": 0.876,
+  "dishes": {
+   "coffee": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "french fries": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "value": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Askari Bank Limited",
+   "card": "Askari Visa Signature Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 40,
+   "discountLabel": "40%",
+   "offerTitle": "40% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 10000,
+   "lat": 24.80587751,
+   "lng": 67.03386687,
+   "address": "Clifton Karachi Branch",
+   "scope": "brand"
+  },
+  "offer_count": 16
+ },
+ "ChIJ_-thGVA5sz4RteWz3aV7prk": {
+  "branch_id": "ChIJ_-thGVA5sz4RteWz3aV7prk",
+  "brand": "Biryani Scene",
+  "brand_key": "biryaniscene",
+  "title": "Biryani Scene | Karachi best Biryani",
+  "city": "Karachi",
+  "lat": 24.908415899999998,
+  "lng": 67.0953229,
+  "price_range": null,
+  "google_rating": 4.9,
+  "google_review_count": 20,
+  "star_quality": 0.88,
+  "dishes": {
+   "biryani": {
+    "score": 1,
+    "n": 7,
+    "pos": 7,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "delivery": {
+    "score": 0.25,
+    "n": 2,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.25,
+    "brand_rate": 0.25
+   },
+   "value": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   },
+   "food": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJceMOewA_sz4ReKmw_ZKWXxs": {
+  "branch_id": "ChIJceMOewA_sz4ReKmw_ZKWXxs",
+  "brand": "The Allah Raazi Beef Nali Biryani (Liaquatabad)",
+  "brand_key": "theallahraazibeefnalibiryaniliaquatabad",
+  "title": "The Allah Raazi Beef Nali Biryani (Liaquatabad)",
+  "city": "Karachi",
+  "lat": 24.898355,
+  "lng": 67.0441019,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 3.6,
+  "google_review_count": 382,
+  "star_quality": 0.734,
+  "dishes": {
+   "biryani": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "beef": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "beef polao": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "beef pulao": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken biryani": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJfYZJivs-sz4RyeGXuiozzK4": {
+  "branch_id": "ChIJfYZJivs-sz4RyeGXuiozzK4",
+  "brand": "Ghazi Biryani & Pakwan Centre",
+  "brand_key": "ghazibiryanipakwancentre",
+  "title": "Ghazi Biryani & Pakwan Centre",
+  "city": "Karachi",
+  "lat": 24.8926731,
+  "lng": 67.0541693,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 4.2,
+  "google_review_count": 700,
+  "star_quality": 0.84,
+  "dishes": {
+   "baasi thandi biryani": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJXZr0ApI-sz4R4W5wBbmruqI": {
+  "branch_id": "ChIJXZr0ApI-sz4R4W5wBbmruqI",
+  "brand": "Ghousia Biryani",
+  "brand_key": "ghousiabiryani",
+  "title": "Ghousia Biryani",
+  "city": "Karachi",
+  "lat": 24.871335499999997,
+  "lng": 67.05878609999999,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 4.1,
+  "google_review_count": 729,
+  "star_quality": 0.821,
+  "dishes": {
+   "beef biryani": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken double biryani": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "good": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "bit pricey": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "ambiance": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "value": {
+    "score": 0,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJ7_CkZsA_sz4R2ibOP-zyaf0": {
+  "branch_id": "ChIJ7_CkZsA_sz4R2ibOP-zyaf0",
+  "brand": "ALLAH WALA BIRYANI Tariq Road",
+  "brand_key": "allahwalabiryanitariqroad",
+  "title": "ALLAH WALA BIRYANI Tariq Road Branch",
+  "city": "Karachi",
+  "lat": 24.8710833,
+  "lng": 67.058803,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 4,
+  "google_review_count": 1594,
+  "star_quality": 0.801,
+  "dishes": {
+   "juicy biryani": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "great": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "price and taste wise": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "beef biryani": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "chicken biryani": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "plain white rice served instead of biryani": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken was very less": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJSaARVEsbGTkR-JovPmH3AjI": {
+  "branch_id": "ChIJSaARVEsbGTkR-JovPmH3AjI",
+  "brand": "Koyla — The Barbecue",
+  "brand_key": "koylathebarbecue",
+  "title": "Koyla — The Barbecue",
+  "city": "Lahore",
+  "lat": 31.561562499999997,
+  "lng": 74.329758,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.6,
+  "google_review_count": 1504,
+  "star_quality": 0.917,
+  "dishes": {
+   "good": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "tasty": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.667,
+    "n": 3,
+    "pos": 2,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.667,
+    "brand_rate": 0.667
+   },
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "service": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": {
+   "bank": "Faysal Bank Limited",
+   "card": "Faysal Islami Priority World Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 30,
+   "discountLabel": "30%",
+   "offerTitle": "30% off Everyday",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 5000,
+   "lat": 31.56155492,
+   "lng": 74.32972893,
+   "address": "Four Points by Sheraton Lahore Branch",
+   "scope": "branch"
+  },
+  "offer_count": 67
+ },
+ "ChIJh6lSLvU8sz4RqwsXZv6vzrY": {
+  "branch_id": "ChIJh6lSLvU8sz4RqwsXZv6vzrY",
+  "brand": "The White Biryani",
+  "brand_key": "thewhitebiryani",
+  "title": "The White Biryani",
+  "city": "Karachi",
+  "lat": 24.8091267,
+  "lng": 67.0696469,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 4.1,
+  "google_review_count": 1416,
+  "star_quality": 0.821,
+  "dishes": {
+   "shami kababs": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "biryani": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "salt and spice level": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "qorma": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "white biryani": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "chicken biryani": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "beef": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "kabab": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "ghulab jamun": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "cleanliness": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJe2JT1e3_GDkRf6-xoCpQANI": {
+  "branch_id": "ChIJe2JT1e3_GDkRf6-xoCpQANI",
+  "brand": "Courtyard",
+  "brand_key": "courtyard",
+  "title": "Courtyard Grill",
+  "city": "Lahore",
+  "lat": 31.4739607,
+  "lng": 74.401952,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.5,
+  "google_review_count": 760,
+  "star_quality": 0.896,
+  "dishes": {
+   "beef behari": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "beef undercut boti": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "paratha": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "roti": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "beef kabab and tikka": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "juicy kababs, undercut tikka": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "beef seekh kebab and beef under cut": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "kebabs": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.9,
+    "n": 5,
+    "pos": 4,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 0.9,
+    "brand_rate": 0.9
+   },
+   "value": {
+    "score": 0.25,
+    "n": 2,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.25,
+    "brand_rate": 0.25
+   },
+   "service": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
+  "best_offer": {
+   "bank": "Bank Alfalah",
+   "card": "Bank Alfalah Islamic Premier Visa Infinite Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 50,
+   "discountLabel": "50%",
+   "offerTitle": "50% off Everyday",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 50000,
+   "lat": 31.51633658,
+   "lng": 74.35170561,
+   "address": "MM Alam Rd Lahore Branch",
+   "scope": "brand"
+  },
+  "offer_count": 106
+ },
+ "ChIJMZoNZQAdGTkR26S1_hDJ9zI": {
+  "branch_id": "ChIJMZoNZQAdGTkR26S1_hDJ9zI",
+  "brand": "Butt Karahi and",
+  "brand_key": "buttkarahiand",
+  "title": "Butt Karahi and BBQ",
+  "city": "Lahore",
+  "lat": 31.586652299999997,
+  "lng": 74.31027519999999,
+  "price_range": "Rs 2,000–3,000",
+  "google_rating": 4.7,
+  "google_review_count": 182,
+  "star_quality": 0.918,
+  "dishes": {
+   "delicious food and service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "yummy": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food was excellent": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "services was amazing": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "chicken tawa piece": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken masala": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "food quality": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "shahbaz": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.875,
+    "n": 4,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 0.875,
+    "brand_rate": 0.875
+   },
+   "service": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJ9SGpUDS_3zgR0f91k4eOvNY": {
+  "branch_id": "ChIJ9SGpUDS_3zgR0f91k4eOvNY",
+  "brand": "Clove",
+  "brand_key": "clove",
+  "title": "Clove Cafe",
+  "city": "Islamabad",
+  "lat": 33.7221894,
+  "lng": 73.0581498,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.3,
+  "google_review_count": 159,
+  "star_quality": 0.855,
+  "dishes": {
+   "pastas and soup": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "drinks": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "mediocre": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "thin crust pizza ki jga": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "nan": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "mint margarita": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "coffee": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.333,
+    "n": 6,
+    "pos": 2,
+    "neg": 4,
+    "source": "branch",
+    "branch_rate": 0.333,
+    "brand_rate": 0.333
+   },
+   "service": {
+    "score": 0.8,
+    "n": 5,
+    "pos": 4,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.8,
+    "brand_rate": 0.8
+   },
+   "value": {
+    "score": 0.167,
+    "n": 3,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.167,
+    "brand_rate": 0.167
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJzcYZZQC_3zgRrv2vqZeJQ3A": {
+  "branch_id": "ChIJzcYZZQC_3zgRrv2vqZeJQ3A",
+  "brand": "Tree House",
+  "brand_key": "treehouse",
+  "title": "Tree House Cafe",
+  "city": "Islamabad",
+  "lat": 33.7213445,
+  "lng": 73.0509129,
+  "price_range": "Rs 1,000–7,000",
+  "google_rating": 4.7,
+  "google_review_count": 637,
+  "star_quality": 0.933,
+  "dishes": {
+   "food": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "sheesha": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "excellent": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 0.25,
+    "n": 2,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.25,
+    "brand_rate": 0.25
+   },
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJT85yKwe_3zgRMLthYORR7_0": {
+  "branch_id": "ChIJT85yKwe_3zgRMLthYORR7_0",
+  "brand": "TopNotch Cafe &",
+  "brand_key": "topnotchcafe",
+  "title": "TopNotch Cafe & Restaurant",
+  "city": "Islamabad",
+  "lat": 33.7218738,
+  "lng": 73.05870999999999,
+  "price_range": "Rs 3,000–8,000",
+  "google_rating": 4.2,
+  "google_review_count": 246,
+  "star_quality": 0.84,
+  "dishes": {
+   "sheesha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "yum food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 1,
+    "n": 3,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "sheesha qas": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0.833,
+    "n": 6,
+    "pos": 5,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.833,
+    "brand_rate": 0.833
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 3,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJbSJkxBu_3zgRcVU1oNlWabI": {
+  "branch_id": "ChIJbSJkxBu_3zgRcVU1oNlWabI",
+  "brand": "MOJO's Lounge",
+  "brand_key": "mojoslounge",
+  "title": "MOJO's Lounge",
+  "city": "Islamabad",
+  "lat": 33.7214457,
+  "lng": 73.0514924,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.4,
+  "google_review_count": 143,
+  "star_quality": 0.87,
+  "dishes": {
+   "sheesha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "اچھا کھانا": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "ambiance": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "value": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJEwXrBzC_3zgRpEHGbQtkRD0": {
+  "branch_id": "ChIJEwXrBzC_3zgRpEHGbQtkRD0",
+  "brand": "Cavo Rooftop",
+  "brand_key": "cavorooftop",
+  "title": "Cavo Rooftop",
+  "city": "Islamabad",
+  "lat": 33.7221441,
+  "lng": 73.05822669999999,
+  "price_range": "Rs 2,000–3,000",
+  "google_rating": 4.8,
+  "google_review_count": 78,
+  "star_quality": 0.913,
+  "dishes": {
+   "sheesha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "shisha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "food": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "value": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJ1Svbbwm_3zgRoxBydg0GwDE": {
+  "branch_id": "ChIJ1Svbbwm_3zgRoxBydg0GwDE",
+  "brand": "The Hot Spot",
+  "brand_key": "thehotspot",
+  "title": "The Hot Spot",
+  "city": "Islamabad",
+  "lat": 33.7261521,
+  "lng": 73.0572509,
+  "price_range": "Rs 1,000–2,000",
+  "google_rating": 4.3,
+  "google_review_count": 2716,
+  "star_quality": 0.86,
+  "dishes": {
+   "ice cream": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "icecreams": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "milkshakes": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "molten lava cake": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chicken pot pie": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "burger": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "pasta": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "wrap": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "apple crumble": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chocolate sundae": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "waffle with ice cream": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 3,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": {
+   "bank": "National Bank of Pakistan",
+   "card": "PayPak Classic",
+   "cardCategory": "debit",
+   "discountPct": 10,
+   "discountLabel": "10%",
+   "offerTitle": "Flat 10% Off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": null,
+   "lat": null,
+   "lng": null,
+   "address": "Shop # 2,Plot # 1792,Fb Area Block-14, Karachi",
+   "scope": "brand"
+  },
+  "offer_count": 5
+ },
+ "ChIJ9c3pkzW_3zgR_kkRLOoTUEk": {
+  "branch_id": "ChIJ9c3pkzW_3zgR_kkRLOoTUEk",
+  "brand": "Coco",
+  "brand_key": "coco",
+  "title": "Coco Cafe",
+  "city": "Islamabad",
+  "lat": 33.7230357,
+  "lng": 73.0596779,
+  "price_range": "Rs 1,000–6,000",
+  "google_rating": 4.3,
+  "google_review_count": 78,
+  "star_quality": 0.852,
+  "dishes": {
+   "food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "sheesha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "cold and tasteless": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "tasteless": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "iftar buffet": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "taste": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "view": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "lamb kabab": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 0.2,
+    "n": 5,
+    "pos": 1,
+    "neg": 4,
+    "source": "branch",
+    "branch_rate": 0.2,
+    "brand_rate": 0.2
+   },
+   "service": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "ambiance": {
+    "score": 0.875,
+    "n": 4,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 0.875,
+    "brand_rate": 0.875
+   },
+   "value": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "cleanliness": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": {
+   "bank": "Meezan Bank",
+   "card": "Mastercard World Debit Card",
+   "cardCategory": "debit",
+   "discountPct": 20,
+   "discountLabel": "20%",
+   "offerTitle": "20% off",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "orderTypes": [
+    "Dine-In"
+   ],
+   "capPkr": 2500,
+   "lat": 33.66695941,
+   "lng": 73.0763521,
+   "address": "I8 Markaz Islamabad Branch",
+   "scope": "brand"
+  },
+  "offer_count": 16
+ },
+ "ChIJ-3LTDDS_3zgRStI4DBXpdMQ": {
+  "branch_id": "ChIJ-3LTDDS_3zgRStI4DBXpdMQ",
+  "brand": "SAGE CAFE & GRILL F-7",
+  "brand_key": "sagecafegrillf7",
+  "title": "SAGE CAFE & GRILL F-7",
+  "city": "Islamabad",
+  "lat": 33.7192588,
+  "lng": 73.055222,
+  "price_range": "Rs 1,000–6,000",
+  "google_rating": 4.3,
+  "google_review_count": 1843,
+  "star_quality": 0.859,
+  "dishes": {
+   "fresh food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "taste": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "chicken parmesan pasta": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "parmesan chicken": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "beef burger": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "chicken kiev": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "service": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 0.625,
+    "n": 4,
+    "pos": 2,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.625,
+    "brand_rate": 0.625
+   },
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "ambiance": {
+    "score": 1,
+    "n": 3,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJCTr4Nhm_3zgRztuweXp64f0": {
+  "branch_id": "ChIJCTr4Nhm_3zgRztuweXp64f0",
+  "brand": "Deejos Cafe & Bakeshop-F7",
+  "brand_key": "deejoscafebakeshopf7",
+  "title": "Deejos Cafe & Bakeshop-F7",
+  "city": "Islamabad",
+  "lat": 33.7183395,
+  "lng": 73.05406119999999,
+  "price_range": "Rs 2,000–3,000",
+  "google_rating": 3.9,
+  "google_review_count": 1030,
+  "star_quality": 0.783,
+  "dishes": {
+   "mexican fries": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "burgers": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "butter stuffed chicken": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "nachos": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "baked pasta": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "panini sandwich": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "aspects": {
+   "ambiance": {
+    "score": 1,
+    "n": 3,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "value": {
+    "score": 0.25,
+    "n": 4,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.25,
+    "brand_rate": 0.25
+   },
+   "food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 0.375,
+    "n": 4,
+    "pos": 1,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.375,
+    "brand_rate": 0.375
+   },
+   "cleanliness": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJv0SSmKC_3zgReAj_WxSZhWg": {
+  "branch_id": "ChIJv0SSmKC_3zgReAj_WxSZhWg",
+  "brand": "Burn Out Restaurant &",
+  "brand_key": "burnoutrestaurant",
+  "title": "Burn Out Restaurant & Cafe",
+  "city": "Islamabad",
+  "lat": 33.7227584,
+  "lng": 73.0595668,
+  "price_range": "Rs 1,000–5,000",
+  "google_rating": 4,
+  "google_review_count": 1684,
+  "star_quality": 0.801,
+  "dishes": {
+   "shisha": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "mojit drinks": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "many things to eat": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "nice place": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "value": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ },
+ "ChIJsSdZb6C_3zgRMiRWbGvxHsg": {
+  "branch_id": "ChIJsSdZb6C_3zgRMiRWbGvxHsg",
+  "brand": "Chai O'Clock",
+  "brand_key": "chaioclock",
+  "title": "Chai O'Clock",
+  "city": "Islamabad",
+  "lat": 33.7230837,
+  "lng": 73.06,
+  "price_range": "Rs 1–1,000",
+  "google_rating": 4,
+  "google_review_count": 1889,
+  "star_quality": 0.801,
+  "dishes": {
+   "fresh, delicious, and beautifully presented.": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "excellent service.": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "club sandwich": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "zinger burger": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "nutella paratha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "chocolate shake": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "food in itself was delicious": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "tea": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "aspects": {
+   "food": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "service": {
+    "score": 0.75,
+    "n": 4,
+    "pos": 3,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   },
+   "ambiance": {
+    "score": 0.833,
+    "n": 6,
+    "pos": 5,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.833,
+    "brand_rate": 0.833
+   },
+   "value": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   }
+  },
+  "best_offer": null,
+  "offer_count": 0
+ }
+}

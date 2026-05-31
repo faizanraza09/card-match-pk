@@ -1,0 +1,41 @@
+{
+ "examples": 240,
+ "train": 192,
+ "test": 48,
+ "classes": [
+  "negative",
+  "positive",
+  "neutral"
+ ],
+ "class_distribution": {
+  "negative": 69,
+  "positive": 95,
+  "neutral": 28
+ },
+ "accuracy": 0.833,
+ "majority_baseline": 0.625,
+ "lift_over_baseline": 0.208,
+ "per_class_f1": {
+  "negative": 0.857,
+  "positive": 0.882,
+  "neutral": 0.286
+ },
+ "confusion_matrix": {
+  "negative": {
+   "negative": 9,
+   "positive": 3,
+   "neutral": 0
+  },
+  "positive": {
+   "negative": 0,
+   "positive": 30,
+   "neutral": 0
+  },
+  "neutral": {
+   "negative": 0,
+   "positive": 5,
+   "neutral": 1
+  }
+ },
+ "vocab_size": 1495
+}

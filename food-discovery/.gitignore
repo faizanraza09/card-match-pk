@@ -1,0 +1,4 @@
+# Raw scraped Google Maps dumps — large (tens of MB) and contain verbatim
+# review text. We commit DERIVED artifacts (labels/aggregates), not raw corpora.
+data/raw/
+data/work/scrape*.log

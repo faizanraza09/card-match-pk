@@ -1,0 +1,14 @@
+=== extract === model=llama3.2:3b reviews=240 already=0
+  20/240  ok=20 fallback=0  4.59s/rev
+  40/240  ok=40 fallback=0  5.71s/rev
+  60/240  ok=60 fallback=0  5.57s/rev
+  80/240  ok=80 fallback=0  5.65s/rev
+  100/240  ok=100 fallback=0  5.61s/rev
+  120/240  ok=120 fallback=0  5.66s/rev
+  140/240  ok=140 fallback=0  5.65s/rev
+  160/240  ok=160 fallback=0  5.64s/rev
+  180/240  ok=180 fallback=0  5.60s/rev
+  200/240  ok=200 fallback=0  5.57s/rev
+  220/240  ok=220 fallback=0  5.60s/rev
+  240/240  ok=240 fallback=0  5.62s/rev
+done: ok=240 fallback=0 total_out=240  elapsed=1348s
