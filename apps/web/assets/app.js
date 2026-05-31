@@ -897,6 +897,10 @@ function resetFilters() {
 
 /* ── RENDER ── */
 function render() {
+  // First render resolves the loading skeleton: drop the header's .loading
+  // class (its real count/subtitle text is populated below) and let the
+  // results-grid skeletons be overwritten by the view renderers.
+  document.getElementById("result-header")?.classList.remove("loading");
   pruneRestaurants();
   pruneCards();
   renderOrderValueLabel();

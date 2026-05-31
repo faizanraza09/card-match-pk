@@ -86,6 +86,39 @@ a { text-decoration: none; color: inherit; }
 @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.4; } }
 @keyframes shimmer { 0% { background-position:200% center; } 100% { background-position:-200% center; } }
 
+/* ── SKELETON LOADING ──────────────────────────────────────────────────
+   First-paint placeholders shown while the summary fetch resolves. The
+   shimmer block is a moving gradient over the two list tones (--line2 →
+   --line). Header bars (.rh-skel) only show while #result-header.loading;
+   the card skeletons (.skel-card) live in #results-grid and are replaced
+   wholesale by the first render(). */
+.skel {
+  display: block;
+  border-radius: var(--r-sm);
+  background: linear-gradient(90deg, var(--line2) 25%, var(--line) 50%, var(--line2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) { .skel { animation: none; } }
+
+/* Header: hide the static count/subtitle text, show shimmer bars instead. */
+.rh.loading .rh-count-row,
+.rh.loading .rh-sub { display: none; }
+.rh-skel { display: none; }
+.rh.loading .rh-skel { display: flex; flex-direction: column; gap: 8px; }
+.rh-skel .skel-count { width: 190px; height: 22px; }
+.rh-skel .skel-sub { width: 240px; height: 13px; border-radius: 6px; }
+
+/* Card skeleton mirrors .card-item's row + stats layout. */
+.skel-card { pointer-events: none; animation: none; }
+.skel-card .skel-logo { width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0; }
+.skel-card .card-info { display: flex; flex-direction: column; gap: 7px; }
+.skel-card .skel-line { height: 12px; border-radius: 6px; }
+.skel-card .skel-l1 { width: 62%; height: 15px; }
+.skel-card .skel-l2 { width: 38%; }
+.skel-card .skel-score { width: 44px; height: 30px; border-radius: 6px; flex-shrink: 0; }
+.skel-card .card-stat .skel-line { width: 72%; height: 11px; margin: 4px auto; }
+
 /* ── SHELL / LAYOUT ── */
 .shell { display: flex; flex-direction: column; height: 100vh; }
 .body { display: flex; flex: 1; overflow: hidden; }
