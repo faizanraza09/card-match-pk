@@ -89,9 +89,10 @@ a { text-decoration: none; color: inherit; }
 /* ── SKELETON LOADING ──────────────────────────────────────────────────
    First-paint placeholders shown while the summary fetch resolves. The
    shimmer block is a moving gradient over the two list tones (--line2 →
-   --line). Header bars (.rh-skel) only show while #result-header.loading;
-   the card skeletons (.skel-card) live in #results-grid and are replaced
-   wholesale by the first render(). */
+   --line). The skeleton is laid out to MATCH the real first render so the
+   swap is layout-shift-free (CLS): the header shimmers its real elements in
+   place (their reserved min-heights hold the row), and #results-grid mirrors
+   the real cards-view structure (search bar → featured → list). */
 .skel {
   display: block;
   border-radius: var(--r-sm);
@@ -101,13 +102,30 @@ a { text-decoration: none; color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) { .skel { animation: none; } }
 
-/* Header: hide the static count/subtitle text, show shimmer bars instead. */
-.rh.loading .rh-count-row,
-.rh.loading .rh-sub { display: none; }
-.rh-skel { display: none; }
-.rh.loading .rh-skel { display: flex; flex-direction: column; gap: 8px; }
-.rh-skel .skel-count { width: 190px; height: 22px; }
-.rh-skel .skel-sub { width: 240px; height: 13px; border-radius: 6px; }
+/* Header: shimmer the REAL count/label/subtitle in place (no display:none),
+   so the row keeps its reserved height (.rh-count-row min-height, .rh-count
+   min-width) and nothing reflows when the real text lands. */
+.rh.loading .rh-count,
+.rh.loading .rh-count-label,
+.rh.loading .rh-sub {
+  color: transparent;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--line2) 25%, var(--line) 50%, var(--line2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+.rh.loading .rh-count { min-width: 2.4ch; }
+.rh.loading .rh-count-label { min-width: 150px; }
+.rh.loading .rh-sub { max-width: 230px; }
+@media (prefers-reduced-motion: reduce) {
+  .rh.loading .rh-count,
+  .rh.loading .rh-count-label,
+  .rh.loading .rh-sub { animation: none; }
+}
+
+/* Search-bar placeholder — matches .cards-view-search min-height (40px) so
+   the real search input swapping in doesn't push the cards below it down. */
+.skel-searchbar { height: 40px; border-radius: 9px; }
 
 /* Card skeleton mirrors .card-item's row + stats layout. */
 .skel-card { pointer-events: none; animation: none; }
