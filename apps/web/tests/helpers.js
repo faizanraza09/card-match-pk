@@ -20,10 +20,14 @@ async function gotoApp(page) {
     const s = /** @type {any} */ (window).__app?.state;
     return !!(s && (s.summary || (s.data?.offers?.length > 0)));
   }, { timeout: 15_000 });
-  // `summary` can appear before the first render completes; wait for result
-  // cards so the app is actually interactive before the test proceeds.
+  // `summary` can appear before the first render completes; wait for a real
+  // result card so the app is actually interactive before the test proceeds.
+  // Must exclude `.skel-card` — the first-paint skeleton placeholders are
+  // children of #results-grid from the static HTML, so a plain childElementCount
+  // check would pass instantly against the loading state, before render() swaps
+  // in the real cards.
   await page.waitForFunction(
-    () => (document.querySelector("#results-grid")?.childElementCount || 0) > 0,
+    () => document.querySelectorAll("#results-grid article.card-item:not(.skel-card)").length > 0,
     { timeout: 15_000 },
   );
 }
