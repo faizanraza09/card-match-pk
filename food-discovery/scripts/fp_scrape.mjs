@@ -1,25 +1,34 @@
 // Foodpanda (Pakistan) scraper — JSON API, no browser.
-// Pulls the vendor listing for a location, then each vendor's full menu + prices.
+//
+// The listing API is DELIVERY-LOCATION scoped: it returns vendors that deliver
+// to a given lat/lng. To cover a whole city, sweep a GRID of points and dedupe
+// vendors by code (overlapping delivery radii guarantee coverage).
 //
 // Usage:
-//   node fp_scrape.mjs --lat 24.8138 --lng 67.0300 --limit 10 [--q biryani] [--out path]
-// Endpoints:
-//   listing: disco.deliveryhero.io/listing/api/v1/pandora/vendors
-//   menu:    pk.fd-api.com/api/v5/vendors/{code}?include=menus
+//   single point:  node fp_scrape.mjs --lat 24.8138 --lng 67.0300 --limit 10
+//   whole city:    node fp_scrape.mjs --grid --bbox 24.75,66.95,25.10,67.25 --step 4
+//   discover only: add --list-only   (find unique vendors, skip menu fetches)
+//   search filter: add --q biryani
 import fs from "fs";
 
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
-const args = Object.fromEntries(process.argv.slice(2).reduce((a,v,i,arr)=> v.startsWith("--")?[...a,[v.slice(2),arr[i+1]]]:a,[]));
-const LAT = +(args.lat ?? 24.8138), LNG = +(args.lng ?? 67.0300);
-const LIMIT = +(args.limit ?? 10), Q = args.q || null;
+const raw = process.argv.slice(2);
+const args = {}; const flags = new Set();
+for (let i=0;i<raw.length;i++){ if(raw[i].startsWith("--")){ const k=raw[i].slice(2); if(raw[i+1]&&!raw[i+1].startsWith("--")){ args[k]=raw[++i]; } else flags.add(k); } }
+
+const GRID = flags.has("grid");
+const LIST_ONLY = flags.has("list-only");
+const Q = args.q || null;
+const LIMIT = args.limit ? +args.limit : Infinity;        // cap on MENU fetches
+const PER_POINT = args["per-point"] ? +args["per-point"] : 250;  // cap vendors pulled per grid point
+const STEP = +(args.step ?? 4);                            // km between grid points
 const OUT = args.out || "food-discovery/data/raw/foodpanda.jsonl";
-const PAGE = 48, DELAY = 400;
+const DELAY = 350, PAGE = 48;
 
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
 const perseus = () => `${Date.now()}.${Math.floor(Math.random()*1e18)}.${Math.random().toString(36).slice(2,12)}`;
-const baseHeaders = () => ({ "User-Agent":UA, "Accept":"application/json",
-  "x-fp-api-key":"volo", "x-disco-client-id":"web",
-  "Perseus-Client-Id":perseus(), "Perseus-Session-Id":perseus(), "dps-session-id":perseus() });
+const baseHeaders = () => ({ "User-Agent":UA, "Accept":"application/json", "x-fp-api-key":"volo",
+  "x-disco-client-id":"web", "Perseus-Client-Id":perseus(), "Perseus-Session-Id":perseus(), "dps-session-id":perseus() });
 
 async function getJSON(url, tries=3){
   for(let t=0;t<tries;t++){
@@ -30,19 +39,33 @@ async function getJSON(url, tries=3){
   return {__err:"retries_exhausted"};
 }
 
-async function listVendors(){
-  const out=[]; let offset=0;
-  while(out.length<LIMIT){
+// list vendors that deliver to one point (paginated up to `max`)
+async function listAt(lat,lng,max){
+  const out=[]; let offset=0, avail=Infinity;
+  while(out.length<max && offset<avail){
     const u=new URL("https://disco.deliveryhero.io/listing/api/v1/pandora/vendors");
-    Object.entries({longitude:LNG, latitude:LAT, language_id:1, include:"characteristics",
-      dynamic_pricing:0, configuration:"Variant1", country:"pk", customer_type:"regular",
-      limit:PAGE, offset, vertical:"restaurants", ...(Q?{q:Q}:{})}).forEach(([k,v])=>u.searchParams.set(k,v));
+    Object.entries({longitude:lng, latitude:lat, language_id:1, dynamic_pricing:0, configuration:"Variant1",
+      country:"pk", customer_type:"regular", limit:PAGE, offset, vertical:"restaurants", ...(Q?{q:Q}:{})})
+      .forEach(([k,v])=>u.searchParams.set(k,v));
     const j=await getJSON(u.toString());
-    const items=j?.data?.items; if(!items||!items.length) break;
+    if(j.__err) break;
+    avail = j?.data?.available_count ?? 0;
+    const items = j?.data?.items || [];
+    if(!items.length) break;
     out.push(...items); offset+=PAGE; await sleep(DELAY);
     if(items.length<PAGE) break;
   }
-  return out.slice(0,LIMIT);
+  return out;
+}
+
+// build grid points across a bbox at STEP km spacing
+function gridPoints(minLat,minLng,maxLat,maxLng,stepKm){
+  const pts=[]; const dLat=stepKm/111;
+  for(let lat=minLat; lat<=maxLat+1e-9; lat+=dLat){
+    const dLng=stepKm/(111*Math.cos(lat*Math.PI/180));
+    for(let lng=minLng; lng<=maxLng+1e-9; lng+=dLng) pts.push([+lat.toFixed(5),+lng.toFixed(5)]);
+  }
+  return pts;
 }
 
 function parseMenu(v){
@@ -51,40 +74,57 @@ function parseMenu(v){
     const variations=(p.product_variations||[]).map(x=>({name:x.name||null, price:x.price??null, original:x.original_price??null}));
     const best=variations[0]||{};
     out.push({ category:c.name, name:p.name, description:p.description||null,
-      price:best.price??null, original_price:best.original??null,
-      variations: variations.length>1?variations:undefined });
+      price:best.price??null, original_price:best.original??null, variations: variations.length>1?variations:undefined });
   }
   return out;
 }
-
 async function getMenu(code){
   const u=`https://pk.fd-api.com/api/v5/vendors/${code}?include=menus&language_id=1&opening_type=delivery&basket_currency=PKR`;
   const j=await getJSON(u);
   if(j.__err) return {__err:j.__err};
   const v=j.data;
-  return {
-    foodpanda_id:v.id, code:v.code, name:v.name, chain:v.chain?.name||null,
-    address:v.address||null, area:v.address_line2||null, city:v.city?.name||null,
-    lat:v.latitude??null, lng:v.longitude??null,
+  return { foodpanda_id:v.id, code:v.code, name:v.name, chain:v.chain?.name||null, address:v.address||null,
+    area:v.address_line2||null, city:v.city?.name||null, lat:v.latitude??null, lng:v.longitude??null,
     cuisines:(v.cuisines||[]).map(c=>c.name), rating:v.rating??null, review_number:v.review_number??null,
-    min_order:v.minimum_order_amount??null, menu:parseMenu(v),
-  };
+    min_order:v.minimum_order_amount??null, menu:parseMenu(v) };
 }
 
-console.log(`=== foodpanda scrape === loc=${LAT},${LNG} limit=${LIMIT}${Q?` q="${Q}"`:""}`);
-const vendors = await listVendors();
-console.log(`listing: ${vendors.length} vendors`);
-const fd = fs.openSync(OUT,"w");
-let ok=0, err=0, totalItems=0;
-for(let i=0;i<vendors.length;i++){
-  const lv=vendors[i]; const code=lv.code;
-  const m=await getMenu(code);
-  if(m.__err){ err++; console.log(`  ✗ ${lv.name} (${code}) -> ${m.__err}`); }
-  else { ok++; totalItems+=m.menu.length;
-    fs.writeSync(fd, JSON.stringify({...m, listing_rating:lv.rating, listing_chain:lv.chain?.name})+"\n");
-    console.log(`  ✓ ${m.name} | ${m.cuisines.join(",")} | ${m.rating}★/${m.review_number} | ${m.menu.length} items`);
+// --- discover unique vendors ---
+const unique = new Map(); // code -> listing item
+if(GRID){
+  const [minLat,minLng,maxLat,maxLng] = (args.bbox || "24.75,66.95,25.10,67.25").split(",").map(Number);
+  const pts = gridPoints(minLat,minLng,maxLat,maxLng,STEP);
+  console.log(`=== foodpanda GRID === bbox=[${minLat},${minLng},${maxLat},${maxLng}] step=${STEP}km points=${pts.length}${Q?` q="${Q}"`:""}`);
+  for(let i=0;i<pts.length;i++){
+    const items = await listAt(pts[i][0], pts[i][1], PER_POINT);
+    for(const it of items) if(it.code && !unique.has(it.code)) unique.set(it.code, it);
+    console.log(`  point ${i+1}/${pts.length} (${pts[i]}) +${items.length} seen → ${unique.size} unique`);
   }
+} else {
+  const lat=+(args.lat ?? 24.8138), lng=+(args.lng ?? 67.0300);
+  console.log(`=== foodpanda SINGLE === loc=${lat},${lng}${Q?` q="${Q}"`:""}`);
+  const items = await listAt(lat,lng, isFinite(LIMIT)?LIMIT:PER_POINT);
+  for(const it of items) if(it.code) unique.set(it.code, it);
+  console.log(`  ${unique.size} vendors deliver here`);
+}
+console.log(`\nUNIQUE VENDORS DISCOVERED: ${unique.size}`);
+
+if(LIST_ONLY){
+  fs.writeFileSync(OUT.replace(/\.jsonl$/,"_vendors.jsonl"), [...unique.values()].map(v=>JSON.stringify({code:v.code,name:v.name,chain:v.chain?.name||null,cuisines:(v.cuisines||[]).map(c=>c.name),rating:v.rating,lat:v.latitude,lng:v.longitude})).join("\n"));
+  console.log(`list-only: wrote ${unique.size} vendor stubs (no menus).`);
+  process.exit(0);
+}
+
+// --- fetch menus ---
+const codes=[...unique.keys()].slice(0, isFinite(LIMIT)?LIMIT:undefined);
+console.log(`fetching menus for ${codes.length} vendors...`);
+const fd=fs.openSync(OUT,"w");
+let ok=0,err=0,items=0;
+for(let i=0;i<codes.length;i++){
+  const m=await getMenu(codes[i]);
+  if(m.__err){ err++; } else { ok++; items+=m.menu.length; fs.writeSync(fd, JSON.stringify(m)+"\n"); }
+  if((i+1)%25===0||i===codes.length-1) console.log(`  ${i+1}/${codes.length}  ok=${ok} err=${err} items=${items}`);
   await sleep(DELAY);
 }
 fs.closeSync(fd);
-console.log(`\ndone: ${ok} vendors with menus, ${err} errors, ${totalItems} total menu items -> ${OUT}`);
+console.log(`\ndone: ${ok} vendors with menus, ${err} errors, ${items} menu items → ${OUT}`);
